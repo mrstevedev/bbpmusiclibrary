@@ -1,0 +1,13 @@
+@media(min-width: 575px) {
+    .Confirm__success_payment {
+        padding: 3rem;
+        background: #fbfbfb
+    }
+}
+
+@media(max-width: 575px) {
+    .Confirm__success_payment {
+        padding: 1rem;
+        background: #fbfbfb
+    }
+}

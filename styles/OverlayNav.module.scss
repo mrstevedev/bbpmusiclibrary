@@ -1,0 +1,47 @@
+.Overlay__Nav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 999; 
+  background: rgb(0, 0, 0, 0.98);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  display: none;
+
+  .Overlay__Nav_list {
+    list-style: none;
+    font-weight: 100;
+  }
+}
+
+
+.link {
+  font-weight: 100;
+  color: rgb(255, 255, 255);
+  outline: 0;
+  border-bottom: solid 1px transparent;
+  -webkit-transition: color 0.2s ease-out, border-bottom-color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out, border-bottom-color 0.2s ease-out;
+  -ms-transition: color 0.2s ease-out, border-bottom-color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out, border-bottom-color 0.2s ease-out;
+  transition: color 0.2s ease-out, border-bottom-color 0.2s ease-out;
+
+  &:hover {
+    color: rgb(255, 255, 255);
+    border-bottom: solid 1px rgb(255, 255, 255);
+  }
+}
+
+@media(max-width: 575px) {
+  .Overlay__Nav_list {
+    font-size: 1.7rem;
+    
+    .link {
+      font-weight: bold;
+    }
+  }
+}

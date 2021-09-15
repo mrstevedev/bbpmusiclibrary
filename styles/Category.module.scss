@@ -1,0 +1,33 @@
+.category__results {
+  margin: 2rem 0;
+  font-size: 1rem;
+
+  .category__results_name {
+    color: #bfbfbf;
+    font-weight: bold;
+  }
+}
+
+.category__row {
+  display: flex;
+  margin: 1rem 0 0rem 0;
+  padding: 2rem;
+  border-radius: 3px;
+  transition: .22s ease-in-out;
+
+  .category__results_row_description {
+    width: 100%;
+    padding: 0 0 0 1rem;
+
+    p {
+      font-weight: 300;
+    }
+  }
+
+  &:hover {
+    background: #f7f7f7 !important;
+  }
+  
+  &:nth-child(odd) {
+    background: #fbfbfb; }
+}

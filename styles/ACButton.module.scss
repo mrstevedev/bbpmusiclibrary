@@ -1,0 +1,54 @@
+.addToCartBtn {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  margin: 1.4rem 0;
+  padding: 0.6rem 0;
+  transition: 0.3s;
+
+  &:hover:nth-last-of-type(1) {
+    box-shadow: 0px 0px 0px 2px #1a1a1a;
+  }
+
+  &:hover:nth-last-of-type(1):after {
+    width: 0%;
+  }
+
+  .cartBtnTxt {
+    margin: 0 0.5rem;
+  }
+}
+
+.viewCartBtn {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(34, 34, 34);
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin: 1.4rem 0;
+  padding: 0.6rem 0;
+  transition: 0.3s;
+  box-shadow: 0px 0px 0px 2px #1a1a1a;
+
+  &:hover:nth-last-of-type(1) {
+    box-shadow: 0px 0px 0px 2px #1a1a1a;
+  }
+
+  &:hover:nth-last-of-type(1):after {
+    width: 0%;
+  }
+
+  .cartBtnTxt {
+    margin: 0 0.5rem;
+  }
+}

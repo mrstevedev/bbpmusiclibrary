@@ -1,0 +1,37 @@
+{
+  "name": "bonitabasicsproductions",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "server": "node server.js",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@google-pay/button-react": "^2.6.0",
+    "bootstrap": "^5.0.0-beta3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hamburger-react": "^2.4.1",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-paypal-button-v2": "^2.6.3",
+    "react-select": "^4.3.1",
+    "react-select-country-list": "^2.2.3",
+    "react-us-states": "^1.0.2",
+    "sass": "^1.35.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.13",
+    "@types/react-select": "^4.0.17",
+    "@types/react-select-country-list": "^2.2.0",
+    "eslint": "7.29.0",
+    "eslint-config-next": "11.0.1",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "typescript": "^4.3.5"
+  }
+}
