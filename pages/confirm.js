@@ -3,11 +3,12 @@ import Head from "next/head";
 import Script from "next/script";
 import Footer from "../components/Footer";
 import styles from "../styles/Confirm.module.scss";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 function Confirm() {
-  const email_address = Router.router.query.email;
+  const router = useRouter()
+  const email = router.query.email
 
   useEffect(() => {
     localStorage.removeItem('product')
@@ -48,7 +49,7 @@ function Confirm() {
               fontWeight: 100,
             }}
           >
-            A confirmation was sent to <strong>{ email_address }</strong> with the details of your
+            A confirmation was sent to <strong>{ email }</strong> with the details of your
             payment in addition to a <strong>download link</strong> to your
             sample pack.
           </p>
