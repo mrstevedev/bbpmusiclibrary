@@ -7,7 +7,8 @@
     "server": "nodemon server.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:server": "concurrently \"npm run server\" \"npm run dev\""
   },
   "dependencies": {
     "@google-pay/button-react": "^2.6.0",
