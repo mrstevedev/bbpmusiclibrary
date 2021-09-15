@@ -69,9 +69,8 @@ export default function Category(data) {
 }
 
 export async function getStaticProps(context) {
-  const url = clientConfig.graphqlUrl;
 
-  const res = await fetch(url, {
+  const res = await fetch(process.env.SITE_URL, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({
@@ -113,8 +112,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const url = clientConfig.graphqlUrl;
-  const res = await fetch(url, {
+  const res = await fetch(process.env.SITE_URL, {
     method: "POST",
     headers: { "Content-type": "application/json" },
     body: JSON.stringify({
