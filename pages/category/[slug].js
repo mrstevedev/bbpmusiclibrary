@@ -49,8 +49,8 @@ export default function Category(data) {
                     <Image
                       src={prod.image.mediaItemUrl}
                       alt="Category Image"
-                      width="150"
-                      height="150"
+                      width="350"
+                      height="350"
                     />
                   </a>
                 </Link>
