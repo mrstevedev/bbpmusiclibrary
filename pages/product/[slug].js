@@ -130,8 +130,7 @@ export default function Product(props) {
       )}
 
       <main className="container">
-        <div className={styles.productTop}>
-          <div>
+          <div className={ styles.product }>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
@@ -147,6 +146,8 @@ export default function Product(props) {
                 </li>
               </ol>
             </nav>
+            <div className={styles.productTop}>
+
             <a href="#" onClick={handleShowImageGallery}>
               <div className={`product-img ${styles.product__Img}`}>
                 <Image
@@ -158,7 +159,7 @@ export default function Product(props) {
                 />
               </div>
             </a>
-          </div>
+
 
           <div className={styles.productDescription}>
             <h3 styles={styles.productDescriptionTxt}>{name}</h3>
@@ -246,6 +247,7 @@ export default function Product(props) {
               </p>
             </div>
           </div>
+        </div>
         </div>
       </main>
       <Footer />
