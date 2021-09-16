@@ -24,21 +24,22 @@ export default function Category(data) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container">
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li className="breadcrumb-item"><a href="#">Category</a></li>
-            <li className="breadcrumb-item active" aria-current="page">{name}</li>
-          </ol>
-        </nav>
-        <h4 className={ styles.category__results }>
-          There are { productLength } matching{" "}
-          <span className={ styles.category__results_name }>{name}</span>
-        </h4>
+        <div className={ styles.category }>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+              </li>
+              <li className="breadcrumb-item"><a href="#">Category</a></li>
+              <li className="breadcrumb-item active" aria-current="page">{name}</li>
+            </ol>
+          </nav>
+          <h4 className={ styles.category__results }>
+            There are { productLength } matching{" "}
+            <span className={ styles.category__results_name }>{name}</span>
+          </h4>
           {products.map((prod) => (
             <div className={styles.category__row} key={prod.name}>
               <div className="product-img">
@@ -62,6 +63,7 @@ export default function Category(data) {
               </div>
             </div>
           ))}
+        </div>
       </main>
       <Footer />
     </>
