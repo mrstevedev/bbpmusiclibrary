@@ -31,3 +31,14 @@
   &:nth-child(odd) {
     background: #fbfbfb; }
 }
+
+@media(max-width: 575px) {
+  .category__row {
+    display: block;
+    padding: 1rem;
+
+    .category__results_row_description {
+      padding: 0;
+    }
+  }
+}
