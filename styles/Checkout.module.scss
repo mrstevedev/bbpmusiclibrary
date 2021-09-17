@@ -198,6 +198,13 @@
   border-radius: 4px;
   position: relative;
 
+  span:nth-child(2) {
+    margin: 0 0.3rem 0 0 !important;
+  }
+  span:nth-child(3) {
+    margin: 0 0 0 0.3rem !important;
+  }
+
   .Checkout__express_header {
     font-size: 0.8rem;
     text-align: center;
@@ -280,6 +287,7 @@
 @media (min-width: 768px) {
   .Checkout__express {
     display: flex;
+    justify-content: center;
 
     > div {
       width: 100%;
