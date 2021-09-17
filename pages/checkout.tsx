@@ -351,7 +351,7 @@ const handleToggleSummary = (e: any) => {
                                 type: 'CARD',
                                 parameters: {
                                   allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                  allowedCardNetworks: ['MASTERCARD', 'VISA'],
+                                  allowedCardNetworks: ['AMEX', 'DISCOVER', 'MASTERCARD', 'VISA'],
                                 },
                                 tokenizationSpecification: {
                                   type: 'PAYMENT_GATEWAY',
@@ -377,6 +377,10 @@ const handleToggleSummary = (e: any) => {
                           onLoadPaymentData={paymentRequest => {
                             console.log('load payment data', paymentRequest);
                             setPaid(true)
+                          }}
+                          onPaymentAuthorized={paymentData => {
+                            console.log('Payment Authorized Success', paymentData)
+                            return { transactionState: "SUCCESS" }
                           }}
                         />
                     </div>
