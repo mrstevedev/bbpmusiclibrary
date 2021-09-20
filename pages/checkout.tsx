@@ -1,6 +1,6 @@
 import styles from '../styles/Checkout.module.scss'
 import Image from 'next/image'
-import React, { useState, useMemo, useContext, Fragment } from 'react'
+import React, { useState, useMemo, useContext, Fragment, useEffect } from 'react'
 import { AppContext } from '../components/context/AppContext'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
@@ -11,6 +11,7 @@ import GooglePayButton from "@google-pay/button-react"
 import Head from 'next/head'
 import Link from 'next/link'
 import Router from 'next/router'
+import SkeletonButton from '../components/SkeletonButton'
 
 // Use next/script to add dynamic class to body
 import Script from 'next/script'
@@ -54,6 +55,7 @@ export default function Checkout() {
   const productFile =
    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].download[0].file : ""
   
+  const [loading, setLoading] = useState(false)
   const [paid, setPaid] = useState(false)
   const [hasErrors, setHasErrors] = useState(false)
   const [countryValue, setCountryValue] = useState({})
@@ -149,6 +151,14 @@ export default function Checkout() {
 const handleRemoveItem = (id : string) => {
   console.log('Remove item from cart', id)
 }
+
+useEffect(() => {
+  setLoading(true)
+  const timer = setTimeout(() => {
+    setLoading(false)
+  }, 1500)
+  return () => clearTimeout(timer)
+}, [])
 
 const handleToggleSummary = (e: any) => {
   const dropdown = document.querySelector('.dropdown');
@@ -282,7 +292,17 @@ const handleToggleSummary = (e: any) => {
                         background: '#fff',
                         padding: '0 0.5rem'
                      }}>Express Checkout</span></h5>
-                      <PayPalButton
+                     
+                     { loading && (
+                        <Fragment>
+                         <SkeletonButton />
+                          <SkeletonButton />
+                        </Fragment>
+                     ) }
+                     
+                      { !loading && (
+                        <Fragment>
+                          <PayPalButton
                         style={{ 
                           height: 55
                         }}
@@ -383,6 +403,8 @@ const handleToggleSummary = (e: any) => {
                             return { transactionState: "SUCCESS" }
                           }}
                         />
+                        </Fragment>
+                      ) }
                     </div>
 
                     <div className="alternative-payment-separator" data-alternative-payment-separator="">
