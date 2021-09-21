@@ -51,6 +51,10 @@ a {
   .container {
     width: 1024px !important;
   }
+
+  .skeleton-loading-container {
+    margin: "0 0 0 0.6rem"
+  }
 }
 
 .breadcrumb {
@@ -285,6 +289,10 @@ a {
 
   .alternative-payment-separator {
     margin: 0 1rem;
+  }
+
+  .react-loading-skeleton {
+    width: 100% !important;
   }
 }
 
