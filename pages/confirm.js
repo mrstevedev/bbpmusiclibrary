@@ -18,7 +18,9 @@ function Confirm() {
     <>
       <Script
         dangerouslySetInnerHTML={{
-          __html: `document.body.classList.remove('Checkout__page')`,
+          __html: `
+          document.body.classList.remove('Checkout__page'); 
+          document.body.classList.add('Confirm__page')`,
         }}
       />
       <Head>
