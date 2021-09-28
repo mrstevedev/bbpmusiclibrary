@@ -330,6 +330,9 @@ const handleToggleSummary = (e: any) => {
                             const obj = JSON.stringify(details)
                             const email_address = details.payer.email_address;
                             const id = details.id;
+                            const first_name = details.payer.name.given_name;
+                            const last_name = details.payer.name.surname;
+                            const timestamp = details.create_time;
                             console.log(JSON.parse(obj))
 
                             return fetch("http://localhost:5000/create-order", {
@@ -338,8 +341,12 @@ const handleToggleSummary = (e: any) => {
                                 "Content-Type": "application/json"
                               },
                               body: JSON.stringify({
-                                orderId: data.orderId,
-                                file: productFile
+                                payment_details: obj,
+                                first_name: first_name,
+                                last_name: last_name,
+                                timestamp: timestamp,
+                                file: productFile,
+                                payment_method: 'Paypal'
                               })
                             }).then(res => {
                               console.log(res)
