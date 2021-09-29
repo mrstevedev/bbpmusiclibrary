@@ -5,7 +5,9 @@ export default function NotificationsBar(props) {
     return (
         <>
             <div className={ styles.NotificationsBar }>
-               <p></p>
+               <p className={ styles.NotificationsBar__text }>
+                    Fall 2021 30% off sale. Coupon code added to order at checkout
+               </p>
             </div>
         </>
     )
