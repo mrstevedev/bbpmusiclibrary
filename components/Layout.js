@@ -5,6 +5,7 @@ import { AppProvider } from "./context/AppContext";
 import { useEffect, useState } from "react";
 import OverlayNav from "./OverlayNav";
 import CookieNotification from './CookieNotification';
+import NotificationsBar from './NotificationsBar';
 
 const Layout = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
@@ -67,6 +68,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>test</title>
       </Head>
+      <NotificationsBar />
       <Header
         showMenu={showMenu}
         handleToggleMenu={handleToggleMenu}
