@@ -17,3 +17,11 @@
     text-transform: uppercase;
   }
 }
+
+@media(max-width: 575px) {
+    .NotificationsBar {
+        .NotificationsBar__text {
+            font-size: 0.5rem;
+        }
+    }
+}
