@@ -27,8 +27,8 @@ export default function About({ page }) {
         <ImageHero mediaItemUrl={page.featuredImage.node.mediaItemUrl} />
         <div className="container">
           <div
-            className={styles.about__btm}>
-            <h4 style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+            className={styles.about}>
+            <h4 className={ styles.about__text }>
               {page.title}
             </h4>
             <AboutParagraph page={page} />
