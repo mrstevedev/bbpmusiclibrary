@@ -265,12 +265,12 @@ export async function getStaticProps(context) {
             query SingleProduct($id: ID!, $idType: ProductIdTypeEnum!) {
               product(id: $id, idType: $idType) {
                 ... on SimpleProduct {
-                  id
                   name
                   downloadable
                   downloads {
                     file
                   },
+                  databaseId
                   price
                   slug
                   productCategories {
