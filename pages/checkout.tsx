@@ -594,7 +594,7 @@ const handleToggleSummary = (e: any) => {
                         <h4>Total</h4>
                       </div>
                       <div>
-                        <span className="Checkout_currency__ticker">USD</span> 89.97
+                        <span className="Checkout_currency__ticker">USD</span> { price }
                       </div>
                     </div>
 
