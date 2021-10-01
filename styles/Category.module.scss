@@ -38,12 +38,14 @@
 }
 
 @media (max-width: 575px) {
-  .category__row {
-    display: block;
-    padding: 1rem;
+  .category {
+    .category__row {
+      display: block;
+      padding: 1rem;
 
-    .category__results_row_description {
-      padding: 0;
+      .category__results_row_description {
+        padding: 0;
+      }
     }
   }
 }
