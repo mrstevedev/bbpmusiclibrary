@@ -87,14 +87,17 @@
 }
 
 @media (max-width: 545px) {
-  .productDescription {
-    padding: 2rem 0 0 0 !important;
-  }
-  .productTop {
-    display: initial !important;
-  }
-  .product__Img {
-    width: 100% !important;
+  .product {
+    margin: 7rem 0;
+    .productDescription {
+      padding: 2rem 0 0 0 !important;
+    }
+    .productTop {
+      display: initial !important;
+    }
+    .product__Img {
+      width: 100% !important;
+    }
   }
 }
 
