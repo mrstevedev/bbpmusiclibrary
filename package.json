@@ -18,6 +18,7 @@
     "express": "^4.17.1",
     "hamburger-react": "^2.4.1",
     "next": "11.0.1",
+    "nodemailer": "^6.6.5",
     "oauth-signature": "^1.5.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
