@@ -1,4 +1,4 @@
-.about__btm {
+.about {
   padding: 5rem 7rem 8rem;
   position: absolute;
   top: 27rem;
@@ -9,10 +9,15 @@
   margin: 0 auto;
   border-radius: 2px;
   font-weight: 100;
+
+  .about__text {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 575px) {
-    .about__btm {
+    .about {
         padding: 2rem 2rem 5rem!important;
         margin: 0 auto;
         width: 93% !important;
