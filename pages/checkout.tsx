@@ -12,6 +12,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Router from 'next/router'
 import SkeletonButton from '../components/SkeletonButton'
+import { formatPhoneNumber } from "../util";
+
 
 // Use next/script to add dynamic class to body
 import Script from 'next/script'
@@ -42,6 +44,8 @@ export default function Checkout() {
   const products =
   ( cart && Object.keys( cart ).length ) ? cart.products : ""
 
+  console.log(products)
+
   const price = 
     ( null != cart && Object.keys( cart ).length ) ? cart.products[0].price : ""
 
@@ -54,6 +58,9 @@ export default function Checkout() {
 
   const productFile =
    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].download[0].file : ""
+
+   const productId =
+    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].databaseId : ""
   
   const [loading, setLoading] = useState(false)
   const [paid, setPaid] = useState(false)
@@ -329,9 +336,17 @@ const handleToggleSummary = (e: any) => {
                           onSuccess={(details: any, data: any) => {
                             const obj = JSON.stringify(details)
                             const email_address = details.payer.email_address;
+                            const address_line_1 = details.payer.address.address_line_1;
+                            const admin_area_1 = details.payer.address.admin_area_1;
+                            const admin_area_2 = details.payer.address.admin_area_2;
+                            const postal_code = details.payer.address.postal_code;
+                            const country_code = details.payer.address.country_code;
+                            const phone = formatPhoneNumber( details.payer.phone.phone_number.national_number);
                             const id = details.id;
                             const first_name = details.payer.name.given_name;
                             const last_name = details.payer.name.surname;
+                            const description = details.purchase_units[0].description;
+                            const price = details.purchase_units[0].amount.value;
                             console.log(JSON.parse(obj))
 
                             return fetch("http://localhost:5000/create-order", {
@@ -341,9 +356,21 @@ const handleToggleSummary = (e: any) => {
                               },
                               body: JSON.stringify({
                                 payment_details: obj,
+                                id: id,
+                                email_address: email_address,
+                                admin_area_1: admin_area_1,
+                                admin_area_2: admin_area_2,
+                                postal_code: postal_code,
+                                country_code: country_code,
+                                address_line_1: address_line_1,
+                                phone: phone,
                                 first_name: first_name,
                                 last_name: last_name,
+                                description: description,
+                                price: price,
+                                productId: productId,
                                 file: productFile,
+                                
                                 payment_method: 'Paypal'
                               })
                             }).then(res => {
