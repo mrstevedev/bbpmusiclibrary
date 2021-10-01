@@ -4,14 +4,17 @@ import Script from "next/script";
 import Footer from "../components/Footer";
 import styles from "../styles/Confirm.module.scss";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { AppContext } from "../components/context/AppContext";
 
 function Confirm() {
   const router = useRouter()
   const email = router.query.email
+  const [cart, setCart] = useContext(AppContext);
 
   useEffect(() => {
     localStorage.removeItem('product')
+    setCart(null)
   }, [])
 
   return (
