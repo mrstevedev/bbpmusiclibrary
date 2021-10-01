@@ -4,6 +4,7 @@ const cors = require('cors')
 const axios = require('axios')
 const oauthSignature = require('oauth-signature')
 app.use(express.json())
+require('dotenv').config({ path: './.env' })
 
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -77,15 +78,15 @@ app.post('/create-order', async (req, res) => {
     const httpMethod = 'POST',
     url = 'http://localhost:10028/wp-json/wc/v3/orders',
     requestParams = { 
-        oauth_consumer_key : 'twt881FSjosK',
-        oauth_token : 'l1mcMevgoJ6IaQbKPD0MDHDm',
+        oauth_consumer_key : process.env.CONSUMER_KEY,
+        oauth_token : process.env.TOKEN,
         oauth_nonce : generateNonce(),
         oauth_timestamp : UnixTimestamp,
         oauth_signature_method : 'HMAC-SHA1'
     }
 
-    const consumerSecret = 'Hp89miPnVujATTgpZ7b8WflPuO3ss398NLfPRRGa37OFJBQF';
-    const tokenSecret = 'ihqFLs3hzAp4LTjPP3T7GbVpxpvxrUrxb81KdXN7d4ceLPRO';
+    const consumerSecret = process.env.CONSUMER_SECRET;
+    const tokenSecret = process.env.TOKEN_SECRET;
 
     const signature = oauthSignature.generate( httpMethod, url, requestParams, consumerSecret, tokenSecret, { 
         encodeSignature: true } )
