@@ -1,6 +1,9 @@
 import styles from '../styles/Cart.module.scss'
 import Footer from '../components/Footer'
 
+// Use next/script to add dynamic class to body
+import Script from 'next/script'
+
 const Cart = () => {
     return (
         <>
