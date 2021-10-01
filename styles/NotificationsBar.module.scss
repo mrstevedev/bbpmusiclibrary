@@ -20,6 +20,8 @@
 
 @media(max-width: 575px) {
     .NotificationsBar {
+        position: fixed;
+        top: 0;
         .NotificationsBar__text {
             font-size: 0.5rem;
         }
