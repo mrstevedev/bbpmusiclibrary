@@ -55,7 +55,7 @@ export function addFirstProduct(product) {
  */
 export function createNewProduct(product, productPrice, qty) {
   return {
-    productId: product.id,
+    databaseId: product.databaseId,
     image: product.image.mediaItemUrl,
     download: product.downloads,
     name: product.name,
