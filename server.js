@@ -88,7 +88,7 @@ app.post('/create-order', async (req, res) => {
     const consumerSecret = process.env.CONSUMER_SECRET;
     const tokenSecret = process.env.TOKEN_SECRET;
 
-    const signature = oauthSignature.generate( httpMethod, url, requestParams, consumerSecret, tokenSecret, { 
+    const encodedSignature = oauthSignature.generate( httpMethod, url, requestParams, consumerSecret, tokenSecret, { 
         encodeSignature: true } )
 
     const authorizationHeader = 
@@ -97,7 +97,7 @@ app.post('/create-order', async (req, res) => {
           + '",oauth_signature_method="' + requestParams.oauth_signature_method
           + '",oauth_timestamp="' + requestParams.oauth_timestamp
           + '",oauth_token="' + requestParams.oauth_token
-          + '",oauth_signature="' + signature + '"'
+          + '",oauth_signature="' + encodedSignature + '"'
 
     axios.post(url, json, {
         headers: {
