@@ -57,7 +57,7 @@ export default function SidebarCart(props) {
                                 {/* Product */}
 
                                 { products.map((product) => (
-                                    <Fragment key={product.productId} >
+                                    <Fragment key={product.databaseId} >
                                     <div className={styles.Checkout__product}>
                                         <div className={styles.Checkout_topImg}>
                                             <Link href={`/product/${ product.slug }`}>
