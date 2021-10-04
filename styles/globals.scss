@@ -482,44 +482,6 @@ dd {
     }
 }
 
-.related__custom:hover {
-  .carousel__control {
-    opacity: 1;
-  }
-}
-
-.carousel__control {
-  background-color: #fff;
-  align-items: center;
-  border: transparent;
-  border-radius: 16px;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 24%), 0 0 2px 0 rgb(0 0 0 / 12%);
-  display: flex;
-  font-size: 18px;
-  height: 32px;
-  justify-content: center;
-  opacity: 0;
-  padding: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: opacity .45s ease-in-out;
-  width: 32px;
-  z-index: 1;
-
-  &:hover {
-    background-color: #ccc;
-  }
-
-  &.carousel__control--prev {
-    left: -0.5rem;
-  }
-
-  &.carousel__control--next {
-    right: -0.5rem;
-  }
-}
-
 .mobile__menu-open {
   .Notifications__Mobile { position: initial; }
   .Header_header__2-XWX {
