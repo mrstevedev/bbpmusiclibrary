@@ -99,14 +99,6 @@
       width: 100% !important;
     }
   }
-  .product__related {
-    overflow: scroll;
-    scroll-behavior: smooth;
-
-    .product__relatedGallery {
-      width: 865px;
-    }
-  }
 }
 
 .category__link {
@@ -118,29 +110,3 @@
   }
 }
 
-.product__related {
-  margin: 0 0 5rem 0;
-  transition: .32s ease-in-out;
-  position: relative;
-  // padding: 2rem;
-  // border: solid 1px;
-  .product__relatedGallery {
-    display: flex;
-
-    .product__Img {
-      display: flex;
-      border-radius: 6px;
-      box-shadow: 0 2px 4px rgb(219, 219, 219);
-    }
-  }
-  .product__relatedItem {
-    margin: 0 0.3rem;
-
-    img {
-      border-radius: 6px;
-      transition: 0.22s ease-in-out;
-
-      &:hover { opacity: 0.8 }
-    }
-  }
-}
