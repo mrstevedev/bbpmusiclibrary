@@ -10,6 +10,7 @@ import { AppContext } from "../../components/context/AppContext";
 import { addFirstProduct, updateCart } from "../../util/index";
 import Script from "next/script";
 import Footer from '../../components/Footer'
+import Soundcloud from '../../components/soundcloud/Soundcloud';
 import RelatedProducts from '../../components/related/RelatedProducts';
 
 export default function Product(props) {
@@ -237,10 +238,8 @@ export default function Product(props) {
               role="tabpanel"
               aria-labelledby="nav-home-tab"
             >
-            <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1109330596&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-            <div>
-              <a href="https://soundcloud.com/marioluciano425" title="Polyphonic Music Library" target="_blank" style={{ color: "#333", fontWeight: "bold" }}>Polyphonic Music Library</a> · 
-              <a href="https://soundcloud.com/marioluciano425/1-soul-expressions-kit-preview" title="1.Soul Expressions (Kit Preview)" target="_blank" style={{ color: "#333", fontWeight: "bold" }}>1.Soul Expressions (Kit Preview)</a></div>
+           {/* Soundcloud */}
+            <Soundcloud />
             </div>
             <div
               className="tab-pane fade"
