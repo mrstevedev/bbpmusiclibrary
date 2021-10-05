@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import OverlayNav from "./OverlayNav";
 import CookieNotification from './CookieNotification';
 import NotificationsBar from './NotificationsBar';
+import Script from 'next/script'
 
 const Layout = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
@@ -64,6 +65,18 @@ const Layout = ({ children }) => {
   }
 
   return (
+    <>
+     { showMenu ? (
+       <Script
+       dangerouslySetInnerHTML={{
+         __html: `document.body.classList.add('mobile__menu-open')`
+     }} />
+     ) : (
+      <Script
+      dangerouslySetInnerHTML={{
+        __html: `document.body.classList.remove('mobile__menu-open')`
+    }} />
+     ) }
     <AppProvider>
       <Head>
         <title>test</title>
@@ -84,6 +97,7 @@ const Layout = ({ children }) => {
       <SidebarCart showCart={showCart} handleCloseCart={handleCloseCart} />
       <OverlayNav showMenu={showMenu} handleToggleMenu={handleToggleMenu} />
     </AppProvider>
+    </>
   );
 };
 
