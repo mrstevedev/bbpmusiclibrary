@@ -10,6 +10,7 @@ import { AppContext } from "../../components/context/AppContext";
 import { addFirstProduct, updateCart } from "../../util/index";
 import Script from "next/script";
 import Footer from '../../components/Footer'
+import RelatedProducts from '../../components/related/RelatedProducts';
 
 export default function Product(props) {
   const [addToCart, setAddToCart] = useState(false);
@@ -92,7 +93,7 @@ export default function Product(props) {
 
   const handleSlidePrev = () => {
     console.log('Go to previous')
-    const productRelated = document.querySelector('.Product_product__related__2f5mX')
+    const productRelated = document.querySelector('.Related_product__related__puyxI')
     productRelated.scrollLeft -= 350;
     
 
@@ -100,7 +101,7 @@ export default function Product(props) {
 
   const handleSlideNext = () => {
     console.log('Go to next slide')
-    const productRelated = document.querySelector('.Product_product__related__2f5mX')
+    const productRelated = document.querySelector('.Related_product__related__puyxI')
     productRelated.scrollLeft += 350;
   }
 
@@ -265,7 +266,14 @@ export default function Product(props) {
             </div>
           </div>
            
-           <div className={ styles.related } style={{
+             {/* Related Products Slideshow */}
+             <RelatedProducts 
+              product={props.product}
+              handleSlidePrev={handleSlidePrev}
+              handleSlideNext={handleSlideNext}
+            />
+
+           {/* <div className={ styles.related } style={{
                  position: 'relative'
            }}>
               <button onClick={handleSlidePrev} className={ `${ styles["carousel__control"] } ${ styles["carousel__control--prev"] }` }type="button" aria-describedby="carousel-status-s0-0-32-3-0-0[6]-4-match-media-0-ebay-carousel" aria-label="Go to previous slide - Samsung Cell Phones &amp; Smartphones" aria-disabled="true">
@@ -296,7 +304,7 @@ export default function Product(props) {
               </div>
 
             </div>
-            </div>
+            </div> */}
 
         </div>
         </div>
