@@ -25,4 +25,13 @@
     color: #729cda;
     font-weight: bold;
   }
+
+  svg {
+    path {
+      transition: .12s ease-in-out;
+      &:hover {
+        fill: #729cda;
+      }
+    }
+  }
 }
