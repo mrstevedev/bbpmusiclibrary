@@ -97,7 +97,7 @@ app.post('/create-order', async (req, res) => {
     const country_code = req.body.country_code
     const phone = req.body.phone
     const product_id = req.body.productId
-    const UnixTimestamp = Math.round(new Date().getTime() / 1000).toString()
+    const UnixTimestamp = generateTimestamp()
     
     // Create an order with Woocommerce API orders endpoint
 
