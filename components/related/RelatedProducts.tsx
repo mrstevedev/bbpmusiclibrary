@@ -39,7 +39,7 @@ interface IProduct {
 }
 
 export default function RelatedProducts( props: IProduct ) {
-    console.log('props in related component::::::',props)
+
     return (
         <>
          <div className={ styles.related } style={{
