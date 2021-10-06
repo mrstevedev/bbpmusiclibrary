@@ -38,8 +38,7 @@ app.post('/create-user', async (req, res) => {
         last_name,
         username,
         password,
-        email,
-        UnixTimestamp
+        email
     })
 
     const httpMethod = 'POST',
