@@ -20,6 +20,65 @@ function generateNonce() {
     return text
 }
 
+function generateTimestamp() {
+    return Math.round(new Date().getTime() / 1000).toString()
+}
+
+app.post('/create-user', async (req, res) => {
+    console.log(req.body)
+    const first_name = req.body.firstName
+    const last_name = req.body.lastName
+    const username = req.body.username
+    const password = req.body.password
+    const email = req.body.email
+    const UnixTimestamp = generateTimestamp()
+
+    const json = JSON.stringify({
+        first_name,
+        last_name,
+        username,
+        password,
+        email,
+        UnixTimestamp
+    })
+
+    const httpMethod = 'POST',
+    url = 'http://localhost:10028/wp-json/wp/v2/users',
+    requestParams = { 
+        oauth_consumer_key : process.env.CONSUMER_KEY,
+        oauth_token : process.env.TOKEN,
+        oauth_nonce : generateNonce(),
+        oauth_timestamp : UnixTimestamp,
+        oauth_signature_method : 'HMAC-SHA1'
+    }
+
+    const consumerSecret = process.env.CONSUMER_SECRET;
+    const tokenSecret = process.env.TOKEN_SECRET;
+
+    const encodedSignature = oauthSignature.generate( httpMethod, url, requestParams, consumerSecret, tokenSecret, { 
+        encodeSignature: true } )
+
+    const authorizationHeader = 
+    'OAuth oauth_consumer_key="' + requestParams.oauth_consumer_key
+    + '",oauth_nonce="' + requestParams.oauth_nonce
+    + '",oauth_signature_method="' + requestParams.oauth_signature_method
+    + '",oauth_timestamp="' + requestParams.oauth_timestamp
+    + '",oauth_token="' + requestParams.oauth_token
+    + '",oauth_signature="' + encodedSignature + '"'
+
+    axios.post(url, json, {
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authorizationHeader
+        }
+    })
+    .then(res => {
+        console.log(res)
+    })
+    .catch(err => console.log(err))
+
+})
+
 app.post('/create-order', async (req, res) => {
     // const file = req.body.file
     // const payment_method = req.body.payment_method
