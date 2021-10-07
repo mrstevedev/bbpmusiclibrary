@@ -39,7 +39,7 @@ export default function Footer() {
             </Link>
           </div>
           <div className="col d-flex justify-content-end">
-            <p>&copy; 2021 BBPSampleLibrary | Built by <a className={ styles.built_by } href="https://mrstevedev.io/" target="_blank" rel="noreferrer">sp</a></p>
+            <p>&copy; 2021 BBP Music Library | Built by <a className={ styles.built_by } href="https://mrstevedev.io/" target="_blank" rel="noreferrer">sp</a></p>
           </div>
         </div>
       </footer>
