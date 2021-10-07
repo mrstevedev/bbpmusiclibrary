@@ -28,14 +28,14 @@ export default function Home( { products } : Props ) {
   useEffect(() => {
     let productImg = document.querySelectorAll(".products img"), i = 1;
     Array.prototype.forEach.call(productImg, (productImg) => { 
-    setTimeout(() => { productImg.classList.add("img__visible") }, 400*i)
+    setTimeout(() => { productImg.classList.add("img__visible") }, 200*i)
     i++;
     })
     setSampleProducts(products)
 
     setTimeout(() => {
       setIsLoading(true)
-    }, 2200)    
+    }, 2000)    
   }, [products])
 
   return (
