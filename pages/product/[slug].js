@@ -95,7 +95,7 @@ export default function Product(props) {
   const handleSlidePrev = () => {
     console.log('Go to previous')
     const productRelated = document.querySelector('.Related_product__related__puyxI')
-    productRelated.scrollLeft -= 350;
+    productRelated.scrollLeft -= 405;
     
 
   }
@@ -103,7 +103,7 @@ export default function Product(props) {
   const handleSlideNext = () => {
     console.log('Go to next slide')
     const productRelated = document.querySelector('.Related_product__related__puyxI')
-    productRelated.scrollLeft += 350;
+    productRelated.scrollLeft += 405;
   }
 
   const { product } = props;
