@@ -42,9 +42,7 @@ export default function RelatedProducts( props: IProduct ) {
 
     return (
         <>
-         <div className={ styles.related } style={{
-                 position: 'relative'
-           }}>
+         <div className={ styles.related }>
               <button onClick={props.handleSlidePrev} className={ `${ styles["carousel__control"] } ${ styles["carousel__control--prev"] }` }type="button" aria-describedby="carousel-status-s0-0-32-3-0-0[6]-4-match-media-0-ebay-carousel" aria-label="Go to previous slide - Samsung Cell Phones &amp; Smartphones" aria-disabled="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z" fill="currentColor" /></svg>
               </button>
