@@ -71,8 +71,8 @@ app.post('/create-user', async (req, res) => {
             'Authorization': authorizationHeader
         }
     })
-    .then(res => {
-        console.log(res)
+    .then(response => {
+        res.send().status(200)
     })
     .catch(err => console.log(err))
 
