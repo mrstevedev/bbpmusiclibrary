@@ -62,7 +62,7 @@ export default function Home( { products } : Props ) {
                             <div className={`${ styles.Home__image } product-img`}>
                               <Image 
                                 key={product.node.id} 
-                                src={product.node.image.mediaItemUrl} 
+                                src={product.node.image !== null ? product.node.image.mediaItemUrl : 'http://localhost:10028/wp-content/uploads/2021/10/websiteplanet-dummy-640X640.webp' } 
                                 width="266" 
                                 height="266"
                                 loading="eager"
