@@ -237,7 +237,9 @@ export default function Product(props) {
               aria-labelledby="nav-home-tab"
             >
            {/* Soundcloud */}
-            <Soundcloud />
+            <Soundcloud
+              product={product}
+            />
             </div>
             <div
               className="tab-pane fade"
