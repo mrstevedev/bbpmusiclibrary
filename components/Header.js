@@ -28,6 +28,16 @@ export default function Header(props) {
                 </Link>
               </div>
               <div className="col col-2 col-lg-2 d-flex justify-content-end">
+              <span className={ styles.signIn__container } style={{ fontWeight: 'bold', fontSize: '0.67rem', textTransform: 'uppercase', padding: '0.2rem 0 0 0' }}>
+                {/* <Link href="/register">
+                    <a style={{ margin: '0 0.3rem 0 0.3rem', color: '#333' }}>Register</a>
+                  </Link>
+                  <span style={{ color: '#333' }}>|</span> */}
+                  Not Signed In?
+                  <Link href="/signin">
+                    <a className={ styles.signIn__Link }>Sign-In</a>
+                 </Link>
+                </span>
                 <CartIcon handleShowCart={props.handleShowCart} />
               </div>
           </div>
