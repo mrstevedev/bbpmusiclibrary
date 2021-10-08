@@ -299,6 +299,7 @@ export async function getStaticProps(context) {
                   price
                   slug
                   sku
+                  shortDescription(format: RAW)
                   productCategories {
                     nodes {
                       id
