@@ -329,6 +329,7 @@ export async function getStaticProps(context) {
                   databaseId
                   price
                   slug
+                  sku
                   productCategories {
                     nodes {
                       id
