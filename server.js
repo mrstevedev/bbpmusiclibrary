@@ -25,7 +25,7 @@ function generateTimestamp() {
 }
 
 app.post('/create-user', async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     const first_name = req.body.firstName
     const last_name = req.body.lastName
     const username = req.body.username
@@ -71,10 +71,19 @@ app.post('/create-user', async (req, res) => {
             'Authorization': authorizationHeader
         }
     })
-    .then(response => {
-        res.send().status(200)
+    .then(data => {
+        console.log("data::::::", data)
+        res.send().status(data.response.data.message)
     })
-    .catch(err => console.log(err))
+    .catch(error => {
+        // console.log(error.response.status)
+        // console.log(error.response.data.message)
+        // console.log(error)
+        // res.status(error.response.status)
+        console.log(error.response.status)
+        res.send(error.response.data.message).status(error.response.status)
+
+    })
 
 })
 
