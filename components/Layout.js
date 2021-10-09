@@ -4,6 +4,7 @@ import SidebarCart from "./SidebarCart";
 import { AppProvider } from "./context/AppContext";
 import { useEffect, useState } from "react";
 import OverlayNav from "./OverlayNav";
+import Modal from './Modal';
 import CookieNotification from './CookieNotification';
 import NotificationsBar from './NotificationsBar';
 import Script from 'next/script'
@@ -96,6 +97,7 @@ const Layout = ({ children }) => {
       
       <SidebarCart showCart={showCart} handleCloseCart={handleCloseCart} />
       <OverlayNav showMenu={showMenu} handleToggleMenu={handleToggleMenu} />
+      <Modal />
     </AppProvider>
     </>
   );
