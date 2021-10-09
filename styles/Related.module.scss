@@ -1,9 +1,14 @@
+.related {
+  position: relative;
+}
 .product__related {
     margin: 0 0 5rem 0;
     transition: .32s ease-in-out;
     position: relative;
+    overflow: scroll;
     .product__relatedGallery {
       display: flex;
+      width: 1407px;
   
       .product__Img {
         display: flex;
@@ -73,7 +78,7 @@
       scroll-behavior: smooth;
   
       .product__relatedGallery {
-        width: 865px;
+        width: 1145px;
       }
     }
   }
