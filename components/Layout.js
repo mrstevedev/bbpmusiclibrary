@@ -14,6 +14,7 @@ const Layout = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false)
   const [cookieNotification, setCookieNotification] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     // Get value of localStorage of item key set when cart opened/closed
@@ -25,7 +26,8 @@ const Layout = ({ children }) => {
       if(document.cookie.indexOf('bb_notification_accept') == -1 ) {
         setCookieNotification(true)
       }
-    }, 4000)
+      setShowModal(true)
+    }, 6000)
 
   }, []);
 
@@ -65,6 +67,10 @@ const Layout = ({ children }) => {
     document.cookie="bb_notification_accept=true;";
   }
 
+  const handleCloseModal = () => {
+    setShowModal(false)
+  }
+
   return (
     <>
      { showMenu ? (
@@ -97,7 +103,11 @@ const Layout = ({ children }) => {
       
       <SidebarCart showCart={showCart} handleCloseCart={handleCloseCart} />
       <OverlayNav showMenu={showMenu} handleToggleMenu={handleToggleMenu} />
-      <Modal />
+
+        { showModal === true ? (
+          <Modal showModal={showModal} handleCloseModal={handleCloseModal} />
+        ) : '' }
+
     </AppProvider>
     </>
   );
