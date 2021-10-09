@@ -6,6 +6,7 @@
     transition: .32s ease-in-out;
     position: relative;
     overflow: scroll;
+    scroll-behavior: smooth;
     .product__relatedGallery {
       display: flex;
       width: 1407px;
