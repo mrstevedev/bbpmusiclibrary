@@ -40,3 +40,17 @@
     top: 2.2rem;
   }
 }
+
+@media(max-width: 575px) {
+  .signIn__container {
+    display: none;
+  }
+}
+
+.signIn__container {
+  .signIn__Link {
+    transition: 0.12s ease-in-out;
+    padding: 0 0.3rem 0 0.3rem;
+    color: #5782bf;
+  }
+}
