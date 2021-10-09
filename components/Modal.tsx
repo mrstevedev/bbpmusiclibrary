@@ -16,6 +16,7 @@ export default function Modal(props: Props) {
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 
+        setSubscriber( prevState => ({ ...prevState, [event.target.name]: event.target.value }) )
     }
     
     const handleSubmit = (event: FormEvent) => {
