@@ -17,7 +17,7 @@ export default function Modal(props) {
         <>
         <div className={ styles.modal__overlay } onClick={props.handleCloseModal}>
             <div className={ `${ styles.modal__subscription } fade-in`}>
-                <div className={styles.modal__body}>
+                <div className={styles.modal__body} onClick={(event) => event.stopPropagation()}>
                     <div className={ styles.modal__left }>
                     </div>
                     <div className={ styles.modal__right }>
