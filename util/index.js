@@ -57,7 +57,7 @@ export function createNewProduct(product, productPrice, qty) {
   return {
     databaseId: product.databaseId,
     image: product.image.mediaItemUrl,
-    download: product.downloads,
+    downloads: product.downloads,
     name: product.name,
     price: productPrice,
     slug: product.slug,
