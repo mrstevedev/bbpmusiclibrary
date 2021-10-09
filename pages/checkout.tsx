@@ -57,7 +57,7 @@ export default function Checkout() {
     // console.log(productName)
 
   const productFile =
-   ( null != cart && Object.keys( cart ).length ) ? cart.products[0].download[0].file : ""
+   ( null != cart && Object.keys( cart ).length ) ? cart.products[0].downloads[0].file : ""
 
    const productId =
     ( null != cart && Object.keys( cart ).length ) ? cart.products[0].databaseId : ""
