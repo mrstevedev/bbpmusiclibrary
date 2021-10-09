@@ -2,17 +2,18 @@ import Image from "next/image";
 import closeBtn from '../public/images/closeBtn.svg'
 import styles from '../styles/Modal.module.scss'
 
-const handleChange = (event) => {
-
-}
-
-const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    console.log('submit form to newsletter platform')
-}
-
 export default function Modal(props) {
+
+    const handleChange = (event) => {
+    
+    }
+    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        console.log('submit form to newsletter platform')
+    }
+    
     return (
         <>
         <div className={ styles.modal__overlay } onClick={props.handleCloseModal}>
