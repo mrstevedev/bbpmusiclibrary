@@ -1,0 +1,81 @@
+.modal__subscription {
+  width: 800px;
+  height: 650px;
+  border-radius: 6px;
+  background: #fff;
+  z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .modal__body {
+    display: flex;
+    height: 100%;
+  }
+
+  .modal__left {
+    width: 50%;
+    background: url(../public/images/img1200.webp) center center;
+    background-size: cover;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .modal__right {
+    width: 50%;
+    height: 100%;
+    padding: 1rem;
+
+    .modal__header {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .form__container {
+      max-width: 350px;
+      padding: 10rem 2rem;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .modal__subscription {
+    height: 91%;
+    top: 29rem;
+    left: 50%;
+  }
+  .modal__body {
+    height: 100%;
+  }
+  .modal__left {
+    width: 100% !important;
+  }
+  .modal__right {
+    width: 100% !important;
+    height: 100%;
+    padding: 1rem;
+    position: absolute;
+    bottom: -18rem;
+    background: #fff;
+  }
+
+  .modal__header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 13rem;
+    position: absolute;
+    top: -17rem;
+    right: 0rem;
+    width: 100%;
+
+    position: absolute;
+    top: -17rem;
+    right: 0rem;
+  }
+
+  .form__container {
+    max-width: 100% !important;
+    padding: 1rem 14rem !important;
+  }
+}
