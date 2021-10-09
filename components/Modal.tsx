@@ -1,7 +1,7 @@
 import Image from "next/image";
 import closeBtn from '../public/images/closeBtn.svg'
 import styles from '../styles/Modal.module.scss'
-import { ChangeEvent, FormEvent } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 interface Props {
     handleCloseModal: () => void
@@ -9,8 +9,13 @@ interface Props {
 
 export default function Modal(props: Props) {
 
+    const [subscriber, setSubscriber] = useState({
+        name: '',
+        email: ''
+    })
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    
+
     }
     
     const handleSubmit = (event: FormEvent) => {
