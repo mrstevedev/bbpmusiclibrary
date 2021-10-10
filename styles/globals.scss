@@ -488,3 +488,45 @@ dd {
     position: initial;
   }
 }
+
+.content__main {
+  padding: 3rem 1rem;
+}
+
+@media(max-width: 575px) {
+  .content__main {
+    padding: 7rem 1rem;
+  }
+  .btn-block {
+    width: 100%;
+  }
+  .btn {
+    padding: 0.5rem !important;
+  }
+}
+
+.active {
+  bottom: 0 !important;
+}
+
+.disabled {
+  background: #ccc !important;
+}
+
+.fade-in {
+	animation: fadeIn 0.12s;
+  	opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+  	opacity: 0;
+  }
+  to {
+ 	opacity: 1;
+  }
+}
+
+.modal__open {
+  overflow: hidden;
+}
