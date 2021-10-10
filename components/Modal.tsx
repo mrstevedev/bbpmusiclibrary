@@ -42,7 +42,7 @@ export default function Modal(props: Props) {
                             <h1 style={{ fontSize: '1.4rem', fontWeight: 'bold', textTransform: 'uppercase' }}>Subscribe<br /> To My Newsletter</h1>
                                 <form onSubmit={ handleSubmit }>
                                 <div className="mb-2 input-group">
-                                    <input required onChange={handleChange} type="text" name="name" className={`form-control`} id="name" aria-describedby="name" placeholder="Name" />
+                                    <input autoFocus required onChange={handleChange} type="text" name="name" className={`form-control`} id="name" aria-describedby="name" placeholder="Name" />
                                 </div>
                                 <div className="mb-2 input-group">
                                     <input required onChange={handleChange} type="email" name="email" className={`form-control`} id="email" aria-describedby="email" placeholder="Email" />
