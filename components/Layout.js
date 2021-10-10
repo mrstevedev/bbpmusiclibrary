@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
         setCookieNotification(true)
       }
       setShowModal(true)
+      document.body.classList.add("modal__open");
     }, 6000)
 
   }, []);
@@ -69,6 +70,7 @@ const Layout = ({ children }) => {
 
   const handleCloseModal = () => {
     setShowModal(false)
+    document.body.classList.remove("modal__open");
   }
 
   return (
