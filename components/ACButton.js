@@ -5,7 +5,6 @@ import Link from 'next/link'
 export default function ACButton(props) {
     const { addToCart, product, productPage } = props;
     const { downloads } = props.product;
-    console.log('downloads prop in ACButton', props )
 
   return (
     <>
