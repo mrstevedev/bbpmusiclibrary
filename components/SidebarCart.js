@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Fragment, useContext, useEffect, useState } from 'react'
 import { AppContext } from './context/AppContext'
 import { removeProduct } from '../util'
-import ACButton from '../components/ACButton'
+import CheckoutButton from '../components/CheckoutButton'
 
 // interface Props {
 //     products: [],
@@ -89,7 +89,7 @@ export default function SidebarCart(props) {
                                 </div> 
                                 
                                 <div className={styles.Checkout_btm}>
-                                <ACButton props={props}
+                                <CheckoutButton props={props}
                                     handleCloseCart={props.handleCloseCart}
                                     sideBar
                                     />
