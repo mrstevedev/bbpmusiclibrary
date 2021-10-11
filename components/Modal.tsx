@@ -2,6 +2,8 @@ import Image from "next/image";
 import closeBtn from '../public/images/closeBtn.svg'
 import styles from '../styles/Modal.module.scss'
 import { ChangeEvent, FormEvent, useState } from 'react'
+import axios from 'axios'
+import clientConfig from '../clientConfig'
 
 interface Props {
     handleCloseModal: () => void
@@ -9,8 +11,9 @@ interface Props {
 
 export default function Modal(props: Props) {
 
+    const [formSubmit, setFormSubmit] = useState(false)
     const [subscriber, setSubscriber] = useState({
-        name: '',
+        first_name: '',
         email: ''
     })
 
@@ -21,6 +24,22 @@ export default function Modal(props: Props) {
     
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
+
+        const subscriberJSON = JSON.stringify(subscriber)
+        
+        axios.post('http://localhost:10028/wp-json/newsletter/v2/subscribers', subscriberJSON, {
+            headers: { 
+                "Content-Type": "application/json"
+            },
+            auth: {
+                username: clientConfig.CLIENT_KEY,
+                password: clientConfig.CLIENT_SECRET
+            }
+        }).then(res => {
+            console.log(res)
+            setFormSubmit(true)
+        })
+        .catch(err => console.log(err))
         
         console.log('submit form to newsletter platform')
     }
@@ -38,11 +57,13 @@ export default function Modal(props: Props) {
                                 <Image className={ styles.btn__close } src={closeBtn} width="14" height="14" alt="Close cart" />
                             </a>
                         </div>
-                        <div className={ styles.form__container }>
+                        { !formSubmit ? (
+                            <>
+                            <div className={ styles.form__container }>
                             <h1 style={{ fontSize: '1.4rem', fontWeight: 'bold', textTransform: 'uppercase' }}>Subscribe<br /> To My Newsletter</h1>
                                 <form onSubmit={ handleSubmit }>
                                 <div className="mb-2 input-group">
-                                    <input autoFocus required onChange={handleChange} type="text" name="name" className={`form-control`} id="name" aria-describedby="name" placeholder="Name" />
+                                    <input autoFocus required onChange={handleChange} type="text" name="first_name" className={`form-control`} id="first_name" aria-describedby="name" placeholder="Name" />
                                 </div>
                                 <div className="mb-2 input-group">
                                     <input required onChange={handleChange} type="email" name="email" className={`form-control`} id="email" aria-describedby="email" placeholder="Email" />
@@ -50,9 +71,15 @@ export default function Modal(props: Props) {
                                 <button className="btn btn-primary col-12">Subscribe</button>
                             </form>
                         
-                            {/* <hr style={{ color: '#ccc' }} /> */}
+                            <hr style={{ color: '#ccc' }} />
 
-                        </div>
+                            </div>
+                            </>
+                        ) : (
+                            <div className={ styles.form__container }>
+                                <h1 style={{ fontSize: '1.4rem', fontWeight: 'bold', textTransform: 'uppercase' }}>Thank you<br /> You are now subscribed!</h1>
+                            </div>
+                        )  }
                     </div>
                 </div>
             </div>
