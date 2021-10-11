@@ -94,14 +94,20 @@ export default function Product(props) {
 
   const handleSlidePrev = () => {
     const productRelated = document.querySelector('.Related_product__related__puyxI')
-    productRelated.scrollLeft -= 405;
-    
+    const wrapperWidth = parseInt(productRelated.clientWidth)
 
+    const maxScrollLeft = wrapperWidth / 2;
+
+    productRelated.scrollLeft -= maxScrollLeft;
   }
 
   const handleSlideNext = () => {
     const productRelated = document.querySelector('.Related_product__related__puyxI')
-    productRelated.scrollLeft += 405;
+    const wrapperWidth = parseInt(productRelated.clientWidth)
+
+    const maxScrollLeft = wrapperWidth / 2;
+
+    productRelated.scrollLeft += maxScrollLeft;
   }
 
   const { product } = props;
