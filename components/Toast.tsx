@@ -1,7 +1,7 @@
 
 
 interface Props {
-  addToCart: boolean,
+  addItemToast: boolean,
   handleCloseToast: () => any
 }
 
@@ -10,7 +10,7 @@ export default function Toast(props : Props) {
     <>
       <div className="toast-container">
         <div
-            className={`${props.addToCart === true ? 'show' : ''}  toast align-items-center`}
+            className={`${props.addItemToast === true ? 'show' : ''}  toast align-items-center`}
             role="alert"
             aria-live="assertive"
             aria-atomic="true"
