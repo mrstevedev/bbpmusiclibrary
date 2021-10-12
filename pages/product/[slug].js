@@ -14,6 +14,7 @@ import Soundcloud from '../../components/soundcloud/Soundcloud';
 import RelatedProducts from '../../components/related/RelatedProducts';
 
 export default function Product(props) {
+  const [addItemToast, setAddItemToast] = useState(false);
   const [addToCart, setAddToCart] = useState(false);
   const [gallery, showGallery] = useState(false);
   const [cart, setCart] = useContext(AppContext);
@@ -42,6 +43,7 @@ export default function Product(props) {
         const newCart = addFirstProduct(product);
         setCart(newCart);
       }
+      setAddItemToast(true);
       setAddToCart(true);
     }
 
@@ -50,7 +52,7 @@ export default function Product(props) {
     cartCount.classList.add("pop");
 
     setTimeout(() => {
-      setAddToCart(false);
+      setAddItemToast(false);
       cartCount.classList.remove("pop");
     }, 5000);
   };
@@ -133,7 +135,7 @@ export default function Product(props) {
         {/* <link rel="preload" href={mediaItemUrl} as="image" /> */}
       </Head>
 
-      <Toast addToCart={addToCart} handleCloseToast={handleCloseToast} />
+      <Toast addItemToast={addItemToast} handleCloseToast={handleCloseToast} />
 
       {gallery === true ? (
         <div
