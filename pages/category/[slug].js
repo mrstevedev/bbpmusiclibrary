@@ -57,7 +57,7 @@ export default function Category(data) {
               </div>
               <div className={ styles.category__results_row_description }>
                 {prod.name}
-                <p>{ prod.shortDescription !== null ? trimString(prod.shortDescription, 250) : '' }</p>
+                <p>{ prod.description !== null ? trimString(prod.description, 250) : '' }</p>
                 <p>Price: { prod.price }</p>
               </div>
             </div>
