@@ -84,7 +84,7 @@ export async function getStaticProps(context) {
                 image {
                   mediaItemUrl
                 }
-                shortDescription(format: RAW)
+                description(format: RAW)
                 slug
                 ... on SimpleProduct {
                   price
