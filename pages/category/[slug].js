@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Head from "next/head"
-import clientConfig from "../../client-config.js"
 import Image from "next/image"
 import styles from '../../styles/Category.module.scss'
 import { trimString } from '../../util/index'
