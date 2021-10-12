@@ -138,19 +138,28 @@ a {
 }
 
 .toast-container {
-  position: absolute;
-  right: 19rem;
+  width: 100% !important;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  transition: 0.22s ease-in-out;
   .toast {
-    height: 60px;
-    transition: 0.12s ease-in-out;
+    height: 76px;
+    // transition: 0.12s ease-in-out;
     border: none !important;
+
+    width: 100%;
+    border-radius: 0;
+    background: #000;
+    color: #fff;
   }
 }
 
 .toast-body {
   font-size: 0.9rem;
   font-weight: bold;
-  padding: 1.2rem 1.1rem !important;
+  padding: 0;
 }
 
 .toast-left {
@@ -160,8 +169,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-radius: 0;
 
   svg {
     fill: #fff;
@@ -529,4 +537,8 @@ dd {
 
 .modal__open {
   overflow: hidden;
+}
+
+.toast:not(.showing):not(.show) {
+  display: none;
 }
