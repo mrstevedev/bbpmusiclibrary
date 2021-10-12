@@ -11,7 +11,7 @@ import GooglePayButton from "@google-pay/button-react"
 import Head from 'next/head'
 import Link from 'next/link'
 import Router from 'next/router'
-import SkeletonButton from '../components/SkeletonButton'
+import PaymentSkeletonBtn from '../components/PaymentSkeletonBtn'
 import { formatPhoneNumber } from "../util";
 
 
@@ -302,8 +302,8 @@ const handleToggleSummary = (e: any) => {
                      
                      { loading && (
                         <Fragment>
-                         <SkeletonButton />
-                          <SkeletonButton />
+                         <PaymentSkeletonBtn />
+                          <PaymentSkeletonBtn />
                         </Fragment>
                      ) }
                      
