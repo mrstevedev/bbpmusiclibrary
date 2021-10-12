@@ -314,6 +314,8 @@ export async function getStaticProps(context) {
                       name
                     }
                   }
+                  regularPrice
+                  salePrice
                 }
                 description(format: RAW)
                 image {
