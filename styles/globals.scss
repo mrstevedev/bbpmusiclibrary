@@ -542,3 +542,7 @@ dd {
 .toast:not(.showing):not(.show) {
   display: none;
 }
+
+.mobile__menu-open {
+  overflow: hidden;
+}
