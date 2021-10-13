@@ -4,7 +4,6 @@ import Image from "next/image"
 import styles from '../../styles/Category.module.scss'
 import { trimString } from '../../util/index'
 import Script from 'next/script'
-import Footer from '../../components/Footer'
 
 export default function Category(data) {
   const productLength = data.category.productCategory.products.nodes.length
@@ -64,7 +63,6 @@ export default function Category(data) {
           ))}
         </div>
       </main>
-      <Footer />
     </>
   );
 }
