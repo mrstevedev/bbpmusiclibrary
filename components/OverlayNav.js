@@ -17,7 +17,7 @@ export default function OverlayNav(props) {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/contact">
               <a className={styles.link} onClick={props.handleToggleMenu}>Contact Me</a>
             </Link>
           </li>
