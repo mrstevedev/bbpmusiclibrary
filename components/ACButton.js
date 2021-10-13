@@ -8,26 +8,30 @@ export default function ACButton(props) {
 
   return (
     <>
-    { productPage && downloads !== null ? (
-          <button className={`add-to-cart-btn ${ !addToCart ? styles.addToCartBtn : styles.viewCartBtn }`} onClick={ props.handleAddToCart }>
+    { downloads !== null ? (
+            <>
             { addToCart === true ? (
               <>
-              <span className={styles.cartBtnTxt}>
-                Item added
-              </span>
-              <Image src="/images/shopping-cart_check_black.svg" width="30" height="28" alt="Add to Cart" />
+                <Link href="/cart">
+                  <button className={`add-to-cart-btn ${ !addToCart ? styles.addToCartBtn : styles.viewCartBtn }`}>
+                    <span className={styles.cartBtnTxt}>
+                      View cart
+                    </span>
+                    <Image src="/images/shopping-cart_check_black.svg" width="30" height="28" alt="Add to Cart" />
+                  </button>
+                </Link>
               </>
-            ): (
+            ) : (
               <>
-              <span className={styles.cartBtnTxt}>
-                Add to cart
-              </span>
-              <Image src="/images/add-to-cart-btn.svg" width="24" height="22" alt="Add to Cart" />
+              <button className={`add-to-cart-btn ${ !addToCart ? styles.addToCartBtn : styles.viewCartBtn }`} onClick={ props.handleAddToCart }>
+                <span className={styles.cartBtnTxt}>
+                  Add to cart
+                </span>
+                <Image src="/images/add-to-cart-btn.svg" width="24" height="22" alt="Add to Cart" />
+              </button>
               </>
             )}
-           
-          </button>
-
+          </>
       ) : (
         <>
         { addToCart === true ? (
