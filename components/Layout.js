@@ -8,6 +8,7 @@ import Modal from './Modal';
 import CookieNotification from './CookieNotification';
 import NotificationsBar from './NotificationsBar';
 import Script from 'next/script'
+import Footer from '../components/Footer'
 
 const Layout = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
@@ -123,6 +124,7 @@ const Layout = ({ children }) => {
         ) : '' }
 
     </AppProvider>
+    <Footer />
     </>
   );
 };
