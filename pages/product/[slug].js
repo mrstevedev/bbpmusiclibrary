@@ -9,7 +9,6 @@ import { createLink } from "../../util";
 import { AppContext } from "../../components/context/AppContext";
 import { addFirstProduct, updateCart } from "../../util/index";
 import Script from "next/script";
-import Footer from '../../components/Footer'
 import Soundcloud from '../../components/soundcloud/Soundcloud';
 import RelatedProducts from '../../components/related/RelatedProducts';
 
@@ -289,7 +288,6 @@ export default function Product(props) {
         </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }
