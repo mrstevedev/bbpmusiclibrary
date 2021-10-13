@@ -16,6 +16,12 @@
   }
 }
 
+@media(min-width: 575px) {
+  .about__mainContainer {
+    padding: 0 2rem;
+  }
+}
+
 @media (max-width: 575px) {
     .about {
         padding: 2rem 2rem 5rem!important;
