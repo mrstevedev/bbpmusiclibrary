@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import Link from 'next/link'
-import Footer from '../components/Footer'
 
 export default function LostPW() {
 
@@ -60,7 +59,6 @@ export default function LostPW() {
           
            </div>
         </div>
-        <Footer />
     </>
     )
 }
