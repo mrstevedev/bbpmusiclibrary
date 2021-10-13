@@ -3,7 +3,6 @@ import Image from "next/image"
 import Link from "next/link"
 import React, { Fragment, useEffect, useState } from "react"
 import styles from "../styles/Home.module.scss"
-import Footer from '../components/Footer'
 import Script from 'next/script'
 
 interface Props {
@@ -87,7 +86,7 @@ export default function Home( { products } : Props ) {
         </div>
       </main>
 
-      <Footer />
+
     </>
   );
 }
