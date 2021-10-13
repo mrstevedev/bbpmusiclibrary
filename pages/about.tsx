@@ -37,7 +37,7 @@ export default function About({ page } : Props ) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className={ styles.about__mainContainer }>
         <ImageHero mediaItemUrl={page.featuredImage.node.mediaItemUrl} />
         <div className="container">
           <div
