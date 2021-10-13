@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Footer from '../components/Footer'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import axios from 'axios'
 
@@ -67,7 +66,7 @@ export default function Signin() {
                 </div>
                </div>
             </div>
-            <Footer />
+
         </>
     )
 }
