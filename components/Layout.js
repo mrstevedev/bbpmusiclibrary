@@ -86,6 +86,18 @@ const Layout = ({ children }) => {
         __html: `document.body.classList.remove('mobile__menu-open')`
     }} />
      ) }
+
+     { showCart ? (
+        <Script
+        dangerouslySetInnerHTML={{
+          __html: `document.body.classList.add('sidebarCart-open')`
+      }} />
+      ) : (
+       <Script
+       dangerouslySetInnerHTML={{
+         __html: `document.body.classList.remove('sidebarCart-open')`
+     }} />
+     ) }
     <AppProvider>
       <Head>
         <title>test</title>
