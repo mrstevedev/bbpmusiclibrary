@@ -1,0 +1,32 @@
+.contact {
+    padding: 2rem 2rem 8rem;
+    position: absolute;
+    top: 27rem;
+    background: rgb(255, 255, 255, 1);
+    left: 0;
+    right: 0;
+    width: 800px;
+    margin: 0 auto;
+    border-radius: 2px;
+    font-weight: 100;
+  
+    .contact__text {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media(min-width: 575px) {
+    .contact__mainContainer {
+        padding: 0 2rem;
+    }
+  }
+  
+  @media (max-width: 575px) {
+      .contact {
+          padding: 2rem 2rem 5rem!important;
+          margin: 0 auto;
+          width: 93% !important;
+      }
+  }
+  
