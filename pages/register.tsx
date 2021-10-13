@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { ChangeEvent, FormEvent, useState } from 'react'
-import Footer from '../components/Footer'
 import Link from 'next/link'
 
 export default function Register() {
@@ -107,7 +106,7 @@ export default function Register() {
                 <p style={{ margin: '0' }}>{ error.message }</p>
             </div>
 
-            <Footer />
+
         </>
     )
 }
