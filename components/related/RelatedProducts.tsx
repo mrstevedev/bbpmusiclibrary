@@ -53,7 +53,7 @@ export default function RelatedProducts( props: IProduct ) {
               <h2 style={{ fontSize: '1rem' }}>Related Products</h2>
               <div className={ styles.product__relatedGallery }>
               { props.product.related.edges.map((item: IEdges) => (
-                <div key={item.node.id} className={ styles.product__relatedItem }>
+                <div key={item.node.id} className={ `product-img ${ styles.product__relatedItem } ` }>
                     <Link href={ `${ item.node.slug }` }>
                       <a>
                         <div className={styles.product__Img}>
