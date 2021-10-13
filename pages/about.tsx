@@ -3,7 +3,6 @@ import Link from "next/link";
 import Head from "next/head";
 import Script from "next/script";
 import AboutParagraph from "../components/AboutParagraph";
-import Footer from '../components/Footer'
 import styles from '../styles/About.module.scss'
 
 interface Props {
@@ -49,7 +48,6 @@ export default function About({ page } : Props ) {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }
