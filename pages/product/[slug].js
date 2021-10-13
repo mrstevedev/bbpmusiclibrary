@@ -21,6 +21,7 @@ export default function Product(props) {
 
   console.log(props)
 
+
   const handleAddToCart = () => {
     // const addToCartBtn = document.querySelector('.add-to-cart-btn ')
     // addToCartBtn.onclick = function() {
@@ -185,7 +186,12 @@ export default function Product(props) {
 
           <div className={styles.productDescription}>
             <h3 styles={styles.productDescriptionTxt}>{name}</h3>
-            <h4>{price}</h4>
+            <h4>{ product.salePrice ? (
+              <>
+                <span style={{ textDecoration: 'line-through', color: 'red', padding: '0 0.2rem' }}>{ product.regularPrice }</span>
+                <span style={{ color: 'grey' }}> { product.salePrice }</span>
+              </>
+            ) : product.regularPrice }</h4>
             <p>{description}</p>
             <h4 className={styles.productCategoriesTxt}>
               Categories:{" "}
@@ -272,9 +278,9 @@ export default function Product(props) {
               </p>
             </div>
           </div>
-           
-             {/* Related Products Slideshow */}
-             <RelatedProducts 
+
+            {/* Related Products Slideshow */}
+            <RelatedProducts
               product={props.product}
               handleSlidePrev={handleSlidePrev}
               handleSlideNext={handleSlideNext}
