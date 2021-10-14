@@ -22,10 +22,6 @@ export default function Product(props) {
 
 
   const handleAddToCart = () => {
-    // const addToCartBtn = document.querySelector('.add-to-cart-btn ')
-    // addToCartBtn.onclick = function() {
-    //   console.log('open sideBar')
-    // }
 
     if (process.browser) {
       let existingCart = localStorage.getItem("product");
