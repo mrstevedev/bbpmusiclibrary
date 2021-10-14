@@ -10,6 +10,7 @@ import RelatedProducts from '../../components/related/RelatedProducts';
 import ProductTabs from '../../components/tabs/ProductTabs';
 import ProductSingle from '../../components/product/ProductSingle';
 import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
+import ProductGallery from '../../components/gallery/ProductGallery';
 
 export default function Product(props) {
   const [addItemToast, setAddItemToast] = useState(false);
@@ -135,23 +136,11 @@ export default function Product(props) {
 
       <Toast addItemToast={addItemToast} handleCloseToast={handleCloseToast} />
 
-      {gallery === true ? (
-        <div
-          className={`${styles.imageGallery}`}
-          onClick={handleCloseImageGallery}
-        >
-          <div className={styles.imageGalleryTopBar}>
-            <h3 className={styles.imageGalleryProductName}>{name}</h3>
-          </div>
-          <Image src={mediaItemUrl} width="700" height="700" alt={`Gallery Image - ${ name }`} />
-        </div>
-      ) : (
-        ""
-      )}
+      <ProductGallery product={product} gallery={gallery} handleCloseImageGallery={handleCloseImageGallery} />
 
       <main className="container">
           <div className={ styles.product }>
-            
+
           <Breadcrumb 
             product={product} 
             currentPage={ product.name } 
