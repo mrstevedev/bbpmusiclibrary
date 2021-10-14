@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import styles from "../../styles/Product.module.scss";
 import Image from "next/image";
 import Toast from "../../components/Toast";
-import Link from "next/link";
 import Head from "next/head";
 import { AppContext } from "../../components/context/AppContext";
 import { addFirstProduct, updateCart } from "../../util/index";
@@ -10,6 +9,7 @@ import Script from "next/script";
 import RelatedProducts from '../../components/related/RelatedProducts';
 import ProductTabs from '../../components/tabs/ProductTabs';
 import ProductSingle from '../../components/product/ProductSingle';
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
 
 export default function Product(props) {
   const [addItemToast, setAddItemToast] = useState(false);
@@ -151,21 +151,11 @@ export default function Product(props) {
 
       <main className="container">
           <div className={ styles.product }>
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </li>
-                <li className="breadcrumb-item">
-                  <a href="#">Product</a>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  { product.name }
-                </li>
-              </ol>
-            </nav>
+            
+          <Breadcrumb 
+            product={product} 
+            currentPage={ product.name } 
+          />
 
           <ProductSingle 
             product={product}
