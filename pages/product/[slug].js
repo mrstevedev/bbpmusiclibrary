@@ -134,9 +134,16 @@ export default function Product(props) {
         {/* <link rel="preload" href={mediaItemUrl} as="image" /> */}
       </Head>
 
-      <Toast addItemToast={addItemToast} handleCloseToast={handleCloseToast} />
+      <Toast 
+        addItemToast={addItemToast} 
+        handleCloseToast={handleCloseToast}
+      />
 
-      <ProductGallery product={product} gallery={gallery} handleCloseImageGallery={handleCloseImageGallery} />
+      <ProductGallery 
+        product={product} 
+        gallery={gallery} 
+        handleCloseImageGallery={handleCloseImageGallery} 
+      />
 
       <main className="container">
           <div className={ styles.product }>
