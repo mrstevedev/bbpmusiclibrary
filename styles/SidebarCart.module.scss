@@ -204,7 +204,7 @@
       background: rgba(0, 0, 0, 0.86);
       display: none;
       backdrop-filter: blur(6px);
-      z-index: 2;
+      z-index: 4;
 
       &.SidebarCart__overlay_active {
           display: block;
