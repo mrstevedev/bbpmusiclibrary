@@ -1,9 +1,8 @@
 import Head from "next/head"
-import Image from "next/image"
-import Link from "next/link"
-import React, { Fragment, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import styles from "../styles/Home.module.scss"
 import Script from 'next/script'
+import Products from '../components/product/Products'
 
 interface Props {
   products: Props[],
@@ -51,38 +50,11 @@ export default function Home( { products } : Props ) {
 
       <main className={styles.content}>
         <div className="container">
-          <div className="row products">
-            {products.map((product) => {
-                return (
-                  <Fragment key={product.node.id}>
-                    <div className="col-md-3 d-flex flex-column justify-content-center">
-                        <Link href={ `/product/${ product.node.slug }` }>
-                          <a>
-                            <div className={`${ styles.Home__image } product-img`}>
-                              <Image 
-                                key={product.node.id} 
-                                src={product.node.image !== null ? product.node.image.mediaItemUrl : 'http://localhost:10028/wp-content/uploads/2021/10/websiteplanet-dummy-640X640.webp' } 
-                                width="266" 
-                                height="266"
-                                loading="eager"
-                                alt="Product Image"
-                                />
-                              </div>
-                            </a>
-                        </Link>
-                        <div className={styles.productBtm}>
-                          <Link href={ `/product/${ product.node.slug }` }>
-                            <a className="link">
-                              { product.node.name }
-                            </a>
-                          </Link>
-                          <p>{ product.node.price }</p>
-                        </div>
-                        </div>
-                    </Fragment>
-                  )
-                })}
-          </div>
+
+          <Products 
+            products={products}
+          />
+
         </div>
       </main>
 
