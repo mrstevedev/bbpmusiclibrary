@@ -212,18 +212,16 @@ export default function Product(props) {
 
         <div className={styles.product__Btm}>
               
-            {/* Product Tabs */}
-              <ProductTabs 
-                product={product}
-                handleToggleTab={handleToggleTab}
-              />
+          <ProductTabs 
+            product={product}
+            handleToggleTab={handleToggleTab}
+          />
 
-            {/* Related Products Slideshow */}
-            <RelatedProducts
-              product={props.product}
-              handleSlidePrev={handleSlidePrev}
-              handleSlideNext={handleSlideNext}
-            />
+          <RelatedProducts
+            product={props.product}
+            handleSlidePrev={handleSlidePrev}
+            handleSlideNext={handleSlideNext}
+          />
 
         </div>
         </div>
