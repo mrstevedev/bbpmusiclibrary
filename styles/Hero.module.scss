@@ -2,12 +2,11 @@
     // background: url('/images/bonitaprayer-colorized.jpg') center -530px no-repeat;
     height: 510px;
     width: 100%;
-    border-radius: 4px;
+    background-size: cover;
 }
 
 @media(max-width: 575px) {
     .Bonita__Hero {
         border-radius: 0;
-        background: url(/images/bonitaprayer-colorized.jpg) center -608px no-repeat !important;
     }
 }
