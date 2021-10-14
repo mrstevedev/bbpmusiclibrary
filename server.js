@@ -25,7 +25,6 @@ function generateTimestamp() {
 }
 
 app.post('/create-user', async (req, res) => {
-    // console.log(req.body)
     const first_name = req.body.firstName
     const last_name = req.body.lastName
     const username = req.body.username
@@ -72,14 +71,9 @@ app.post('/create-user', async (req, res) => {
         }
     })
     .then(data => {
-        console.log("data::::::", data)
         res.send().status(data.response.data.message)
     })
     .catch(error => {
-        // console.log(error.response.status)
-        // console.log(error.response.data.message)
-        // console.log(error)
-        // res.status(error.response.status)
         console.log(error.response.status)
         res.send(error.response.data.message).status(error.response.status)
 
@@ -88,9 +82,6 @@ app.post('/create-user', async (req, res) => {
 })
 
 app.post('/create-order', async (req, res) => {
-    // const file = req.body.file
-    // const payment_method = req.body.payment_method
-
     const body = req.body
     const id = req.body.id
     const name = req.body.description
@@ -106,8 +97,6 @@ app.post('/create-order', async (req, res) => {
     const phone = req.body.phone
     const product_id = req.body.productId
     const UnixTimestamp = generateTimestamp()
-    
-    // Create an order with Woocommerce API orders endpoint
 
     const json = {
         "payment_method": body.payment_details.payment_method,
@@ -177,7 +166,6 @@ app.post('/create-order', async (req, res) => {
     })
     .catch(err => console.log(err))
 
-    // Email file with Nodemailer 
     res.send('ok')
 })
 
