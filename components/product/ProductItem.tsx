@@ -31,8 +31,8 @@ export default function ProductItem({ product } : IProduct) {
                     ? product.node.image.mediaItemUrl
                     : "http://localhost:10028/wp-content/uploads/2021/10/websiteplanet-dummy-640X640.webp"
                 }
-                width="266"
-                height="266"
+                width="400"
+                height="400"
                 loading="eager"
                 alt={`Bonita Basics Productions Music Library, ${ product.node.name }`}
               />
