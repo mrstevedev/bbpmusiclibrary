@@ -1,4 +1,4 @@
-# Bonita Basics Productions Sample Library
+# Bonita Basics Productions Music Library
 
 This web application was built using:
 1. React JS and Next JS
