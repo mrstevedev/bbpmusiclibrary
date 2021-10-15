@@ -34,22 +34,11 @@ export default function ACButton(props) {
           </>
       ) : (
         <>
-        { addToCart === true ? (
-          <>
-          <span className={styles.cartBtnTxt}>
-            Item added
-          </span>
-          <Image src="/images/shopping-cart_check_black.svg" width="30" height="28" alt="Add to Cart" />
-          </>
-        ) : (
-          <>
           <span className={styles.cartBtnTxt} style={{ fontWeight: 'bold', color: '#a9a9a9' }}>
             Not available. Please check back later
           </span>
-          </>
-        )}
         </>
       )  }
-        </>
+      </>
   );
 }
