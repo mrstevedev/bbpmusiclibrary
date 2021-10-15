@@ -17,7 +17,7 @@ export default function Header(props) {
                   <Hamburger toggled={props.isOpen} size={18} color={props.showMenu ? 'white' : 'black'} />
                 </a>
               </div>
-              <div className="col-sm col-8 d-flex justify-content-center">
+              <div className="col-sm col-8 d-flex justify-content-center hero-img">
                 <Link href="/">
                   <a className="logo d-flex justify-content-center align-items-center">
                     <Image
