@@ -50,6 +50,11 @@ export default function Modal(props: Props) {
             <div className={ `${ styles.modal__subscription } fade-in`}>
                 <div className={styles.modal__body} onClick={(event) => event.stopPropagation()}>
                     <div className={ styles.modal__left }>
+                        <div className={ styles.modal__modalHeader }>
+                            <a href="#" onClick={props.handleCloseModal}>
+                                <Image className={ styles.btn__close } src={closeBtn} width="14" height="14" alt="Close cart" />
+                            </a>
+                        </div>
                     </div>
                     <div className={ styles.modal__right }>
                         <div className={ styles.modal__header }>
