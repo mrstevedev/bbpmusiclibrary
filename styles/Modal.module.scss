@@ -63,6 +63,13 @@
     display: none !important;
   }
 
+  .modal__modalHeader {
+    display: flex;
+    margin: 2rem 0;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
   .form__container {
     max-width: 100% !important;
     padding: 2rem !important;
@@ -79,17 +86,8 @@
     z-index: 999;
     backdrop-filter: blur(9px);
   }
-}
 
-.modal__modileHeader {
-  display: none;
-  justify-content: flex-end;
-  padding: 1rem;
-}
-
-@media(max-width: 575px) {
-  .modal__modileHeader {
-    display: flex;
-    margin: 2rem 0;
-  }
+  .modal__modalHeader {
+    display: none;
+  }  
 }
