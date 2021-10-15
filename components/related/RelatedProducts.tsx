@@ -57,7 +57,7 @@ export default function RelatedProducts( props: IProduct ) {
                     <Link href={ `${ item.node.slug }` }>
                       <a>
                         <div className={styles.product__Img}>
-                          <Image src={item.node.image !== null ? item.node.image.mediaItemUrl : 'http://localhost:10028/wp-content/uploads/2021/10/websiteplanet-dummy-640X640.webp' } width="400" height="400" alt={`Gallery Image - ${ item.node.name }`} />
+                          <Image src={item.node.image !== null ? item.node.image.mediaItemUrl : 'http://localhost:10028/wp-content/uploads/2021/10/websiteplanet-dummy-640X640.webp' } width="400" height="400" alt={`Bonita Basics Productions Music Library - ${ item.node.name }`} />
                           
                         </div>
                       </a>
