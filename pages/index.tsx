@@ -46,7 +46,7 @@ export default function Home( { products } : Props ) {
           __html: `document.body.classList.remove('Checkout__page')`
       }} />
       <Head>
-        <title>Bonita Basics Productions Music Library | Hip-Hop samples</title>
+        <title>Bonita Basics Productions Music Library | Hip-Hop Samples</title>
         <meta name="description" content="Boom Bap Hip-Hop producer from Bonita, California making sample packs with various musicians in his home studio." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -61,6 +61,8 @@ export default function Home( { products } : Props ) {
           margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
 
         <div className="container">
+
+          <h1 style={{ margin: '1rem 0', fontSize: '0.75rem', textTransform: 'uppercase' }}>Latest Sample Pack Releases</h1>
 
           <Products 
             products={products}
