@@ -30,7 +30,7 @@ export default function Contact( { page } : IPage ) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={ styles.contact__mainContainer }>
-                <ImageHero mediaItemUrl={page.featuredImage.node.mediaItemUrl} />
+                <ImageHero contact mediaItemUrl={page.featuredImage.node.mediaItemUrl} />
                 <div className="container">
                     <div
                         className={styles.contact}>
