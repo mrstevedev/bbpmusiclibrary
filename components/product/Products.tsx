@@ -24,7 +24,7 @@ export default function Products({ products } : IProducts) {
           <div className="row products">
             {products.map((product) => {
                 return (
-                    <ProductItem product={product} />
+                    <ProductItem key={product.node.id} product={product} />
                   )
                 })}
           </div>
