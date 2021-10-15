@@ -34,7 +34,7 @@ export default function ProductItem({ product } : IProduct) {
                 width="266"
                 height="266"
                 loading="eager"
-                alt="Product Image"
+                alt={`Bonita Basics Productions Music Library, ${ product.node.name }`}
               />
             </div>
           </a>
