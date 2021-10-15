@@ -72,6 +72,10 @@ export default function Modal(props: Props) {
                             </form>
                         
                             <hr style={{ color: '#ccc' }} />
+                            <p style={{ fontWeight: 100, fontSize: '0.9rem' }}>
+                                Subscribe to my newsletter to receive notifications on new download releases
+                                and offers to get sales on sample packs.
+                            </p>
 
                             </div>
                             </>
