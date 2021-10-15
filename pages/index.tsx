@@ -46,8 +46,8 @@ export default function Home( { products } : Props ) {
           __html: `document.body.classList.remove('Checkout__page')`
       }} />
       <Head>
-        <title>Bonita Basics Productions</title>
-        <meta name="description" content="Boom Bap HipHop producer from Bonita, California making sample packs with various musicians in his home studio." />
+        <title>Bonita Basics Productions Music Library | Hip-Hop samples</title>
+        <meta name="description" content="Boom Bap Hip-Hop producer from Bonita, California making sample packs with various musicians in his home studio." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
