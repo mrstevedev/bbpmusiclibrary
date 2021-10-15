@@ -19,6 +19,16 @@ const Cart = () => {
                         <div className={ styles.cart__header } >
                             <h3 className={ styles.cart__headerText }>Shopping Cart</h3>
                         </div>
+                        <table className={styles.cart__table}>
+                            <thead>
+                                <tr>
+                                    <th colSpan={2}>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </main>
