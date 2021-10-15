@@ -3,9 +3,6 @@ import React, { useEffect, useState } from "react"
 import styles from "../styles/Home.module.scss"
 import Script from 'next/script'
 import Products from '../components/product/Products'
-import ImageHero from "../components/ImageHero";
-import coverImage from '../public/images/img1200.webp'
-import Image from 'next/image'
 
 interface Props {
   products: Props[],
