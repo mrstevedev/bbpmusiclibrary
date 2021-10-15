@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react"
 import styles from "../styles/Home.module.scss"
 import Script from 'next/script'
 import Products from '../components/product/Products'
+import ImageHero from "../components/ImageHero";
+import coverImage from '../public/images/img1200.webp'
+import Image from 'next/image'
 
 interface Props {
   products: Props[],
@@ -21,14 +24,14 @@ interface Props {
 export default function Home( { products } : Props ) {
   const [sampleProducts, setSampleProducts] = useState<Props[]>([])
   const [isLoading, setIsLoading] = useState(true)
-
+  console.log(products)
 
   useEffect(() => {
-    let productImg = document.querySelectorAll(".products img"), i = 1;
-    Array.prototype.forEach.call(productImg, (productImg) => { 
-    setTimeout(() => { productImg.classList.add("img__visible") }, 200*i)
-    i++;
-    })
+    // let productImg = document.querySelectorAll(".products img"), i = 1;
+    // Array.prototype.forEach.call(productImg, (productImg) => { 
+    // setTimeout(() => { productImg.classList.add("img__visible") }, 200*i)
+    // i++;
+    // })
     setSampleProducts(products)
 
     setTimeout(() => {
@@ -49,6 +52,14 @@ export default function Home( { products } : Props ) {
       </Head>
 
       <main className={styles.content}>
+
+      <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
+          height: '330px',
+          width: '100%',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
+
         <div className="container">
 
           <Products 
