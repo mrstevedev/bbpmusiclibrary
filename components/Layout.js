@@ -27,8 +27,11 @@ const Layout = ({ children }) => {
       if(document.cookie.indexOf('bb_notification_accept') == -1 ) {
         setCookieNotification(true)
       }
-      setShowModal(true)
-      document.body.classList.add("modal__open");
+      const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
+      if(scrollPosition <= 0) {
+        setShowModal(true)
+        document.body.classList.add("modal__open");
+      }
     }, 6000)
 
   }, []);
