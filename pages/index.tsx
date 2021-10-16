@@ -51,7 +51,7 @@ export default function Home( { products } : Props ) {
       <main className={styles.content}>
 
       <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
-          height: '330px',
+          height: '270px',
           width: '100%',
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
