@@ -21,7 +21,6 @@ interface Props {
 export default function Home( { products } : Props ) {
   const [sampleProducts, setSampleProducts] = useState<Props[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  console.log(products)
 
   useEffect(() => {
     // let productImg = document.querySelectorAll(".products img"), i = 1;
