@@ -18,6 +18,12 @@ export default function LostPW() {
 
     return (
         <>
+         <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
+          height: '270px',
+          width: '100%',
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat',
+          margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
         <div className="container">
             <div className="content__main">
 
