@@ -61,7 +61,7 @@ export default function Register() {
                     <div className="form__container" style={{ maxWidth: '350px' }}>
                             <form onSubmit={ handleSubmit }>
                             <div className="mb-2 input-group">
-                                <input required onChange={handleChange} type="text" name="firstName" className={`form-control`} id="firstName" aria-describedby="firstName" placeholder="First Name" />
+                                <input autoFocus required onChange={handleChange} type="text" name="firstName" className={`form-control`} id="firstName" aria-describedby="firstName" placeholder="First Name" />
                                 <input required onChange={handleChange} type="text" name="lastName" className={`form-control`} id="lastName" aria-describedby="lastName" placeholder="Last Name" />
                             </div>
                             <div className="mb-2 input-group">
