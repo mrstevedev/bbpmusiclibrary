@@ -12,7 +12,7 @@ export default function OverlayNav(props) {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/videos">
               <a className={styles.link} onClick={props.handleToggleMenu}>Music Videos</a>
             </Link>
           </li>
