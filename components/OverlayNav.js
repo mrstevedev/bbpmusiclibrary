@@ -6,9 +6,14 @@ export default function OverlayNav(props) {
     <>
       <div className={styles.Overlay__Nav}>
         <ul className={`${styles.Overlay__Nav_list}  animated animatedFadeInUp fadeInUp`}>
+        <li>
+            <Link href="/about">
+              <a className={styles.link} onClick={props.handleToggleMenu}>About</a>
+            </Link>
+          </li>
           <li>
             <Link href="/">
-              <a className={styles.link} onClick={props.handleToggleMenu}>Sample Packs</a>
+              <a className={styles.link} onClick={props.handleToggleMenu}>Products</a>
             </Link>
           </li>
           <li>
@@ -19,11 +24,6 @@ export default function OverlayNav(props) {
           <li>
             <Link href="/contact">
               <a className={styles.link} onClick={props.handleToggleMenu}>Contact Me</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a className={styles.link} onClick={props.handleToggleMenu}>About BonitaBasics</a>
             </Link>
           </li>
         </ul>
