@@ -498,13 +498,10 @@ dd {
 }
 
 .content__main {
-  padding: 3rem 1rem;
+  padding: 1rem;
 }
 
 @media(max-width: 575px) {
-  .content__main {
-    padding: 7rem 1rem;
-  }
   .btn-block {
     width: 100%;
   }
