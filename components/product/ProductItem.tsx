@@ -47,7 +47,14 @@ export default function ProductItem({ product } : IProduct) {
           </Link>
           <p>{ product.node.salePrice ? (
             <>
-              <span style={{ color: 'red', textDecoration: 'line-through' }}>{product.node.regularPrice} </span> { product.node.salePrice } <span style={{ fontSize: '0.6rem', color: 'grey', textTransform: 'uppercase' }}>On Sale</span>
+              <span style={{ color: 'red', textDecoration: 'line-through' }}>
+                {product.node.regularPrice} </span> { product.node.salePrice } 
+                <span style={{ 
+                  fontSize: '0.6rem', 
+                  color: 'grey', 
+                  textTransform: 'uppercase' }}>
+                    On Sale
+              </span>
             </>
           ) : product.node.regularPrice }</p>
         </div>
