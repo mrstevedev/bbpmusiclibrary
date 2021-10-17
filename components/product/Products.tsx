@@ -10,6 +10,8 @@ interface IProduct {
     name: string
     price: string
     slug: string
+    salePrice: string
+    regularPrice: string
   }
 }
 
