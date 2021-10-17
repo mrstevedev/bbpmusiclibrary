@@ -43,7 +43,7 @@ export default function Signin() {
                <div className="form__container" style={{ maxWidth: '350px' }}>
                <form method="post" onSubmit={handleSubmit}>
                     <div className="mb-2 input-group">
-                        <input required onChange={handleChange} type="text" name="username" className={`form-control`} id="username" aria-describedby="username" placeholder="Username" />
+                        <input autoFocus required onChange={handleChange} type="text" name="username" className={`form-control`} id="username" aria-describedby="username" placeholder="Username" />
                     </div>
                     <div className="mb-2 input-group">
                         <input required onChange={handleChange} type="password" name="password" className={`form-control`} id="password" aria-describedby="password" placeholder="Password" />
