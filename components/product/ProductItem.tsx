@@ -13,6 +13,8 @@ interface IProduct {
       image: {
         mediaItemUrl: string
       }
+      salePrice: string
+      regularPrice: string
     }
   }
 }
@@ -43,7 +45,11 @@ export default function ProductItem({ product } : IProduct) {
           <Link href={`/product/${product.node.slug}`}>
             <a className="link">{product.node.name}</a>
           </Link>
-          <p>{product.node.price}</p>
+          <p>{ product.node.salePrice ? (
+            <>
+              <span style={{ color: 'red', textDecoration: 'line-through' }}>{product.node.regularPrice} </span> { product.node.salePrice } <span style={{ fontSize: '0.6rem', color: 'grey', textTransform: 'uppercase' }}>On Sale</span>
+            </>
+          ) : product.node.regularPrice }</p>
         </div>
       </div>
     </Fragment>
