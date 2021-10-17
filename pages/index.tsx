@@ -99,6 +99,8 @@ export async function getStaticProps() {
                 id
                 name
                 price
+                regularPrice
+                salePrice
               }
               image {
                 mediaItemUrl
