@@ -121,7 +121,7 @@ export default function Product(props) {
         }}
       />
       <Head>
-        <title>Bonita Basics Productions | {name}</title>
+        <title>Bonita Basics Productions - {name}</title>
         <meta
           name="description"
           content="Boom Bap HipHop producer from Bonita, California making sample packs with various musicians in his home studio."
