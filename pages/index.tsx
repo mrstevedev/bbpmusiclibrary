@@ -48,7 +48,7 @@ export default function Home( { products } : Props ) {
         <meta property="og:title" content="Bonita Basics Productions Music Library - Purchase and Download Hip-Hop Sample Packs"/>
         <meta property="og:description" content="Boom Bap Hip-Hop producer from Bonita, California making sample packs with various musicians in his home studio."/>
         <meta property="og:type" content="website"/>
-        <meta property="og:url" content="https://phiilu.com/"/>
+        <meta property="og:url" content="https://bbpmusiclibrary.com/"/>
         <meta property="og:image" content="./images/img1200.webp"/>
 
       </Head>
