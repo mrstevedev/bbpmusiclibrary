@@ -52,8 +52,7 @@ export default function ProductItem({ product } : IProduct) {
                 <span style={{ 
                   fontSize: '0.6rem', 
                   color: 'grey', 
-                  textTransform: 'uppercase' }}>
-                    On Sale
+                  textTransform: 'uppercase' }}> On Sale
               </span>
             </>
           ) : product.node.regularPrice }</p>
