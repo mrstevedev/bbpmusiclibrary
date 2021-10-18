@@ -90,7 +90,7 @@ export function isProductInCart( existingProductsInCart, productId ) {
 
   const returnItemThatExists = ( item, index ) => {
 
-    if(productId = item.productId) {
+    if(productId === item.productId) {
       return item
     }
   } 
