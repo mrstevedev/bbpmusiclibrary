@@ -15,6 +15,8 @@ interface Props {
     name: string,
     price: string, 
     slug: string
+    regularPrice: string
+    salePrice: string
   }
 }
 
