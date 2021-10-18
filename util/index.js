@@ -38,7 +38,7 @@ export function addFirstProduct(product) {
     totalProductsPrice: productPrice,
   };
 
-  const newProduct = createNewProduct(product, productPrice);
+  const newProduct = createNewProduct(product, productPrice, 1);
   newCart.products.push(newProduct);
 
   localStorage.setItem("product", JSON.stringify(newCart));
