@@ -17,4 +17,15 @@
             vertical-align: top;
         }
     }
+
+    th { font-weight: 100; }
+    td { 
+    font-weight: 100;
+
+    padding: 1rem 0 0 0;
+
+        &:first-child, &:nth-child(2) {
+            padding: 1rem;
+        }
+    }
 }
