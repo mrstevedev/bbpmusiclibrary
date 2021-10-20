@@ -33,8 +33,7 @@ export default function SidebarCart(props) {
 
     return (
         <>
-        {/* <div className={styles.SidebarCart_overlay}></div> */}
-        <div className={ `fadeIn ${ styles.SidebarCart__overlay } ${ props.showCart === true ? ( 
+        <div onClick={props.handleCloseCart} className={ `fadeIn ${ styles.SidebarCart__overlay } ${ props.showCart === true ? ( 
             styles.SidebarCart__overlay_active  
             ) : '' }` }></div>
             <div className={`cart ${styles.SidebarCart} ${ props.showCart === true ? (
