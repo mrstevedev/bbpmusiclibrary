@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const axios = require('axios')
 const oauthSignature = require('oauth-signature')
+const { generateTimestamp, generateNonce } = require('./util/generate')
 app.use(express.json())
 require('dotenv').config({ path: './.env' })
 
@@ -10,19 +11,6 @@ app.use(cors({
     origin: process.env.ORIGIN_URL,
     credentials: true
 }))
-
-function generateNonce() {
-    let text = ''
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (let i = 0; i < 11; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return text
-}
-
-function generateTimestamp() {
-    return Math.round(new Date().getTime() / 1000).toString()
-}
 
 app.post('/create-user', async (req, res) => {
     const first_name = req.body.firstName
