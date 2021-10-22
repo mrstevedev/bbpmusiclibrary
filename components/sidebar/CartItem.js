@@ -1,5 +1,4 @@
 import styles from '../../styles/SidebarCart.module.scss'
-import { Fragment } from 'react'
 import Link from 'next/link'
 import Image from "next/image";
 
