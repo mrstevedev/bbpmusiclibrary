@@ -425,6 +425,7 @@ const handleToggleSummary = (e: any) => {
                               currencyCode: 'USD',
                               countryCode: 'US',
                             },
+                            callbackIntents: ['PAYMENT_AUTHORIZATION']
                           }}
                           onLoadPaymentData={paymentRequest => {
                             console.log('load payment data', paymentRequest);
