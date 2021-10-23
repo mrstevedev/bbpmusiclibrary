@@ -31,7 +31,7 @@ interface Y {
 }
 
 interface Product {
-  productId: string,
+  databaseId: string,
   name: string,
   image: string
   price: number,
@@ -208,7 +208,7 @@ const handleToggleSummary = (e: any) => {
                       
                       {products ?
                         products.map((product: Product) => (
-                          <Fragment key={product.productId}>
+                          <Fragment key={product.databaseId}>
                           <aside role="complementary">
                             <button onClick={handleToggleSummary} className={`${ styles["order__summary_toggle"] } toggle__dropdown`} aria-expanded="false" aria-controls="order-summary" data-drawer-toggle="[data-order-summary]" aria-hidden="false">
                               <span className={ styles.wrap }>
@@ -238,7 +238,7 @@ const handleToggleSummary = (e: any) => {
                             </button>
                           </aside>
                          <aside className={ `${ styles.Checkout__mobile_product_dropdown } dropdown` } role="complementary">
-                         <div key={ product.productId } className={styles.Checkout__mobile_product}>
+                         <div key={ product.databaseId } className={styles.Checkout__mobile_product}>
                             <div className={`${styles.Checkout__mobile_product_img}`}>
                             <span className="cart-count-mobile">{ productsCount }</span>
 
@@ -564,7 +564,7 @@ const handleToggleSummary = (e: any) => {
 
                   {products ?
                     products.map((product: Product) => (
-                      <div key={ product.productId } className={styles.Checkout__right_product}>
+                      <div key={ product.databaseId } className={styles.Checkout__right_product}>
                         <div className={`product-img ${styles.Checkout__right_product_img}`}>
                         <Link href={`/product/${ product.slug }`}>
                           <a>
