@@ -28,7 +28,7 @@ export default function CartItem(props: IProducts) {
                         <td style={{  width: '130px' }}>
                             <Link href={`product/${ product.slug }`}>
                                 <a>
-                                    <Image src={ product.image } width="150" height="150" />
+                                    <Image className="hero-img" src={ product.image } width="150" height="150" />
                                 </a>
                             </Link>
                         </td>
