@@ -6,13 +6,10 @@ import Select from 'react-select'
 import countryList from 'react-select-country-list'
 import { useStates } from 'react-us-states'
 import SubmitPaymentButton from '../components/SubmitPaymentButton'
-import { PayPalButton } from 'react-paypal-button-v2'
-import GooglePayButton from "@google-pay/button-react"
 import Head from 'next/head'
 import Link from 'next/link'
-import Router from 'next/router'
-import PaymentSkeletonBtn from '../components/PaymentSkeletonBtn'
-import { formatPhoneNumber } from "../util";
+import PaymentSteps from '../components/checkout/PaymentSteps'
+import ExpressCheckout from '../components/checkout/ExpressCheckout'
 
 
 // Use next/script to add dynamic class to body
@@ -59,11 +56,10 @@ export default function Checkout() {
   const productFile =
    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].downloads[0].file : ""
 
-   const productId =
+   const databaseId =
     ( null != cart && Object.keys( cart ).length ) ? cart.products[0].databaseId : ""
   
   const [loading, setLoading] = useState(false)
-  const [paid, setPaid] = useState(false)
   const [hasErrors, setHasErrors] = useState(false)
   const [countryValue, setCountryValue] = useState({})
   const [usStates, setUsStates] = useState({})
@@ -280,164 +276,15 @@ const handleToggleSummary = (e: any) => {
 
                     </div>
 
-                        <h5 className={styles.Checkout__breadcrumb}>
-                          <span>Cart</span>
-                        <svg className="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon" aria-hidden="true" focusable="false"> 
-                          <svg id="chevron-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"></path></svg></svg>
-                         </svg>
-                         <span>Information</span>
-                        <svg className="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon" aria-hidden="true" focusable="false"> 
-                          <svg id="chevron-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"></path></svg></svg>
-                         </svg>
-                         <span>Payment</span>
-                          </h5>
+                      <PaymentSteps />
 
-
-                    <div className={styles.Checkout__express}>
-                      <h5 className={ styles.Checkout__express_header }><span style={{ 
-                        background: '#fff',
-                        padding: '0 0.5rem'
-                     }}>Express Checkout</span></h5>
-                     
-                     { loading && (
-                        <Fragment>
-                         <PaymentSkeletonBtn />
-                          <PaymentSkeletonBtn />
-                        </Fragment>
-                     ) }
-                     
-                      { !loading && (
-                        <Fragment>
-                          <PayPalButton
-                        style={{ 
-                          height: 55
-                        }}
-                        options={{
-                          // merchantId: "H3E758JAU25R6",
-                          clientId: "sb",
-                          currency: "USD",
-                          disableFunding: 'venmo,card,credit'
-                        }}
-                        createOrder={(data: any, actions: any) => {
-                          return actions.order.create({
-                            purchase_units: [{
-                              description: productName,
-                              amount: {
-                                currency_code: "USD",
-                                value: price
-                              }
-                            }],
-                             application_context: {
-                              shipping_preference: "NO_SHIPPING"
-                            }
-                          });
-                        }}
-                          onSuccess={(details: any, data: any) => {
-                            const obj = JSON.stringify(details)
-                            const email_address = details.payer.email_address;
-                            const address_line_1 = details.payer.address.address_line_1;
-                            const admin_area_1 = details.payer.address.admin_area_1;
-                            const admin_area_2 = details.payer.address.admin_area_2;
-                            const postal_code = details.payer.address.postal_code;
-                            const country_code = details.payer.address.country_code;
-                            const phone = formatPhoneNumber( details.payer.phone.phone_number.national_number);
-                            const id = details.id;
-                            const first_name = details.payer.name.given_name;
-                            const last_name = details.payer.name.surname;
-                            const description = details.purchase_units[0].description;
-                            const price = details.purchase_units[0].amount.value;
-                            console.log(JSON.parse(obj))
-
-                            return fetch("http://localhost:5000/create-order", {
-                              method: "POST",
-                              headers: {
-                                "Content-Type": "application/json"
-                              },
-                              body: JSON.stringify({
-                                payment_details: obj,
-                                id: id,
-                                email_address: email_address,
-                                admin_area_1: admin_area_1,
-                                admin_area_2: admin_area_2,
-                                postal_code: postal_code,
-                                country_code: country_code,
-                                address_line_1: address_line_1,
-                                phone: phone,
-                                first_name: first_name,
-                                last_name: last_name,
-                                description: description,
-                                price: price,
-                                productId: productId,
-                                file: productFile,
-                                
-                                payment_method: 'Paypal'
-                              })
-                            }).then(res => {
-                              console.log(res)
-                              if(res.ok) {
-                                Router.push({
-                                  pathname: '/confirm',
-                                  query: `${ `success=true&email=${ email_address }&transaction_id=${ id }`}`
-                                })
-                              }                             
-                            })
-                          }}
-                          onError={(err: object) => {
-                            console.log(err)
-                          }}
-                        />
-                        <GooglePayButton
-                          environment="TEST"
-                          buttonSizeMode="fill"
-                          buttonType="plain"
-                          style={{
-                            width: "100%",
-                            height: 55
-                          }}
-                          paymentRequest={{
-                            apiVersion: 2,
-                            apiVersionMinor: 0,
-                            allowedPaymentMethods: [
-                              {
-                                type: 'CARD',
-                                parameters: {
-                                  allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                                  allowedCardNetworks: ['AMEX', 'DISCOVER', 'MASTERCARD', 'VISA'],
-                                },
-                                tokenizationSpecification: {
-                                  type: 'PAYMENT_GATEWAY',
-                                  parameters: {
-                                    gateway: 'example',
-                                    gatewayMerchantId: 'exampleGatewayMerchantId',
-                                  },
-                                },
-                              },
-                            ],
-                            merchantInfo: {
-                              merchantId: '12345678901234567890',
-                              merchantName: 'Demo Merchant',
-                            },
-                            transactionInfo: {
-                              totalPriceStatus: 'FINAL',
-                              totalPriceLabel: 'Total',
-                              totalPrice: price.toString(),
-                              currencyCode: 'USD',
-                              countryCode: 'US',
-                            },
-                            callbackIntents: ['PAYMENT_AUTHORIZATION']
-                          }}
-                          onLoadPaymentData={paymentRequest => {
-                            console.log('load payment data', paymentRequest);
-                            setPaid(true)
-                          }}
-                          onPaymentAuthorized={paymentData => {
-                            console.log('Payment Authorized Success', paymentData)
-                            return { transactionState: "SUCCESS" }
-                          }}
-                        />
-                        </Fragment>
-                      ) }
-                    </div>
+                      <ExpressCheckout 
+                        price={price}
+                        databaseId={databaseId}
+                        productFile={productFile}
+                        productName={productName}
+                        loading={loading}
+                      />
 
                     <div className="alternative-payment-separator" data-alternative-payment-separator="">
                       <span className="alternative-payment-separator__content">
