@@ -280,7 +280,6 @@ const handleToggleSummary = (e: any) => {
 
                     </div>
 
-                        <div className="">
                         <h5 className={styles.Checkout__breadcrumb}>
                           <span>Cart</span>
                         <svg className="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon" aria-hidden="true" focusable="false"> 
@@ -292,7 +291,7 @@ const handleToggleSummary = (e: any) => {
                          </svg>
                          <span>Payment</span>
                           </h5>
-                        </div>
+
 
                     <div className={styles.Checkout__express}>
                       <h5 className={ styles.Checkout__express_header }><span style={{ 
