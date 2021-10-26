@@ -83,7 +83,7 @@ app.post('/create-order', async (req, res) => {
     const postal_code = req.body.postal_code
     const country_code = req.body.country_code
     const phone = req.body.phone
-    const product_id = req.body.productId
+    const product_id = req.body.databaseId
     const UnixTimestamp = generateTimestamp()
 
     const json = {
