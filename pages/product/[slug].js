@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 import styles from "../../styles/Product.module.scss";
 import Toast from "../../components/Toast";
 import Head from "next/head";
@@ -17,7 +18,7 @@ export default function Product(props) {
   const [gallery, showGallery] = useState(false);
   const [cart, setCart] = useContext(AppContext);
 
-  console.log(props)
+  const router = useRouter()
 
 
   const handleAddToCart = () => {
