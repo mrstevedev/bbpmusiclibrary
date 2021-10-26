@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "../../styles/Product.module.scss";
 import Toast from "../../components/Toast";
 import Head from "next/head";
