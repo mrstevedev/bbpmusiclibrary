@@ -27,11 +27,16 @@ export default function SidebarCart(props : IProps) {
                 </div>
                 <div className={styles.Checkout__right_btm}>
 
-                    <CartItem 
-                        price={price}
-                        products={products} 
-                        productsCount={productsCount} 
-                    />
+                {products ?
+                    products.map((product: Product) => (
+                        <CartItem 
+                            key={product.databaseId}
+                            price={price}
+                            product={product}
+                            productsCount={productsCount} 
+                        />
+                    ))
+                    : 'There are no items in your cart'}
 
                 </div>
                 <div className={styles.Checkout__right_btm_total_container}>
