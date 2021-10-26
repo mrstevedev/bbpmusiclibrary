@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "../../styles/Product.module.scss";
-import Image from "next/image";
 import Toast from "../../components/Toast";
 import Head from "next/head";
 import { AppContext } from "../../components/context/AppContext";
