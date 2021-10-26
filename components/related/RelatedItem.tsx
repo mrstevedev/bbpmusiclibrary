@@ -26,7 +26,6 @@ interface IProduct {
 }
 
 export default function RelatedItem(props: IProduct) {
-    console.log(props)
     return (
         <>
             { props.product.related.edges.map((item: IEdges) => (
