@@ -20,6 +20,16 @@ export default function Product(props) {
 
   const router = useRouter()
 
+  useEffect(() => {
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    };
+  }, [router.events]);
+
+  const handleRouteChange = () => {
+    setAddToCart(false)
+  }
 
   const handleAddToCart = () => {
 
