@@ -14,8 +14,8 @@ export default function CheckoutButton(props) {
             <span className={styles.cartBtnTxt}>Checkout</span>
             <Image
               src="/images/cart__haveItems.svg"
-              width="24"
-              height="22"
+              width="22"
+              height="20"
               alt="Checkout Item"
             />
           </button>
