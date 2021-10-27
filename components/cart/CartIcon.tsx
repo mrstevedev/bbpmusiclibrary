@@ -7,6 +7,7 @@ import { AppContext } from "../context/AppContext"
 
 type Props = {
   handleShowCart: () => void
+  noCartEvent: boolean
 }
 
 export default function CartIcon(props: Props) {
@@ -17,7 +18,29 @@ export default function CartIcon(props: Props) {
 
   return (
     <>
-      <Link href="/">
+      { props.noCartEvent === true ? (
+        <>
+          <Link href="#">
+        <a
+          className={styles.btn__hover_scale}
+          data-effect="st-effect-1"
+        >
+          <span className={`cart-count ${styles.cart__count}`}>
+            {/* { productsCount !== null ? <span>{productsCount}</span> : '' } */}
+          </span>
+          <Image
+            className="cart"
+            src={cartImg}
+            width="22"
+            height="21"
+            alt="shopping cart"
+          />
+        </a>
+      </Link>
+        </>
+      ) : (
+        <>
+        <Link href="/">
         <a
           onClick={props.handleShowCart}
           className={styles.btn__hover_scale}
@@ -35,6 +58,8 @@ export default function CartIcon(props: Props) {
           />
         </a>
       </Link>
+        </>
+      ) }
     </>
   );
 }
