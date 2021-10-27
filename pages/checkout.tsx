@@ -10,7 +10,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import PaymentSteps from '../components/checkout/PaymentSteps'
 import ExpressCheckout from '../components/checkout/ExpressCheckout'
-
+import SidebarCart from '../components/checkout/SidebarCart'
 
 // Use next/script to add dynamic class to body
 import Script from 'next/script'
@@ -402,52 +402,12 @@ const handleToggleSummary = (e: any) => {
                 </div> 
                 {/* End Checkout__left */}
 
-                <div className={styles.Checkout__right}>
-                  <div className={styles.Checkout__right_top}>
-                      <h3 className={styles.Checkout__right_topTitle}>Checkout</h3>
-                  </div>
-                  <div className={styles.Checkout__right_btm}>
-                    
+                <SidebarCart 
+                  products={products} 
+                  productsCount={productsCount} 
+                  price={price}
+                />
 
-                  {products ?
-                    products.map((product: Product) => (
-                      <div key={ product.databaseId } className={styles.Checkout__right_product}>
-                        <div className={`product-img ${styles.Checkout__right_product_img}`}>
-                        <Link href={`/product/${ product.slug }`}>
-                          <a>
-                            <span className="cart-count">{ productsCount }</span>
-                            <Image src={product.image} width="91" height="91" alt={ product.name } />
-                          </a>
-                          </Link>
-                          </div>
-                          <div className={styles.Checkout__right_product_name}>
-                            <h3 className={styles.Checkout__right_product_name_txt}>
-                              <Link href={`/product/${ product.slug }`}>
-                                <a style={{ color: '#333', fontWeight: 100 }}>
-                                  { product.name }
-                                </a>
-                              </Link>
-                            </h3>
-                            {/* <a className="link" href="#" onClick={() => handleRemoveItem(product.productId)}>Remove</a> */}
-                          </div>
-                        <span>{ product.price }</span>
-                      </div>
-                    ))
-                  : 'There are no items in your cart'}
-
-                  </div>
-                    <div className={styles.Checkout__right_btm_total_container}>
-                      <div className={styles.Checkout__right_btm_total}>
-                        <h4>Total</h4>
-                      </div>
-                      <div>
-                        <span className="Checkout_currency__ticker">USD</span> { price }
-                      </div>
-                    </div>
-
-                {/* End Checkout__right */}
-                </div>
-                {/* End Checkout__right */}
             </main>
         </>
     )
