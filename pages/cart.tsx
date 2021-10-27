@@ -2,8 +2,6 @@ import styles from '../styles/Cart.module.scss'
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/context/AppContext'
 import Cart from '../components/cart/Cart'
-
-// Use next/script to add dynamic class to body
 import Script from 'next/script'
 
 const CartPage = () => {
