@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
         setCookieNotification(true)
       }
       const scrollPosition = document.documentElement.scrollTop || document.body.scrollTop
-      if(scrollPosition <= 0) {
+      if(scrollPosition <= 0 && document.cookie.indexOf('bb_subscription_accept') == -1) {
         setShowModal(true)
         document.body.classList.add("modal__open");
       }
@@ -85,6 +85,8 @@ const Layout = ({ children }) => {
   const handleCloseModal = () => {
     setShowModal(false)
     document.body.classList.remove("modal__open");
+
+    document.cookie="bb_subscription_accept=true;";
   }
 
   return (
