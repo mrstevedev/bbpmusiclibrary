@@ -22,7 +22,7 @@
     .NotificationsBar {
         position: fixed;
         top: 0;
-        z-index: 9999;
+        z-index: 100;
         .NotificationsBar__text {
             font-size: 0.53rem;
         }
