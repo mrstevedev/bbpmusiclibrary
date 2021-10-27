@@ -38,7 +38,7 @@ export default function Header(props) {
                     <a className={ styles.signIn__Link }>Sign-In</a>
                  </Link>
                 </span>
-                <CartIcon handleShowCart={props.handleShowCart} />
+                <CartIcon noCartEvent={props.noCartEvent} handleShowCart={props.handleShowCart} />
               </div>
           </div>
         </nav>
