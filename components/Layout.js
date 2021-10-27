@@ -3,6 +3,7 @@ import Header from "./Header";
 import SidebarCart from "./SidebarCart";
 import { AppProvider } from "./context/AppContext";
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 import OverlayNav from "./OverlayNav";
 import Modal from './Modal';
 import CookieNotification from './CookieNotification';
@@ -16,11 +17,20 @@ const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [cookieNotification, setCookieNotification] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const [noCartEvent, setNoCartEvent] = useState(false)
+
+  const router = useRouter()
 
   useEffect(() => {
     // Get value of localStorage of item key set when cart opened/closed
     if (localStorage.getItem("cartOpen") !== null) {
       setShowCart(true);
+    }
+
+    setNoCartEvent(false)
+
+    if(router.route==='/cart') {      
+      setNoCartEvent(true)
     }
 
     setTimeout(() => {
@@ -34,7 +44,7 @@ const Layout = ({ children }) => {
       }
     }, 6000)
 
-  }, []);
+  }, [router.route]);
 
   const handleShowCart = (e) => {
     e.preventDefault();
@@ -112,6 +122,7 @@ const Layout = ({ children }) => {
         handleToggleMenu={handleToggleMenu}
         handleShowCart={handleShowCart}
         isOpen={isOpen}
+        noCartEvent={noCartEvent}
       />
       {children}
       
