@@ -15,8 +15,12 @@
     display: flex;
     margin: 1rem 0 0rem 0;
     padding: 2rem;
-    border-radius: 3px;
+    border-radius: 6px;
     transition: 0.22s ease-in-out;
+
+    img {
+      border-radius: 6px;
+    }
 
     .category__results_row_description {
       width: 100%;
