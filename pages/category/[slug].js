@@ -1,9 +1,8 @@
 import Link from "next/link"
 import Head from "next/head"
-import Image from "next/image"
 import styles from '../../styles/Category.module.scss'
-import { trimString } from '../../util/index'
 import Script from 'next/script'
+import CategoryItem from '../../components/category/CategoryItem'
 
 export default function Category(data) {
   const productLength = data.category.productCategory.products.nodes.length
@@ -38,29 +37,7 @@ export default function Category(data) {
             There are { productLength } matching{" "}
             <span className={ styles.category__results_name }>{name}</span>
           </h4>
-          {products.map((prod) => (
-            <div className={styles.category__row} key={prod.name}>
-              <div className="product-img">
-                <Link href={{
-                  pathname: `/product/${ prod.slug }`
-                }}>
-                  <a>
-                    <Image
-                      src={prod.image.mediaItemUrl}
-                      alt="Category Image"
-                      width="350"
-                      height="350"
-                    />
-                  </a>
-                </Link>
-              </div>
-              <div className={ styles.category__results_row_description }>
-                {prod.name}
-                <p>{ prod.description !== null ? trimString(prod.description, 250) : '' }</p>
-                <p>Price: { prod.price }</p>
-              </div>
-            </div>
-          ))}
+            <CategoryItem products={products} />
         </div>
       </main>
     </>
