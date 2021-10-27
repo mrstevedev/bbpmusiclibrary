@@ -17,7 +17,6 @@ export default function ACButton(props) {
                     <span className={styles.cartBtnTxt}>
                       View cart
                     </span>
-                    <Image src="/images/shopping-cart_check_black.svg" width="30" height="28" alt="Add to Cart" />
                   </button>
                 </Link>
               </>
@@ -27,7 +26,6 @@ export default function ACButton(props) {
                 <span className={styles.cartBtnTxt}>
                   Add to cart
                 </span>
-                <Image src="/images/add-to-cart-btn.svg" width="24" height="22" alt="Add to Cart" />
               </button>
               </>
             )}
