@@ -40,7 +40,15 @@ export default function CartItem(props: IProducts) {
                             ${ product.price }
                         </td>
                         <td>
-                            <input onChange={props.handleChange} type="number" value={props.quantity} step="1" min="1" pattern="[0-9]*" style={{ width: '45px' }} />
+                            <input 
+                                onChange={props.handleChange} 
+                                type="number" 
+                                value={props.quantity} 
+                                step="1" 
+                                min="1" 
+                                pattern="[0-9]*" 
+                                style={{ width: '45px', border: 'solid 1px #e2e2e2', fontWeight: 100 }} 
+                            />
                         </td>
                         <td>
                             <div style={{  width: '50px' }}>
