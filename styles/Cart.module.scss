@@ -29,3 +29,12 @@
         }
     }
 }
+
+@media(max-width: 575px) {
+    .cart__table {
+        thead {
+            position: absolute;
+            clip: rect(0 0 0 0);
+        }
+    }
+}
