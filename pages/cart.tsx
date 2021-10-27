@@ -1,5 +1,5 @@
 import styles from '../styles/Cart.module.scss'
-import { ChangeEvent, Fragment, useContext, useEffect, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/context/AppContext'
 import Cart from '../components/cart/Cart'
 
