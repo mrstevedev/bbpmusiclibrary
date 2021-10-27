@@ -24,8 +24,6 @@ const CartPage = () => {
         setQuantity(productsCount)
     }, [setQuantity])
 
-    console.log('products in cart', products)
-
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setQuantity(Number(event.target.value))
 
