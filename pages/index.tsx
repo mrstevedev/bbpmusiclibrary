@@ -2,7 +2,7 @@ import Head from "next/head"
 import React, { useEffect, useState } from "react"
 import styles from "../styles/Home.module.scss"
 import Script from 'next/script'
-import Products from '../components/product/Products'
+import Products from '../components/home/Products'
 
 interface Props {
   products: Props[],
