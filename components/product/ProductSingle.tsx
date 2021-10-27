@@ -1,6 +1,6 @@
 import styles from "../../styles/Product.module.scss";
 import Image from "next/image";
-import ACButton from "../../components/ACButton";
+import ACButton from "../product/ACButton";
 import { createLink } from "../../util";
 
 interface IProduct {
