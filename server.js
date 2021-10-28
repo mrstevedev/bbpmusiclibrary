@@ -87,8 +87,8 @@ app.post('/create-order', async (req, res) => {
     const UnixTimestamp = generateTimestamp()
 
     const json = {
-        "payment_method": body.payment_details.payment_method,
-        "payment_method_title": body.payment_details.payment_method,
+        "payment_method": body.payment_method,
+        "payment_method_title": body.payment_method,
         "set_paid": true,
         "status": "completed",
         "billing": {
