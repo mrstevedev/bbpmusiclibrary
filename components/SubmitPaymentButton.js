@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Spinner from '../components/Spinner'
 
 export default function SubmitPaymentButton(props) {
