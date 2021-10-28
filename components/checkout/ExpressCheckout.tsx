@@ -62,7 +62,7 @@ export default function ExpressCheckout(props : IProps) {
                     }
                     });
                 }}
-                    onSuccess={(details: any, data: any) => {
+                    onSuccess={(details: any) => {
                     const email_address = details.payer.email_address;
                     const address_line_1 = details.payer.address.address_line_1;
                     const admin_area_1 = details.payer.address.admin_area_1;
