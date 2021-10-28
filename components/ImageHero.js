@@ -1,18 +1,18 @@
 import styles from "../styles/Hero.module.scss";
 
 export default function ImageHero(props) {
+  const { mediaItemUrl, about, contact } = props
 
   return (
     <>
-      { props.contact ? (
+      { contact ? (
         <div className={`hero-img ${styles.Bonita__Hero}`} style={{
-          background: `url(${ props.mediaItemUrl }) center -130px no-repeat`,
+          background: `url(${ mediaItemUrl }) center -130px no-repeat`,
           backgroundSize: 'cover'
         }}></div>
-      ) : props.about ? (
+      ) : about ? (
         <div className={`hero-img ${styles.Bonita__Hero}`} style={{
-          background: `url(${ props.mediaItemUrl }) center -530px no-repeat`,
-          // backgroundSize: 'cover'
+          background: `url(${ mediaItemUrl }) center -530px no-repeat`
         }}></div>
       ) : '' }
     </>
