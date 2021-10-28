@@ -20,6 +20,7 @@ interface IProducts {
 }
 
 export default function Cart(props : IProducts) {
+    const { totalStatePrice } = props
     return (
         <>
             { props.products ? (
@@ -49,10 +50,10 @@ export default function Cart(props : IProducts) {
             <footer>
                 <div className="grid" style={{ display: 'flex' }}>
                     <div className="cart__note" style={{ width: '100%' }}></div>
-                    <div className="cart__right" style={{ width: '100%', padding: '2rem 0' }}>
+                    <div className={styles.cart__right} style={{ width: '100%', padding: '2rem 0' }}>
                         <div className="cart__coupon--container"></div>
-                        <div className="cart__subtotal">
-
+                        <div className={styles.cart__subtotal}>
+                            <h5 style={{ fontWeight: 'bold' }}>Subtotal <span>{ totalStatePrice }</span></h5>
                         </div>
                         <p style={{ textAlign: 'right', fontWeight: 100, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.7rem'} }>Taxes calculated at checkout</p>
                         <div className="" style={{ width: '100%', textAlign: 'right' }}>
