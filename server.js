@@ -12,7 +12,7 @@ app.use(cors({
     credentials: true
 }))
 
-app.post('/create-user', async (req, res) => {
+app.post('/register-customer', async (req, res) => {
     const first_name = req.body.firstName
     const last_name = req.body.lastName
     const username = req.body.username
