@@ -1,4 +1,3 @@
-import React, { Fragment } from "react"
 import ProductItem from './ProductItem'
 
 interface IProduct {
