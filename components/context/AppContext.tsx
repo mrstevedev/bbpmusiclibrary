@@ -6,7 +6,7 @@ interface Props {
     children: object
 }
 
-export const AppProvider = ( props: Props ) => {
+export const AppProvider: React.FC = ({ children }) => {
     const [ cart, setCart ] = useState<any>( null )
 
     useEffect(() => {
@@ -20,7 +20,7 @@ export const AppProvider = ( props: Props ) => {
     }, [])
     return (
         <AppContext.Provider value={ [ cart, setCart ] }>
-            { props.children }
+            { children }
         </AppContext.Provider>
     )
 }
