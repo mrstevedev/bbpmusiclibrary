@@ -28,6 +28,12 @@
             padding: 1rem;
         }
     }
+    .cart__right {
+       .cart__subtotal {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
 }
 
 @media(max-width: 575px) {
