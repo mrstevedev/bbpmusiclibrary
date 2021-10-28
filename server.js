@@ -29,7 +29,7 @@ app.post('/create-user', async (req, res) => {
     })
 
     const httpMethod = 'POST',
-    url = 'http://localhost:10028/wp-json/wp/v2/users',
+    url = process.env.USERS_URL,
     requestParams = { 
         oauth_consumer_key : process.env.CONSUMER_KEY,
         oauth_token : process.env.TOKEN,
@@ -120,7 +120,7 @@ app.post('/create-order', async (req, res) => {
     }
 
     const httpMethod = 'POST',
-    url = 'http://localhost:10028/wp-json/wc/v3/orders',
+    url = process.env.ORDERS_URL,
     requestParams = { 
         oauth_consumer_key : process.env.CONSUMER_KEY,
         oauth_token : process.env.TOKEN,
