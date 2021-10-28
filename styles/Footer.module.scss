@@ -6,31 +6,31 @@
   bottom: 0;
   z-index: 1;
 
-  .container {
+  .footer__container {
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
 
-  p {
-    color: #fff;
-    font-size: 0.74rem;
-    margin: 0;
-    font-weight: 300;
-  }
+    p {
+      color: #fff;
+      font-size: 0.74rem;
+      margin: 0;
+      font-weight: 300;
+    }
 
-  .built_by {
-    color: #729cda;
-    font-weight: bold;
-  }
-
-  svg {
-    path {
-      transition: .12s ease-in-out;
-      &:hover {
-        fill: #729cda;
+    .built_by {
+      color: #729cda;
+      font-weight: bold;
+    }
+  
+    svg {
+      path {
+        transition: .12s ease-in-out;
+        &:hover {
+          fill: #729cda;
+        }
       }
     }
   }
