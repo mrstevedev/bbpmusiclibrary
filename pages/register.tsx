@@ -23,7 +23,7 @@ export default function Register() {
 
         const customerJSON = JSON.stringify(customer)
 
-            axios.post('http://localhost:5000/create-user', customerJSON, {
+            axios.post('http://localhost:5000/register-customer', customerJSON, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
