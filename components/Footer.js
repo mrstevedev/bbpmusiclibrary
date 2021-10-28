@@ -10,7 +10,6 @@ export default function Footer() {
             <Link href="https://www.discogs.com/my">
               <a>
               <svg
-                className={styles.link}
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
                 height="17"
