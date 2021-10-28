@@ -63,7 +63,6 @@ export default function ExpressCheckout(props : IProps) {
                     });
                 }}
                     onSuccess={(details: any, data: any) => {
-                    const obj = JSON.stringify(details)
                     const email_address = details.payer.email_address;
                     const address_line_1 = details.payer.address.address_line_1;
                     const admin_area_1 = details.payer.address.admin_area_1;
@@ -76,15 +75,13 @@ export default function ExpressCheckout(props : IProps) {
                     const last_name = details.payer.name.surname;
                     const description = details.purchase_units[0].description;
                     const price = details.purchase_units[0].amount.value;
-                    console.log(JSON.parse(obj))
 
                     return fetch("http://localhost:5000/create-order", {
                         method: "POST",
                         headers: {
-                        "Content-Type": "application/json"
+                            "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                        payment_details: obj,
                         id: id,
                         email_address: email_address,
                         admin_area_1: admin_area_1,
