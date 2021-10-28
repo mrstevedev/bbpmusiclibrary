@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <footer className={styles.footer}>
-        <div className={`container ${styles.container}`}>
+        <div className={`container ${styles.footer__container}`}>
           <div className="col-md-3">
             <Link href="https://www.discogs.com/my">
               <a>
