@@ -1,7 +1,7 @@
 import styles from "../styles/Hero.module.scss";
 
 export default function ImageHero(props) {
-  console.log('props in hero image', props)
+
   return (
     <>
       { props.contact ? (
