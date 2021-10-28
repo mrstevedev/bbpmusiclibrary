@@ -6,7 +6,7 @@ interface Props {
     children: object
 }
 
-export const AppProvider: React.FC = ({ children }) => {
+export const AppProvider = ({ children } : Props ) => {
     const [ cart, setCart ] = useState<any>( null )
 
     useEffect(() => {
