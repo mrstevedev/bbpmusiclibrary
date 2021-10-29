@@ -187,7 +187,7 @@ export default function Product(props) {
 }
 
 export async function getStaticProps(context) {
-  console.log('context', context)
+
   const res = await fetch(process.env.SITE_URL, {
     method: "POST",
     headers: { "Content-type": "application/json" },
