@@ -25,11 +25,6 @@ export default function Home( { products } : Props ) {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // let productImg = document.querySelectorAll(".products img"), i = 1;
-    // Array.prototype.forEach.call(productImg, (productImg) => { 
-    // setTimeout(() => { productImg.classList.add("img__visible") }, 200*i)
-    // i++;
-    // })
     setSampleProducts(products)
 
     setTimeout(() => {
