@@ -22,14 +22,9 @@ interface Props {
 
 export default function Home( { products } : Props ) {
   const [sampleProducts, setSampleProducts] = useState<Props[]>([])
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setSampleProducts(products)
-
-    setTimeout(() => {
-      setIsLoading(true)
-    }, 2000)    
   }, [products])
 
   return (
