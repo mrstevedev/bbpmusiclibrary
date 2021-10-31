@@ -41,6 +41,13 @@
         padding: 0.9rem 2rem;
         letter-spacing: 2px;
     }
+    .cart__taxesTxt {
+        text-align: right;
+        font-weight: 100;
+        letter-spacing: 1px;
+        text-transform: uppercase; 
+        font-size: 0.7rem;
+    }
 }
 
 @media(max-width: 575px) {
@@ -71,5 +78,9 @@
 
     .cart__checkoutBtnContainer {
         text-align: center !important;
+    }
+    .cart__taxesTxt {
+        text-align: center !important;
+        padding: 3rem 0 0 0;
     }
 }
