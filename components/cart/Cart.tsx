@@ -55,7 +55,7 @@ export default function Cart(props : IProducts) {
                         <div className={styles.cart__subtotal}>
                             <h5 className={styles.cart__subtotalText} style={{ fontWeight: 'bold' }}>Subtotal <span>{ totalStatePrice }</span></h5>
                         </div>
-                        <p style={{ textAlign: 'right', fontWeight: 100, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.7rem'} }>Taxes calculated at checkout</p>
+                        <p className={styles.cart__taxesTxt}>Taxes calculated at checkout</p>
                         <div className={styles.cart__checkoutBtnContainer} style={{ width: '100%', textAlign: 'right' }}>
                             <Link href="/checkout">
                                 <a>
