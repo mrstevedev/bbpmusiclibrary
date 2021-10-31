@@ -48,24 +48,18 @@ export default function Cart(props : IProducts) {
                 </table>
 
             <footer>
-                <div className="grid" style={{ display: 'flex' }}>
+                <div className={styles.cart__grid} style={{ display: 'flex' }}>
                     <div className="cart__note" style={{ width: '100%' }}></div>
                     <div className={styles.cart__right} style={{ width: '100%', padding: '2rem 0' }}>
                         <div className="cart__coupon--container"></div>
                         <div className={styles.cart__subtotal}>
-                            <h5 style={{ fontWeight: 'bold' }}>Subtotal <span>{ totalStatePrice }</span></h5>
+                            <h5 className={styles.cart__subtotalText} style={{ fontWeight: 'bold' }}>Subtotal <span>{ totalStatePrice }</span></h5>
                         </div>
                         <p style={{ textAlign: 'right', fontWeight: 100, letterSpacing: '1px', textTransform: 'uppercase', fontSize: '0.7rem'} }>Taxes calculated at checkout</p>
-                        <div className="" style={{ width: '100%', textAlign: 'right' }}>
+                        <div className={styles.cart__checkoutBtnContainer} style={{ width: '100%', textAlign: 'right' }}>
                             <Link href="/checkout">
                                 <a>
-                                    <button className="rounded-0 btn btn-primary" style={{ 
-                                        fontWeight: 100, 
-                                        textTransform: 'uppercase', 
-                                        fontSize: '0.7rem',
-                                        padding: '0.9rem 2rem',
-                                        letterSpacing: '2px',
-                                    }}>Checkout</button>
+                                    <button className={`rounded-0 btn btn-primary ${ styles.cart__button }`}>Checkout</button>
                                 </a>
                             </Link>
                         </div>
