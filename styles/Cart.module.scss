@@ -34,13 +34,42 @@
             justify-content: flex-end;
         }
     }
+    .cart__button {
+        font-weight: 100;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        padding: 0.9rem 2rem;
+        letter-spacing: 2px;
+    }
 }
 
 @media(max-width: 575px) {
+    .cart__grid {
+        display: initial !important;
+    }
     .cart__table {
         thead {
             position: absolute;
             clip: rect(0 0 0 0);
         }
+        td:first-child {
+            padding: 1rem 1rem 0 0;
+        }
+        td:nth-child(3),
+        td:last-child {
+            display: none;
+        }
+    }
+
+    .cart__subtotal {
+        display: initial !important;
+        .cart__subtotalText {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .cart__checkoutBtnContainer {
+        text-align: center !important;
     }
 }
