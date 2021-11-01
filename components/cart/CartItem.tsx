@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import styles from '../../styles/Cart.module.scss'
 
 interface IProduct {
     name: string
@@ -24,8 +25,8 @@ export default function CartItem(props: IProducts) {
         <>
              { props.products ? props.products.map((product: IProduct) => (
                 <Fragment key={product.name}>
-                    <tr style={{ borderBottom: 'solid 1px #e2e2e2' }}>
-                        <td style={{  width: '130px' }}>
+                    <tr className={styles.cart__itemRow}>
+                        <td className={ styles.cart__itemImg }>
                             <Link href={`product/${ product.slug }`}>
                                 <a>
                                     <Image className="hero-img" src={ product.image } width="150" height="150" />
@@ -34,7 +35,7 @@ export default function CartItem(props: IProducts) {
                         </td>
                         <td>
                             <Link href={`product/${ product.slug }`}><a className="link">{ product.name }</a></Link> <br/>
-                            <a href="#" style={{ color: '#ccc', fontSize: '0.8rem' }}>Remove</a>
+                            <a href="#" className={styles.cart__itemRemove}>Remove</a>
                         </td>
                         <td>
                             ${ product.price }
@@ -47,11 +48,11 @@ export default function CartItem(props: IProducts) {
                                 step="1" 
                                 min="1" 
                                 pattern="[0-9]*" 
-                                style={{ width: '45px', border: 'solid 1px #e2e2e2', fontWeight: 100 }} 
+                                className={styles.cart__qty}
                             />
                         </td>
                         <td>
-                            <div style={{  width: '50px' }}>
+                            <div>
                             ${ props.totalStatePrice * props.quantity }
                             </div>
                         </td>
