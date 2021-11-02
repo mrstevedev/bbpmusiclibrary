@@ -13,7 +13,12 @@
 
     .cart__table {
         width: 100%;
-        th { font-weight: 100; }
+        .cart__tHead{
+            border-bottom: solid 1px #e2e2e2; 
+            height: 60px;
+
+            th { font-weight: 100; }
+        }
 
         td {
             vertical-align: top;
@@ -27,12 +32,28 @@
             color: #ccc;
             font-size: 0.8rem;
         }
-    }
 
+        .cart__itemRow {
+            border-bottom: solid 1px #e2e2e2;
+            .cart__itemImg {
+                width: 130px;
+            }
+            .cart__qty {
+                width: 45px; 
+                border: solid 1px #e2e2e2; 
+                font-weight: 100;
+            }
+        }
+    }
     .cart__right {
+        width: 100%; 
+        padding: 2rem 0;
        .cart__subtotal {
             display: flex;
             justify-content: flex-end;
+            .cart__subtotalText {
+                font-weight: bold !important;
+            }
         }
     }
     .cart__button {
@@ -49,26 +70,13 @@
         text-transform: uppercase; 
         font-size: 0.7rem;
     }
-
-    .cart__itemRow {
-        border-bottom: solid 1px #e2e2e2;
-
-        .cart__qty {
-            width: 45px; 
-            border: solid 1px #e2e2e2; 
-            font-weight: 100;
-        }
-    }
-
-    .cart__itemImg {
-        width: 130px;
+    .cart__checkoutBtnContainer {
+        width: 100%;
+        text-align: right;
     }
 }
 
 @media(max-width: 575px) {
-    .cart__grid {
-        display: initial !important;
-    }
     .cart__table {
         thead {
             position: absolute;
@@ -93,23 +101,25 @@
             border-bottom: none;
         }
     }
-
-    .cart__subtotal {
+    .cart__grid {
         display: initial !important;
-        .cart__subtotalText {
-            display: flex;
-            justify-content: space-between;
-        }
-    }
 
-    .cart__checkoutBtnContainer {
-        text-align: center !important;
-    }
-    .cart__taxesTxt {
-        text-align: center !important;
-        padding: 3rem 0 0 0;
-    }
-    .cart__button {
-        padding: 0.9rem 2rem !important;
+        .cart__subtotal {
+            display: initial !important;
+            .cart__subtotalText {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+        .cart__checkoutBtnContainer {
+            text-align: center !important;
+        }
+        .cart__taxesTxt {
+            text-align: center !important;
+            padding: 3rem 0 0 0;
+        }
+        .cart__button {
+            padding: 0.9rem 2rem !important;
+        }
     }
 }
