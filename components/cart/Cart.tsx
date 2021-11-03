@@ -36,13 +36,17 @@ export default function Cart(props : IProducts) {
                 </thead>
 
                     <tbody>
+                    { props.products ? props.products.map((product: IProduct) => (
 
                         <CartItem 
+                            key={product.name}
                             totalStatePrice={props.totalStatePrice}
                             quantity={props.quantity}
-                            products={props.products}
+                            product={product}
                             handleChange={props.handleChange}
                         />
+                        
+                    )) : 'There are no item in your cart'}
 
                     </tbody>
                 </table>
