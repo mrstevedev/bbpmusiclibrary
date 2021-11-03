@@ -52,7 +52,7 @@ export default function Cart(props : IProducts) {
                 </table>
 
             <footer>
-                <div className={styles.cart__grid} style={{ display: 'flex' }}>
+                <div className={styles.cart__grid}>
                     <div className="cart__note"></div>
                     <div className={styles.cart__right}>
                         <div className="cart__coupon--container"></div>
@@ -73,7 +73,7 @@ export default function Cart(props : IProducts) {
                 </Fragment>
             ) : (
                 <Fragment>
-                    <div className={styles.cart__empty} style={{ textAlign: 'center', fontWeight: 100 }}>
+                    <div className={styles.cart__empty}>
                         <p>Your shopping cart is empty</p>
                         <Link href="/">
                             <a>
