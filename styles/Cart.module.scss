@@ -74,6 +74,11 @@
         width: 100%;
         text-align: right;
     }
+    .cart__empty {
+        margin: 1rem 0;
+        text-align: center;
+        font-weight: 100;
+    }
 }
 
 @media(max-width: 575px) {
