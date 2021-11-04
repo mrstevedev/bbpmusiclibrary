@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import OverlayNav from "./OverlayNav";
 import Modal from './Modal';
 import CookieNotification from './CookieNotification';
-import NotificationsBar from './NotificationsBar';
+import Notifications from './Notifications';
 import Script from 'next/script'
 import Footer from '../components/Footer'
 
@@ -118,7 +118,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>test</title>
       </Head>
-      <NotificationsBar />
+      <Notifications />
       <Header
         showMenu={showMenu}
         handleToggleMenu={handleToggleMenu}
