@@ -20,7 +20,7 @@
             th { font-weight: 100; }
         }
 
-        td {
+        .cart__cell {
             vertical-align: top;
             font-weight: 100;
             padding: 1rem 0 0 0;
@@ -83,11 +83,11 @@
 
 @media(max-width: 575px) {
     .cart__table {
-        thead {
+        .cart__tHead {
             position: absolute;
             clip: rect(0 0 0 0);
         }
-        td {
+        .cart__cell {
             width: initial !important;
             &:first-child {
                 padding: 1rem 1rem 0 0;
