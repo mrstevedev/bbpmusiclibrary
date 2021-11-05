@@ -1,7 +1,7 @@
 import ImageHero from "../components/ImageHero";
 import Head from "next/head";
 import Script from "next/script";
-import AboutParagraph from "../components/AboutParagraph";
+import AboutParagraph from "../components/about/AboutParagraph";
 import styles from '../styles/About.module.scss'
 
 interface Props {
