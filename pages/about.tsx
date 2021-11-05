@@ -19,7 +19,7 @@ interface Props {
 }
 
 export default function About({ page } : Props ) {
-  console.log(page);
+
   return (
     <>
       <Script
