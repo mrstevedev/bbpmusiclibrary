@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/Cookie_Notification.module.scss'
+import styles from '../../styles/Cookie_Notification.module.scss'
 
 export default function CookieNotification(props) {
     return (

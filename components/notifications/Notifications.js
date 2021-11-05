@@ -1,4 +1,4 @@
-import styles from '../styles/Notifications.module.scss'
+import styles from '../../styles/Notifications.module.scss'
 
 export default function Notifications(props) {
     return (
