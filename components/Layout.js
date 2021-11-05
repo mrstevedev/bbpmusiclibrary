@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import OverlayNav from "./OverlayNav";
 import Modal from './Modal';
 import CookieNotification from './notifications/CookieNotification';
-import Notifications from './Notifications';
+import Notifications from './notifications/Notifications';
 import Script from 'next/script'
 import Footer from '../components/Footer'
 
