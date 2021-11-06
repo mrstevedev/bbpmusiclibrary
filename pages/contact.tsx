@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import ImageHero from "../components/ImageHero";
 import styles from '../styles/Contact.module.scss'
-import AboutParagraph from "../components/AboutParagraph";
+import AboutParagraph from "../components/about/AboutParagraph";
 
 interface IPage {
     page: {
