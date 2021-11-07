@@ -119,7 +119,8 @@ export default function ExpressCheckout(props : IProps) {
                     buttonType="plain"
                     style={{
                     width: "100%",
-                    height: 55
+                    height: 55,
+                    display: 'block'
                     }}
                     paymentRequest={{
                     apiVersion: 2,
@@ -147,7 +148,8 @@ export default function ExpressCheckout(props : IProps) {
                     transactionInfo: {
                         totalPriceStatus: 'FINAL',
                         totalPriceLabel: 'Total',
-                        totalPrice: price.toString(),
+                        totalPrice: "1",
+                        // totalPrice: price.toString(),
                         currencyCode: 'USD',
                         countryCode: 'US',
                     },
