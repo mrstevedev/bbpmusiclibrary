@@ -33,6 +33,7 @@ export default function CategoryItem({ products } : IProducts) {
                                     alt="Category Image"
                                     width="350"
                                     height="350"
+                                    className={styles.category__row__img}
                                 />
                             </a>
                         </Link>
