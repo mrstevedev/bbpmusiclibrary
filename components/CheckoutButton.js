@@ -8,7 +8,7 @@ export default function CheckoutButton(props) {
       <Link href="/checkout">
         <a>
           <button
-            className={`add-to-cart-btn ${styles.addToCartBtn}`}
+            className={`${styles.addToCartBtn}`}
             onClick={props.handleCloseCart}
           >
             <span className={styles.cartBtnTxt}>Checkout</span>
