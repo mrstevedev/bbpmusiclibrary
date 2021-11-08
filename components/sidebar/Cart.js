@@ -2,7 +2,7 @@ import styles from '../../styles/SidebarCart.module.scss'
 import { useContext } from 'react'
 import Image from "next/image";
 import cart__noItems from '../../public/images/cart__noItems.svg'
-import CheckoutButton from '../CheckoutButton'
+import CheckoutButton from '../buttons/CheckoutButton'
 import CartItem from './CartItem'
 import { AppContext } from '../context/AppContext'
 
