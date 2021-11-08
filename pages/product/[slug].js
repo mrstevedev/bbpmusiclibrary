@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import styles from "../../styles/Product.module.scss";
-import Toast from "../../components/Toast";
+import Toast from "../../components/notifications/Toast";
 import Head from "next/head";
 import { AppContext } from "../../components/context/AppContext";
 import { addFirstProduct, updateCart } from "../../util/index";
