@@ -23,7 +23,6 @@ export default function SidebarCart(props : IProps) {
         <>
             <div className={styles.Checkout__right}>
                 <div className={styles.Checkout__right_top}>
-                    <h3 className={styles.Checkout__right_topTitle}>Checkout</h3>
                 </div>
                 <div className={styles.Checkout__right_btm}>
 
