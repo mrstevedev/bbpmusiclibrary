@@ -1,7 +1,7 @@
 
 import styles from '../../styles/Checkout.module.scss'
 import { useState } from 'react'
-import PaymentSkeletonBtn from '../../components/PaymentSkeletonBtn'
+import PaymentSkeletonBtn from '../buttons/PaymentSkeletonBtn'
 import { PayPalButton } from 'react-paypal-button-v2'
 import GooglePayButton from "@google-pay/button-react"
 import { formatPhoneNumber } from "../../util";
