@@ -348,6 +348,9 @@ a {
   header {
     display: none;
   }
+  footer:not(.footer__checkout) {
+    display: none;
+  }
 }
 
 .Confirm__page {
