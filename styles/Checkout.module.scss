@@ -279,6 +279,10 @@
 }
 
 @media (min-width: 768px) {
+  .Checkout__left {
+    padding: 5rem 0 2rem 0;
+  }
+  
   .Checkout__express {
     display: flex;
     justify-content: center;
