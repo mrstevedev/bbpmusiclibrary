@@ -392,7 +392,7 @@ const handleToggleSummary = (e: any) => {
                       </div>
                      </div>
 
-                      <footer style={{ borderTop: 'solid 1px #ccc' }}>
+                      <footer className="footer__checkout" style={{ borderTop: 'solid 1px #ccc' }}>
                         <p style={{ fontWeight: 300, fontSize: '0.8rem', padding: '0.6rem' }}>All rights reserved BBPSampleLibrary</p>
                       </footer>
 
