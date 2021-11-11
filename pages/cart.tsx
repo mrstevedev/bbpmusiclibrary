@@ -3,6 +3,7 @@ import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { AppContext } from '../components/context/AppContext'
 import Cart from '../components/cart/Cart'
 import Script from 'next/script'
+import CoverImage from '../components/coverimages/CoverImage'
 
 const CartPage = () => {
     const [cart, setCart] = useContext<any>( AppContext )
@@ -42,12 +43,7 @@ const CartPage = () => {
             }}
         />
             <main>
-            <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
-                height: '270px',
-                width: '100%',
-                backgroundPosition: 'center top',
-                backgroundRepeat: 'no-repeat',
-                margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
+            <CoverImage />
                 <div className="container">
                     <div className={ styles.cart }>
                         <div className={ styles.cart__header } >
