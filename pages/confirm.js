@@ -38,7 +38,7 @@ function Confirm() {
         <div
           className={styles.Confirm__success_payment}>
           <div className="container">
-          <h2 className={ styles.Confirm__text }>
+          <h2 className={ styles.Confirm__heading }>
             <strong style={{ display: "flex" }}>Success!</strong> Your payment
             transaction was successful
           </h2>
