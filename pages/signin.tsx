@@ -34,7 +34,7 @@ export default function Signin() {
             <div className="container">
                 <div className="content__main">
                 <h1 className={ styles.SignIn__heading }>Sign In</h1>
-                <p style={{ fontWeight: 100 }}>Sign in to your customer account</p>
+                <p className={ styles.SignIn__subHeading }>Sign in to your customer account</p>
 
                <div className={styles.SignIn__form__container}>
                <form method="post" onSubmit={handleSubmit}>
