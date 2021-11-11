@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import axios from 'axios'
+import CoverImage from '../components/coverimages/CoverImage'
 
 export default function Signin() {
 
@@ -28,13 +29,7 @@ export default function Signin() {
 
     return (
         <>
-        <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
-          height: '270px',
-          width: '100%',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
-
+        <CoverImage />
             <div className="container">
                 <div className="content__main">
                 <h1 style={{ fontSize: '1.6rem' }}>Sign In</h1>
