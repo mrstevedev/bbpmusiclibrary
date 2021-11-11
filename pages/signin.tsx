@@ -36,7 +36,7 @@ export default function Signin() {
                 <h1 className={ styles.SignIn__heading }>Sign In</h1>
                 <p style={{ fontWeight: 100 }}>Sign in to your customer account</p>
 
-               <div className="form__container" style={{ maxWidth: '350px' }}>
+               <div className={styles.SignIn__form__container}>
                <form method="post" onSubmit={handleSubmit}>
                     <div className="mb-2 input-group">
                         <input autoFocus required onChange={handleChange} type="text" name="username" className={`form-control`} id="username" aria-describedby="username" placeholder="Username" />
