@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import axios from 'axios'
 import CoverImage from '../components/coverimages/CoverImage'
+import styles from '../styles/SignIn.module.scss'
 
 export default function Signin() {
 
@@ -32,7 +33,7 @@ export default function Signin() {
         <CoverImage />
             <div className="container">
                 <div className="content__main">
-                <h1 style={{ fontSize: '1.6rem' }}>Sign In</h1>
+                <h1 className={ styles.SignIn__heading }>Sign In</h1>
                 <p style={{ fontWeight: 100 }}>Sign in to your customer account</p>
 
                <div className="form__container" style={{ maxWidth: '350px' }}>
