@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import styles from "../styles/Home.module.scss"
 import Script from 'next/script'
 import Products from '../components/home/Products'
+import CoverImage from "../components/coverimages/CoverImage"
 
 interface Props {
   products: Props[],
@@ -47,12 +48,7 @@ export default function Home( { products } : Props ) {
 
       <main className={styles.content}>
 
-      <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
-          height: '270px',
-          width: '100%',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
+      <CoverImage />
 
         <div className="container">
 
