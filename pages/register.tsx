@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import Link from 'next/link'
+import CoverImage from '../components/coverimages/CoverImage'
 
 export default function Register() {
     const [formSubmit, setFormSubmit] = useState(false)
@@ -44,13 +45,7 @@ export default function Register() {
 
     return (
         <>
-        <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
-          height: '270px',
-          width: '100%',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
-
+        <CoverImage />
             <div className="container">
                 <div className="content__main">
                 { !formSubmit ? (
