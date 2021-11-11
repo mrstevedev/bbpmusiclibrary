@@ -1,16 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import userImg from '/public/images/user.svg'
+import CoverImage from '../components/coverimages/CoverImage'
 
 export default function Dashboard() {
     return (
         <> 
-         <div className="hero-img" style={{ backgroundImage: `url(${'./images/img1200.webp'})`, 
-          height: '270px',
-          width: '100%',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-          margin: '2rem 0 2rem 0', borderRadius: '3px' }}></div>
+        <CoverImage />
             <div className="container">
                 <h1 style={{ 
                     display: 'flex', 
