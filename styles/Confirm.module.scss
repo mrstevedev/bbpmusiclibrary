@@ -13,6 +13,11 @@
     font-weight: 100;
 }
 
+.Confirm__success__icon {
+    position: relative;
+    bottom: 2px;
+}
+
 @media(min-width: 575px) {
     .Confirm__success_payment {
         padding: 3rem;
