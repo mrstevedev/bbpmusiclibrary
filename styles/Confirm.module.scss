@@ -9,6 +9,10 @@
     display: flex;
 }
 
+.Confirm__text {
+    font-weight: 100;
+}
+
 @media(min-width: 575px) {
     .Confirm__success_payment {
         padding: 3rem;
