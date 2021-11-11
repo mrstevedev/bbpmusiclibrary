@@ -43,11 +43,7 @@ function Confirm() {
             transaction was successful
           </h2>
 
-          <p
-            style={{
-              fontWeight: 100,
-            }}
-          >
+          <p className={styles.Confirm__text}>
             A confirmation was sent to <strong>{ email }</strong> with the details of your
             payment in addition to a <strong>download link</strong> to your
             sample pack.
