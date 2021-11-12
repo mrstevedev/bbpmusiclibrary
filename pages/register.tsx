@@ -2,6 +2,7 @@ import axios from 'axios'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import Link from 'next/link'
 import CoverImage from '../components/coverimages/CoverImage'
+import styles from '../styles/Register.module.scss'
 
 export default function Register() {
     const [formSubmit, setFormSubmit] = useState(false)
@@ -50,7 +51,7 @@ export default function Register() {
                 <div className="content__main">
                 { !formSubmit ? (
                     <>
-                    <h1 style={{ fontSize: '1.6rem' }}>Register</h1>
+                    <h1 className={ styles.Register__heading }>Register</h1>
                     <p style={{ fontWeight: 100 }}>Register an account to purchase a sample pack</p>
 
                     <div className="form__container" style={{ maxWidth: '350px' }}>
