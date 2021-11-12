@@ -5,7 +5,7 @@ import { AppProvider } from "./context/AppContext";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import OverlayNav from "./OverlayNav";
-import Modal from './notifications/Modal';
+import Newsletter from './notifications/Newsletter';
 import CookieNotification from './notifications/CookieNotification';
 import Notifications from './notifications/Notifications';
 import Script from 'next/script'
