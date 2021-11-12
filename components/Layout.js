@@ -136,7 +136,7 @@ const Layout = ({ children }) => {
       <OverlayNav showMenu={showMenu} handleToggleMenu={handleToggleMenu} />
 
         { showModal === true ? (
-          <Modal showModal={showModal} handleCloseModal={handleCloseModal} />
+          <Newsletter showModal={showModal} handleCloseModal={handleCloseModal} />
         ) : '' }
 
     </AppProvider>
