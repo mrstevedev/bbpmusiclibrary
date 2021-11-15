@@ -52,7 +52,7 @@ export default function Register() {
                 { !formSubmit ? (
                     <>
                     <h1 className={ styles.Register__heading }>Register</h1>
-                    <p style={{ fontWeight: 100 }}>Register an account to purchase a sample pack</p>
+                    <p className={ styles.Register__subHeading }>Register an account to purchase a sample pack</p>
 
                     <div className="form__container" style={{ maxWidth: '350px' }}>
                             <form onSubmit={ handleSubmit }>
