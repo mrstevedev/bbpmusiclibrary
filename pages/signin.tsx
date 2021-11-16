@@ -49,7 +49,7 @@ export default function Signin() {
                         <button className="btn btn-primary btn-block">Sign In</button>
                         </div>
                         <div className="col-sm-8 pt-2">
-                            <p style={{ fontSize: '0.9rem', fontWeight: 100 }}>
+                            <p className={ styles.SignIn__forgot__text }>
                                 
                                 <Link href="/lostpw">
                                     <a style={{  color: "#5782bf" }}> Forgot password?</a>
