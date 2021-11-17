@@ -52,7 +52,7 @@ export default function Signin() {
                             <p className={ styles.SignIn__forgot__text }>
                                 
                                 <Link href="/lostpw">
-                                    <a style={{  color: "#5782bf" }}> Forgot password?</a>
+                                    <a> Forgot password?</a>
                                 </Link>
                             </p>
                         </div>
