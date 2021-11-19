@@ -58,7 +58,7 @@ export default function Signin() {
                         </div>
                     </div>
                 </form>
-                <hr style={{ color: '#ccc' }} />
+                <hr />
 
                </div>
                <div className="mt-3">
