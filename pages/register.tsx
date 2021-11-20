@@ -54,7 +54,7 @@ export default function Register() {
                     <h1 className={ styles.Register__heading }>Register</h1>
                     <p className={ styles.Register__subHeading }>Register an account to purchase a sample pack</p>
 
-                    <div className={styles.Register__form__container} style={{ maxWidth: '350px' }}>
+                    <div className={styles.Register__form__container}>
                             <form onSubmit={ handleSubmit }>
                             <div className="mb-2 input-group">
                                 <input autoFocus required onChange={handleChange} type="text" name="firstName" className={`form-control`} id="firstName" aria-describedby="firstName" placeholder="First Name" />
