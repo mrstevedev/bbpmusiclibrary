@@ -78,17 +78,17 @@ export default function Register() {
 
                        </>
                         ) : (
-                            <div style={{ maxWidth: '420px', padding: "3rem 0" }}>
-                                <h2 style={{ fontWeight: 'bold' }}>Success!</h2>
-                                <h5 style={{ color: '#8f8f8f' }}>Your account has been created successfully</h5>
+                            <div className={ styles.Register__confirm }>
+                                <h2  className={ styles.Register__confirm__heading }>Success!</h2>
+                                <h5 className={ styles.Register__confirm__text }>Your account has been created successfully</h5>
 
-                                <hr style={{ color: '#ccc' }} />
+                                <hr />
 
                             </div>
                         )}
 
                     <div className="mt-3">
-                    <h2 style={{ maxWidth: '400px', fontSize: '1.1rem' }}>Already registered? Sign-In <Link href="/signin">
+                    <h2 className={ styles.Register__link }>Already registered? Sign-In <Link href="/signin">
                         <a style={{  color: "#5782bf" }}>here</a>
                         </Link>
                     </h2>
