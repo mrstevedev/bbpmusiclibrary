@@ -88,8 +88,8 @@ export default function Register() {
                         )}
 
                     <div className="mt-3">
-                    <h2 className={ styles.Register__link }>Already registered? Sign-In <Link href="/signin">
-                        <a style={{  color: "#5782bf" }}>here</a>
+                    <h2 className={ styles.Register__signIn }>Already registered? Sign-In <Link href="/signin">
+                        <a className={ styles.Register__link }>here</a>
                         </Link>
                     </h2>
                 </div>
