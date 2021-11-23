@@ -3,6 +3,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import Link from 'next/link'
 import CoverImage from '../components/coverimages/CoverImage'
 import styles from '../styles/Register.module.scss'
+import Alert from '../components/notifications/Alert'
 
 export default function Register() {
     const [formSubmit, setFormSubmit] = useState(false)
@@ -95,20 +96,8 @@ export default function Register() {
                 </div>
                 </div>
             </div>
-
-            <div className="alert alert-danger" style={{ padding: '0.4rem 2.5rem',
-                position: 'fixed',
-                bottom: '-5rem',
-                width: '100%',
-                height: '75px',
-                left: 0,
-                display: 'flex',
-                zIndex: 2,
-                margin: 0,
-                alignItems: 'center', transition: '0.22s ease-in-out' }}>
-                <p style={{ margin: '0' }}>{ error.message }</p>
-            </div>
-
+            
+            <Alert error={error} />
 
         </>
     )
