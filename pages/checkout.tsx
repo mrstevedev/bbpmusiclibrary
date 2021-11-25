@@ -257,7 +257,6 @@ const handleToggleSummary = (e: any) => {
                                   </h3>
 
                                   </div>
-                                {/* <a className="link" href="#" onClick={() => handleRemoveItem(product.productId)}>Remove</a> */}
                           </div>
                             <div className={styles.Checkout__mobile_product_total_row}>
                               <div className={styles.Checkout__mobile_product_total}>
@@ -294,7 +293,6 @@ const handleToggleSummary = (e: any) => {
                     <form onSubmit={handleSubmit}>
                       <h3 className={styles.Checkout_heading}>Contact Information</h3>
                       <div className="mb-4">
-                        {/* <label htmlFor="exampleInputEmail1" className="form-label">Email address</label> */}
                         <input onChange={handleChange} type="email" name="email" className={`form-control ${ error.errorEmail === true ? 'error' : '' }`} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" autoFocus />
                         <div className="mt-2 mb-3 form-check">
                           <input onChange={handleChange} type="checkbox" className="form-check-input" id="exampleCheck1" />
@@ -311,12 +309,10 @@ const handleToggleSummary = (e: any) => {
 
                     <div className="mb-3">
                       <input onChange={handleChange} type="text" name="address" className={`form-control  ${ error.errorAddress === true ? 'error' : '' }`} id="address" aria-describedby="address" placeholder="Address" />
-                      {/* <div className={styles.error__txt}>This field is required</div> */}
                     </div>
 
                     <div className="mb-3">
                       <input onChange={handleChange} type="text" name="apartment" className={`form-control`} id="apartment" aria-describedby="emailHelp" placeholder="Apartment, Suite (Optional)" />
-                      {/* <div className={styles.error__txt}>This field is required</div> */}
                     </div>
 
                     <div className="mb-3 input-group">
