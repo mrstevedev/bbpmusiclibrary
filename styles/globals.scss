@@ -548,3 +548,14 @@ dd {
 .sidebarCart-open {
   overflow: hidden;
 }
+
+.Checkout__page {
+  .footer__checkout {
+    border-top: solid 1px #ccc;
+    p {
+      font-weight: 300; 
+      font-size: 0.8rem;
+      padding: 0.6rem;
+    }
+  }
+}
