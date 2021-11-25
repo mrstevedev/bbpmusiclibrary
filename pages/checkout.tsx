@@ -398,9 +398,7 @@ const handleToggleSummary = (e: any) => {
 
                   </form>
 
-                {/* End Checkout__left */}
                 </div> 
-                {/* End Checkout__left */}
 
                 <SidebarCart 
                   products={products} 
