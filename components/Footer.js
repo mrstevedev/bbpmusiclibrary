@@ -1,7 +1,13 @@
 import styles from '../styles/Footer.module.scss'
 import Link from 'next/link'
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
+  const [year, setYear] = useState(null);
+
+  const currentYear = new Date().getFullYear();
+
+  useEffect(() => setYear(currentYear), [])
   return (
     <>
       <footer className={styles.footer}>
@@ -38,7 +44,7 @@ export default function Footer() {
             </Link>
           </div>
           <div className="col d-flex justify-content-end">
-            <p className={styles.footer__text}>&copy; 2021 BBP Music Library | Site developed by <a className={ styles.built_by } href="https://mrstevedev.io/" target="_blank" rel="noreferrer">sp</a></p>
+            <p className={styles.footer__text}>&copy; {year} BBP Music Library | Site developed by <a className={ styles.built_by } href="https://mrstevedev.io/" target="_blank" rel="noreferrer">sp</a></p>
           </div>
         </div>
       </footer>
