@@ -16,7 +16,7 @@ export default function loadingOverlay() {
                 top: '0',
                 left: '0',
                 zIndex: '999',
-                visibility: 'visible',
+                display: 'block',
                 background: 'rgba(0,0,0,1)'
             }}>
                 <div style={{
