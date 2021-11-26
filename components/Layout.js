@@ -10,6 +10,7 @@ import CookieNotification from './notifications/CookieNotification';
 import Notifications from './notifications/Notifications';
 import Script from 'next/script'
 import Footer from '../components/Footer'
+import LoadingOverlay from '../components/LoadingOverlay';
 
 const Layout = ({ children }) => {
   const [showCart, setShowCart] = useState(false);
@@ -138,6 +139,8 @@ const Layout = ({ children }) => {
         { showModal === true ? (
           <Newsletter showModal={showModal} handleCloseModal={handleCloseModal} />
         ) : '' }
+
+        <LoadingOverlay />
 
     </AppProvider>
     <Footer />
