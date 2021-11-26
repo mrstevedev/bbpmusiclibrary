@@ -559,3 +559,9 @@ dd {
     }
   }
 }
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
