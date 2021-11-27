@@ -1,10 +1,9 @@
-import Image from 'next/image'
 import { useEffect } from 'react'
 
 export default function loadingOverlay() {
     useEffect(() => {
         const loadingOverlay = document.querySelector('.loading__overlay');
-        setTimeout(() => loadingOverlay.classList.add('hidden'), 2000);
+        setTimeout(() => loadingOverlay.classList.add('fade-out'), 2000);
     }, [])
     return (
         <>
