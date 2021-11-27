@@ -22,7 +22,7 @@ export default function Header(props) {
                   <a className="logo d-flex justify-content-center align-items-center">
                     <Image
                       src={logo}
-                      height="65"
+                      height="70"
                       alt="bonitabasicsproductions" />
                   </a>
                 </Link>
