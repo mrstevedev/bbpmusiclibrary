@@ -11,6 +11,7 @@ import Link from 'next/link'
 import PaymentSteps from '../components/checkout/PaymentSteps'
 import ExpressCheckout from '../components/checkout/ExpressCheckout'
 import SidebarCart from '../components/checkout/SidebarCart'
+import logo from '../public/images/5.svg'
 
 // Use next/script to add dynamic class to body
 import Script from 'next/script'
@@ -190,10 +191,13 @@ const handleToggleSummary = (e: any) => {
 
                   <div className={styles.Checkout__left}>
                       <div className="d-flex justify-content-center">
-                        <div className="row mb-2">
+                        <div className="row">
                           <Link href="/">
                             <a className="logo">
-                              <Image src="/images/bonitabasicsproductions_logo.svg" width="110" height="20" alt="Bonita Basics Productions Logo" />
+                              <Image 
+                                src={logo} 
+                                height="65" 
+                                alt="Bonita Basics Productions Logo" />
                             </a>
                           </Link>
                         </div>
