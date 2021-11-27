@@ -196,7 +196,7 @@ const handleToggleSummary = (e: any) => {
                             <a className="logo">
                               <Image 
                                 src={logo} 
-                                height="65" 
+                                height="70" 
                                 alt="Bonita Basics Productions Logo" />
                             </a>
                           </Link>
