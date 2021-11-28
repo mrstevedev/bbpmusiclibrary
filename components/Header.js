@@ -11,7 +11,7 @@ export default function Header(props) {
     <>
       <header className={styles.header}>
         <nav className="h-100">
-          <div className="container-fluid p-4 d-flex justify-content-center align-items-center h-100">
+          <div className="container-fluid d-flex justify-content-center align-items-center h-100">
               <div className="col col-2 col-lg-2">
                 <a onClick={(e) => props.handleToggleMenu(e)}>
                   <Hamburger toggled={props.isOpen} size={18} color={props.showMenu ? 'white' : 'black'} />
