@@ -62,8 +62,8 @@ export default function Signin() {
 
                </div>
                <div className="mt-3">
-                    <h2 style={{ fontSize: '1.1rem' }}>Not registered? Register <Link href="/register">
-                        <a style={{  color: "#5782bf" }}>here</a>
+                    <h2 className={styles.Signin__register}>Not registered? Register <Link href="/register">
+                        <a className={styles.Signin__link}>here</a>
                         </Link>
                     </h2>
                 </div>
