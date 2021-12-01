@@ -26,7 +26,7 @@ export default function LostPW() {
 
             { !formSubmit ? (
             <>
-                <h1 style={{ fontSize: '1.6rem' }}>Forgot Password</h1>
+                <h1 className={ styles.Lostpw__heading }>Forgot Password</h1>
                 <p style={{ fontWeight: 100 }}>Enter your email to reset your password</p>
                 <div className="form__container" style={{ maxWidth: '350px' }}>
                 <form method="post" onSubmit={handleSubmit}>
