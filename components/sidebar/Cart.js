@@ -30,6 +30,7 @@ export default function Cart(props) {
                                 key={product.databaseId}
                                 product={product} 
                                 productsCount={productsCount} 
+                                handleRemoveItem={props.handleRemoveItem}
                             />
 
                         ))}
