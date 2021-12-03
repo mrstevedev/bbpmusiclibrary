@@ -28,7 +28,7 @@ export default function CartItem(props) {
                         <span className={styles.Checkout__right_price}>${ product.price }</span>
                         </h3>
                     
-                    <a onClick={() => props.handleRemoveItem(product.productId)} href="#" className={styles.Checkout__right_btn}>Remove</a>
+                    <a onClick={() => props.handleRemoveItem(product.databaseId)} href="#" className={styles.Checkout__right_btn}>Remove</a>
                 </div>
             </div>
         </>
