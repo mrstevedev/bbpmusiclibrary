@@ -42,7 +42,7 @@ export default function Cart(props) {
                             handleCloseCart={props.handleCloseCart}
                             sideBar
                             />
-                            <p style={{ fontWeight: '100', fontSize: '0.8rem', letterSpacing: '1px' }}>Taxes and shipping calculated at checkout</p>
+                            <p className={ styles.Checkout__note }>Taxes and shipping calculated at checkout</p>
                         </div>
                     </div>
                 </>
