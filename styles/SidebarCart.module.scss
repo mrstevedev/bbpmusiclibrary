@@ -59,13 +59,10 @@
     justify-content: center;
     flex-direction: column;
 
-    .checkout-btm {
-
-        p {
-            font-weight: 300;
-            font-size: 1.1rem;
-            color: #1a1a1a;
-        }
+    .Checkout__note {
+        font-weight: 100;
+        font-size: 0.8rem; 
+        letter-spacing: 1px
     }
 }
 
