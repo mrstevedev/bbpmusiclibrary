@@ -68,13 +68,19 @@ export function createNewProduct(product, productPrice, qty) {
 
 export function updateCart( existingCart, product, qtyToBeAdded, newQty = false ) {
 
-  const updatedProducts = getUpdatedProducts( existingCart.products, product, qtyToBeAdded, newQty = false )
-
+  const updatedProducts = getUpdatedProducts( existingCart.products, product, qtyToBeAdded, newQty)
+  const addPrice = (total, item) => {
+    total.totalPrice += item.totalPrice
+    total.qty += item.qty
+    return total
+  }
 }
 
 export function getUpdatedProducts( existingProductsInCart, product, qtyToBeAdded, newQty = false ) {
   
   const productExistsIndex = isProductInCart( existingProductsInCart, product.productId )
+
+  // if product exists ( index of that product is found in the array  ), update the product quantity and totalPrice
 
 }
 
@@ -109,7 +115,7 @@ export function removeProduct(id) {
   let index;
 
   for (let i = 0; i < products.products.length; i++) {
-    if (products.products[i].productId === id) {
+    if (products.products[i].databaseId === id) {
       index = i;
       break;
     }
