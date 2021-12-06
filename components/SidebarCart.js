@@ -32,7 +32,6 @@ export default function SidebarCart(props) {
                 <div className={styles.SidebarCart_btm}>
                     <Cart 
                         handleCloseCart={props.handleCloseCart} 
-                        handleRemoveItem={handleRemoveItem}
                     />
                 </div>
             </div>
