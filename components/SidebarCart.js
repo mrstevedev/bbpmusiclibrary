@@ -12,11 +12,6 @@ import Cart from '../components/sidebar/Cart'
 
 export default function SidebarCart(props) {
 
-    const handleRemoveItem = (id) => {
-        console.log('Remove item from cart', id)
-        removeProduct( id )
-    }
-
     // console.log(products)
 
     return (
