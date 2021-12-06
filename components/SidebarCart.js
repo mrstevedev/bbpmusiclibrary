@@ -14,7 +14,6 @@ export default function SidebarCart(props) {
 
     const handleRemoveItem = (id) => {
         console.log('Remove item from cart', id)
-        // products.filter(item => item.productId !== id)
         removeProduct( id )
     }
 
