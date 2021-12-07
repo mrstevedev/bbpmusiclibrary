@@ -1,7 +1,6 @@
 import styles from '../styles/SidebarCart.module.scss'
 import Image from "next/image";
 import closeBtn from '../public/images/closeBtn.svg'
-import { removeProduct } from '../util'
 import Cart from '../components/sidebar/Cart'
 
 // interface Props {
