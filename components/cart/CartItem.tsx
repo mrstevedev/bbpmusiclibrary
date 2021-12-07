@@ -30,7 +30,7 @@ export default function CartItem(props: IProduct) {
                 </td>
                 <td className={styles.cart__cell}>
                     <Link href={`product/${ props.product.slug }`}><a className="link">{ props.product.name }</a></Link> <br/>
-                    <a href="#" className={styles.cart__itemRemove}>Remove</a>
+                    <a href="#" className={styles.cart__itemRemove} onClick={props.handleRemoveItem}>Remove</a>
                 </td>
                 <td className={styles.cart__cell}>
                     ${ props.product.price }
