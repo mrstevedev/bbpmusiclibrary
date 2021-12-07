@@ -44,6 +44,7 @@ export default function Cart(props : IProducts) {
                             quantity={props.quantity}
                             product={product}
                             handleChange={props.handleChange}
+                            handleRemoveItem={props.handleRemoveItem}
                         />
                         
                     )) : 'There are no item in your cart'}
