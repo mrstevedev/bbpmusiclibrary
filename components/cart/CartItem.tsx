@@ -15,6 +15,7 @@ interface IProduct {
         slug: string
     }
     handleChange: (event: any) => void
+    handleRemoveItem: (event: any) => void
 }
 
 export default function CartItem(props: IProduct) {
