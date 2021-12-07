@@ -5,7 +5,7 @@ import cart__noItems from '../../public/images/cart__noItems.svg'
 import CheckoutButton from '../buttons/CheckoutButton'
 import CartItem from './CartItem'
 import { AppContext } from '../context/AppContext'
-import { removeProduct } from '../util'
+import { removeProduct } from '../../util'
 
 export default function Cart(props) {
 
