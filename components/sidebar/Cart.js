@@ -20,6 +20,7 @@ export default function Cart(props) {
     const handleRemoveItem = (id) => {
         console.log('Remove item from cart', id)
         removeProduct( id )
+        setCart(null)
     }
 
     return (
