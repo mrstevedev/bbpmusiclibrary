@@ -17,6 +17,7 @@ interface IProducts {
     quantity: number
     totalStatePrice: number
     handleChange: (event: any) => void
+    handleRemoveItem: (event: any) => void
 }
 
 export default function Cart(props : IProducts) {
