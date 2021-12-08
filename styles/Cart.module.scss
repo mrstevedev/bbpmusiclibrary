@@ -30,6 +30,7 @@
         .cart__itemRemove {
             color: #ccc;
             font-size: 0.8rem;
+            &:hover { color: #333 } 
         }
 
         .cart__itemRow {
