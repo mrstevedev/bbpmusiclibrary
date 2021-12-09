@@ -20,7 +20,7 @@ export default function Signin() {
 
         const userJSON = JSON.stringify(user)
 
-        axios.post('http://localhost:10028/wp-json/wp/v2/users', userJSON, {
+        axios.post('http://localhost:10018/wp-json/wp/v2/users', userJSON, {
             headers: {
                 'Content-Type': 'application/json',
                 "Authorization": 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MTAwMjgiLCJpYXQiOjE2MzM1NjQ2ODMsIm5iZiI6MTYzMzU2NDY4MywiZXhwIjoxNjM0MTY5NDgzLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxMCJ9fX0.hxWdsTIJUktLBqJ1oMqq7JKvQ8hf755QmjcTHrrTx9I'
