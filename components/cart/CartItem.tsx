@@ -13,12 +13,16 @@ interface IProduct {
         qty: number
         totalPrice: number
         slug: string
+        databaseId: number
     }
     handleChange: (event: any) => void
-    handleRemoveItem: (event: any) => void
+    handleRemoveItem: (event: any, id: number) => void
 }
 
 export default function CartItem(props: IProduct) {
+
+    const { product } = props
+
     return (
         <>
             <tr className={styles.cart__itemRow}>
@@ -31,7 +35,7 @@ export default function CartItem(props: IProduct) {
                 </td>
                 <td className={styles.cart__cell}>
                     <Link href={`product/${ props.product.slug }`}><a className="link">{ props.product.name }</a></Link> <br/>
-                    <a href="#" className={styles.cart__itemRemove} onClick={props.handleRemoveItem}>Remove</a>
+                    <a href="#" className={styles.cart__itemRemove} onClick={(event) => props.handleRemoveItem(event, product.databaseId)}>Remove</a>
                 </td>
                 <td className={styles.cart__cell}>
                     ${ props.product.price }
