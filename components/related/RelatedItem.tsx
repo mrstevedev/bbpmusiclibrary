@@ -40,7 +40,7 @@ export default function RelatedItem(props: IProduct) {
                     </Link>
                   <Link href={ `${ item.node.slug }` }>
                     <a className="link">
-                      <p style={{ fontSize: '0.8rem', margin: '0.5rem 0 0 0' }}>{ item.node.name }</p>
+                      <p className={ styles.RelatedItem__name }>{ item.node.name }</p>
                     </a>
                   </Link>
                 </div>
