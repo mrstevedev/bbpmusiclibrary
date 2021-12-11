@@ -11,7 +11,7 @@ import Link from 'next/link'
 import PaymentSteps from '../components/checkout/PaymentSteps'
 import ExpressCheckout from '../components/checkout/ExpressCheckout'
 import SidebarCart from '../components/checkout/SidebarCart'
-import logo from '../public/images/5.svg'
+import logo from '../public/images/2.svg'
 
 // Use next/script to add dynamic class to body
 import Script from 'next/script'
