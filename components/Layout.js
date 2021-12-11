@@ -116,9 +116,6 @@ const Layout = ({ children }) => {
      }} />
      ) }
     <AppProvider>
-      <Head>
-        <title>test</title>
-      </Head>
       <Notifications />
       <Header
         showMenu={showMenu}
