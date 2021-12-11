@@ -4,6 +4,7 @@ import { AppContext } from '../components/context/AppContext'
 import Cart from '../components/cart/Cart'
 import Script from 'next/script'
 import CoverImage from '../components/coverimages/CoverImage'
+import { removeProduct } from '../util'
 
 const CartPage = () => {
     const [cart, setCart] = useContext<any>( AppContext )
@@ -34,6 +35,12 @@ const CartPage = () => {
 
     }
 
+    const handleRemoveItem = (event: any, id: number) => {
+        console.log('Remove item from cart', id)
+        removeProduct(id)
+        setCart(null)
+    }
+
     return (
         <>
         <Script
@@ -55,6 +62,7 @@ const CartPage = () => {
                             quantity={quantity}
                             handleChange={handleChange}
                             totalStatePrice={totalStatePrice}
+                            handleRemoveItem={handleRemoveItem}
                         />
                         
                     </div>
