@@ -10,6 +10,7 @@ interface IProduct {
     qty: number
     price: number
     slug: string
+    databaseId: number
 }
 
 interface IProducts {
@@ -17,7 +18,7 @@ interface IProducts {
     quantity: number
     totalStatePrice: number
     handleChange: (event: any) => void
-    handleRemoveItem: (event: any) => void
+    handleRemoveItem: (event: any, id: number) => void
 }
 
 export default function Cart(props : IProducts) {
