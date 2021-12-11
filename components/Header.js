@@ -1,7 +1,5 @@
 import styles from "../styles/Header.module.scss";
 import Image from "next/image";
-// import logo from '../public/images/5.svg'
-// import logo from '../public/images/1.svg'
 import logo from '../public/images/2.svg'
 import CartIcon from './cart/CartIcon'
 import Link from "next/link"
