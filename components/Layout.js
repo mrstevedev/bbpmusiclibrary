@@ -23,7 +23,6 @@ const Layout = ({ children }) => {
   const router = useRouter()
 
   useEffect(() => {
-    // Get value of localStorage of item key set when cart opened/closed
     if (localStorage.getItem("cartOpen") !== null) {
       setShowCart(true);
     }
@@ -55,7 +54,6 @@ const Layout = ({ children }) => {
     const cartEl = document.querySelector(".cart");
     cartEl.classList.add("active");
 
-    // Set localStorage with value when cart opened
     localStorage.setItem("cartOpen", true);
   };
 
