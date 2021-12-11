@@ -151,10 +151,6 @@ export default function Checkout() {
     setFormSubmit(true)
 }
 
-const handleRemoveItem = (id : string) => {
-  console.log('Remove item from cart', id)
-}
-
 useEffect(() => {
   setLoading(true)
   const timer = setTimeout(() => {
