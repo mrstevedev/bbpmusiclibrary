@@ -53,8 +53,8 @@ export default function ProductSingle(props: IProduct) {
                     <h3 className={styles.productDescriptionTxt}>{name}</h3>
                     <h4>{ product.salePrice ? (
                     <>
-                        <span style={{ textDecoration: 'line-through', color: 'red', padding: '0 0.2rem' }}>{ product.regularPrice }</span>
-                        <span style={{ color: 'grey' }}> { product.salePrice }</span>
+                        <span className={styles.Product__RegularPrice}>{ product.regularPrice }</span>
+                        <span className={styles.Product__SaleTxt}> { product.salePrice }</span>
                     </>
                     ) : product.regularPrice }</h4>
                     <p>{description}</p>
