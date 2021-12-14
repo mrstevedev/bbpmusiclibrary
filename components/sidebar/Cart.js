@@ -26,7 +26,7 @@ export default function Cart(props) {
 
     return (
         <>
-            {products ? (
+            {products.length > 0 ? (
                 <>
                     <div className={styles.Checkout__wrapper}>
                         <h3>You have { productsCount } item in your cart</h3>
