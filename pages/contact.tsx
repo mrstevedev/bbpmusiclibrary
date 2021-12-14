@@ -18,7 +18,6 @@ interface IPage {
 }
 
 export default function Contact( { page } : IPage ) {
-    console.log('contact page props', page)
     return (
         <>
             <Head>
