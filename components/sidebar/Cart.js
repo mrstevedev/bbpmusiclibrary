@@ -19,7 +19,6 @@ export default function Cart(props) {
     ( null != cart && Object.keys( cart ).length ) ? cart.totalProductsCount : "" 
 
     const handleRemoveItem = (id) => {
-        console.log('Remove item from cart', id)
         removeProduct( id )
         setCart(null)
     }
