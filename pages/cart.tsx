@@ -36,7 +36,6 @@ const CartPage = () => {
     }
 
     const handleRemoveItem = (event: any, id: number) => {
-        console.log('Remove item from cart', id)
         removeProduct(id)
         setCart(null)
     }
