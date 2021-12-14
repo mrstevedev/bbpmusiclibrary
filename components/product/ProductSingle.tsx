@@ -32,9 +32,6 @@ export default function ProductSingle(props: IProduct) {
 
     const categories = Object.values(props.product.productCategories.nodes);
 
-    console.log('product in Product component:::::', product)
-
-
     return (
         <>
             <div className={styles.productTop}>
