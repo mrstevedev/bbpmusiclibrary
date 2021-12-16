@@ -46,7 +46,7 @@ export default function CartIcon(props: Props) {
           className={styles.btn__hover_scale}
           data-effect="st-effect-1"
         >
-          <span className={`cart-count ${styles.cart__count}`}>
+          <span className={`cart-count ${ productsCount > 0 ? styles.cart__count : null }`}>
             {/* { productsCount !== null ? <span>{productsCount}</span> : '' } */}
           </span>
           <Image
