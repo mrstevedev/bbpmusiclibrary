@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
 import Link from 'next/link'
-import styles from '../styles/CoverImage.module.scss'
+import styles from '../styles/LostPw.module.scss'
 import CoverImage from '../components/coverimages/CoverImage'
 
 export default function LostPW() {
