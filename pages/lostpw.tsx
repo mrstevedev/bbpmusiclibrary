@@ -28,7 +28,7 @@ export default function LostPW() {
             <>
                 <h1 className={ styles.Lostpw__heading }>Forgot Password</h1>
                 <p style={{ fontWeight: 100 }}>Enter your email to reset your password</p>
-                <div className="form__container" style={{ maxWidth: '350px' }}>
+                <div className={styles.LostPw__container}>
                 <form method="post" onSubmit={handleSubmit}>
                     <div className="mb-2 input-group">
                         <input required onChange={handleChange} type="email" name="email" className={`form-control`} id="email" aria-describedby="email" placeholder="Email" />
@@ -40,7 +40,7 @@ export default function LostPW() {
                     </div>
                     </form>
 
-                    <hr style={{ color: '#ccc' }} />
+                    <hr />
 
                 </div>
 
