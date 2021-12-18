@@ -25,7 +25,7 @@ export default function CartItem(props : IProps) {
                 <div className={`product-img ${styles.Checkout__right_product_img}`}>
                 <Link href={`/product/${ slug }`}>
                     <a>
-                    <span className="cart-count">{ productsCount }</span>
+                    <span className={styles.cart__count}>{ productsCount }</span>
                     <Image src={image} width="91" height="91" alt={ name } />
                     </a>
                     </Link>
