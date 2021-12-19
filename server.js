@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const axios = require('axios')
 const oauthSignature = require('oauth-signature')
-const { generateTimestamp, generateNonce } = require('./util/generate')
+const { generatePassword, generateTimestamp, generateNonce } = require('./util/generate')
 app.use(express.json())
 require('dotenv').config({ path: './.env' })
 
@@ -69,13 +69,15 @@ app.post('/register-customer', async (req, res) => {
 
 })
 
-app.post('/create-order', async (req, res) => {
+app.post('/create-customer', async (req, res) => {
     const body = req.body
-    const id = req.body.id
+    // const id = req.body.id
     const name = req.body.description
     const email_address = req.body.email_address
     const first_name = req.body.first_name
     const last_name = req.body.last_name
+    const username = req.body.email_address
+    const password = generatePassword()
     const price = req.body.price
     const admin_area_1 = req.body.admin_area_1
     const admin_area_2 = req.body.admin_area_2
@@ -84,75 +86,95 @@ app.post('/create-order', async (req, res) => {
     const country_code = req.body.country_code
     const phone = req.body.phone
     const product_id = req.body.databaseId
-    const UnixTimestamp = generateTimestamp()
+    // const UnixTimestamp = generateTimestamp()
 
-    const json = {
-        "payment_method": body.payment_method,
-        "payment_method_title": body.payment_method,
-        "set_paid": true,
-        "status": "completed",
-        "billing": {
-            "first_name": first_name,
-            "last_name": last_name,
-            "address_1": address_line_1,
-            "city": admin_area_2,
-            "state": admin_area_1,
-            "postcode": postal_code,
-            "country": country_code,
-            "email": email_address,
-            "phone": phone
-        },
-        "line_items": [
-            {
-            "product_id": product_id,
-            "quantity": 1,
-            "name": name,
-            "total": price
-            }
-        ],
-        "shipping_lines": [
-            {
-              "method_id": "flat_rate",
-              "method_title": "Flat Rate",
-              "total": "0"
-            }
-        ]
-    }
+    const orders_url = process.env.ORDERS_URL
+    const users_url = process.env.USERS_URL
+    const search_url = process.env.SEARCH_URL
 
-    const httpMethod = 'POST',
-    url = process.env.ORDERS_URL,
-    requestParams = { 
-        oauth_consumer_key : process.env.CONSUMER_KEY,
-        oauth_token : process.env.TOKEN,
-        oauth_nonce : generateNonce(),
-        oauth_timestamp : UnixTimestamp,
-        oauth_signature_method : 'HMAC-SHA1'
-    }
+    const users_json = JSON.stringify({
+        first_name,
+        last_name,
+        username,
+        password,
+        email_address
+    })
 
-    const consumerSecret = process.env.CONSUMER_SECRET;
-    const tokenSecret = process.env.TOKEN_SECRET;
-
-    const encodedSignature = oauthSignature.generate( httpMethod, url, requestParams, consumerSecret, tokenSecret, { 
-        encodeSignature: true } )
-
-    const authorizationHeader = 
-          'OAuth oauth_consumer_key="' + requestParams.oauth_consumer_key
-          + '",oauth_nonce="' + requestParams.oauth_nonce
-          + '",oauth_signature_method="' + requestParams.oauth_signature_method
-          + '",oauth_timestamp="' + requestParams.oauth_timestamp
-          + '",oauth_token="' + requestParams.oauth_token
-          + '",oauth_signature="' + encodedSignature + '"'
-
-    axios.post(url, json, {
+    axios.get(`${search_url}${email_address}`, {
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': authorizationHeader
+            'Authorization': 'Bearer ' + process.env.JWT_TOKEN
         }
-    })
-    .then(res => {
-        console.log(res)
-    })
-    .catch(err => console.log(err))
+    }).then(res => {
+
+        if(res.data.length > 0) {
+
+            // get user id from response and append as customer_id
+            const arr_val = res.data.map(user => [user.id])
+            const [user_id] = arr_val
+            
+            const orders_json = {
+                "payment_method": body.payment_method,
+                "payment_method_title": body.payment_method,
+                "set_paid": true,
+                "status": "completed",
+                "customer_id": user_id,
+                "billing": {
+                    "first_name": first_name,
+                    "last_name": last_name,
+                    "address_1": address_line_1,
+                    "city": admin_area_2,
+                    "state": admin_area_1,
+                    "postcode": postal_code,
+                    "country": country_code,
+                    "email": email_address,
+                    "phone": phone
+                },
+                "line_items": [
+                    {
+                    "product_id": product_id,
+                    "quantity": 1,
+                    "name": name,
+                    "total": price
+                    }
+                ],
+                "shipping_lines": [
+                    {
+                      "method_id": "flat_rate",
+                      "method_title": "Flat Rate",
+                      "total": "0"
+                    }
+                ]
+            }
+
+            // if we return a user then just create an order
+            axios.post(orders_url, orders_json, {
+                headers: {
+                    'Authorization': 'Bearer ' + process.env.JWT_TOKEN
+                }
+            }).then(res => {
+                // console.log(res)
+            }).catch(err => console.log(err))
+        } else {
+
+            // Else create a customer then create an order
+            axios.post(users_url, users_json, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + proces.env.JWT_TOKEN
+                }
+            }).then(res => {
+                // console.log(res)
+
+                // Create an order here
+                axios.post(orders_url, orders_json, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + proces.env.JWT_TOKEN
+                    }
+                })
+            }).catch(err => console.log(err))
+        }
+    }).catch(res => console.log(res))
 
     res.send('ok')
 })
