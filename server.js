@@ -71,7 +71,6 @@ app.post('/register-customer', async (req, res) => {
 
 app.post('/create-customer', async (req, res) => {
     const body = req.body
-    // const id = req.body.id
     const name = req.body.description
     const email_address = req.body.email_address
     const first_name = req.body.first_name
@@ -86,7 +85,6 @@ app.post('/create-customer', async (req, res) => {
     const country_code = req.body.country_code
     const phone = req.body.phone
     const product_id = req.body.databaseId
-    // const UnixTimestamp = generateTimestamp()
 
     const orders_url = process.env.ORDERS_URL
     const users_url = process.env.USERS_URL
@@ -111,7 +109,7 @@ app.post('/create-customer', async (req, res) => {
             // get user id from response and append as customer_id
             const arr_val = res.data.map(user => [user.id])
             const [user_id] = arr_val
-            
+
             const orders_json = {
                 "payment_method": body.payment_method,
                 "payment_method_title": body.payment_method,
