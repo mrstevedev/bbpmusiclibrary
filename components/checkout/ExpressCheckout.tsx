@@ -76,7 +76,7 @@ export default function ExpressCheckout(props : IProps) {
                     const description = details.purchase_units[0].description;
                     const price = details.purchase_units[0].amount.value;
 
-                    return fetch("http://localhost:5000/create-order", {
+                    return fetch("http://localhost:5000/create-customer", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
