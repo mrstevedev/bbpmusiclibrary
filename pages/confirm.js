@@ -15,7 +15,7 @@ function Confirm() {
   useEffect(() => {
     localStorage.removeItem('product')
     setCart(null)
-  }, [])
+  }, [setCart])
 
   return (
     <>
