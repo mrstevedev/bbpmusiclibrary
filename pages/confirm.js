@@ -26,14 +26,6 @@ function Confirm() {
           document.body.classList.add('Confirm__page')`,
         }}
       />
-      <Head>
-        <title>Bonita Basics Productions | About</title>
-        <meta
-          name="description"
-          content="Boom Bap HipHop producer from Bonita, California making sample packs with various musicians in his home studio."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main>
         <div
           className={styles.Confirm__success_payment}>
@@ -70,7 +62,6 @@ function Confirm() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }
