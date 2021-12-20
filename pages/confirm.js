@@ -1,14 +1,10 @@
 import Link from "next/link";
-import Head from "next/head";
 import Script from "next/script";
-import Footer from "../components/Footer";
 import styles from "../styles/Confirm.module.scss";
-import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../components/context/AppContext";
 
 function Confirm() {
-  const router = useRouter()
   const email = router.query.email
   const [cart, setCart] = useContext(AppContext);
 
