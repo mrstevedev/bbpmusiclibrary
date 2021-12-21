@@ -69,12 +69,12 @@ export default function Checkout() {
   const states = useStates().map((state) => state)
   const newStates = states.map(({name, abbreviation}) => ({name, abbreviation}));
 
-  const updatedStates = newStates.map(state => useMemo(() => {
+  const updatedStates = useMemo(() => newStates.map(state =>  {
     return {
       label: state.name,
       value: state.abbreviation
     };
-  }, []));
+  }), [newStates]);
 
   const [inputs, setInputs] = useState({
     email: '',
