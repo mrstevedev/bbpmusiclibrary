@@ -41,8 +41,6 @@ export default function Checkout() {
   const products =
   ( cart && Object.keys( cart ).length ) ? cart.products : ""
 
-  console.log(products)
-
   const price = 
     ( null != cart && Object.keys( cart ).length ) ? cart.products[0].price : ""
 
