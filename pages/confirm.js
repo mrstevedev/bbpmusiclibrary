@@ -45,7 +45,6 @@ function Confirm() {
               width="30"
               height="30"
               fill="currentColor"
-              className="bi bi-arrow-left-short"
               viewBox="0 0 16 16"
             >
               <path
