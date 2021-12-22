@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function loadingOverlay() {
+export default function LoadingOverlay() {
     useEffect(() => {
         const loadingOverlay = document.querySelector('.loading__overlay');
         setTimeout(() => loadingOverlay.classList.add('fade-out'), 2000);
