@@ -29,7 +29,7 @@ export default function CartItem(props: IProduct) {
                 <td className={ `${styles["cart__itemImg"]} ${styles["cart__cell"]}` }>
                     <Link href={`product/${ props.product.name }`}>
                         <a>
-                            <Image className="hero-img" src={ props.product.image } width="150" height="150" />
+                            <Image alt={ props.product.name } className="hero-img" src={ props.product.image } width="150" height="150" />
                         </a>
                     </Link>
                 </td>
