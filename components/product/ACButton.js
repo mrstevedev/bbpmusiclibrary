@@ -12,11 +12,13 @@ export default function ACButton(props) {
             { addToCart === true ? (
               <>
                 <Link href="/cart">
-                  <button className={`add-to-cart-btn ${ !addToCart ? styles.addToCartBtn : styles.viewCartBtn }`}>
-                    <span className={styles.cartBtnTxt}>
-                      View cart
-                    </span>
-                  </button>
+                  <a>
+                    <button className={`add-to-cart-btn ${ !addToCart ? styles.addToCartBtn : styles.viewCartBtn }`}>
+                      <span className={styles.cartBtnTxt}>
+                        View cart
+                      </span>
+                    </button>
+                  </a>
                 </Link>
               </>
             ) : (
