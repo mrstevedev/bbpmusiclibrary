@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react';
 export default function Footer() {
   const [year, setYear] = useState(null);
 
-  const currentYear = new Date().getFullYear();
-
-  useEffect(() => setYear(currentYear), [])
+  useEffect(() => setYear(new Date().getFullYear()), [setYear])
   return (
     <>
       <footer className={styles.footer}>
