@@ -32,9 +32,24 @@
       justify-content: flex-end;
     }
 
+    p {
+      font-weight: 100;
+      font-size: 0.9rem;
+    }
+
+    hr {
+      color: #ccc;
+    }
+
     .form__container {
       max-width: 350px;
       padding: 10rem 2rem;
+
+      h1 {
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
     }
   }
 }
