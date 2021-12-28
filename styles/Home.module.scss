@@ -24,6 +24,11 @@
 .productBtm {
   padding: 0.7rem 0;
   font-size: 0.9rem;
+
+  .product__regularPrice {
+    color: red; 
+    text-decoration: line-through;
+  }
 }
 
 .Home__image {
