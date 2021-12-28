@@ -47,7 +47,7 @@ export default function ProductItem({ product } : IProduct) {
           </Link>
           <p>{ product.node.salePrice ? (
             <>
-              <span style={{ color: 'red', textDecoration: 'line-through' }}>
+              <span className={styles.product__salePrrce} style={{ color: 'red', textDecoration: 'line-through' }}>
                 {product.node.regularPrice} </span> { product.node.salePrice } 
                 <span style={{ 
                   fontSize: '0.6rem', 
