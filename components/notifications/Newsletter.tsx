@@ -65,7 +65,7 @@ export default function Modal(props: Props) {
                         { !formSubmit ? (
                             <>
                             <div className={ styles.form__container }>
-                            <h1 style={{ fontSize: '1.4rem', fontWeight: 'bold', textTransform: 'uppercase' }}>Subscribe<br /> To My Newsletter</h1>
+                            <h1>Subscribe<br /> To My Newsletter</h1>
                                 <form onSubmit={ handleSubmit }>
                                 <div className="mb-2 input-group">
                                     <input autoFocus required onChange={handleChange} type="text" name="first_name" className={`form-control`} id="first_name" aria-describedby="name" placeholder="Name" />
@@ -76,8 +76,8 @@ export default function Modal(props: Props) {
                                 <button className="btn btn-primary col-12">Subscribe</button>
                             </form>
                         
-                            <hr style={{ color: '#ccc' }} />
-                            <p style={{ fontWeight: 100, fontSize: '0.9rem' }}>
+                            <hr />
+                            <p>
                                 Subscribe to my newsletter to receive notifications on new download releases
                                 and offers to get sales on sample packs.
                             </p>
@@ -86,7 +86,7 @@ export default function Modal(props: Props) {
                             </>
                         ) : (
                             <div className={ styles.form__container }>
-                                <h1 style={{ fontSize: '1.4rem', fontWeight: 'bold', textTransform: 'uppercase' }}>Thank you<br /> You are now subscribed!</h1>
+                                <h1>Thank you<br /> You are now subscribed!</h1>
                             </div>
                         )  }
                     </div>
