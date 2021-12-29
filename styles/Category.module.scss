@@ -26,9 +26,10 @@
     .category__results_row_description {
       width: 100%;
       padding: 0 0 0 1rem;
+      font-weight: 300;
 
-      p {
-        font-weight: 300;
+      .category__price {
+        font-weight: bold;
       }
     }
 
