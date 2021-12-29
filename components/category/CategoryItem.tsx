@@ -41,7 +41,7 @@ export default function CategoryItem({ products } : IProducts) {
                 <div className={ styles.category__results_row_description }>
                     {product.name}
                     <p>{ product.description !== null ? trimString(product.description, 250) : '' }</p>
-                    <p style={{ fontWeight: 'bold' }}>Price: { product.price }</p>
+                    <p className={ styles.category__price }>Price: { product.price }</p>
                 </div>
             </div>
           ))}
