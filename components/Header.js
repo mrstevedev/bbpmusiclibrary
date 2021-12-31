@@ -28,7 +28,7 @@ export default function Header(props) {
                 </Link>
               </div>
               <div className="col col-2 col-lg-2 d-flex justify-content-end">
-              <span className={ styles.header__signIn } style={{ fontWeight: 'bold', fontSize: '0.67rem', textTransform: 'uppercase', padding: '0.2rem 0 0 0' }}>
+              <span className={ styles.header__signIn }>
                   Not Signed In?
                   <Link href="/signin">
                     <a className={ styles.header__link }>Sign-In</a>
