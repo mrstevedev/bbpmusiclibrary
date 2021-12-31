@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import styles from '../styles/LoadingOverlay.module.scss'
 
 export default function LoadingOverlay() {
     useEffect(() => {
@@ -7,23 +8,8 @@ export default function LoadingOverlay() {
     }, [])
     return (
         <>
-            <div className="loading__overlay" style={{
-                width: '100%',
-                height: '100%',
-                background: '#000',
-                position: 'fixed',
-                top: '0',
-                left: '0',
-                zIndex: '999',
-                display: 'block',
-                background: 'rgba(0,0,0,1)'
-            }}>
-                <div style={{
-                    position: 'absolute',
-                    left: '50%',
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                }}>
+            <div className={`loading__overlay ${ styles.loading__overlay}`}>
+                <div className={styles.loading__overlay__inner}>
                 <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" width="160pt" height="160pt" viewBox="0 0 360 360">
                 <g enableBackground="new">
                 <g id="Layer-1" data-name="Layer 1">
