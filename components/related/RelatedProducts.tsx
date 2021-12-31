@@ -49,7 +49,7 @@ export default function RelatedProducts( props: IProduct ) {
             <button onClick={props.handleSlideNext} className={ `${ styles["carousel__control"] } ${ styles["carousel__control--next"] }` } type="button" aria-describedby="carousel-status-s0-0-32-3-0-0[6]-4-match-media-0-ebay-carousel" aria-label="Go to next slide - Samsung Cell Phones &amp; Smartphones" id="s0-0-32-3-0-0[6]-4-match-media-0-ebay-carousel-next">
               <svg className={ styles.next__btn } width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z" fill="currentColor"/></svg>
             </button>
-            <h2 style={{ fontSize: '1rem', fontWeight: 'bold' }}>Related Products</h2>
+            <h2 className={ styles.related__heading }>Related Products</h2>
             <div className={ styles.product__related }>
               <div className={ styles.product__relatedGallery }>
                 <RelatedItem product={product} />
