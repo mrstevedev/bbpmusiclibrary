@@ -33,7 +33,7 @@ export default function ACButton(props) {
           </>
       ) : (
         <>
-          <span className={styles.cartBtnTxt} style={{ fontWeight: 'bold', color: '#a9a9a9' }}>
+          <span className={styles.cartBtnTxt__notAvailable}>
             Not available. Please check back later
           </span>
         </>
