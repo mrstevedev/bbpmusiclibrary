@@ -1,5 +1,10 @@
 .related {
   position: relative;
+
+  .related__heading {
+    font-size: 1rem;
+    font-weight: bold;
+  }
 }
 .product__related {
     margin: 0 0 6rem 0;
