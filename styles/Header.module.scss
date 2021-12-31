@@ -48,6 +48,10 @@
 }
 
 .header__signIn {
+  font-weight: bold;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  padding: 0.2rem 0 0 0;
   .header__link {
     transition: 0.12s ease-in-out;
     padding: 0 0.3rem 0 0.3rem;
