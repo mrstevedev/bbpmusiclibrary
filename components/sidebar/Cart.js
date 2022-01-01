@@ -3,10 +3,10 @@ import { useContext } from 'react'
 import Image from "next/image";
 import cart__noItems from '../../public/images/cart__noItems.svg'
 import CheckoutButton from '../buttons/CheckoutButton'
+import ContinueShoppingButton from '../buttons/ContinueShoppingButton'
 import CartItem from './CartItem'
 import { AppContext } from '../context/AppContext'
 import { removeProduct } from '../../util'
-import Link from 'next/link'
 
 export default function Cart(props) {
 
@@ -58,13 +58,10 @@ export default function Cart(props) {
                     <h3>Your shopping cart is empty</h3>
                     <Image src={cart__noItems} width="42" height="31" alt="Cart is empty" />
 
-                    <Link href="/">
-                        <a>
-                            <button className={`btn btn-primary rounded-0 ${ styles.SidebarCart__button }`}>
-                                Continue shopping
-                            </button>
-                        </a>
-                    </Link>
+                    <ContinueShoppingButton props={props}
+                        handleCloseCart={props.handleCloseCart}
+                        sideBar
+                    />
                 </>
             )}
         </>
