@@ -10,9 +10,6 @@ import Cart from '../components/sidebar/Cart'
 // }
 
 export default function SidebarCart(props) {
-
-    // console.log(products)
-
     return (
         <>
         <div onClick={props.handleCloseCart} className={ `fadeIn ${ styles.SidebarCart__overlay } ${ props.showCart === true ? ( 
