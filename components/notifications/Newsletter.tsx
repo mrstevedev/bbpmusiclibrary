@@ -36,7 +36,6 @@ export default function Modal(props: Props) {
                 password: clientConfig.CLIENT_SECRET
             }
         }).then(res => {
-            console.log(res)
             setFormSubmit(true)
         })
         .catch(err => console.log(err))
