@@ -28,7 +28,7 @@ export default function Cart(props) {
             {products.length > 0 ? (
                 <>
                     <div className={styles.Checkout__wrapper}>
-                        <h3>You have { productsCount } item in your cart</h3>
+                        <h3>You have { products.length > 1 ? 'items' : 'item' } in your cart</h3>
                         <div className={styles.Checkout__product_wrapper}>
 
                         { products.map((product) => (
