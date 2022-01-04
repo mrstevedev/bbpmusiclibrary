@@ -42,6 +42,8 @@ export default function Product(props) {
         const qtyToBeAdded = 1;
 
         const updatedCart = updateCart(existingCart, product, qtyToBeAdded);
+        setCart( updatedCart );
+
       } else {
         /**
          * Add first product
