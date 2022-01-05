@@ -74,13 +74,56 @@ export function updateCart( existingCart, product, qtyToBeAdded, newQty = false 
     total.qty += item.qty
     return total
   }
+
+  // Loop through the updated prodct array and add the totalPrice of each item to get the total
+  let total = updatedProducts.reduce(addPrice, { totalPrice: 0, qty: 0 } )
+
+  const updatedCart = {
+    products: updatedProducts,
+    totalProductsCount: parseInt( total.qty ),
+    totalProductsPrice: parseFloat( total.totalPrice )
+  }
+
+  localStorage.setItem( 'product', JSON.stringify( updatedCart ) )
+
+  return updatedCart
 }
+
+/**
+ * Get updated products array.
+ * Updated the product if its exists
+ * and add the new product to existing cart.
+ * 
+ * 
+ * @param {*} existingProductsInCart 
+ * @param {*} product 
+ * @param {*} qtyToBeAdded 
+ * @param {*} newQty 
+ * @returns 
+ */
 
 export function getUpdatedProducts( existingProductsInCart, product, qtyToBeAdded, newQty = false ) {
   
   const productExistsIndex = isProductInCart( existingProductsInCart, product.productId )
 
   // if product exists ( index of that product is found in the array  ), update the product quantity and totalPrice
+  if( -1 < productExistsIndex ) {
+    let updatedProducts = existingProductsInCart
+    let updatedProduct = updatedProducts[ productExistsIndex ]
+
+    // If we have the new qty of the product available, set that else add the qtyToBeAdded
+    updatedProduct.qty = ( newQty ) ? parseInt( newQty ) : parseInt( updatedProduct.qty + qtyToBeAdded )
+    updatedProduct.totalPrice = parseFloat( updatedProduct.price * updatedProduct.qty ).toFixed( 2 )
+
+    return updatedProducts
+  } else {
+    // If product not found, push the new product to the existing products array
+    let productPrice = getFloatVal( product.price )
+    const newProduct = createNewProduct( product, productPrice, qtyToBeAdded )
+    existingProductsInCart.push( newProduct )
+    
+    return existingProductsInCart
+  }
 
 }
 
