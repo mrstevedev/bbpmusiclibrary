@@ -117,6 +117,22 @@
 
         .Checkout_topImg {
             position: relative;
+            .cart__count {
+                background: rgb(15, 15, 15);
+                width: 22px;
+                height: 22px;
+                border-radius: 100%;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+                color: #fff;
+                font-size: 0.8rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+                font-weight: bold;
+              }
 
             img {
                 border-radius: 100%;
@@ -216,21 +232,4 @@
       &.SidebarCart__overlay_active {
           display: block;
       }
-  }
-
-  .cart__count {
-    background: rgb(15, 15, 15);
-    width: 22px;
-    height: 22px;
-    border-radius: 100%;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    color: #fff;
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    font-weight: bold;
   }
