@@ -1,0 +1,19 @@
+.Error__404 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    display: flex;
+    .Error__404__heading {
+        font-weight: bold;
+        font-size: 1.1rem;
+        span {
+            padding: 0 0.3rem;
+        }
+    }
+    .Error__404__Subheading {
+        font-weight: 100;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+}
