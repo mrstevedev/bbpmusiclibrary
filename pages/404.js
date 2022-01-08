@@ -1,22 +1,13 @@
 // pages/404.js
+import styles from '../styles/Error_404.module.scss'
+
 export default function Custom404() {
     return (
-        <div className="container" style={{
-            textAlign: 'center',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '85vh',
-            display: 'flex'
+        <div className={`container ${ styles.Error__404 }`} style={{
+           
         }}>
-            <h1 style={{
-                    fontWeight: 'bold',
-                    fontSize: '1.1rem'
-            }}>404 <span style={{ padding: '0 0.3rem' }}>|</span></h1>
-            <h2 style={{
-                    fontWeight: 100,
-                    textTransform: 'uppercase',
-                    fontSize: '1rem'
-            }}>Page Not Found</h2>
+            <h1 className={styles.Error__404__heading}>404 <span>|</span></h1>
+            <h2 className={styles.Error__404__Subheading}>Page Not Found</h2>
         </div>
     )
   }
