@@ -45,8 +45,8 @@ export default function LostPW() {
                 </div>
 
                 <div className="mt-3">
-                    <h2 style={{ fontSize: '1.1rem' }}>Back to sign in <Link href="/signin">
-                        <a style={{  color: "#5782bf" }}>here</a>
+                    <h2 className={styles.LostPw__SignIn}>Back to sign in <Link href="/signin">
+                        <a>here</a>
                         </Link>
                     </h2>
                 </div>
