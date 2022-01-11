@@ -49,7 +49,6 @@ export default function Checkout() {
 
   const productName =
     ( null != cart && Object.keys( cart ).length ) ? cart.products[0].name : ""
-    // console.log(productName)
 
   const productFile =
    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].downloads[0].file : ""
