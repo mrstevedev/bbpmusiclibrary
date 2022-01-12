@@ -1,4 +1,4 @@
-import styles from "../../styles/ACButton.module.scss";
+import styles from "../../styles/AddCartButton.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
