@@ -1,6 +1,6 @@
 import styles from "../../styles/Product.module.scss";
 import Image from "next/image";
-import ACButton from "../product/ACButton";
+import AddCartButton from "./AddCartButton";
 import { createLink } from "../../util";
 
 interface IProduct {
@@ -65,7 +65,7 @@ export default function ProductSingle(props: IProduct) {
                         }}
                     ></span>
                     </h4>
-                    <ACButton product={product}
+                    <AddCartButton product={product}
                         addToCart={props.addToCart}
                         handleAddToCart={props.handleAddToCart}
                         productPage
