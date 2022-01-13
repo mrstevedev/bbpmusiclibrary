@@ -245,7 +245,7 @@ const handleToggleSummary = (e: any) => {
                                 <h3 className={styles.Checkout__right_product_name_txt}>
 
                                   <Link href={`/product/${ product.slug }`}>
-                                    <a style={{ color: '#333', fontWeight: 100 }}>
+                                    <a>
                                       { product.name }
                                     </a>
                                   </Link>
@@ -259,9 +259,7 @@ const handleToggleSummary = (e: any) => {
                                 <p>Total</p>
                               </div>
                               <div className={styles.Checkout__mobile_product_total_price}>
-                                <p style={{ fontSize: '1.5rem' }}>
-                                  <span style={{ fontSize: '0.7rem', fontWeight: 100 }}>USD</span> {product.price}
-                                </p>
+                                  <span>USD</span> {product.price}
                               </div>
                             </div>
                          </aside>
