@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import OverlayNav from "./OverlayNav";
 import Newsletter from './notifications/Newsletter';
-import CookieNotification from './notifications/CookieNotification';
+import Notification from './notifications/Notification';
 import Notifications from './notifications/Notifications';
 import Script from 'next/script'
 import Footer from '../components/Footer'
@@ -125,7 +125,7 @@ const Layout = ({ children }) => {
       {children}
       
       { cookieNotification === true ? (
-        <CookieNotification handleAcceptCookie={handleAcceptCookie} />
+        <Notification handleAcceptCookie={handleAcceptCookie} />
       ) : '' }
       
       <SidebarCart showCart={showCart} handleCloseCart={handleCloseCart} />
