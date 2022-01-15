@@ -1,5 +1,5 @@
 // pages/404.js
-import styles from '../styles/Error_404.module.scss'
+import styles from '../styles/404.module.scss'
 
 export default function Custom404() {
     return (
