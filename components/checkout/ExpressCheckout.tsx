@@ -161,7 +161,8 @@ export default function ExpressCheckout(props : IProps) {
                         countryCode: 'US',
                     },
                     shippingAddressRequired: true,
-                    callbackIntents: ['PAYMENT_AUTHORIZATION']
+                    callbackIntents: ['PAYMENT_AUTHORIZATION'],
+                    emailRequired: true
                     }}
                     onLoadPaymentData={paymentRequest => {
                         console.log('load payment data', paymentRequest);
