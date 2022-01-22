@@ -12,8 +12,6 @@
   },
   "dependencies": {
     "@google-pay/button-react": "^2.6.0",
-    "@stripe/react-stripe-js": "^1.7.0",
-    "@stripe/stripe-js": "^1.22.0",
     "axios": "^0.21.4",
     "bootstrap": "^5.0.0-beta3",
     "cors": "^2.8.5",
