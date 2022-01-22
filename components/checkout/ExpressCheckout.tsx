@@ -45,30 +45,30 @@ export default function ExpressCheckout(props : IProps) {
                 
                 { !loading && (
                 <>
-                    <PayPalButton
-                style={{ 
-                    height: 55
-                }}
-                options={{
-                    // merchantId: "H3E758JAU25R6",
-                    clientId: "sb",
-                    currency: "USD",
-                    disableFunding: 'venmo,card,credit'
-                }}
-                createOrder={(data: any, actions: any) => {
-                    return actions.order.create({
-                    purchase_units: [{
-                        description: productName,
-                        amount: {
-                        currency_code: "USD",
-                        value: price
+                <PayPalButton
+                    style={{ 
+                        height: 55
+                    }}
+                    options={{
+                        // merchantId: "H3E758JAU25R6",
+                        clientId: "sb",
+                        currency: "USD",
+                        disableFunding: 'venmo,card,credit'
+                    }}
+                    createOrder={(data: any, actions: any) => {
+                        return actions.order.create({
+                        purchase_units: [{
+                            description: productName,
+                            amount: {
+                            currency_code: "USD",
+                            value: price
+                            }
+                        }],
+                            application_context: {
+                            shipping_preference: "NO_SHIPPING"
                         }
-                    }],
-                        application_context: {
-                        shipping_preference: "NO_SHIPPING"
-                    }
-                    });
-                }}
+                        });
+                    }}
                     onSuccess={(details: any) => {
                     const email_address = details.payer.email_address;
                     const address_line_1 = details.payer.address.address_line_1;
@@ -155,7 +155,7 @@ export default function ExpressCheckout(props : IProps) {
                     transactionInfo: {
                         totalPriceStatus: 'FINAL',
                         totalPriceLabel: 'Total',
-                        totalPrice: "1",
+                        totalPrice: '1',
                         // totalPrice: price.toString(),
                         currencyCode: 'USD',
                         countryCode: 'US',
@@ -166,17 +166,33 @@ export default function ExpressCheckout(props : IProps) {
                     }}
                     onLoadPaymentData={paymentRequest => {
                         console.log('load payment data', paymentRequest);
-                        setPaid(true)
                     }}
                     onPaymentAuthorized={paymentData => {
                         console.log('Payment Authorized Success', paymentData)
+                        const email_address = paymentData['email'];
+
                         fetch('http://localhost:5000/create-customer', {
                             method: 'POST',
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
                             body: JSON.stringify({
-
+                                email_address: email_address,
+                                postal_code: paymentData['shippingAddress']?.postalCode,
+                                country_code: paymentData['shippingAddress']?.countryCode,
+                                name: paymentData['shippingAddress']?.name,
+                                price: price,
+                                payment_method: 'Google Pay'
                             })
                         })
-                            .then(res => res.json())
+                            .then(res => {
+                                if(res.ok) {
+                                    Router.push({
+                                        pathname: '/confirm',
+                                        query: `${ `success=true&email=${ email_address }&transaction_id=${ 'id' }`}`
+                                    })
+                                }
+                            })
                         return { transactionState: "SUCCESS" }
                     }}
                 />
