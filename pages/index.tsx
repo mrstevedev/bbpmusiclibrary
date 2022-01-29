@@ -48,7 +48,7 @@ export default function Home( { products } : Props ) {
 
       <main className={styles.content}>
 
-      <CoverImage />
+      {/* <CoverImage /> */}
 
         <div className="container">
 
