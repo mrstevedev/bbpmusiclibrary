@@ -7,17 +7,17 @@ interface IProps {
         databaseId: string,
         name: string,
         image: string
-        price: number,
+        totalProductsPrice: number,
         slug: string
     }
     productsCount: number
-    price: number
+    totalProductsPrice: number
 }
 
 export default function CartItem(props : IProps) {
 
-    const { productsCount } = props
-    const { databaseId, slug, image, name, price } = props.product
+    const { productsCount, totalProductsPrice } = props
+    const { databaseId, slug, image, name } = props.product
 
     return (
         <>
@@ -39,7 +39,7 @@ export default function CartItem(props : IProps) {
                             </Link>
                         </h3>
                     </div>
-                <span>{ price }</span>
+                <span>${ totalProductsPrice }</span>
             </div>
         </>
     )
