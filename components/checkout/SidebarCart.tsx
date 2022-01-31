@@ -1,23 +1,29 @@
 
 import styles from '../../styles/Checkout.module.scss'
 import CartItem from '../../components/checkout/CartItem'
+import { useContext } from 'react'
+import { AppContext } from '../../components/context/AppContext'
 
 interface Product {
     databaseId: string,
     name: string,
     image: string
-    price: number,
+    totalProductsPrice: number,
     slug: string
 }
 
 interface IProps {
     products: Product[]
     productsCount: number
-    price: number
+    totalProductsPrice: number
 }
 
 export default function SidebarCart(props : IProps) {
-    const { products, productsCount, price } = props
+    const { products, productsCount } = props
+    const [cart, setCart] = useContext<any>( AppContext )
+
+    const totalProductsPrice = 
+    ( null != cart && Object.keys( cart ).length ) ? cart.totalProductsPrice : ""
 
     return (
         <>
@@ -30,7 +36,7 @@ export default function SidebarCart(props : IProps) {
                     products.map((product: Product) => (
                         <CartItem 
                             key={product.databaseId}
-                            price={price}
+                            totalProductsPrice={totalProductsPrice}
                             product={product}
                             productsCount={productsCount} 
                         />
@@ -43,7 +49,7 @@ export default function SidebarCart(props : IProps) {
                     <h4>Total</h4>
                     </div>
                     <div>
-                    <span className="Checkout_currency__ticker">USD</span> { price }
+                    <span className="Checkout_currency__ticker">USD</span> ${ totalProductsPrice }
                     </div>
                 </div>
             </div>
