@@ -4,7 +4,8 @@ import Image from "next/image";
 
 export default function CartItem(props) {
 
-    const { product, productsCount } = props
+    const { product } = props
+    console.log(product)
 
     return (
         <>
@@ -12,7 +13,7 @@ export default function CartItem(props) {
                 <div className={styles.Checkout_topImg}>
                     <Link href={`/product/${ product.slug }`}>
                         <a className="product-img">
-                            <span className={`cart-count ${ styles.cart__count }`}>{ productsCount }</span>
+                            <span className={`cart-count ${ styles.cart__count }`}>{ product.qty }</span>
                             <Image src={ product.image } width="81" height="81" alt="Cart items" />
                         </a>
                     </Link>
