@@ -104,10 +104,10 @@ export function updateCart( existingCart, product, qtyToBeAdded, newQty = false 
 
 export function getUpdatedProducts( existingProductsInCart, product, qtyToBeAdded, newQty = false ) {
   
-  const productExistsIndex = isProductInCart( existingProductsInCart, product.productId )
+  const productExistsIndex = isProductInCart( existingProductsInCart, product.databaseId )
 
   // if product exists ( index of that product is found in the array  ), update the product quantity and totalPrice
-  if( -1 < productExistsIndex ) {
+  if( -1 < productExistsIndex ) {
     let updatedProducts = existingProductsInCart
     let updatedProduct = updatedProducts[ productExistsIndex ]
 
@@ -132,14 +132,14 @@ export function getUpdatedProducts( existingProductsInCart, product, qtyToBeAdde
  * Return index of the product if it exists
  * 
  * @param {*} existingProductsInCart 
- * @param {*} productId 
+ * @param {*} databaseId 
  * @returns 
  */
-export function isProductInCart( existingProductsInCart, productId ) {
+export function isProductInCart( existingProductsInCart, databaseId ) {
 
   const returnItemThatExists = ( item, index ) => {
 
-    if(productId === item.productId) {
+    if(databaseId === item.databaseId) {
       return item
     }
   } 
