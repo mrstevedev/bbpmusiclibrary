@@ -53,7 +53,7 @@
 }
 
 .SidebarCart_btm {
-    padding: 2rem 2.3rem;
+    padding: 2rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,12 +111,17 @@
     .Checkout__product {
         display: flex;
         justify-content: space-between;
-        margin: 1rem 0;
-        // border-bottom: solid 1px #eaeaea;
-        padding: 1rem 0;
+        margin: 0;
+        transition: 0.12s ease-in-out;
+        padding: 1rem 1.5rem;
+
+        &:hover { background: #f6f6f6; }
 
         .Checkout_topImg {
             position: relative;
+            display: flex;
+            align-items: center; 
+            a {display: flex;}
             .cart__count {
                 background: rgb(15, 15, 15);
                 width: 22px;
@@ -176,6 +181,9 @@
                 border: solid 1px #fddada;
             }
         }
+    }
+    .Checkout_btm {
+        margin: 0 1.3rem;
     }
 }
 
