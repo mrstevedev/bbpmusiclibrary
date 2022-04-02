@@ -15,8 +15,8 @@ export default function Cart(props) {
     const products =
     ( cart && Object.keys( cart ).length ) ? cart.products : ""
 
-    const productsCount =
-    ( null != cart && Object.keys( cart ).length ) ? cart.totalProductsCount : "" 
+    // const productsCount =
+    // ( null != cart && Object.keys( cart ).length ) ? cart.products.map(item => item.qty) : ""
 
     const handleRemoveItem = (id) => {
         removeProduct( id )
@@ -36,7 +36,6 @@ export default function Cart(props) {
                             <CartItem 
                                 key={product.databaseId}
                                 product={product} 
-                                productsCount={productsCount} 
                                 handleRemoveItem={handleRemoveItem}
                             />
 
