@@ -150,24 +150,33 @@ export function isProductInCart( existingProductsInCart, databaseId ) {
 
 }
 
-export function removeProduct(id) {
-  const products = localStorage.getItem("product")
+export function removeItemFromCart(databaseId) {
+  const existingCart = localStorage.getItem("product")
     ? JSON.parse(localStorage.getItem("product"))
     : [];
 
-  let index;
-
-  for (let i = 0; i < products.products.length; i++) {
-    if (products.products[i].databaseId === id) {
-      index = i;
-      break;
-    }
+  if( 1 === existingCart.products.length) {
+    localStorage.removeItem('product');
+    return null;
   }
-  if (index === undefined) return;
-  products.products.splice(index, 1);
-  products.totalProductsCount = null;
-  products.totalProductsPrice = null;
-  localStorage.setItem("product", JSON.stringify(products));
+
+  const productExistIndex = isProductInCart(existingCart.products, databaseId);
+
+  if(-1 < productExistIndex) {
+    const productToBeRemoved = existingCart.products[productExistIndex];
+    const qtyToBeRemovedFromTotal = productToBeRemoved.qty;
+    const priceToBeDeductedFromTotal = productToBeRemoved.totalPrice;
+
+    let updatedCart = existingCart;
+    updatedCart.products.splice( productExistIndex, 1 );
+    updatedCart.totalProductsCount = updatedCart.totalProductsCount - qtyToBeRemovedFromTotal;
+    updatedCart.totalProductsPrice = updatedCart.totalProductsPrice - priceToBeDeductedFromTotal;
+
+    localStorage.setItem('product', JSON.stringify(updatedCart));
+    return updatedCart;
+  } else {
+    return existingCart;
+  }
 }
 
 export function formatPhoneNumber(str) {
