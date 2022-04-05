@@ -18,6 +18,7 @@
   
       .product__Img {
         display: flex;
+        width: 191px;
         border-radius: 6px;
         box-shadow: 0 2px 4px rgb(219, 219, 219);
       }
@@ -89,6 +90,10 @@
     .product__related {
       overflow: scroll;
       scroll-behavior: smooth;
+
+      .product__Img {
+          width: 140px !important;
+      }
   
       .product__relatedGallery {
         width: 1145px;
