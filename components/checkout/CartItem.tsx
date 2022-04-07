@@ -8,7 +8,9 @@ interface IProps {
         name: string,
         image: string
         totalProductsPrice: number,
-        slug: string
+        slug: string,
+        qty: number,
+        price: number
     }
     productsCount: number
     totalProductsPrice: number
@@ -16,8 +18,7 @@ interface IProps {
 
 export default function CartItem(props : IProps) {
 
-    const { productsCount, totalProductsPrice } = props
-    const { databaseId, slug, image, name } = props.product
+    const { databaseId, slug, image, name, qty, price} = props.product
 
     return (
         <>
@@ -25,7 +26,7 @@ export default function CartItem(props : IProps) {
                 <div className={`product-img ${styles.Checkout__right_product_img}`}>
                     <Link href={`/product/${ slug }`}>
                         <a>
-                            <span className={styles.cart__count}>{ productsCount }</span>
+                            <span className={styles.cart__count}>{ qty }</span>
                             <Image src={image} width="91" height="91" alt={ name } />
                         </a>
                     </Link>
@@ -39,7 +40,7 @@ export default function CartItem(props : IProps) {
                             </Link>
                         </h3>
                     </div>
-                <span>${ totalProductsPrice }</span>
+                <span>${ price }</span>
             </div>
         </>
     )
