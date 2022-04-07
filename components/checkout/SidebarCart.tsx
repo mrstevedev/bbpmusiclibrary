@@ -9,7 +9,9 @@ interface Product {
     name: string,
     image: string
     totalProductsPrice: number,
-    slug: string
+    slug: string,
+    qty: number,
+    price: number
 }
 
 interface IProps {
