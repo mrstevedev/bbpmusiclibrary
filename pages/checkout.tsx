@@ -32,7 +32,8 @@ interface Product {
   name: string,
   image: string
   price: number,
-  slug: string
+  slug: string,
+  qty: number
 }
 
 export default function Checkout() {
@@ -180,92 +181,81 @@ const handleToggleSummary = (e: any) => {
                 <meta name="description" content="Boom Bap HipHop producer from Bonita, California making sample packs with various musicians in his home studio." />
                 <link rel="icon" href="/favicon.ico" />
               </Head>
-
-                  <div className={styles.Checkout__left}>
-                      <div className="d-flex justify-content-center">
-                        <div className="row">
-                          <Link href="/">
-                            <a className="logo">
-                              <Image 
-                                src={logo} 
-                                height="70" 
-                                alt="Bonita Basics Productions Logo" />
-                            </a>
-                          </Link>
-                        </div>
+                <div className={styles.Checkout__left}>
+                    <div className="d-flex justify-content-center">
+                      <div className="row">
+                        <Link href="/">
+                          <a className="logo">
+                            <Image 
+                              src={logo} 
+                              height="70" 
+                              alt="Bonita Basics Productions Logo" />
+                          </a>
+                        </Link>
                       </div>
-                    
-
+                    </div>
                   <div className={styles.Checkout__mobile_top}>
-                      
-                      {products ?
-                        products.map((product: Product) => (
-                          <Fragment key={product.databaseId}>
-                          <aside role="complementary">
-                            <button onClick={handleToggleSummary} className={`${ styles["order__summary_toggle"] } toggle__dropdown`} aria-expanded="false" aria-controls="order-summary" data-drawer-toggle="[data-order-summary]" aria-hidden="false">
-                              <span className={ styles.wrap }>
-                                <span className={ styles.order__summary__toggle__inner }>
-                                  <span className="order-summary-toggle__icon-wrapper">
-                                    <svg width="20" height="19" xmlns="http://www.w3.org/2000/svg" className="order-summary-toggle__icon">
-                                      <path d="M17.178 13.088H5.453c-.454 0-.91-.364-.91-.818L3.727 1.818H0V0h4.544c.455 0 .91.364.91.818l.09 1.272h13.45c.274 0 .547.09.73.364.18.182.27.454.18.727l-1.817 9.18c-.09.455-.455.728-.91.728zM6.27 11.27h10.09l1.454-7.362H5.634l.637 7.362zm.092 7.715c1.004 0 1.818-.813 1.818-1.817s-.814-1.818-1.818-1.818-1.818.814-1.818 1.818.814 1.817 1.818 1.817zm9.18 0c1.004 0 1.817-.813 1.817-1.817s-.814-1.818-1.818-1.818-1.818.814-1.818 1.818.814 1.817 1.818 1.817z"></path>
-                                    </svg>
-                                  </span>
-                                  {/* order-summary-toggle__text order-summary-toggle__text--show */}
-                                  <span className={ styles.order__summary__toggle__text }>
-                                    <span className={ styles.order__summary__toggle__text__inner }>Show order summary</span>
-                                    <svg width="11" height="6" xmlns="http://www.w3.org/2000/svg" className="order-summary-toggle__dropdown" fill="#000"><path d="M.504 1.813l4.358 3.845.496.438.496-.438 4.642-4.096L9.504.438 4.862 4.534h.992L1.496.69.504 1.812z"></path></svg>
-                                  </span>
-                                  <span className={ `${ styles["order__summary__toggle__text"] } ${ styles["Checkout__order__summary__toggle__text__hide"] }` }>
-                                    <span className={ styles.order__summary__toggle__text__inner }>Hide order summary</span>
-                                    <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg" className="order-summary-toggle__dropdown" fill="#000"><path d="M6.138.876L5.642.438l-.496.438L.504 4.972l.992 1.124L6.138 2l-.496.436 3.862 3.408.992-1.122L6.138.876z"></path></svg>
-                                  </span>
-                                  <dl className="order-summary-toggle__total-recap total-recap" data-order-summary-section="toggle-total-recap">
-                                    <dt className="visually-hidden"><span>Sale price</span></dt>
-                                    <dd>
-                                      <span className="order-summary__emphasis total-recap__final-price skeleton-while-loading" data-checkout-payment-due-target="2999">$29.99</span>
-                                      </dd>
-                                  </dl>
-                                </span>
-                              </span>
-                            </button>
-                          </aside>
-                         <aside className={ `${ styles.Checkout__mobile_product_dropdown } dropdown` } role="complementary">
-                         <div key={ product.databaseId } className={styles.Checkout__mobile_product}>
-                            <div className={`${styles.Checkout__mobile_product_img}`}>
-                            <span className="cart-count-mobile">{ productsCount }</span>
-
-                            <Link href={`/product/${ product.slug }`}>
-                              <a>
-                                <Image src={product.image} width="91" height="91" alt={ product.name } />
-                              </a>
-                              </Link>
-                              </div>
-
-                                <div className={styles.Checkout__mobile_product_name}>
-                                <h3 className={styles.Checkout__right_product_name_txt}>
-
-                                  <Link href={`/product/${ product.slug }`}>
-                                    <a>
-                                      { product.name }
-                                    </a>
-                                  </Link>
-                                  <span>{ product.price }</span>
-                                  </h3>
-
-                                  </div>
-                          </div>
-                            <div className={styles.Checkout__mobile_product_total_row}>
-                              <div className={styles.Checkout__mobile_product_total}>
-                                <p>Total</p>
-                              </div>
-                              <div className={styles.Checkout__mobile_product_total_price}>
-                                  <span>USD</span> {product.price}
-                              </div>
+                    <aside role="complementary">
+                      <button onClick={handleToggleSummary} className={`${ styles["order__summary_toggle"] } toggle__dropdown`} aria-expanded="false" aria-controls="order-summary" data-drawer-toggle="[data-order-summary]" aria-hidden="false">
+                        <span className={ styles.wrap }>
+                          <span className={ styles.order__summary__toggle__inner }>
+                            <span className="order-summary-toggle__icon-wrapper">
+                              <svg width="20" height="19" xmlns="http://www.w3.org/2000/svg" className="order-summary-toggle__icon">
+                                <path d="M17.178 13.088H5.453c-.454 0-.91-.364-.91-.818L3.727 1.818H0V0h4.544c.455 0 .91.364.91.818l.09 1.272h13.45c.274 0 .547.09.73.364.18.182.27.454.18.727l-1.817 9.18c-.09.455-.455.728-.91.728zM6.27 11.27h10.09l1.454-7.362H5.634l.637 7.362zm.092 7.715c1.004 0 1.818-.813 1.818-1.817s-.814-1.818-1.818-1.818-1.818.814-1.818 1.818.814 1.817 1.818 1.817zm9.18 0c1.004 0 1.817-.813 1.817-1.817s-.814-1.818-1.818-1.818-1.818.814-1.818 1.818.814 1.817 1.818 1.817z"></path>
+                              </svg>
+                            </span>
+                            {/* order-summary-toggle__text order-summary-toggle__text--show */}
+                            <span className={ styles.order__summary__toggle__text }>
+                              <span className={ styles.order__summary__toggle__text__inner }>Show order summary</span>
+                              <svg width="11" height="6" xmlns="http://www.w3.org/2000/svg" className="order-summary-toggle__dropdown" fill="#000"><path d="M.504 1.813l4.358 3.845.496.438.496-.438 4.642-4.096L9.504.438 4.862 4.534h.992L1.496.69.504 1.812z"></path></svg>
+                            </span>
+                            <span className={ `${ styles["order__summary__toggle__text"] } ${ styles["Checkout__order__summary__toggle__text__hide"] }` }>
+                              <span className={ styles.order__summary__toggle__text__inner }>Hide order summary</span>
+                              <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg" className="order-summary-toggle__dropdown" fill="#000"><path d="M6.138.876L5.642.438l-.496.438L.504 4.972l.992 1.124L6.138 2l-.496.436 3.862 3.408.992-1.122L6.138.876z"></path></svg>
+                            </span>
+                            <dl className="order-summary-toggle__total-recap total-recap" data-order-summary-section="toggle-total-recap">
+                              <dt className="visually-hidden"><span>Sale price</span></dt>
+                              <dd>
+                                <span className="order-summary__emphasis total-recap__final-price skeleton-while-loading" data-checkout-payment-due-target="2999">$29.99</span>
+                                </dd>
+                            </dl>
+                          </span>
+                        </span>
+                      </button>
+                    </aside>
+                    
+                    <aside className={ `${ styles.Checkout__mobile_product_dropdown } dropdown` } role="complementary">
+                      {products ? products.map((product: Product) => (
+                        <>
+                        <div key={ product['databaseId'] } className={styles.Checkout__mobile_product}>
+                          <div className={`${styles.Checkout__mobile_product_img}`}>
+                            <span className="cart-count-mobile">{product['qty']}</span>
+                          <Link href={`/product/${ product['slug'] }`}>
+                            <a>
+                              <Image src={product['image']} width="91" height="91" alt={ product['name'] } />
+                            </a>
+                            </Link>
                             </div>
-                         </aside>
-                          </Fragment>
-                        ))
-                      : 'There are no items in your cart'}
+                            <div className={styles.Checkout__mobile_product_name}>
+                            <h3 className={styles.Checkout__right_product_name_txt}>
+                              <Link href={`/product/${ product['slug'] }`}>
+                                <a>{ product.name }</a>
+                              </Link>
+                              <span>{ product['price'] }</span>
+                              </h3>
+                              </div>
+                          </div>
+                        {/* <div className={styles.Checkout__mobile_product_total_row}>
+                          <div className={styles.Checkout__mobile_product_total}>
+                            <p>Total</p>
+                          </div>
+                          <div className={styles.Checkout__mobile_product_total_price}>
+                              <span>USD</span> {product.price}
+                          </div>
+                        </div> */}
+                        </>
+                        )) : 'There are no items in your cart'}
+                    </aside>
 
                     </div>
 
@@ -393,7 +383,7 @@ const handleToggleSummary = (e: any) => {
                 <SidebarCart 
                   products={products} 
                   productsCount={productsCount} 
-                  price={price}
+                  totalProductsPrice={price}
                 />
 
             </main>
