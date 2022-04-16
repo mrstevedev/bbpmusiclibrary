@@ -72,7 +72,7 @@ export async function getStaticProps() {
     body: JSON.stringify({
       query: `
       query MyQuery {
-        products {
+        products(first: 12) {
           edges {
             node {
               name
