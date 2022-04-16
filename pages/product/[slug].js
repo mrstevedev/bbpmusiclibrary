@@ -262,7 +262,7 @@ export async function getStaticPaths() {
     body: JSON.stringify({
       query: `
         query AllProductsQuery {
-          products {
+          products(first: 12) {
             nodes {
               slug
             }
