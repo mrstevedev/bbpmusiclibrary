@@ -2,7 +2,10 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const axios = require('axios')
+const path = require('path')
 const oauthSignature = require('oauth-signature')
+const hbs = require('nodemailer-express-handlebars')
+const nodemailer = require('nodemailer')
 const { generatePassword, generateTimestamp, generateNonce } = require('./util/generate')
 app.use(express.json())
 require('dotenv').config({ path: './.env' })
@@ -11,6 +14,30 @@ app.use(cors({
     origin: process.env.ORIGIN_URL,
     credentials: true
 }))
+
+// initialize nodemailer
+let transport = {
+    host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
+    port: 587,
+    auth: {
+        user: process.env.USER,
+        pass: process.env.PASS
+    }
+  }
+  
+let transporter = nodemailer.createTransport(transport)
+
+// point to the template folder
+const handlebarOptions = {
+    viewEngine: {
+        partialsDir: path.resolve('./email/purchase/'),
+        defaultLayout: false,
+    },
+    viewPath: path.resolve('./email/purchase/'),
+};
+
+// use a template file with nodemailer
+transporter.use('compile', hbs(handlebarOptions))
 
 app.post('/register-customer', async (req, res) => {
     const first_name = req.body.firstName
@@ -55,7 +82,8 @@ app.post('/register-customer', async (req, res) => {
     axios.post(url, json, {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': authorizationHeader
+            // 'Authorization': authorizationHeader
+            'Authorization': 'Bearer ' + process.env.JWT_TOKEN
         }
     })
     .then(data => {
@@ -98,11 +126,20 @@ app.post('/create-customer', async (req, res) => {
         email_address
     })
 
-    axios.get(`${search_url}${email_address}`, {
-        headers: {
-            'Authorization': 'Bearer ' + process.env.JWT_TOKEN
+    const mailOptions = {
+        from: first_name,
+        to: email_address, // list of receivers
+        subject: 'Welcome!',
+        template: 'purchase', // the name of the template file i.e purchase.handlebars
+        context:{
+            name: "Adebola", // replace {{name}} with Adebola
+            company: 'My Company', // replace {{company}} with My Company
+            link: 'download link'
         }
-    }).then(res => {
+    };
+
+    axios.get(`${search_url}${email_address}`)
+        .then(res => {
 
         if(res.data.length > 0) {
 
@@ -151,6 +188,19 @@ app.post('/create-customer', async (req, res) => {
                 }
             }).then(res => {
                 // console.log(res)
+                // Send Email
+                transporter.sendMail(mailOptions, (err, data) => {
+                    if (err) {
+                        res.json({
+                            status: 'fail'
+                        })
+                    } else {
+                        res.json({
+                            status: 'success'
+                        })
+                    }
+                })
+                res.send('success');
             }).catch(err => console.log(err))
         } else {
 
