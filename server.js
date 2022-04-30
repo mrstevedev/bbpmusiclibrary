@@ -208,7 +208,7 @@ app.post('/create-customer', async (req, res) => {
             axios.post(users_url, users_json, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + proces.env.JWT_TOKEN
+                    'Authorization': 'Bearer ' + process.env.JWT_TOKEN
                 }
             }).then(res => {
                 // console.log(res)
@@ -217,7 +217,7 @@ app.post('/create-customer', async (req, res) => {
                 axios.post(orders_url, orders_json, {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + proces.env.JWT_TOKEN
+                        'Authorization': 'Bearer ' + process.env.JWT_TOKEN
                     }
                 })
             }).catch(err => console.log(err))
