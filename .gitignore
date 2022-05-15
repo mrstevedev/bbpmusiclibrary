@@ -35,4 +35,5 @@ yarn-error.log*
 .vercel
 
 # Client
-clientConfig.js
+# clientConfig.js
+config.js
