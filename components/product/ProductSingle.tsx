@@ -26,7 +26,7 @@ interface IProduct {
 
 export default function ProductSingle(props: IProduct) {
 
-    const { product } = props;
+  const { product } = props;
     const { name, description, price } = props.product;
     const { mediaItemUrl } = props.product.image;
 
@@ -50,25 +50,25 @@ export default function ProductSingle(props: IProduct) {
                     <h3 className={styles.productDescriptionTxt}>{name}</h3>
                     <h4>{ product.salePrice ? (
                     <>
-                        <span className={styles.Product__RegularPrice}>{ product.regularPrice }</span>
-                        <span className={styles.Product__SaleTxt}> { product.salePrice }</span>
+                      <span className={styles.Product__RegularPrice}>{ product.regularPrice }</span>
+                      <span className={styles.Product__SaleTxt}> { product.salePrice }</span>
                     </>
                     ) : product.regularPrice }</h4>
                     <p>{description}</p>
                     <h4 className={styles.productCategoriesTxt}>
                     Categories:{" "}
                     <span
-                        className="category__wrapper"
-                        style={{ color: "#1a1a1a" }}
-                        dangerouslySetInnerHTML={{
-                        __html: createLink(categories, "a"),
-                        }}
+                      className="category__wrapper"
+                      style={{ color: "#1a1a1a" }}
+                      dangerouslySetInnerHTML={{
+                      __html: createLink(categories, "a"),
+                      }}
                     ></span>
                     </h4>
                     <AddCartButton product={product}
-                        addToCart={props.addToCart}
-                        handleAddToCart={props.handleAddToCart}
-                        productPage
+                      addToCart={props.addToCart}
+                      handleAddToCart={props.handleAddToCart}
+                      productPage
                     />
                     </div>
                     </div>
