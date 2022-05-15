@@ -22,7 +22,7 @@ interface IProducts {
 }
 
 export default function Cart(props : IProducts) {
-    const { totalStatePrice } = props
+    const { totalStatePrice, quantity } = props
     return (
         <>
             { props.products ? (
@@ -42,8 +42,8 @@ export default function Cart(props : IProducts) {
 
                         <CartItem 
                             key={product.name}
-                            totalStatePrice={props.totalStatePrice}
-                            quantity={props.quantity}
+                            totalStatePrice={totalStatePrice}
+                            quantity={quantity}
                             product={product}
                             handleChange={props.handleChange}
                             handleRemoveItem={props.handleRemoveItem}
@@ -60,7 +60,7 @@ export default function Cart(props : IProducts) {
                     <div className={styles.cart__right}>
                         <div className="cart__coupon--container"></div>
                         <div className={styles.cart__subtotal}>
-                            <h5 className={styles.cart__subtotalText}>Subtotal <span>${ props.totalStatePrice * props.quantity }</span></h5>
+                            <h5 className={styles.cart__subtotalText}>Subtotal <span>${ totalStatePrice * quantity }</span></h5>
                         </div>
                         <p className={styles.cart__taxesTxt}>Taxes calculated at checkout</p>
                         <div className={styles.cart__checkoutBtnContainer}>
