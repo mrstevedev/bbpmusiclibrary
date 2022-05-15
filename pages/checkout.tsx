@@ -148,7 +148,7 @@ export default function Checkout() {
     }
   }
 
-  function handleSubmitBtn(e: SubmitEvent) {
+  function handleSubmitBtn(e: Event) {
     setFormSubmit(true)
 }
 
