@@ -3,6 +3,8 @@ const app = express()
 const cors = require('cors')
 const axios = require('axios')
 const path = require('path')
+const creds = require('./config')
+const shorten = require('simple-short')
 const oauthSignature = require('oauth-signature')
 const hbs = require('nodemailer-express-handlebars')
 const nodemailer = require('nodemailer')
@@ -15,29 +17,37 @@ app.use(cors({
     credentials: true
 }))
 
-// initialize nodemailer
-let transport = {
-    host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
+
+let transport = {  
+  host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
     port: 587,
     auth: {
-        user: process.env.USER,
-        pass: process.env.PASS
+      user: creds.USER,
+      pass: creds.PASS
     }
   }
   
-let transporter = nodemailer.createTransport(transport)
+  let transporter = nodemailer.createTransport(transport)
+  
+  transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+  });
 
-// point to the template folder
-const handlebarOptions = {
-    viewEngine: {
-        partialsDir: path.resolve('./email/purchase/'),
-        defaultLayout: false,
-    },
-    viewPath: path.resolve('./email/purchase/'),
-};
+// // point to the template folder
+// const handlebarOptions = {
+//     viewEngine: {
+//         partialsDir: path.resolve('./email/purchase/'),
+//         defaultLayout: false,
+//     },
+//     viewPath: path.resolve('./email/purchase/'),
+// };
 
-// use a template file with nodemailer
-transporter.use('compile', hbs(handlebarOptions))
+// // use a template file with nodemailer
+// transporter.use('compile', hbs(handlebarOptions))
 
 app.post('/register-customer', async (req, res) => {
     const first_name = req.body.firstName
@@ -100,10 +110,10 @@ app.post('/register-customer', async (req, res) => {
 app.post('/create-customer', async (req, res) => {
     const body = req.body
     const name = req.body.description
-    const email_address = req.body.email_address
+    const email = req.body.email
     const first_name = req.body.first_name
     const last_name = req.body.last_name
-    const username = req.body.email_address
+    const username = req.body.email
     const password = generatePassword()
     const price = req.body.price
     const admin_area_1 = req.body.admin_area_1
@@ -117,34 +127,26 @@ app.post('/create-customer', async (req, res) => {
     const orders_url = process.env.ORDERS_URL
     const users_url = process.env.USERS_URL
     const search_url = process.env.SEARCH_URL
+    const downloads_url = process.env.DOWNLOADS_URL
 
     const users_json = JSON.stringify({
         first_name,
         last_name,
         username,
         password,
-        email_address
+        email
     })
 
-    const mailOptions = {
-        from: first_name,
-        to: email_address, // list of receivers
-        subject: 'Welcome!',
-        template: 'purchase', // the name of the template file i.e purchase.handlebars
-        context:{
-            name: "Adebola", // replace {{name}} with Adebola
-            company: 'My Company', // replace {{company}} with My Company
-            link: 'download link'
+    axios.get(`${search_url}${email}`, {
+        headers: {
+            'Authorization': 'Bearer ' + process.env.JWT_TOKEN
         }
-    };
+    }).then(response => {
 
-    axios.get(`${search_url}${email_address}`)
-        .then(res => {
-
-        if(res.data.length > 0) {
+        if(response.data.length === 1) {
 
             // get user id from response and append as customer_id
-            const arr_val = res.data.map(user => [user.id])
+            const arr_val = response.data.map(user => user.id)
             const [user_id] = arr_val
 
             const orders_json = {
@@ -161,7 +163,7 @@ app.post('/create-customer', async (req, res) => {
                     "state": admin_area_1,
                     "postcode": postal_code,
                     "country": country_code,
-                    "email": email_address,
+                    "email": email,
                     "phone": phone
                 },
                 "line_items": [
@@ -186,23 +188,71 @@ app.post('/create-customer', async (req, res) => {
                 headers: {
                     'Authorization': 'Bearer ' + process.env.JWT_TOKEN
                 }
-            }).then(res => {
+            }).then(response => {
                 // console.log(res)
-                // Send Email
-                transporter.sendMail(mailOptions, (err, data) => {
-                    if (err) {
-                        res.json({
-                            status: 'fail'
-                        })
-                    } else {
-                        res.json({
-                            status: 'success'
-                        })
+                axios.get(`${downloads_url}/${user_id}/downloads`, {
+                    headers: {
+                        'Authorization': 'Bearer ' + process.env.JWT_TOKEN
                     }
-                })
-                res.send('success');
+                }).then(response => {
+                    const getLastUrl = response.data[response.data.length - 1].download_url;
+                    const download_url = response.data.filter(({download_url}) => download_url === getLastUrl).pop().download_url;
+
+                    const getLastProductName = response.data[response.data.length - 1].product_name;
+                    const product_name = response.data.filter(({product_name}) => product_name === getLastProductName).pop().product_name;
+
+                    const data = JSON.stringify({
+                      "title": "Bonita Basics Productions",
+                      "destination": "http://bonitabasicsproductions.com/?download_file=1148&order=wc_order_DaMPnJc0gjNBY&email=sb-gvxya7393660%40personal.example.com&key=3803f3f9-2610-46fa-9393-8c9b0d274dba",
+                      "domain": {
+                        "id": "8f104cc5b6ee4a4ba7897b06ac2ddcfb"
+                      }
+                    });
+
+                    const config = {
+                      method: 'post',
+                      url: 'https://api.rebrandly.com/v1/links',
+                      headers: { 
+                        'apikey': '523e8cfe04cf4b50870882e2d829c556', 
+                        'Content-Type': 'application/json'
+                      },
+                      data : data
+                    };
+
+                    axios(config).then(res => {
+                      const url = res.data.shortUrl;
+                      
+                    })
+                    .catch(err => console.log(err))
+
+                    const mail = {
+                      from: 'stevendotpulido@gmail.com',
+                      to: 'stevendotpulido@gmail.com',  // Change to email address that you want to receive messages on
+                      subject: 'Your purchase',
+                      html: `
+                      <div>
+                        <a href='https://svgshare.com/s/hJ8' ><img src='https://svgshare.com/i/hJ8.svg' title='bbp' /></a>
+                        <h3>Thank you for your purchase</h3>
+                        <h2>${product_name}</h2>
+                        <strong>Your download link</strong><br/>
+                        <a href="${download_url}">Download File</a>
+                      <div>`
+                    }
+
+                    transporter.sendMail(mail, (err, data) => {
+                      if (err) {
+                        res.json({
+                          status: 'fail'
+                        })
+                      } else {
+                        res.json({
+                         status: 'success'
+                        })
+                      }
+                    })
+                });
             }).catch(err => console.log(err))
-        } else {
+        } else if (res.data.length <= 0) {
 
             // Else create a customer then create an order
             axios.post(users_url, users_json, {
@@ -219,12 +269,17 @@ app.post('/create-customer', async (req, res) => {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + process.env.JWT_TOKEN
                     }
+                }).then(res => {
+                    // Get download link
+                    axios.get(`${downloads_url}/${cusomer_id}/downloads`).then(res => {
+                        console.log('Checking response in downloads_url',res)
+                    });
                 })
             }).catch(err => console.log(err))
         }
-    }).catch(res => console.log(res))
+    }).catch(err => console.log(err))
 
-    res.send('ok')
+    // res.send('ok')
 })
 
 const PORT = 5000;
