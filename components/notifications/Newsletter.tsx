@@ -3,7 +3,7 @@ import closeBtn from '../../public/images/closeBtn.svg'
 import styles from '../../styles/Modal.module.scss'
 import { ChangeEvent, FormEvent, useState } from 'react'
 import axios from 'axios'
-import clientConfig from '../../clientConfig'
+import clientConfig from '../../clientConfig.js'
 
 interface Props {
     handleCloseModal: () => void
