@@ -21,7 +21,7 @@ interface IProduct {
 
 export default function CartItem(props: IProduct) {
 
-    const { product } = props
+    const { product, totalStatePrice, quantity } = props
 
     return (
         <>
@@ -44,7 +44,7 @@ export default function CartItem(props: IProduct) {
                     <input 
                         onChange={props.handleChange} 
                         type="number" 
-                        value={props.quantity} 
+                        value={quantity} 
                         step="1" 
                         min="1" 
                         pattern="[0-9]*" 
@@ -53,7 +53,7 @@ export default function CartItem(props: IProduct) {
                 </td>
                 <td className={styles.cart__cell}>
                     <div>
-                    ${ props.totalStatePrice * props.quantity }
+                    ${ totalStatePrice * quantity }
                     </div>
                 </td>
             </tr>
