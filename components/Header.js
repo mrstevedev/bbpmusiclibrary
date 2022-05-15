@@ -29,8 +29,8 @@ export default function Header(props) {
               </div>
               <div className="col col-2 col-lg-2 d-flex justify-content-end">
               <span className={ styles.header__signIn }>
-                  Welcome <Link href="#">Guest</Link> |
-                  <Link href="/signin">
+                  Welcome |
+                  <Link href="/login">
                     <a className={ styles.header__link }>Sign-In</a>
                  </Link>
                 </span>
