@@ -81,7 +81,7 @@ export function updateCart( existingCart, product, qtyToBeAdded, newQty = false 
   const updatedCart = {
     products: updatedProducts,
     totalProductsCount: parseInt( total.qty ),
-    totalProductsPrice: parseFloat( total.totalPrice )
+    totalProductsPrice: parseFloat( total.totalPrice ).toFixed(2)
   }
 
   localStorage.setItem( 'product', JSON.stringify( updatedCart ) )
