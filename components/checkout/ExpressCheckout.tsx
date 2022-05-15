@@ -63,7 +63,7 @@ export default function ExpressCheckout(props : IProps) {
                         });
                     }}
                     onSuccess={(details: any) => {
-                    const email_address = details.payer.email_address;
+                    const email = details.payer.email_address;
                     const address_line_1 = details.payer.address.address_line_1;
                     const admin_area_1 = details.payer.address.admin_area_1;
                     const admin_area_2 = details.payer.address.admin_area_2;
@@ -83,7 +83,7 @@ export default function ExpressCheckout(props : IProps) {
                         },
                         body: JSON.stringify({
                         id: id,
-                        email_address: email_address,
+                        email: email,
                         admin_area_1: admin_area_1,
                         admin_area_2: admin_area_2,
                         postal_code: postal_code,
@@ -104,7 +104,7 @@ export default function ExpressCheckout(props : IProps) {
                         if(res.ok) {
                         Router.push({
                             pathname: '/confirm',
-                            query: `${ `success=true&email=${ email_address }&transaction_id=${ id }`}`
+                            query: `${ `success=true&email=${ email }&transaction_id=${ id }`}`
                         })
                         }                             
                     })
@@ -162,7 +162,7 @@ export default function ExpressCheckout(props : IProps) {
                     }}
                     onPaymentAuthorized={paymentData => {
                         console.log('Payment Authorized Success', paymentData)
-                        const email_address = paymentData['email'];
+                        const email = paymentData['email'];
 
                         fetch('http://localhost:5000/create-customer', {
                             method: 'POST',
@@ -170,7 +170,7 @@ export default function ExpressCheckout(props : IProps) {
                                 "Content-Type": "application/json"
                             },
                             body: JSON.stringify({
-                                email_address: email_address,
+                                email: email,
                                 postal_code: paymentData['shippingAddress']?.postalCode,
                                 country_code: paymentData['shippingAddress']?.countryCode,
                                 name: paymentData['shippingAddress']?.name,
@@ -182,7 +182,7 @@ export default function ExpressCheckout(props : IProps) {
                                 if(res.ok) {
                                     Router.push({
                                         pathname: '/confirm',
-                                        query: `${ `success=true&email=${ email_address }&transaction_id=${ 'id' }`}`
+                                        query: `${ `success=true&email=${ email }&transaction_id=${ 'id' }`}`
                                     })
                                 }
                             })
