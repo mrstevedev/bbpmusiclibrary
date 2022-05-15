@@ -6,7 +6,7 @@ import CheckoutButton from '../buttons/CheckoutButton'
 import ContinueShoppingButton from '../buttons/ContinueShoppingButton'
 import CartItem from './CartItem'
 import { AppContext } from '../context/AppContext'
-import { removeProduct } from '../../util'
+import { removeItemFromCart } from '../../util'
 
 export default function Cart(props) {
 
@@ -15,20 +15,20 @@ export default function Cart(props) {
     const products =
     ( cart && Object.keys( cart ).length ) ? cart.products : ""
 
-    // const productsCount =
-    // ( null != cart && Object.keys( cart ).length ) ? cart.products.map(item => item.qty) : ""
-
     const handleRemoveItem = (id) => {
-        removeProduct( id )
-        setCart(null)
+        removeItemFromCart(id);
+        let existingCart = JSON.parse(localStorage.getItem("product"));
+        setCart( existingCart );
     }
+
+    console.log()
 
     return (
         <>
             {products.length > 0 ? (
                 <>
                     <div className={styles.Checkout__wrapper}>
-                        <h3>You have { products.length > 1 ? 'items' : 'item' } in your cart</h3>
+                        <h3>You have { products.length > 1 ? products.length + ' items' : products.length + ' item' } in your cart</h3>
                         <div className={styles.Checkout__product_wrapper}>
 
                         { products.map((product) => (
