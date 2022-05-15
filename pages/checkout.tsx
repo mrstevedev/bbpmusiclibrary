@@ -40,16 +40,19 @@ export default function Checkout() {
   const [cart, setCart] = useContext<any>( AppContext )
 
   const products =
-  ( cart && Object.keys( cart ).length ) ? cart.products : ""
+   ( cart && Object.keys( cart ).length ) ? cart.products : ""
 
   const price = 
-    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].price : ""
+   ( null != cart && Object.keys( cart ).length ) ? cart.products[0].price : ""
+
+  const totalProductsPrice = 
+   ( null != cart && Object.keys( cart ).length ) ? cart.totalProductsPrice : ""
 
   const productsCount =
-  ( null != cart && Object.keys( cart ).length ) ? cart.totalProductsCount : "" 
+   ( null != cart && Object.keys( cart ).length ) ? cart.totalProductsCount : "" 
 
   const productName =
-    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].name : ""
+   ( null != cart && Object.keys( cart ).length ) ? cart.products[0].name : ""
 
   const productFile =
    ( null != cart && Object.keys( cart ).length ) ? cart.products[0].downloads[0].file : ""
@@ -216,7 +219,7 @@ const handleToggleSummary = (e: any) => {
                             <dl className="order-summary-toggle__total-recap total-recap" data-order-summary-section="toggle-total-recap">
                               <dt className="visually-hidden"><span>Sale price</span></dt>
                               <dd>
-                                <span className="order-summary__emphasis total-recap__final-price skeleton-while-loading" data-checkout-payment-due-target="2999">$29.99</span>
+                                <span className="order-summary__emphasis total-recap__final-price skeleton-while-loading" data-checkout-payment-due-target="2999">${totalProductsPrice}</span>
                                 </dd>
                             </dl>
                           </span>
@@ -226,34 +229,26 @@ const handleToggleSummary = (e: any) => {
                     
                     <aside className={ `${ styles.Checkout__mobile_product_dropdown } dropdown` } role="complementary">
                       {products ? products.map((product: Product) => (
-                        <>
-                        <div key={ product['databaseId'] } className={styles.Checkout__mobile_product}>
-                          <div className={`${styles.Checkout__mobile_product_img}`}>
-                            <span className="cart-count-mobile">{product['qty']}</span>
-                          <Link href={`/product/${ product['slug'] }`}>
-                            <a>
-                              <Image src={product['image']} width="91" height="91" alt={ product['name'] } />
-                            </a>
-                            </Link>
-                            </div>
-                            <div className={styles.Checkout__mobile_product_name}>
-                            <h3 className={styles.Checkout__right_product_name_txt}>
-                              <Link href={`/product/${ product['slug'] }`}>
-                                <a>{ product.name }</a>
+                        <div key={ product['databaseId'] }>
+                          <div className={styles.Checkout__mobile_product}>
+                            <div className={`${styles.Checkout__mobile_product_img}`}>
+                              <span className="cart-count-mobile">{product['qty']}</span>
+                            <Link href={`/product/${ product['slug'] }`}>
+                              <a>
+                                <Image src={product['image']} width="91" height="91" alt={ product['name'] } />
+                              </a>
                               </Link>
-                              <span>{ product['price'] }</span>
-                              </h3>
                               </div>
-                          </div>
-                        {/* <div className={styles.Checkout__mobile_product_total_row}>
-                          <div className={styles.Checkout__mobile_product_total}>
-                            <p>Total</p>
-                          </div>
-                          <div className={styles.Checkout__mobile_product_total_price}>
-                              <span>USD</span> {product.price}
-                          </div>
-                        </div> */}
-                        </>
+                              <div className={styles.Checkout__mobile_product_name}>
+                              <h3 className={styles.Checkout__right_product_name_txt}>
+                                <Link href={`/product/${ product['slug'] }`}>
+                                  <a>{ product.name }</a>
+                                </Link>
+                                <span>${ product['price'] }</span>
+                                </h3>
+                                </div>
+                            </div>
+                        </div>
                         )) : 'There are no items in your cart'}
                     </aside>
 
