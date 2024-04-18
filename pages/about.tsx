@@ -1,25 +1,31 @@
-import ImageHero from "../components/ImageHero";
 import Head from "next/head";
 import Script from "next/script";
-import AboutParagraph from "../components/about/AboutParagraph";
-import styles from '../styles/About.module.scss'
 
-interface Props {
-    page: {
-      id: string,
-      content: string,
-      featuredImage: {
-        node: {
-          id: string,
-          mediaItemUrl: string
-        }
-      },
-      title: string
-    }
+import ImageHero from "@/components/Hero/ImageHero";
+import AboutParagraph from "@/components/About/AboutParagraph";
+
+import styles from "@/styles/About.module.scss";
+
+import axios from "axios";
+import cookie from "cookie";
+import { GET_ABOUT_PAGE } from "@/query/index";
+
+interface IProps {
+  page: {
+    id: string;
+    content: string;
+    featuredImage: {
+      node: {
+        id: string;
+        mediaItemUrl: string;
+      };
+    };
+    title: string;
+  };
+  coupon: {};
 }
 
-export default function About({ page } : Props ) {
-
+export default function About({ page }: IProps) {
   return (
     <>
       <Script
@@ -35,14 +41,11 @@ export default function About({ page } : Props ) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={ styles.about__mainContainer }>
+      <main className={styles.about__mainContainer}>
         <ImageHero about mediaItemUrl={page.featuredImage.node.mediaItemUrl} />
         <div className="container">
-          <div
-            className={styles.about}>
-            <h4 className={ styles.about__text }>
-              {page.title}
-            </h4>
+          <div className={styles.about}>
+            <h4 className={styles.about__text}>{page.title}</h4>
             <AboutParagraph page={page} />
           </div>
         </div>
@@ -51,34 +54,29 @@ export default function About({ page } : Props ) {
   );
 }
 
-export async function getStaticProps() {
-  const res = await fetch(process.env.SITE_URL as string, {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json"
-    },
-    body: JSON.stringify({
-      query: `      
-      query MyQuery {
-        page(id: 28, idType: DATABASE_ID) {
-          id
-          title
-          content
-          featuredImage {
-            node {
-              id
-              mediaItemUrl
-            }
-          }
-        }
-      }      
-      `,
-    }),
+export async function getServerSideProps<Promise>(context: any) {
+  const parsedCookies = cookie.parse(context.req.headers.cookie);
+  const token = parsedCookies.bbp_token;
+
+  const get_coupons_response = await fetch(
+    process.env.NEXT_PUBLIC_COUPONS_URL as string,
+    {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    }
+  );
+  const coupon: Awaited<Promise> = await get_coupons_response.json();
+
+  const res = await axios.post(process.env.GRAPHQL_URL as string, {
+    query: GET_ABOUT_PAGE,
   });
-  const json = await res.json();
+  const json = await res.data;
 
   return {
-    props: json.data,
-    revalidate: 1
-  }
+    props: {
+      page: json.data.page,
+      coupon: coupon,
+    },
+  };
 }
