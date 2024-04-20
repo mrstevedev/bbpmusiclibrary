@@ -1,41 +1,43 @@
-import styles from "../../styles/Product.module.scss";
-import Image from "next/image";
+import { Image } from "react-bootstrap";
+import styles from "@/styles/Product.module.scss";
 
 interface IProduct {
-  gallery: boolean
-  handleCloseImageGallery: () => boolean
+  gallery: boolean;
+  handleCloseImageGallery: () => void;
   product: {
-    name: string
+    name: string;
     image: {
-      mediaItemUrl: string
-    }
-  }
+      mediaItemUrl: string;
+    };
+  };
 }
 
-export default function ProductGallery(props: IProduct) {
-
-  const { product } = props;
-
+export default function ProductGallery({
+  gallery,
+  handleCloseImageGallery,
+  product: {
+    name,
+    image: { mediaItemUrl },
+  },
+}: IProduct) {
   return (
     <>
-      {props.gallery === true ? (
+      {gallery === true ? (
         <div
           className={`${styles.imageGallery}`}
-          onClick={props.handleCloseImageGallery}
+          onClick={handleCloseImageGallery}
         >
           <div className={styles.imageGalleryTopBar}>
-            <h3 className={styles.imageGalleryProductName}>{product.name}</h3>
+            <h3 className={styles.imageGalleryProductName}>{name}</h3>
           </div>
           <Image
-            src={product.image.mediaItemUrl}
+            src={mediaItemUrl}
             width="700"
             height="700"
             alt={`Gallery Image - ${name}`}
           />
         </div>
-      ) : (
-        ""
-      )}
+      ) : null}
     </>
   );
 }
