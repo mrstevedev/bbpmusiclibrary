@@ -1,4 +1,12 @@
+.Spinner__Container {
+  display: flex;
+  justify-content: center;
+  height: 12rem;
+  align-items: center;
+  margin: -5rem 0;
+}
+
 .Spinner {
-    width: 1rem;
-    height: 1rem;
+  width: 1rem;
+  height: 1rem;
 }
