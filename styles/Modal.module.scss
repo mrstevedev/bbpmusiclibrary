@@ -42,8 +42,7 @@
     }
 
     .form__container {
-      max-width: 350px;
-      padding: 10rem 2rem;
+      padding: 8rem 0.6rem;
 
       h1 {
         font-size: 1.4rem;
@@ -84,14 +83,14 @@
     justify-content: flex-end;
     padding: 1rem;
   }
-  
+
   .form__container {
     max-width: 100% !important;
     padding: 2rem !important;
   }
 }
 
-@media(min-width: 575px) {
+@media (min-width: 575px) {
   .modal__overlay {
     background: rgba(0, 0, 0, 0.96);
     width: 100%;
@@ -104,5 +103,5 @@
 
   .modal__modalHeader {
     display: none;
-  }  
+  }
 }
