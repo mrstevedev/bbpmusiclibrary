@@ -1,42 +1,5 @@
+import { Product } from "@/types/types";
 import styles from "@/styles/Soundcloud.module.scss";
-
-type Categories = {
-  name: string;
-};
-
-type Related = {
-  node: {
-    id: string;
-    image: {
-      mediaItemUrl: string;
-    };
-    name: string;
-    slug: string;
-  };
-};
-
-type Product = {
-  product: {
-    databaseId: number;
-    description: string;
-    downloadable: true;
-    image: {
-      mediaItemUrl: string;
-      id: string;
-    };
-    name: string;
-    price: string;
-    productCategories: {
-      nodes: Categories[];
-    };
-    regularPrice: string;
-    related: { edges: Related[] };
-    salePrice: string;
-    shortDescription: string;
-    sku: string;
-    slug: string;
-  };
-};
 
 export default function Soundcloud({ product }: Product) {
   return (
