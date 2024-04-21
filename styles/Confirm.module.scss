@@ -1,33 +1,37 @@
-.Confirm__heading {
-    color: #4c4c4c;
-    font-size: 1.8rem;
-    margin: 1rem 0;
-    font-weight: 100;
+.Confirm__mainContainer {
+  padding: 0 !important;
 }
 
-.Confirm__headingSuccess {
-    display: flex;
+.Confirm__heading {
+  color: #4c4c4c;
+  margin: 1rem 0;
+  font-weight: bold;
 }
 
 .Confirm__text {
-    font-weight: 100;
+  font-weight: 100;
 }
 
 .Confirm__success__icon {
-    position: relative;
-    bottom: 2px;
+  position: relative;
+  bottom: 2px;
 }
 
-@media(min-width: 575px) {
-    .Confirm__success_payment {
-        padding: 3rem;
-        background: #fbfbfb
-    }
+.Confirm__success_link {
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
-@media(max-width: 575px) {
-    .Confirm__success_payment {
-        padding: 1rem;
-        background: #fbfbfb
-    }
+@media (min-width: 575px) {
+  .Confirm__success_payment {
+    padding: 3rem;
+    background: #fbfbfb;
+  }
+}
+
+@media (max-width: 575px) {
+  .Confirm__success_payment {
+    padding: 1rem;
+    background: #fbfbfb;
+  }
 }
