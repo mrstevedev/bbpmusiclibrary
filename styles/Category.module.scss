@@ -14,13 +14,20 @@
 
   .category__row {
     display: flex;
-    margin: 1rem 0 0rem 0;
-    padding: 2rem;
-    border-radius: 6px;
+    margin: 0.5rem 0 0rem 0;
     transition: 0.22s ease-in-out;
 
     .category__row__img {
-      border-radius: 6px;
+      border-radius: 12px;
+      transition: 0.22s ease-in-out;
+    }
+
+    .category__row__img:hover {
+      opacity: 0.8;
+    }
+
+    .category__row__img:active {
+      opacity: 0.5;
     }
 
     .category__results_row_description {
@@ -31,14 +38,6 @@
       .category__price {
         font-weight: bold;
       }
-    }
-
-    &:hover {
-      background: #f7f7f7 !important;
-    }
-
-    &:nth-child(odd) {
-      background: #fbfbfb;
     }
   }
 }
