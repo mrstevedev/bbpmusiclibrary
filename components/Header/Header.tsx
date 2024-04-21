@@ -24,7 +24,6 @@ export default function Header({
   handleToggleMenu,
   isOpen,
   showMenu,
-  noCartEvent,
   handleToggleCart,
 }) {
   const router = useRouter();
@@ -108,7 +107,6 @@ export default function Header({
             )}
             <CartIcon
               cartCount={cartCount}
-              noCartEvent={noCartEvent}
               handleToggleCart={handleToggleCart}
             />
           </Nav>
