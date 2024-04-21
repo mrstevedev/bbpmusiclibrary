@@ -6,8 +6,8 @@
   right: 0;
   bottom: 0;
   border-radius: 0;
-  padding: 1.6rem 22rem;
-  z-index: 2;
+  padding: 1.6rem 33rem;
+  z-index: 9;
 
   .Cookie_Notification_Text {
     color: #fff;
@@ -30,16 +30,28 @@
   }
 }
 
-@media(max-width: 1430px) {
+@media (max-width: 1430px) {
   .Cookie_Notification {
-    padding: 1rem 8rem;
+    padding: 1rem 4rem;
+  }
+}
+
+@media (max-width: 1630px) {
+  .Cookie_Notification {
+    padding: 1.6rem 19rem;
+  }
+}
+
+@media (max-width: 1330px) {
+  .Cookie_Notification {
+    padding: 1.6rem 7rem;
   }
 }
 
 @media (max-width: 575px) {
   .Cookie_Notification {
     width: 100%;
-    padding: 2rem 1rem;
+    padding: 2rem 2.2rem;
     bottom: 0;
     right: 0;
     border-radius: 0;
