@@ -4,7 +4,7 @@
   background: #000;
   position: fixed;
   bottom: 0;
-  z-index: 1;
+  z-index: 8;
 
   .footer__container {
     height: 100%;
@@ -24,11 +24,11 @@
       color: #729cda;
       font-weight: bold;
     }
-  
+
     svg {
       margin: 0 0 0 0.5rem;
       path {
-        transition: .12s ease-in-out;
+        transition: 0.12s ease-in-out;
         &:hover {
           fill: #729cda;
         }
