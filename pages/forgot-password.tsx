@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import Link from "next/link";
 import { FormEvent, useState, useEffect } from "react";
-import styles from "@/styles/LostPw.module.scss";
+import styles from "@/styles/ForgotPassword.module.scss";
 import CoverImage from "@/components/CoverImage/CoverImage";
 import Spinner from "@/components/Spinner/Spinner";
 import { toast } from "react-toastify";
