@@ -1,32 +1,42 @@
 .addToCartBtn {
   width: 100%;
   border: none;
-  font-size: 0.7rem;
-  font-weight: 100;
+  font-size: 0.7rem !important;
+  font-weight: 100 !important;
   color: #fff;
   background: #000;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
-  margin: 1.4rem 0;
-  padding: 0.8rem 0;
-  transition: 0.3s;
+  margin: 1.2rem 0 !important;
+  padding: 0.8rem 0 !important;
+  transition: 0.2s;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 6px;
   box-shadow: 0 2px 4px #dbdbdb;
-
-  &:hover:nth-last-of-type(1) {
-    // box-shadow: 0px 0px 0px 2px #1a1a1a;
-    background: rgb(24, 24, 24);
-  }
-
-  &:hover:nth-last-of-type(1):after {
-    width: 0%;
-  }
+  border: solid 1px transparent;
+  border-radius: 4px !important;
+  height: 45px;
 
   .cartBtnTxt {
     margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    grid-gap: 6px;
+    gap: 6px;
+    text-transform: capitalize;
+    font-weight: bold;
+
+    svg > path {
+      fill: rgb(255, 255, 255);
+    }
+  }
+
+  &:hover svg > path {
+    fill: rgb(0, 0, 0);
+  }
+  &:active svg > path {
+    fill: rgb(255, 255, 255);
   }
 }
 
@@ -47,7 +57,6 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 
-
   &:hover:nth-last-of-type(1) {
     box-shadow: 0px 0px 0px 2px #1a1a1a;
   }
@@ -55,13 +64,4 @@
   &:hover:nth-last-of-type(1):after {
     width: 0%;
   }
-
-  .cartBtnTxt {
-    margin: 0 0.5rem;
-  }
-}
-
-.cartBtnTxt__notAvailable {
-  font-weight: bold;
-  color: #a9a9a9;
 }
