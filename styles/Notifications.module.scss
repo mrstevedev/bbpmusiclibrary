@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
   position: relative;
 
   .Notifications__text {
@@ -18,13 +18,13 @@
   }
 }
 
-@media(max-width: 575px) {
-    .Notifications {
-        position: fixed;
-        top: 0;
-        z-index: 100;
-        .Notifications__text {
-            font-size: 0.53rem;
-        }
+@media (max-width: 575px) {
+  .Notifications {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    .Notifications__text {
+      font-size: 0.53rem;
     }
+  }
 }
