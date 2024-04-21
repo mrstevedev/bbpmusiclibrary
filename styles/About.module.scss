@@ -16,16 +16,16 @@
   }
 }
 
-@media(min-width: 575px) {
+@media (min-width: 575px) {
   .about__mainContainer {
-    padding: 0 2rem;
+    padding: 0 3rem;
   }
 }
 
 @media (max-width: 575px) {
-    .about {
-        padding: 2rem 2rem 5rem!important;
-        margin: 0 auto;
-        width: 93% !important;
-    }
+  .about {
+    padding: 2rem 2rem 5rem !important;
+    margin: 0 auto;
+    width: 93% !important;
+  }
 }
