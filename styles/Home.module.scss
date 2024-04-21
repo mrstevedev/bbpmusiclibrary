@@ -1,18 +1,10 @@
 .content {
   padding: 0 0 6rem 0;
 
-  .container {
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    h1 {
-      font-size: 0.77rem;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
+  h1 {
+    font-size: 0.77rem;
+    text-transform: uppercase;
+    font-weight: bold;
   }
 }
 
@@ -26,24 +18,28 @@
   font-size: 0.9rem;
 
   .product__regularPrice {
-    color: red; 
+    color: red;
     text-decoration: line-through;
   }
   .product__salePrice {
     font-size: 0.6rem;
-    color: grey; 
+    color: grey;
     text-transform: uppercase;
   }
 }
 
 .Home__image {
   display: flex;
-  transition: 0.16s ease-in-out;
+  cursor: pointer;
   img {
-    border-radius: 3px;
+    border-radius: 12px;
   }
   &:hover {
-    box-shadow: 0 0px 15px rgb(199, 199, 199);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
   }
 }
 
@@ -53,7 +49,7 @@
   }
 }
 
-@media(max-width: 1025px) {
+@media (max-width: 1025px) {
   .Home__image {
     box-shadow: none;
   }
