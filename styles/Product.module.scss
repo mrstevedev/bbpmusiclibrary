@@ -1,6 +1,4 @@
-.product { 
-  margin: 2rem 0;
-
+.product {
   .productTop {
     display: flex;
 
@@ -15,7 +13,9 @@
         border-radius: 6px;
         transition: 0.22s ease-in-out;
 
-        &:hover { opacity: 0.8 }
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
 
@@ -30,8 +30,7 @@
     }
 
     .productDescription {
-      padding: 0 0rem 0 1.5rem;
-      font-weight: 300;
+      font-weight: 100;
 
       h3 {
         font-size: 1.5rem !important;
@@ -44,7 +43,7 @@
         font-weight: bold;
       }
       .Product__SaleTxt {
-        color: grey
+        color: grey;
       }
     }
   }
@@ -118,4 +117,3 @@
     color: #5e5e5e;
   }
 }
-
