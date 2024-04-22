@@ -9,10 +9,13 @@
     color: #939393;
   }
 
-  .Products_ad {
+  .Products__ad {
     width: 300px;
     height: 883px;
-    padding: 0.3rem;
+  }
+
+  .Products_ad__img {
+    border-radius: 12px;
   }
 }
 

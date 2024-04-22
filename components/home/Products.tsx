@@ -43,7 +43,11 @@ export default function Products({ products }: IProducts) {
           </Row>
         </Col>
         <Col className={styles.Products__ad}>
-          <Image src={amazonAd} alt="amazonAd" />
+          <Image
+            src={amazonAd}
+            alt="amazonAd"
+            className={styles.Products_ad__img}
+          />
         </Col>
       </Row>
     </Container>
