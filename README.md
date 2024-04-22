@@ -2,10 +2,11 @@
 
 This web application was built using:
 
-1. React and Next.js
+1. Next.js
 2. React-Bootstrap
-3. Express
+3. Express.js
 4. Typescript
+5. Apollo
 
 ### Notes
 
