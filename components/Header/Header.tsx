@@ -7,7 +7,7 @@ import { logoutUser } from "@/services/Api";
 import CartIcon from "./CartIcon";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/images/2.svg";
+import logo from "@/public/images/logo.svg";
 import { useRouter } from "next/router";
 
 import Container from "react-bootstrap/Container";
