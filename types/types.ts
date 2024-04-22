@@ -233,3 +233,26 @@ export type TProductSingle = {
 export type TNodes = {
   name: string;
 };
+
+export type Product = {
+  product: {
+    databaseId: number;
+    description: string;
+    downloadable: true;
+    image: {
+      mediaItemUrl: string;
+      id: string;
+    };
+    name: string;
+    price: string;
+    productCategories: {
+      nodes: Categories[];
+    };
+    regularPrice: string;
+    related: { edges: Related[] };
+    salePrice: string;
+    shortDescription: string;
+    sku: string;
+    slug: string;
+  };
+};
