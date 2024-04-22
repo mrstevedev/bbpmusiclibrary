@@ -166,8 +166,8 @@ const create_customer = async (req: RequestProps, res: ResponseProps) => {
         template: "purchase_template",
         attachments: [
           {
-            filename: "2.png",
-            path: path.join(__dirname, "../public/images/2.png"),
+            filename: "logo.png",
+            path: path.join(__dirname, "../public/images/logo.png"),
             cid: "logo",
           },
         ],
@@ -267,8 +267,8 @@ const create_customer = async (req: RequestProps, res: ResponseProps) => {
         template: "purchase_template",
         attachments: [
           {
-            filename: "2.png",
-            path: path.join(__dirname, "../public/images/2.png"),
+            filename: "logo.png",
+            path: path.join(__dirname, "../public/images/logo.png"),
             cid: "logo",
           },
         ],
