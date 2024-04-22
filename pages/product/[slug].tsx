@@ -76,8 +76,6 @@ export default function Product({ product, downloads }: IProduct) {
   const { name, description } = product;
   const { mediaItemUrl } = product.image;
 
-  // let curSlide = 0;
-
   useEffect(() => {
     router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
