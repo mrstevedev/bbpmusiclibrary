@@ -1,14 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -16,14 +13,45 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/query/*": ["query/*"],
+      "@/styles/*": ["styles/*"],
+      "@/util/*": ["util/*"],
+      "@/services/*": ["services/*"],
+      "@/public/*": ["public/*"],
+      // "@/components/Context/*": ["context/*"]
+      "@/context/*": ["context/*"],
+      "@/types/*": ["types/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "pages/_app.js", "pages/index.js", "components/OverlayNav.js", "components/SidebarCart.tsx", "pages/confirm.js"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "**/*.tsx",
+    "pages/_app.ts",
+    "pages/index.js",
+    "components/Navigation/OverlayNav.jsx",
+    "components/Sidebar/SidebarCart.tsx",
+    "pages/confirm.tsx",
+    "components/Sidebar/Cart.tsx",
+    "components/Sidebar/CartItem.tsx",
+    "components/Sidebar/Cart.tsx",
+    "components/Hero/ImageHero.js",
+    "util/generate.js",
+    "emails/Purchased.jsx",
+    "backend/emails/Email.js",
+    "backend/emails/Purchased.jsx",
+    "backend/emails/Purchased.jsx",
+    "backend/emails/Purchased.jsx",
+    "backend/emails/Purchased.js",
+    "backend/routes/logout.ts",
+    "backend/routes/create.ts",
+    "backend/routes/login.ts",
+    "apolloClient.js"
+  ],
+  "exclude": ["node_modules"]
 }
