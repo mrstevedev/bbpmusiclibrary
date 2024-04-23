@@ -2,6 +2,10 @@ module.exports = {
   reactStrictMode: true,
 
   images: {
-    domains: ["bonitabasicsproductions.local"],
+    remotePatterns: [
+      {
+        hostname: "https://bbpmusiclib.wpenginepowered.com/",
+      },
+    ],
   },
 };
