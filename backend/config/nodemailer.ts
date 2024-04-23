@@ -4,8 +4,6 @@ const hbsOptions = require("../config/handlebars");
 
 require("dotenv").config({ path: ".env" });
 
-console.log(process.env.USERNAME, process.env.PASSWORD);
-
 let transport = {
   host: "smtp.gmail.com", // change this when live to whichever host provider chosen
   port: 587,
