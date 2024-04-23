@@ -14,7 +14,7 @@
     "lint": "next lint",
     "client": "cd ./client && npm run dev",
     "dev:server": "concurrently \"npm run server\" \"npm run client\"",
-    "build-backend": "cd ./backend && npm ci"
+    "build-backend": "cd ./backend && npm install"
   },
   "dependencies": {
     "@apollo/client": "^3.9.10",
