@@ -182,8 +182,8 @@ export default function Login() {
                 </div>
                 <div className="col-sm-9 pt-2">
                   <p className={styles.SignIn__forgot__text}>
-                    <Link href="/forgot-password">
-                      <a className="link">Forgot password?</a>
+                    <Link href="/forgot-password" className="link">
+                      Forgot password?
                     </Link>
                   </p>
                 </div>
