@@ -27,15 +27,13 @@ export default function CategoryItem({ products }: IProducts) {
                 pathname: `/product/${product.slug}`,
               }}
             >
-              <a>
-                <Image
-                  src={product.image.mediaItemUrl}
-                  alt="Category Image"
-                  width="350"
-                  height="350"
-                  className={styles.category__row__img}
-                />
-              </a>
+              <Image
+                src={product.image.mediaItemUrl}
+                alt="Category Image"
+                width="350"
+                height="350"
+                className={styles.category__row__img}
+              />
             </Link>
           </div>
           <div className={styles.category__results_row_description}>
