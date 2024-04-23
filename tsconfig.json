@@ -26,32 +26,27 @@
       // "@/components/Context/*": ["context/*"]
       "@/context/*": ["context/*"],
       "@/types/*": ["types/*"]
-    }
+    },
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/_app.ts",
-    "pages/index.js",
-    "components/Navigation/OverlayNav.jsx",
+    "pages/_app.tsx",
+    "pages/index.tsx",
+    "components/Navigation/OverlayNav.tsx",
     "components/Sidebar/SidebarCart.tsx",
     "pages/confirm.tsx",
     "components/Sidebar/Cart.tsx",
     "components/Sidebar/CartItem.tsx",
     "components/Sidebar/Cart.tsx",
-    "components/Hero/ImageHero.js",
-    "util/generate.js",
+    "components/Hero/ImageHero.tsx",
+    "util/generate.ts",
     "emails/Purchased.jsx",
-    "backend/emails/Email.js",
-    "backend/emails/Purchased.jsx",
-    "backend/emails/Purchased.jsx",
-    "backend/emails/Purchased.jsx",
-    "backend/emails/Purchased.js",
     "backend/routes/logout.ts",
     "backend/routes/create.ts",
-    "backend/routes/login.ts",
-    "apolloClient.js"
+    "backend/routes/login.ts"
   ],
   "exclude": ["node_modules"]
 }
