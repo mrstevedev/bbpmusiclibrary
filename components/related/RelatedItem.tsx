@@ -45,14 +45,12 @@ export default function RelatedItem({
       {products.map((data) => (
         <div key={data.node.id} className={`${styles.related__slide} slide`}>
           <Link href={data.node.slug}>
-            <a>
-              <Image
-                width="200px"
-                height="200px"
-                src={data.node.image.mediaItemUrl}
-                alt={data.node.name}
-              />
-            </a>
+            <Image
+              width={200}
+              height={200}
+              src={data.node.image.mediaItemUrl}
+              alt={data.node.name}
+            />
           </Link>
         </div>
       ))}

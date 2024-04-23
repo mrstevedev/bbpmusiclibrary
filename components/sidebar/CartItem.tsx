@@ -33,8 +33,8 @@ export default function CartItem({
       </div>
       <div className={styles.Checkout__right}>
         <h3>
-          <Link href={`/product/${slug}`}>
-            <a style={{ color: "#333" }}>{name}</a>
+          <Link href={`/product/${slug}`} style={{ color: "#333" }}>
+            {name}
           </Link>
 
           {!couponApplied ? (

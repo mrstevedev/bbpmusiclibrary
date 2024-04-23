@@ -59,6 +59,7 @@ export default function ProductSingle({
                     .replace(" ", "-")}`,
                 }}
                 passHref
+                className="link-blue"
               >
                 <span
                   style={{
@@ -67,7 +68,7 @@ export default function ProductSingle({
                     color: "#446dd2",
                   }}
                 >
-                  <a className="link-blue">{obj["name"]}</a>
+                  {obj["name"]}
                 </span>
               </Link>
             ))}

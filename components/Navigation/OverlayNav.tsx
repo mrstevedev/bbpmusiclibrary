@@ -9,31 +9,35 @@ export default function OverlayNav({ handleToggleMenu }) {
           className={`${styles.Overlay__Nav_list}  animated animatedFadeInUp fadeInUp`}
         >
           <li>
-            <Link href="/about">
-              <a className={styles.link} onClick={handleToggleMenu}>
-                About
-              </a>
+            <Link
+              href="/about"
+              className={styles.link}
+              onClick={handleToggleMenu}
+            >
+              About
             </Link>
           </li>
           <li>
-            <Link href="/">
-              <a className={styles.link} onClick={handleToggleMenu}>
-                Products
-              </a>
+            <Link href="/" className={styles.link} onClick={handleToggleMenu}>
+              Products
             </Link>
           </li>
           <li>
-            <Link href="/videos">
-              <a className={styles.link} onClick={handleToggleMenu}>
-                Music Videos
-              </a>
+            <Link
+              href="/videos"
+              className={styles.link}
+              onClick={handleToggleMenu}
+            >
+              Music Videos
             </Link>
           </li>
           <li>
-            <Link href="/contact">
-              <a className={styles.link} onClick={handleToggleMenu}>
-                Contact Me
-              </a>
+            <Link
+              href="/contact"
+              className={styles.link}
+              onClick={handleToggleMenu}
+            >
+              Contact Me
             </Link>
           </li>
         </ul>

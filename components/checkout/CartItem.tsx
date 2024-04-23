@@ -22,10 +22,8 @@ export default function CartItem({
     <div key={databaseId} className={styles.Checkout__right_product}>
       <div className={`product-img ${styles.Checkout__right_product_img}`}>
         <Link href={`/product/${slug}`}>
-          <a>
-            <span className={styles.cart__count}>{qty}</span>
-            <Image src={image} width="91" height="91" alt={name} />
-          </a>
+          <span className={styles.cart__count}>{qty}</span>
+          <Image src={image} width="91" height="91" alt={name} />
         </Link>
       </div>
       <div className={styles.Checkout__right_product_name}>

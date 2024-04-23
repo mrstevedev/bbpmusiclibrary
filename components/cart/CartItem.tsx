@@ -37,8 +37,8 @@ export default function CartItem({
         </Link>
       </td>
       <td className={styles.cart__cell}>
-        <Link href={`product/${product.slug}`}>
-          <a className="link">{product.name}</a>
+        <Link href={`product/${product.slug}`} className="link">
+          {product.name}
         </Link>
         <br />
         <a

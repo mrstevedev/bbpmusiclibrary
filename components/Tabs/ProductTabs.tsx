@@ -166,8 +166,8 @@ export default function ProductTabs({
             <Fragment>
               <h6>
                 Downloads only available for logged in users{" "}
-                <Link href="/login">
-                  <a className="link-blue">Log in</a>
+                <Link href="/login" className="link-blue">
+                  Log in
                 </Link>
               </h6>
               <h6 style={{ fontSize: "0.9rem", fontWeight: "100" }}>

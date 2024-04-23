@@ -12,17 +12,13 @@ const GoPreviousNavigate = () => {
           fontSize: "0.8rem",
         }}
       ></i>{" "}
-      <Link href="/">
-        <a
-          className="link-blue"
-          style={{
-            textTransform: "uppercase",
-            fontSize: "0.7rem",
-          }}
-          onClick={() => router.back()}
-        >
-          Go back
-        </a>
+      <Link
+        href="/"
+        className="link-blue"
+        style={{ textTransform: "uppercase", fontSize: "0.7rem" }}
+        onClick={() => router.back()}
+      >
+        Go back
       </Link>
     </Fragment>
   );

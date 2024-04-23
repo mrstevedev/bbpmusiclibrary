@@ -9,17 +9,16 @@ export default function CookieNotification({ handleAcceptCookie }) {
           This site uses cookies to provide a great user experience. By using
           Bonita Basics Productions, you agree to our use of cookies.
         </p>
-        <Link href="#">
-          <a className={styles.Cookie_Notification_Btn}>Cancel</a>
+        <Link href="#" className={styles.Cookie_Notification_Btn}>
+          Cancel
         </Link>
 
-        <Link href="#">
-          <a
-            className={styles.Cookie_Notification_Btn}
-            onClick={handleAcceptCookie}
-          >
-            Accept
-          </a>
+        <Link
+          href="#"
+          className={styles.Cookie_Notification_Btn}
+          onClick={handleAcceptCookie}
+        >
+          Accept
         </Link>
       </div>
     </>

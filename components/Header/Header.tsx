@@ -71,11 +71,13 @@ export default function Header({
             color={showMenu ? "white" : "black"}
           />
         </a>
-        <Link href="/" passHref>
-          <Navbar.Brand href="#home" className={styles.header__logo}>
+
+        <Navbar.Brand className={styles.header__logo}>
+          <Link href="/">
             <Image src={logo} height="65" alt="bonitabasicsproductions" />
-          </Navbar.Brand>
-        </Link>
+          </Link>
+        </Navbar.Brand>
+
         <Navbar id="basic-navbar-nav" style={{ width: "100%" }}>
           <Nav className="justify-content-end flex-grow-1 pe-3">
             <Nav.Link
@@ -90,11 +92,13 @@ export default function Header({
               </a>
             ) : null}
             {!auth?.userId ? (
-              <Nav.Link>
-                <Link href="/login">
-                  <span style={{ color: "#5782bf" }}>Sign-In</span>
-                </Link>
-              </Nav.Link>
+              <Link
+                href="/login"
+                className="nav-link"
+                style={{ paddingLeft: 0 }}
+              >
+                <span style={{ color: "#5782bf" }}>Sign-In</span>
+              </Link>
             ) : (
               <NavDropdown title={auth.userNiceName} id="basic-nav-dropdown">
                 <Link href="/profile" passHref>

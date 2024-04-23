@@ -39,8 +39,8 @@ export default function ProductItem({
         </div>
       </Link>
       <div className={styles.productBtm}>
-        <Link href={`/product/${slug}`}>
-          <a className="link">{name}</a>
+        <Link href={`/product/${slug}`} className="link">
+          {name}
         </Link>
         <p>
           {salePrice ? (
