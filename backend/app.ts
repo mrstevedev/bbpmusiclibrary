@@ -11,7 +11,8 @@ import resetRoute from "./routes/reset";
 import couponsRoute from "./routes/coupons";
 import contactRoute from "./routes/contact";
 
-require("dotenv").config({ path: ".env" });
+import dotenv from "dotenv";
+dotenv.config({ path: ".env" });
 
 app.use(express.json());
 
