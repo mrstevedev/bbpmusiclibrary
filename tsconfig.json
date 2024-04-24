@@ -16,16 +16,16 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/query/*": ["query/*"],
-      "@/styles/*": ["styles/*"],
-      "@/util/*": ["util/*"],
-      "@/services/*": ["services/*"],
-      "@/public/*": ["public/*"],
+      "@/components/*": ["./components/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/query/*": ["./query/*"],
+      "@/styles/*": ["./styles/*"],
+      "@/util/*": ["./util/*"],
+      "@/services/*": ["./services/*"],
+      "@/public/*": ["./public/*"],
       // "@/components/Context/*": ["context/*"]
-      "@/context/*": ["context/*"],
-      "@/types/*": ["types/*"]
+      "@/context/*": ["./context/*"],
+      "@/types/*": ["./types/*"]
     },
     "incremental": true
   },
