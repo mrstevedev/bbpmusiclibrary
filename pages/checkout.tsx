@@ -10,10 +10,10 @@ import { useStates } from "react-us-states";
 import { CartContext, TCartContext } from "@/context/CartContext";
 
 import SubmitPaymentButton from "@/components/Buttons/SubmitPaymentButton";
-import PaymentSteps from "@/components/Checkout/PaymentSteps";
-import ExpressCheckout from "@/components/Checkout/ExpressCheckout";
-import SidebarCart from "@/components/Checkout/SidebarCart";
-import Toast from "@/components/Notifications/Toast";
+import PaymentSteps from "@/components/checkout/PaymentSteps";
+import ExpressCheckout from "@/components/checkout/ExpressCheckout";
+import SidebarCart from "@/components/checkout/SidebarCart";
+import Toast from "@/components/notifications/Toast";
 
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
