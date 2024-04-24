@@ -2,9 +2,9 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 
-import { CartProvider } from "context/CartContext";
-import { AuthProvider } from "context/AuthContext";
-import { CouponProvider } from "../context/CouponContext";
+import { CartProvider } from "@/context/CartContext";
+import { AuthProvider } from "@/context/AuthContext";
+import { CouponProvider } from "@/context/CouponContext";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
