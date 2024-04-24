@@ -40,7 +40,7 @@ export default function Profile({ page }: IProps) {
     if (!auth) {
       router.push("/login");
     }
-  }, [auth]);
+  }, [auth, router]);
 
   return (
     <Container as="main" fluid className={styles.profile__mainContainer}>

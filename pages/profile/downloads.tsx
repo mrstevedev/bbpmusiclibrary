@@ -37,7 +37,7 @@ export default function Downloads({
     if (!auth) {
       router.push("/login");
     }
-  }, [auth]);
+  }, [auth, router]);
 
   const stripped_content = content.replace(/<[^>]*>?/gm, "");
   return (
