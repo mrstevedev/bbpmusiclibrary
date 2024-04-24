@@ -1,15 +1,15 @@
 import styles from "@/styles/SidebarCart.module.scss";
 import Cart from "@/components/Sidebar/Cart";
 
-import Offcanvas, { OffcanvasPlacement } from "react-bootstrap/Offcanvas";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 type TProps = {
   show: boolean;
-  placement: OffcanvasPlacement | undefined;
+  // placement: OffcanvasPlacement | undefined;
   handleClose: () => void;
 };
 
-export default function SidebarCart({ show, handleClose, ...props }: TProps) {
+export default function SidebarCart({ show, handleClose, ...props }) {
   return (
     <Offcanvas
       show={show}
