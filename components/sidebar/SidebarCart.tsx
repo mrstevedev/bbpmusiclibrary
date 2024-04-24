@@ -19,9 +19,7 @@ export default function SidebarCart({ show, handleClose, ...props }: TProps) {
       }}
       {...props}
     >
-      <Offcanvas.Header
-        style={{ borderBottom: "solid 1px #dadada", padding: "2rem" }}
-      >
+      <Offcanvas.Header className={styles.SidebarCart__OffCanvas_header}>
         <Offcanvas.Title className={styles.SidebarCart__OffCanvas_heading}>
           Your Shopping Cart
         </Offcanvas.Title>

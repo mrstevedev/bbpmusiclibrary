@@ -17,6 +17,12 @@
   }
 }
 
+.SidebarCart__OffCanvas_header {
+  border-bottom: solid 1px #dadada;
+  padding: 1.1rem !important;
+  justify-content: space-between;
+}
+
 .SidebarCart__closeBtn {
   display: flex;
   position: relative;
