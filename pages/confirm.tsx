@@ -22,7 +22,7 @@ function Confirm() {
       setCart({});
       setCouponValue("");
     }
-  }, [success, setCart]);
+  }, [success, setCart, setCouponValue]);
 
   return (
     <Container as="main" fluid className={styles.Confirm__mainContainer}>
