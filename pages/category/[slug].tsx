@@ -37,11 +37,6 @@ export default function Category({ name, category }: IPageProps) {
   const productLength = category.products.nodes.length;
   return (
     <>
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `document.body.classList.remove('Checkout__page')`,
-        }}
-      />
       <Head>
         <title>Bonita Basics Productions | {name}</title>
         <meta

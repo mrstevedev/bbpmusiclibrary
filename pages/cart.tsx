@@ -22,12 +22,6 @@ const CartPage = () => {
 
   return (
     <>
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `document.body.classList.remove('Checkout__page');
-                document.body.classList.add('Cart__page')`,
-        }}
-      />
       <Container fluid>
         <CoverImage />
         <div className="container">

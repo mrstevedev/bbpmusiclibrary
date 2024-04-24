@@ -28,11 +28,6 @@ interface IProps {
 export default function About({ page }: IProps) {
   return (
     <>
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `document.body.classList.remove('Checkout__page')`,
-        }}
-      />
       <Head>
         <title>Bonita Basics Productions | About</title>
         <meta

@@ -184,11 +184,6 @@ export default function Product({ product, downloads }: IProduct) {
 
   return (
     <>
-      <Script
-        dangerouslySetInnerHTML={{
-          __html: `document.body.classList.remove('Checkout__page')`,
-        }}
-      />
       <Head>
         <title>{`Bonita Basics Productions - ${name}`}</title>
         <meta name="description" content={description} />
