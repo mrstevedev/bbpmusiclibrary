@@ -25,9 +25,7 @@ export type TCartContext = {
 
 export const CartContext = createContext<TCartContext>({} as any);
 
-type CartProps = {
-  children: object;
-};
+type CartProps = React.PropsWithChildren;
 
 export const CartProvider = ({ children }: CartProps) => {
   const [cart, setCart] = useState<Cart>({

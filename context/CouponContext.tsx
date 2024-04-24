@@ -10,9 +10,7 @@ export const CouponContext = createContext<TCouponContext>({
   setCouponValue: () => {},
 });
 
-type CouponProps = {
-  children: object;
-};
+type CouponProps = React.PropsWithChildren;
 
 export const CouponProvider = ({ children }: CouponProps) => {
   const [couponValue, setCouponValue] = useState("");

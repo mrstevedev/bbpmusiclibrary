@@ -17,9 +17,7 @@ export type TAuthContext = {
 
 export const AuthContext = createContext<TAuthContext>({} as any);
 
-type AuthProps = {
-  children: object;
-};
+type AuthProps = React.PropsWithChildren;
 
 export const AuthProvider = ({ children }: AuthProps) => {
   const [auth, setAuth] = useState<Auth>({} as Auth);
