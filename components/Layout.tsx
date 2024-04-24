@@ -8,7 +8,7 @@ import { CouponProvider } from "@/context/CouponContext";
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import SidebarCart from "../components/Sidebar/SidebarCart";
+import SidebarCart from "@/components/Sidebar/SidebarCart";
 import OverlayNav from "@/components/Navigation/OverlayNav";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import Newsletter from "@/components/Notifications/Newsletter";
