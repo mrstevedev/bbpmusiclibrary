@@ -40,7 +40,7 @@ export default function Register() {
       localStorage.setItem("bbp_nonce", JSON.stringify(nonce));
     }
     onVisibilityChange();
-  }, [nonce]);
+  }, [nonce, onVisibilityChange]);
 
   const { handleSubmit, setFieldValue } = useFormik({
     initialValues: {
