@@ -66,7 +66,7 @@ const Layout = ({ children }) => {
     setIsOpen((prev) => !prev);
     setShowMenu((prev) => !prev);
 
-    const overlay = document.querySelector(".OverlayNav_Overlay__Nav__2C0zN");
+    const overlay = document.querySelector(`.overlayNav`);
     overlay?.classList.toggle("active");
   };
 
