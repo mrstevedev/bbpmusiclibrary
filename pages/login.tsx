@@ -91,7 +91,7 @@ export default function Login() {
     if (auth !== null) {
       router.push("/");
     }
-  }, [auth]);
+  }, [auth, router]);
 
   useEffect(() => {
     if (formSubmitted) {

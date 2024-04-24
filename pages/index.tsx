@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import cookie from "cookie";
 import Head from "next/head";
 import Products from "@/components/Home/Products";
@@ -19,7 +19,7 @@ export default function Home() {
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const fetchMoreProducts = async () => {
+  const fetchMoreProducts = useCallback(async () => {
     const { endCursor } = data.products.pageInfo;
     setIsLoading(true);
     await delay(1200);
@@ -34,13 +34,13 @@ export default function Home() {
         return fetchMoreResult;
       },
     });
-  };
+  }, [data?.products.pageInfo, fetchMore]);
 
   useEffect(() => {
     if (isIntersecting && data.products.pageInfo.hasNextPage !== false) {
       fetchMoreProducts();
     }
-  }, [isIntersecting]);
+  }, [isIntersecting, data?.products.pageInfo.hasNextPage, fetchMoreProducts]);
 
   const products = data?.products.edges;
 
