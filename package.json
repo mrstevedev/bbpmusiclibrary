@@ -14,7 +14,7 @@
     "server": "nodemon backend/server.ts",
     "client": "yarn run dev",
     "dev:server": "concurrently \"yarn run server\" \"yarn run client\"",
-    "build-backend": "cd ./backend && npm install"
+    "build-app": "yarn run build && cd ./backend && yarn install"
   },
   "dependencies": {
     "@apollo/client": "^3.9.10",
