@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.79",
+    "@types/react-bootstrap": "^0.32.36",
     "@types/react-select": "^4.0.17",
     "@types/react-select-country-list": "^2.2.0",
     "concurrently": "^8.2.2",
