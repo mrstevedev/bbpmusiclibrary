@@ -28,6 +28,7 @@
     "@types/express": "^4.17.21",
     "@types/node": "^20.11.30",
     "@types/nodemailer": "^6.4.14",
+    "@types/nodemailer-express-handlebars": "^4.0.5",
     "concurrently": "^8.2.2"
   }
 }
