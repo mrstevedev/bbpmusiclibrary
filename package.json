@@ -48,7 +48,7 @@
     "@types/react": "^17.0.13",
     "@types/react-select": "^4.0.17",
     "@types/react-select-country-list": "^2.2.0",
-    "concurrently": "^6.2.1",
+    "concurrently": "^8.2.2",
     "eslint": "7.29.0",
     "eslint-config-next": "^14.2.2",
     "jest": "^27.0.6",
