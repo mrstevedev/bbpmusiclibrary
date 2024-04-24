@@ -190,7 +190,7 @@ export default function Product({ product, downloads }: IProduct) {
         }}
       />
       <Head>
-        <title>Bonita Basics Productions - {name}</title>
+        <title>{`Bonita Basics Productions - ${name}`}</title>
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
