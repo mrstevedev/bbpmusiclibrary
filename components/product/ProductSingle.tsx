@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import styles from "@/styles/Product.module.scss";
 
-import AddCartButton from "./AddCartButton";
+import AddCartButton from "@/components/product/AddCartButton";
 import { Col, Row } from "react-bootstrap";
 import { TProductSingle } from "@/types/types";
 

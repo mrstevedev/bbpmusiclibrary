@@ -1,5 +1,5 @@
 import styles from "@/styles/Related.module.scss";
-import RelatedItem from "../Related/RelatedItem";
+import RelatedItem from "@/components/related/RelatedItem";
 
 interface IEdges {
   node: {

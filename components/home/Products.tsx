@@ -1,5 +1,5 @@
 import styles from "@/styles/Products.module.scss";
-import ProductItem from "../Home/ProductItem";
+import ProductItem from "./ProductItem";
 import { Col, Container, Row } from "react-bootstrap";
 import Image from "next/image";
 

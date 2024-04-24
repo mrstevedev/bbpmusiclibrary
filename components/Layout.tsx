@@ -10,10 +10,10 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SidebarCart from "@/components/sidebar/SidebarCart";
 import OverlayNav from "@/components/Navigation/OverlayNav";
-import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
-import Newsletter from "@/components/Notifications/Newsletter";
+import Breadcrumb from "@/components/breadcrumb/Breadcrumb";
+import Newsletter from "@/components/notifications/Newsletter";
 import LoadingOverlay from "@/components/Loading/LoadingOverlay";
-import Notification from "@/components/Notifications/Notification";
+import Notification from "@/components/notifications/Notification";
 import AlertNotification from "@/components/Alert/AlertNotification";
 
 import { ToastContainer } from "react-toastify";
