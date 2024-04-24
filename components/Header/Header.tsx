@@ -59,7 +59,7 @@ export default function Header({
       setCouponValue("");
       router.push("/login");
     }
-  }, [isTokenExpired]);
+  }, [isTokenExpired, router, setAuth, setCart, setCouponValue]);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
