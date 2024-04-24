@@ -27,4 +27,7 @@ const update = async (req: any, res: any) => {
     }
   }
 };
-module.exports = { update };
+
+export default update;
+
+// module.exports = { update };

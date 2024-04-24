@@ -1,12 +1,8 @@
-import express, { Request, Response } from "express";
+import express from "express";
 const router = express.Router();
 
-type TResetController = {
-  reset: (req: Request, res: Response) => void;
-};
+import reset from "../controllers/reset";
 
-const resetController: TResetController = require("../controllers/reset");
-
-router.post("/", resetController.reset);
+router.post("/", reset);
 
 export default router;

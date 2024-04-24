@@ -22,4 +22,5 @@ const reset = async (req: Request, res: Response) => {
   }
 };
 
-module.exports = { reset };
+export default reset;
+// module.exports = { reset };

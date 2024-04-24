@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-const LogoutController = require("../controllers/logout");
+import logout from "../controllers/logout";
 
-router.get("/", LogoutController.logout);
+router.get("/", logout);
 
 export default router;

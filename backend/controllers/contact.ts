@@ -46,4 +46,6 @@ const contact = (req: any, res: any) => {
   );
 };
 
-module.exports = { contact };
+export default contact;
+
+// module.exports = { contact };

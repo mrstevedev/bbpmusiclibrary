@@ -1,23 +1,4 @@
-const logout = (
-  req: any,
-  res: {
-    cookie: (
-      arg0: string,
-      arg1: string,
-      arg2: {
-        httpOnly: boolean;
-        sameSite: string;
-        secure: boolean;
-        maxAge: number;
-      }
-    ) => void;
-    status: (arg0: number) => {
-      (): any;
-      new (): any;
-      json: { (arg0: { message: string }): any; new (): any };
-    };
-  }
-) => {
+const logout = (req: any, res: any) => {
   res.cookie("bbp_customer_id", "", {
     httpOnly: true,
     sameSite: "none",
@@ -34,5 +15,8 @@ const logout = (
     message: "logged out",
   });
 };
-module.exports = { logout };
-export {};
+
+export default logout;
+
+// module.exports = { logout };
+// export {};

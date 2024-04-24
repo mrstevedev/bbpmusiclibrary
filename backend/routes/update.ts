@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-const UpdateController = require("../controllers/update");
+import update from "../controllers/update";
 
-router.post("/", UpdateController.update);
+router.post("/", update);
 
 export default router;

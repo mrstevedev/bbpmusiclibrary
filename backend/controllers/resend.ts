@@ -58,4 +58,5 @@ const resend = (req: any, res: any) => {
   );
 };
 
-module.exports = { resend };
+export default resend;
+// module.exports = { resend };

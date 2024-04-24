@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-const CreateController = require("../controllers/create");
+import create from "../controllers/create";
 
-router.post("/", CreateController.create_customer);
+router.post("/", create);
 
 export default router;

@@ -52,4 +52,6 @@ const coupons = async (req: any, res: any) => {
   });
 };
 
-module.exports = { coupons };
+export default coupons;
+
+// module.exports = { coupons };

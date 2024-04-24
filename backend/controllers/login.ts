@@ -72,4 +72,7 @@ const login = async (
     });
   }
 };
-module.exports = { login };
+
+export default login;
+
+// module.exports = { login };

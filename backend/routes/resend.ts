@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-const resendController = require("../controllers/resend");
+import resend from "../controllers/resend";
 
-router.post("/", resendController.resend);
+router.post("/", resend);
 
 export default router;

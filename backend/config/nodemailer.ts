@@ -1,8 +1,9 @@
-const nodemailer = require("nodemailer");
-const hbs = require("nodemailer-express-handlebars");
-const hbsOptions = require("../config/handlebars");
+import nodemailer from "nodemailer";
+import hbs from "nodemailer-express-handlebars";
+import { handlebarOptions } from "../config/handlebars";
 
-require("dotenv").config({ path: ".env" });
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
 
 let transport = {
   host: "smtp.gmail.com", // change this when live to whichever host provider chosen
@@ -26,6 +27,6 @@ transporter.verify((error: any, success: any) => {
   }
 });
 
-transporter.use("compile", hbs(hbsOptions));
+transporter.use("compile", hbs(handlebarOptions));
 
 export default transporter;

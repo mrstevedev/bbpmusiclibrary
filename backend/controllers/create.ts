@@ -5,7 +5,7 @@ import { generateNonce, generatePassword } from "../util";
 import { type RequestProps, type ResponseProps } from "../types/types";
 import transporter from "../config/nodemailer";
 
-const create_customer = async (req: RequestProps, res: ResponseProps) => {
+const create = async (req: any, res: any) => {
   const body = req.body;
   const coupon = body.coupon;
   const product_name = body.product_name;
@@ -325,4 +325,7 @@ const create_customer = async (req: RequestProps, res: ResponseProps) => {
     }
   }
 };
-module.exports = { create_customer };
+
+export default create;
+
+// module.exports = { create_customer };

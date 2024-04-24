@@ -1,8 +1,8 @@
 import express from "express";
 const router = express.Router();
 
-const CouponController = require("../controllers/coupons");
+import coupons from "../controllers/coupons";
 
-router.post("/", CouponController.coupons);
+router.post("/", coupons);
 
 export default router;
