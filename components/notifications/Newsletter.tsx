@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import Image from "next/image";
 import { useState, useMemo } from "react";
 import closeBtn from "@/public/images/closeBtn.svg";
@@ -10,7 +10,7 @@ import Select from "react-select";
 
 import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
 import { useFormik } from "formik";
-import { toast } from "react-toastify";
+import { ToastContent, toast } from "react-toastify";
 
 interface Props {
   handleCloseModal: () => void;
@@ -46,8 +46,10 @@ export default function Modal({ handleCloseModal }: Props) {
           },
         });
         setFormSubmit(true);
-      } catch (err) {
-        toast.error(err);
+      } catch (err: unknown) {
+        if (err instanceof AxiosError) {
+          toast.error(err.message);
+        }
       }
     },
   });
