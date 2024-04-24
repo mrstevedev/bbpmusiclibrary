@@ -105,7 +105,7 @@ export default function ProductTabs({
 
     setOptions(options);
     setData(data);
-  }, [downloads]);
+  }, [downloads, product.databaseId]);
 
   return (
     <Fragment>
