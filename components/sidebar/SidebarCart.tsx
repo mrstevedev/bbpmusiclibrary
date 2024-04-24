@@ -1,5 +1,5 @@
 import styles from "@/styles/SidebarCart.module.scss";
-import Cart from "../Sidebar/Cart";
+import Cart from "@/components/Sidebar/Cart";
 
 import Offcanvas, { OffcanvasPlacement } from "react-bootstrap/Offcanvas";
 
