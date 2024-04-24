@@ -106,14 +106,12 @@ export default function Checkout({ coupon }) {
         <Toast addItemToast={addItemToast} />
         <div className="d-flex justify-content-center">
           <div className="row">
-            <Link href="/">
-              <a className={styles.Checkout__logo}>
-                <Image
-                  src={logo}
-                  height="70"
-                  alt="Bonita Basics Productions Logo"
-                />
-              </a>
+            <Link href="/" className={styles.Checkout__logo}>
+              <Image
+                src={logo}
+                height="70"
+                alt="Bonita Basics Productions Logo"
+              />
             </Link>
           </div>
         </div>
@@ -210,20 +208,18 @@ export default function Checkout({ coupon }) {
                           {product["qty"]}
                         </span>
                         <Link href={`/product/${product["slug"]}`}>
-                          <a>
-                            <Image
-                              src={product["image"]}
-                              width="91"
-                              height="91"
-                              alt={product["name"]}
-                            />
-                          </a>
+                          <Image
+                            src={product["image"]}
+                            width="91"
+                            height="91"
+                            alt={product["name"]}
+                          />
                         </Link>
                       </div>
                       <div className={styles.Checkout__mobile_product_name}>
                         <h3 className={styles.Checkout__right_product_name_txt}>
                           <Link href={`/product/${product["slug"]}`}>
-                            <a>{product.name}</a>
+                            {product.name}
                           </Link>
                           <span>${product["price"]}</span>
                         </h3>
