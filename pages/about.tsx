@@ -53,14 +53,11 @@ export async function getServerSideProps<Promise>(context: any) {
   const parsedCookies = cookie.parse(context.req.headers.cookie);
   const token = parsedCookies.bbp_token;
 
-  const get_coupons_response = await fetch(
-    process.env.NEXT_PUBLIC_COUPONS_URL as string,
-    {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    }
-  );
+  const get_coupons_response = await fetch(process.env.COUPONS_URL as string, {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  });
   const coupon: Awaited<Promise> = await get_coupons_response.json();
 
   const res = await axios.post(process.env.GRAPHQL_URL as string, {
