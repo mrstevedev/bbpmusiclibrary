@@ -5,7 +5,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "hg0m2iuhpznx8lob1vdevbrkp.js.wpenginepowered.com",
+        hostname: "bbpmusiclib.wpenginepowered.com",
       },
     ],
   },
