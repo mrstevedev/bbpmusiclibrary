@@ -4,7 +4,7 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        hostname: "https://bbpmusiclib.wpenginepowered.com/",
+        hostname: "https://bbpmusiclib.wpenginepowered.com",
       },
     ],
   },
