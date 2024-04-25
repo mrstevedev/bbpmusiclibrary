@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import cookie from "cookie";
 import Head from "next/head";
-import Products from "@/components/home/Products";
+import Products from "@/components/Home/Products";
 import { GET_PRODUCTS } from "@/query/index";
 import Spinner from "@/components/Spinner/Spinner";
 import styles from "@/styles/Spinner.module.scss";

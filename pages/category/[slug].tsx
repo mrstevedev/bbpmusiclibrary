@@ -3,7 +3,7 @@ import Head from "next/head";
 import Script from "next/script";
 
 import styles from "@/styles/Category.module.scss";
-import CategoryItem from "@/components/category/CategoryItem";
+import CategoryItem from "@/components/Category/CategoryItem";
 
 import cookie from "cookie";
 

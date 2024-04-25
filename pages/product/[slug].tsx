@@ -10,10 +10,10 @@ import { addFirstProduct, updateCart } from "@/util/index";
 
 import styles from "@/styles/Product.module.scss";
 
-import RelatedProducts from "@/components/related/RelatedProducts";
+import RelatedProducts from "@/components/Related/RelatedProducts";
 import ProductTabs from "@/components/Tabs/ProductTabs";
-import ProductSingle from "@/components/product/ProductSingle";
-import ProductGallery from "@/components/gallery/ProductGallery";
+import ProductSingle from "@/components/Product/ProductSingle";
+import ProductGallery from "@/components/Gallery/ProductGallery";
 
 import { CartContext } from "@/context/CartContext";
 import { TCartContext } from "@/context/CartContext";

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styles from "@/styles/Cart.module.scss";
 import Script from "next/script";
-import Cart from "@/components/cart/Cart";
+import Cart from "@/components/Cart/Cart";
 import CoverImage from "@/components/CoverImage/CoverImage";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { removeItemFromCart } from "@/util/index";

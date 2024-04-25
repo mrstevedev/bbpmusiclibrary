@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect, useContext, Fragment } from "react";
-import Soundcloud from "../soundcloud/Soundcloud";
+import Soundcloud from "@/components/Soundcloud/Soundcloud";
 import {
   Chart as ChartJS,
   CategoryScale,
