@@ -41,6 +41,7 @@
     "react-toastify": "^9.1.3",
     "react-us-states": "^1.0.2",
     "sass": "^1.35.1",
+    "sharp": "^0.33.3",
     "yup": "^1.3.3"
   },
   "devDependencies": {
