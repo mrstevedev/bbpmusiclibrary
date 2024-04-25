@@ -227,6 +227,13 @@ export async function getServerSideProps(context) {
 
   const auth_user_url = process.env.AUTH_USER_URL as string;
 
+  console.log(
+    process.env.AUTH_USER_URL,
+    process.env.DOWNLOADS_URL,
+    process.env.GRAPHQL_URL,
+    process.env.COUPONS_URL
+  );
+
   const payload = {
     username: process.env.CREATE_USER_USERNAME,
     password: process.env.CREATE_USER_PASSWORD,
