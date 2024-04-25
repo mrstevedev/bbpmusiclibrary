@@ -1,8 +1,8 @@
 import { useContext, useState, Fragment } from "react";
 import styles from "@/styles/Checkout.module.scss";
-import CartItem from "./CartItem";
-import CartTotal from "./CartTotal";
-import Coupon from "./Coupon/Coupon";
+import CartItem from "@/components/Checkout/CartItem";
+import CartTotal from "@/components/Checkout/CartTotal";
+import Coupon from "@/components/Checkout/Coupon/Coupon";
 import { addCouponToCart, throttle } from "@/util/index";
 
 import { AxiosError } from "axios";
