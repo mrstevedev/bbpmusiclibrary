@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.10",
+    "@apollo/experimental-nextjs-app-support": "^0.10.0",
     "@google-pay/button-react": "^2.6.0",
     "@react-email/components": "^0.0.15",
     "axios": "^1.6.8",
