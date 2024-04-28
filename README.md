@@ -1,12 +1,13 @@
-# Bonita Basics Productions Music Library
+# BBP Music Library
+
+Bonita Basics Productions Music Library is an ECommerce web application using Next.js 14 with Route Handlers to make requests to a graphql endpoint to create purchases for .mp3 sample packs.
 
 This web application was built using:
 
-1. Next.js
+1. Next.js 14
 2. React-Bootstrap
-3. Express.js
-4. Typescript
-5. Apollo
+3. Typescript
+4. Apollo
 
 ### Notes
 
