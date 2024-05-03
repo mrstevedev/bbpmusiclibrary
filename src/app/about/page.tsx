@@ -1,4 +1,5 @@
 import Banner from "src/components/Banner/Banner";
+import AboutParagraph from "src/components/About/About";
 
 import styles from "@/styles/About.module.scss";
 
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     "Download Sample Packs - Hip Hop, Boom Bap, Soul, Jazz - Sample Curator",
 };
 
-export default async function About() {
+export default async function page() {
   const { data } = await getData();
 
   return (
@@ -34,7 +35,7 @@ export default async function About() {
       <div className="container">
         <div className={styles.about}>
           <h4 className={styles.about__text}>{data.page.title}</h4>
-          <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+          <AboutParagraph page={data.page} />
         </div>
       </div>
     </main>
