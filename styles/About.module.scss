@@ -1,14 +1,15 @@
 .about {
-  padding: 5rem 7rem 8rem;
+  padding: 4rem 4rem 8rem;
   position: absolute;
-  top: 27rem;
-  background: rgb(255, 255, 255, 1);
-  left: 0;
+  top: 12rem;
+  background: rgb(255, 255, 255);
+  /* left: 0; */
   right: 0;
-  width: 800px;
+  width: 750px;
   margin: 0 auto;
-  border-radius: 2px;
+  /* border-radius: 12px; */
   font-weight: 100;
+  /* opacity: 0.80;*/
 
   .about__text {
     font-weight: bold;
@@ -27,5 +28,11 @@
     padding: 2rem 2rem 5rem !important;
     margin: 0 auto;
     width: 93% !important;
+  }
+}
+
+@media (max-width: 1079px) {
+  .about {
+    position: initial;
   }
 }
