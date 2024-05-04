@@ -1,0 +1,18 @@
+.Banner {
+  // background: url('/images/bonitaprayer-colorized.jpg') center -530px no-repeat;
+  height: 835px;
+  width: 64%;
+  background-size: cover;
+  border-radius: 12px;
+  // Previous styles
+  // width: 100%;
+  // border-radius: 12px;
+  // In component:
+  // background: url(http://bonitabasicsproductions.local/wp-content/uploads/2023/06/bonitaprayer-colorized.webp) center -530px no-repeat;
+}
+
+@media (max-width: 575px) {
+  .Banner {
+    border-radius: 0;
+  }
+}
