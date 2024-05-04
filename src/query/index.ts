@@ -11,5 +11,5 @@ export * from "./getOrders";
 export * from "./getCategories";
 export * from "./getProducts";
 export * from "./getUserByEmail";
-export * from "./getUserByUserName";
+export * from "./getUserByUsername";
 export * from "./getProductDownloadUrl";
