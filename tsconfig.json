@@ -16,18 +16,24 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["./components/*"],
-      "@/hooks/*": ["./hooks/*"],
-      "@/query/*": ["./query/*"],
+      "@/components/*": ["../bbpmusic_library_backup/components/*"],
+      "@/hooks/*": ["../bbpmusic_library_backup/hooks/*"],
+      "@/query/*": ["src/app/query/*"],
+      "@/Product/*": ["./Product/*"],
       "@/styles/*": ["./styles/*"],
-      "@/util/*": ["./util/*"],
-      "@/services/*": ["./services/*"],
+      "@/util/*": ["util/*"],
+      "@/services/*": ["src/services/*"],
       "@/public/*": ["./public/*"],
       // "@/components/Context/*": ["context/*"]
-      "@/context/*": ["./context/*"],
+      "@/context/*": ["../bbpmusic_library_backup/context/*"],
       "@/types/*": ["./types/*"]
     },
-    "incremental": true
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -35,18 +41,26 @@
     "**/*.tsx",
     "pages/_app.tsx",
     "pages/index.tsx",
-    "components/Navigation/OverlayNav.tsx",
-    "components/Sidebar/SidebarCart.tsx",
-    "pages/confirm.tsx",
-    "components/Sidebar/Cart.tsx",
-    "components/Sidebar/CartItem.tsx",
-    "components/Sidebar/Cart.tsx",
-    "components/Hero/ImageHero.tsx",
+    "../bbpmusic_library_backup/components/Navigation/OverlayNav.tsx",
+    "../bbpmusic_library_backup/components/Sidebar/SidebarCart.tsx",
+    "../bbpmusic_library_backup/pages_router/confirm.tsx",
+    "../bbpmusic_library_backup/components/Sidebar/Cart.tsx",
+    "../bbpmusic_library_backup/components/Sidebar/CartItem.tsx",
+    "../bbpmusic_library_backup/components/Hero/ImageHero.tsx",
     "util/generate.ts",
-    "emails/Purchased.jsx",
-    "backend/routes/logout.ts",
-    "backend/routes/create.ts",
-    "backend/routes/login.ts"
+    "src/emails/Purchased.jsx",
+    ".next/types/**/*.ts",
+    "../bbpmusic_library_backup/pages_router/login.tsx",
+    "../bbpmusic_library_backup/pages_router/profile/orders.tsx",
+    "../bbpmusic_library_backup/pages_router/profile/downloads.tsx",
+    "../bbpmusic_library_backup/about.tsx",
+    "src/util/index.js",
+    "../bbpmusic_library_backup/pages_router/create-password.tsx",
+    "../bbpmusic_library_backup/pages_router/profile/update.tsx",
+    "../bbpmusic_library_backup/pages_router/forgot-password.tsx",
+    "../bbpmusic_library_backup/pages_router/checkout.tsx",
+    "../bbpmusic_library_backup/pages_router/checkout.tsx",
+    "../bbpmusic_library_backup/pages_router/register.tsx"
   ],
   "exclude": ["node_modules"]
 }
