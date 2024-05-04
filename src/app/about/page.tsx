@@ -1,7 +1,7 @@
 import Banner from "@/components/Banner/Banner";
 import AboutParagraph from "@/components/About/About";
 import styles from "@/styles/About.module.scss";
-import { GET_ABOUT_PAGE } from "@/query/index";
+import { GET_ABOUT_PAGE } from "@/query/getAboutPage";
 
 async function getData() {
   const res = await fetch(process.env.GRAPHQL_URL as string, {
