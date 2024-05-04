@@ -1,7 +1,7 @@
-import Banner from "src/components/Banner/Banner";
-import AboutParagraph from "src/components/About/About";
+import Banner from "@/components/Banner/Banner";
+import AboutParagraph from "@/components/About/About";
 import styles from "@/styles/About.module.scss";
-import { GET_ABOUT_PAGE } from "src/query/index";
+import { GET_ABOUT_PAGE } from "@/query/index";
 
 async function getData() {
   const res = await fetch(process.env.GRAPHQL_URL as string, {
@@ -19,6 +19,7 @@ async function getData() {
 
 export default async function page() {
   const { data } = await getData();
+  console.log(data.page.featuredImage.node.mediaItemUrl);
 
   return (
     <>
