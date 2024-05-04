@@ -1,6 +1,6 @@
 import styles from "@/styles/Banner.module.scss";
 
-export default function ImageHero({
+export default function Banner({
   mediaItemUrl,
   about,
   contact,
