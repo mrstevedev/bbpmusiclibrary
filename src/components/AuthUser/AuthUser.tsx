@@ -1,19 +1,16 @@
-import Link from "next/link";
-import { Fragment, useContext, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CartContext, TCartContext } from "../../context/CartContext";
-import { AuthContext, TAuthContext } from "../../context/AuthContext";
-import { CouponContext, TCouponContext } from "src/context/CouponContext";
+import { useContext, useEffect, useState } from "react";
+import { CartContext, TCartContext } from "@/context/CartContext";
+import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { logout } from "src/services/Api";
+import { logout } from "@/services/Api";
 
-export default function AuthUser({ user }) {
+export default function AuthUser({ user, setUser }) {
   const router = useRouter();
 
   const [_, setCartCount] = useState(0);
 
-  const { auth, setAuth } = useContext<TAuthContext>(AuthContext);
   const { cart, setCart } = useContext<TCartContext>(CartContext);
   const { setCoupon } = useContext<TCouponContext>(CouponContext);
 
@@ -23,10 +20,14 @@ export default function AuthUser({ user }) {
     setCartCount(count);
   }, [cart]);
 
+  const handleNavigateProfile = () => {
+    router.push("/account");
+  };
+
   const handleLogout = async () => {
     const res = await logout();
     if (res.data) {
-      setAuth(null);
+      setUser(null);
       setCart(null);
       setCartCount(0);
       setCoupon(null);
@@ -36,15 +37,13 @@ export default function AuthUser({ user }) {
     }
   };
   return (
-    <Fragment>
-      <NavDropdown title={auth.userNiceName} id="basic-nav-dropdown">
-        <Link href="/profile" passHref>
-          <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-        </Link>
-        <NavDropdown.Item href="#" onClick={handleLogout}>
-          Logout
-        </NavDropdown.Item>
-      </NavDropdown>
-    </Fragment>
+    <NavDropdown data-testid="auth-user" title={user.userNiceName}>
+      <NavDropdown.Item onClick={handleNavigateProfile}>
+        Account
+      </NavDropdown.Item>
+      <NavDropdown.Item href="#" onClick={handleLogout}>
+        Log out
+      </NavDropdown.Item>
+    </NavDropdown>
   );
 }

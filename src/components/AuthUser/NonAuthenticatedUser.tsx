@@ -4,7 +4,7 @@ import { Fragment } from "react";
 export default function NonAuthenticatedUser() {
   return (
     <Fragment>
-      <span className="nav-link" style={{ paddingLeft: "0" }}>
+      <span className="nav-link" style={{ paddingLeft: 0 }}>
         Guest
       </span>
       <Link href="/login" className="nav-link" style={{ paddingLeft: 0 }}>
