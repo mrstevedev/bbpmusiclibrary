@@ -1,3 +1,4 @@
+"use client";
 import Select from "react-select";
 import { useStates } from "react-us-states";
 import styles from "@/styles/Checkout.module.scss";
