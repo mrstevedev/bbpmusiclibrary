@@ -1,28 +1,27 @@
 "use client";
 import { Fragment, useContext, useEffect, useState } from "react";
 import { Rotate as Hamburger } from "hamburger-react";
-import { CartContext, TCartContext } from "../../context/CartContext";
-import { AuthContext, TAuthContext } from "../../context/AuthContext";
-import { CouponContext, TCouponContext } from "src/context/CouponContext";
+import { CartContext, TCartContext } from "@/context/CartContext";
+import { AuthContext, TAuthContext } from "@/context/AuthContext";
+import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 import CartIcon from "./CartIcon";
 
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/public/images/logo.svg";
 import { useRouter } from "next/navigation";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { useValidateToken } from "src/hooks/useValidateToken";
+import { useValidateToken } from "@/hooks/useValidateToken";
 
 import styles from "@/styles/Header.module.scss";
-import OverlayNav from "src/components/Navigation/OverlayNav";
-import SidebarCart from "src/components/SidebarCart/SidebarCart";
-import AuthenticatedUser from "src/components/AuthUser/AuthUser";
-import NonAuthenticatedUser from "src/components/AuthUser/NonAuthenticatedUser";
+import OverlayNav from "@/components/Navigation/OverlayNav";
+import SidebarCart from "@/components/SidebarCart/SidebarCart";
+import AuthenticatedUser from "@/components/AuthUser/AuthUser";
+import NonAuthenticatedUser from "@/components/AuthUser/NonAuthenticatedUser";
 
 export default function Header() {
   const router = useRouter();
@@ -35,7 +34,6 @@ export default function Header() {
   const { setCoupon } = useContext<TCouponContext>(CouponContext);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
@@ -67,39 +65,56 @@ export default function Header() {
 
   const handleToggleMenu = () => {
     setIsOpen((prev) => !prev);
-    setShowMenu((prev) => !prev);
 
     const overlay = document.querySelector(`.overlayNav`);
     overlay?.classList.toggle("overlay_active");
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("cart") !== null) {
+      setShowCart((prev) => {
+        localStorage.setItem("cart", String(!prev));
+        return !prev;
+      });
+    }
+  }, []);
+
   return (
     <Fragment>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar
+        expand="lg"
+        className="bg-body-tertiary"
+        style={{ position: "relative" }}
+      >
         <Container fluid>
-          <a onClick={(e) => handleToggleMenu()} style={{ width: "100%" }}>
-            <Hamburger
-              toggled={isOpen}
-              size={18}
-              color={showMenu ? "white" : "black"}
-            />
-          </a>
-          <Navbar.Brand className={styles.header__logo}>
-            <Link href="/">
-              <Image src={logo} height="65" alt="bonitabasicsproductions" />
-            </Link>
-          </Navbar.Brand>
+          <div>
+            <div onClick={(e) => handleToggleMenu()}>
+              <Hamburger
+                toggled={isOpen}
+                size={18}
+                color={isOpen ? "white" : "black"}
+              />
+            </div>
+          </div>
 
-          <Navbar id="basic-navbar-nav" style={{ width: "100%" }}>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link
-                className={styles.header__nav_link}
-                style={{ cursor: "initial" }}
-              >
+          <Link href="/" className={styles.BBP_Header__Logo}>
+            <Image
+              src={
+                "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/19132039/logo.png"
+              }
+              width={65}
+              height={65}
+              alt="BBP Music Library"
+            />
+          </Link>
+
+          <Navbar className="pe-3">
+            <Nav>
+              <Nav.Link className={styles.BBP_Header_Welcome__Link}>
                 Welcome
               </Nav.Link>
               {auth?.userId ? (
-                <AuthenticatedUser user={auth} />
+                <AuthenticatedUser user={auth} setUser={setAuth} />
               ) : (
                 <NonAuthenticatedUser />
               )}
