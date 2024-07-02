@@ -13,12 +13,12 @@ import { ID_TYPE } from "@/constants/index";
 import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
 
 export default async function Product({ params }) {
-  const { data: pageTerms } = await getTerms();
-  const { data } = await getProduct(params);
-  const downloads = await getDownloads();
-  const product = data.product;
+  // const { data: pageTerms } = await getTerms();
+  // const { data } = await getProduct(params);
+  // const downloads = await getDownloads();
+  // const product = data.product;
 
-  const { content: terms } = pageTerms.page;
+  // const { content: terms } = pageTerms.page;
 
   return (
     <Fragment>
