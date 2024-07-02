@@ -6,7 +6,7 @@ export default function CoverImage() {
       <div
         className={`hero-img ${styles.cover__image}`}
         style={{
-          backgroundImage: `url(${"./images/img1200.webp"})`,
+          backgroundImage: `url(${"https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/06162849/img1200.webp"})`,
         }}
       ></div>
     </>
