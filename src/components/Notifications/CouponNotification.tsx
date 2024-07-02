@@ -1,8 +1,8 @@
 "use client";
 import { Alert } from "react-bootstrap";
-import styles from "@/styles/AlertNotification.module.scss";
 import { Fragment, useContext } from "react";
-import { CouponContext, TCouponContext } from "src/context/CouponContext";
+import styles from "@/styles/CouponNotification.module.scss";
+import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 export default function CouponNotification() {
   const { coupon } = useContext<TCouponContext>(CouponContext);
@@ -11,7 +11,7 @@ export default function CouponNotification() {
   return (
     <Fragment>
       {coupon ? (
-        <Alert className={styles.AlertNotification}>{description}</Alert>
+        <Alert className={styles.BBP_Coupon__Notification}>{description}</Alert>
       ) : null}
     </Fragment>
   );
