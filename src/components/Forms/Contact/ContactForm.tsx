@@ -65,7 +65,7 @@ export default function ContactForm() {
                     required
                     type="text"
                     name="firstName"
-                    className="form-control"
+                    className="form-control first-name-input"
                     id="firstName"
                     aria-describedby="firstName"
                     placeholder="First Name"
@@ -75,7 +75,7 @@ export default function ContactForm() {
                     required
                     type="text"
                     name="lastName"
-                    className="form-control"
+                    className="form-control last-name-input"
                     id="lastName"
                     aria-describedby="lastName"
                     placeholder="Last Name"
@@ -87,7 +87,7 @@ export default function ContactForm() {
                     required
                     type="email"
                     name="email"
-                    className="form-control"
+                    className="form-control email-name-input"
                     id="email"
                     aria-describedby="email"
                     placeholder="Email"
