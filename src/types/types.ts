@@ -139,11 +139,21 @@ export type TProduct = {
   sku: string;
 };
 
+export type Option = string;
+
+export type Attribute = {
+  name: string;
+  options: Option[];
+};
+
 export type TProductSoundcloud = {
   product: {
     name: string;
     databaseId: number;
     sku: string;
+    attributes: {
+      nodes: Attribute[];
+    };
   };
 };
 

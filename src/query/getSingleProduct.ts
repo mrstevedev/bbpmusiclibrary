@@ -18,6 +18,12 @@ export const GET_SINGLE_PRODUCT = `
                     regularPrice
                     salePrice
                 }
+                attributes {
+                    nodes {
+                        name
+                        options
+                    }
+                }
                 description(format: RAW)
                 image {
                     mediaItemUrl
