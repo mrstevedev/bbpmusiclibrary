@@ -218,7 +218,6 @@ export default function CheckoutForm({ purchaseUnits }) {
         errors={errors}
         touched={touched}
         handleChange={handleChange}
-        purchaseUnits={purchaseUnits}
         setPaymentType={setPaymentType}
         setFieldValue={setFieldValue}
       />
