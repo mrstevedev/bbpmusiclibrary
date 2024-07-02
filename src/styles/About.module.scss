@@ -1,0 +1,38 @@
+.BBP__About {
+  padding: 2rem 4rem 2rem;
+  position: absolute;
+  top: 0;
+  background: rgb(255, 255, 255);
+  right: 0;
+  width: 712px;
+  margin: 0 auto;
+  font-weight: 100;
+
+  .BBP__About_text {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 575px) {
+  .BBP__About_mainContainer {
+    padding: 0 2.5rem;
+    position: relative;
+  }
+}
+
+@media (max-width: 575px) {
+  .BBP__About {
+    padding: 2rem 2rem 5rem !important;
+    margin: 0 auto;
+    width: 93% !important;
+  }
+}
+
+@media (max-width: 1079px) {
+  .BBP__About {
+    position: initial;
+    width: initial;
+    padding: 2rem 0rem 2rem;
+  }
+}
