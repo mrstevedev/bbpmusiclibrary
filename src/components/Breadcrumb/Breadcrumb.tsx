@@ -2,7 +2,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { BreadcrumbItem } from "react-bootstrap";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import { TBreadcrumbProps } from "src/types/types";
+import { TBreadcrumbProps } from "@/types/types";
 import { Container } from "react-bootstrap";
 
 export default function BreadcrumbComponent({
