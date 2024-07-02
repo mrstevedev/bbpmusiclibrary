@@ -9,8 +9,8 @@ export default function LoadingOverlay() {
   }, []);
   return (
     <>
-      <div className={`loading__overlay ${styles.loading__overlay}`}>
-        <div className={styles.loading__overlay__inner}>
+      <div className={`${styles.BBP__Loading_Overlay} loading__overlay`}>
+        <div className={styles.BBP__Loading_Overlay_Inner}>
           <svg
             fill="#fff"
             xmlns="http://www.w3.org/2000/svg"
