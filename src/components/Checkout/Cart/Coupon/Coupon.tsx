@@ -1,9 +1,7 @@
-import { useContext, Fragment, useEffect } from "react";
+import { Fragment } from "react";
 
 import styles from "@/styles/Coupon.module.scss";
 import { Button, Form, FormControl } from "react-bootstrap";
-
-import { CartContext, TCartContext } from "src/context/CartContext";
 
 export default function Coupon({
   handleApplyCoupon,
@@ -11,6 +9,7 @@ export default function Coupon({
   setCouponValue,
   couponApplied,
 }) {
+  // console.log(couponApplied);
   return (
     <Fragment>
       <h5 className={styles.Coupon__heading}>Add Coupon</h5>
@@ -19,7 +18,7 @@ export default function Coupon({
           <FormControl
             type="search"
             name="coupon"
-            className={`form-control ${styles.Coupon__input}`}
+            className={`form-control coupon ${styles.Coupon__input}`}
             id="coupon"
             value={couponValue}
             aria-describedby="coupon"

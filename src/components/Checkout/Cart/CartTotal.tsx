@@ -1,27 +1,49 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import styles from "@/styles/Checkout.module.scss";
-import { TCartTotal } from "src/types/types";
+import { TCartTotal } from "@/types/types";
+import CartItemDisplaySalesTax from "./CartItemDisplaySalesTax";
 
-export default function CartTotal({
-  totalProductsPrice,
-  couponApplied,
-}: TCartTotal) {
+export default function CartTotal({ totalProductsPrice }: TCartTotal) {
+  const [priceWithSalesTax, setPriceWithSalesTax] = useState(0);
+
   return (
     <Fragment>
-      <div className={styles.Checkout__right_btm_total_container}>
-        <div className={styles.Checkout__right_btm_total}>
-          <h4>Total</h4>
-        </div>
-        <div style={{ display: "flex", alignItems: "center" }}>
-          {couponApplied && (
-            <span className="badge text-bg-success">Coupon applied </span>
-          )}
-          <span
-            className="Checkout_currency__ticker"
-            style={{ margin: "0 0.4rem" }}
-          >
-            ${totalProductsPrice} USD
-          </span>
+      <div className={styles.BBP_Checkout_Right_Bottom_Total__Container}>
+        <div className={styles.BBP_Checkout_Right_Bottom_Inner}>
+          <div className={styles.BBP_Checkout_Right_Bottom_Inner__Item}>
+            <h5 style={{ fontWeight: 100, fontSize: "0.8rem" }}>Subtotal</h5>
+            <span
+              data-testid="product-subtotal"
+              style={{ fontWeight: 100, fontSize: "0.8rem" }}
+            >
+              ${totalProductsPrice}
+            </span>
+          </div>
+          <div className={styles.BBP_Checkout_Right_Bottom_Inner__Item}>
+            <h5 style={{ fontWeight: 100, fontSize: "0.8rem" }}>
+              Estimated Taxes
+            </h5>
+            <span
+              data-testid="product-subtotal"
+              style={{ fontWeight: 100, fontSize: "0.8rem" }}
+            >
+              <CartItemDisplaySalesTax
+                price={totalProductsPrice}
+                setPriceWithSalesTax={setPriceWithSalesTax}
+              />
+            </span>
+          </div>
+          <div className={styles.BBP_Checkout_Right_Bottom_Inner__Item}>
+            <div className={styles.BBP_Checkout_Right_Bottom__Total}>
+              <h4>Total</h4>
+            </div>
+            <div>
+              <span data-testid="product-total">
+                <span style={{ fontWeight: 100, fontSize: "0.8rem" }}>USD</span>{" "}
+                ${priceWithSalesTax}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </Fragment>

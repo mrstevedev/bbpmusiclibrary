@@ -4,18 +4,9 @@ import React, { useState, useMemo, useContext } from "react";
 import styles from "@/styles/Checkout.module.scss";
 import { useStates } from "react-us-states";
 
-import { CartContext, TCartContext } from "src/context/CartContext";
+import { CartContext, TCartContext } from "@/context/CartContext";
 
-import PaymentSteps from "src/components/Checkout/PaymentSteps";
-
-import {
-  Button,
-  Container,
-  Form,
-  FormControl,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { TProduct } from "@/types/types";
 import MobileCartItem from "./MobileCartItem";
 export default function MobileCart({ price }) {

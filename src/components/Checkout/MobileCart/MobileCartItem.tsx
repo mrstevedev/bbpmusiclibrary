@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Fragment } from "react";
-import { TProduct } from "@/types/types";
+import { TProductMobileItem } from "@/types/types";
 import styles from "@/styles/Checkout.module.scss";
 
 export default function MobileCartItem({ products }) {
   return (
     <Fragment>
       {products
-        ? products.map((product: TProduct) => (
+        ? products.map((product: TProductMobileItem) => (
             <div key={product["databaseId"]}>
               <div className={styles.Checkout__mobile_product}>
                 <div className={`${styles.Checkout__mobile_product_img}`}>
