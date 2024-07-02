@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import { useToggleVisibility } from "../..//hooks/useToggleVisibility";
+import { useToggleVisibility } from "@/hooks/useToggleVisibility";
 
 export default function EyeToggleIconPasswordConfirm({ left, right }) {
   const { toggleVisibilityConfirm, togglerConfirm } = useToggleVisibility();
