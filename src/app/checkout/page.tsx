@@ -1,5 +1,6 @@
 import CheckoutWrapper from "@/components/Checkout/CheckoutWrapper";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title:
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
     "About BBPMusicLibrary, Sample Curator, Digital download Sample Packs for Hip Hop, Boom Bap music production",
 };
 export default function page() {
-  return <CheckoutWrapper />;
+  return (
+    <Suspense>
+      <CheckoutWrapper />;
+    </Suspense>
+  );
 }
