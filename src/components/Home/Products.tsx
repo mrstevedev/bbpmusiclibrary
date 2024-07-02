@@ -1,19 +1,16 @@
 "use client";
+import Image from "next/image";
+import { delay } from "@/util/index";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import styles from "@/styles/Products.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
-import Image from "next/image";
-
-import { GET_PRODUCTS } from "src/query/index";
+import { GET_PRODUCTS } from "@/query/index";
 import { useQuery } from "@apollo/client";
-
-import { useIntersectionObserver } from "src/hooks/useIntersectionObserver";
-
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import amazonAd from "@/public/images/Amazon-Display-Ad-Arlo.png";
-import { TProducts } from "src/types/types";
-
-import ProductItem from "./ProductItem";
-import Spinner from "../Spinner/Spinner";
+import ProductItem from "@/components/Home/ProductItem";
+import Spinner from "@/components/Spinner/Spinner";
+import ProductHeader from "@/components/Home/ProductHeader";
 
 export default function Products() {
   const { loading, error, data, fetchMore } = useQuery(GET_PRODUCTS, {
@@ -22,8 +19,6 @@ export default function Products() {
 
   const [isLoading, setIsLoading] = useState(false);
   const { isIntersecting, observerRef } = useIntersectionObserver(data);
-
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const fetchMoreProducts = useCallback(async () => {
     const { endCursor } = data.products.pageInfo;
@@ -50,58 +45,51 @@ export default function Products() {
 
   if (loading) {
     return (
-      <div
-        className={styles.Spinner__Container}
-        style={{ display: "flex", justifyContent: "center" }}
-      >
+      <div className={styles.BBP_Products_Loading__Spinner}>
         <Spinner />
       </div>
     );
   }
 
+  const length = data?.products.edges.length;
+
   return (
     <Fragment>
-      <Container fluid className={`${styles.Products}`}>
-        <h1>
-          Latest Releases
-          <span> Showing {data?.products.edges.length}</span>
-        </h1>
+      <Container fluid className={`${styles.BBP__Products}`}>
+        <ProductHeader length={length} />
         <Row>
           <Col lg="10">
             <Row>
               {data?.products.edges
-                ? data?.products?.edges.map(({ node }) => {
+                ? data?.products?.edges.map(({ node }, index) => {
                     return (
-                      <Col key={node.name} xs="12" sm="5" lg="4" xl="3">
-                        <ProductItem key={node.id} product={node} />
-                      </Col>
+                      <ProductItem
+                        key={node.databaseId}
+                        product={node}
+                        id={index}
+                      />
                     );
                   })
                 : null}
             </Row>
           </Col>
-          <Col className={styles.Products__ad}>
+          <Col className={styles.BBP_Products__Ad}>
             <Image
               src={amazonAd}
               alt="amazonAd"
-              className={styles.Products_ad__img}
+              className={styles.BBP_Products_Ad__Image}
             />
           </Col>
         </Row>
       </Container>
       <div ref={observerRef} />
       {isLoading ? (
-        <div className={styles.Spinner__Container}>
+        <div className={styles.BBP_Load_More__Spinner}>
           <Spinner />
         </div>
       ) : (
-        <div className={styles.Spinner__Container}>
-          <h5
-            style={{
-              fontWeight: "bold",
-              fontSize: "0.8rem",
-            }}
-          >
+        <div>
+          <h5 className={styles.BBP_Load_More_Spinner__Text}>
             No more products
           </h5>
         </div>
