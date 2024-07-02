@@ -1,10 +1,10 @@
 import styles from "@/styles/Related.module.scss";
-import RelatedItem from "src/components/Product/Related/RelatedItem";
+import RelatedItem from "@/components/Product/Related/RelatedItem";
 
 export default function RelatedItems({ product }) {
   return (
-    <div className={styles.related}>
-      <h2 className={styles.related__heading}>Related Products</h2>
+    <div className={styles.BBP__Related}>
+      <h2 className={styles.BBP_Related__Heading}>Related Products</h2>
       <RelatedItem product={product} />
     </div>
   );

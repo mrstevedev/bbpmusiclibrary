@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/styles/Related.module.scss";
 import { useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
+import styles from "@/styles/Related.module.scss";
 
 export default function RelatedItem({ product }) {
   const curSlide = useRef(0);
@@ -55,9 +55,12 @@ export default function RelatedItem({ product }) {
   };
 
   return (
-    <div className={styles.related__slider}>
+    <div className={styles.BBP_Related__Slider}>
       {products.map((data) => (
-        <div key={data.node.id} className={`${styles.related__slide} slide`}>
+        <div
+          key={data.node.id}
+          className={`${styles.BBP_Related__Slide} slide`}
+        >
           <Link href={data.node.slug}>
             <Image
               width={200}
@@ -72,7 +75,7 @@ export default function RelatedItem({ product }) {
       <Button
         type="button"
         onClick={handleSlidePrev}
-        className={`${styles["related__btn"]} ${styles["related__btn--prev"]} btn__prev`}
+        className={`${styles["BBP_Related__Button"]} ${styles["BBP_Related__Button--prev"]} btn__prev`}
         aria-describedby="carousel-status-s0-0-32-3-0-0[6]-4-match-media-0-ebay-carousel"
         aria-label="Go to previous slide - Samsung Cell Phones &amp; Smartphones"
         aria-disabled="true"
@@ -94,13 +97,12 @@ export default function RelatedItem({ product }) {
       <Button
         type="button"
         onClick={handleSlideNext}
-        className={`${styles["related__btn"]} ${styles["related__btn--next"]} btn__next`}
+        className={`${styles["BBP_Related__Button"]} ${styles["BBP_Related__Button--next"]} btn__next`}
         aria-describedby="carousel-status-s0-0-32-3-0-0[6]-4-match-media-0-ebay-carousel"
         aria-label="Go to next slide - Samsung Cell Phones &amp; Smartphones"
         variant="light"
       >
         <svg
-          className={styles.next__btn}
           width="24"
           height="24"
           viewBox="0 0 24 24"
