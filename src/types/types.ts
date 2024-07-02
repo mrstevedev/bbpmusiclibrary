@@ -151,6 +151,10 @@ export type TProducts = {
   products: TProduct[];
 };
 
+export type TProductsCategoryItems = {
+  products: TProductCategoryItem[];
+};
+
 export type TProductCategoryItem = {
   id: string;
   image: {
@@ -165,11 +169,6 @@ export type TProductCategoryItem = {
   description: string;
   sku: string;
 };
-
-export type TProductsCategoryItems = {
-  products: TProductCategoryItem[];
-};
-///
 
 export type Product = {
   id: string;
