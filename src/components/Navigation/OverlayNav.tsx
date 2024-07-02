@@ -4,40 +4,36 @@ import Link from "next/link";
 export default function OverlayNav({ handleToggleMenu }) {
   return (
     <>
-      <div className={`${styles.Overlay__Nav} overlayNav`}>
+      <div className={`${styles.BBP_Overlay__Nav} overlayNav`}>
         <ul
-          className={`${styles.Overlay__Nav_list}  animated animatedFadeInUp fadeInUp`}
+          // animated animatedFadeInUp fadeInUp
+          className={`${styles.BBP_Overlay__Nav_List}`}
         >
           <li>
             <Link
+              href="/frequently-asked-questions"
+              className={styles.BBP__Link}
+              onClick={handleToggleMenu}
+            >
+              FAQ
+            </Link>
+          </li>
+          <li>
+            <Link
               href="/about"
-              className={styles.link}
+              className={styles.BBP__Link}
               onClick={handleToggleMenu}
             >
               About
             </Link>
           </li>
           <li>
-            <Link href="/" className={styles.link} onClick={handleToggleMenu}>
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/videos"
-              className={styles.link}
-              onClick={handleToggleMenu}
-            >
-              Music Videos
-            </Link>
-          </li>
-          <li>
             <Link
               href="/contact"
-              className={styles.link}
+              className={styles.BBP__Link}
               onClick={handleToggleMenu}
             >
-              Contact Us
+              Contact
             </Link>
           </li>
         </ul>

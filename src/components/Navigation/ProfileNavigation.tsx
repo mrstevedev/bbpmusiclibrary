@@ -3,18 +3,18 @@ import Link from "next/link";
 import { Nav } from "react-bootstrap";
 import styles from "@/styles/Profile.module.scss";
 import { useRouter } from "next/navigation";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
-import { CartContext, TCartContext } from "src/context/CartContext";
-import { AuthContext, TAuthContext } from "src/context/AuthContext";
-import { CouponContext, TCouponContext } from "src/context/CouponContext";
+import { CartContext, TCartContext } from "@/context/CartContext";
+import { AuthContext, TAuthContext } from "@/context/AuthContext";
+import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
-import { logout } from "src/services/Api";
+import { logout } from "@/services/Api";
 
 export default function ProfileNavigation() {
   const router = useRouter();
-  const { auth, setAuth } = useContext<TAuthContext>(AuthContext);
-  const { cart, setCart } = useContext<TCartContext>(CartContext);
+  const { setAuth } = useContext<TAuthContext>(AuthContext);
+  const { setCart } = useContext<TCartContext>(CartContext);
   const { setCoupon } = useContext<TCouponContext>(CouponContext);
 
   const handleLogoutUser = async () => {
@@ -29,38 +29,32 @@ export default function ProfileNavigation() {
     }
   };
 
-  useEffect(() => {
-    if (!auth) {
-      router.push("/login");
-    }
-  }, [auth, router]);
-
   return (
-    <div className={styles.profile__content} style={{ margin: "1.5rem 0" }}>
-      <Nav
-        as="ul"
-        style={{
-          listStyle: "none",
-          padding: "0",
-          lineHeight: 2,
-          textTransform: "uppercase",
-          fontSize: "0.7rem",
-          display: "block",
-        }}
-      >
-        <Nav.Item as="li" style={{ display: "flex" }}>
-          <Link href="/profile/orders">
+    <div className={styles.BBP_Profile__Container}>
+      <Nav as="ul" className={styles.BBP_Profile__Nav}>
+        <Nav.Item as="li" className={styles.BBP_Profile_Nav__Item}>
+          <Link href="/account/orders">
             <span className="link">Orders</span>
           </Link>
         </Nav.Item>
-        <Nav.Item as="li" style={{ display: "flex" }}>
-          <Link href="/profile/downloads">
+        <Nav.Item as="li">
+          <Link href="/account/downloads">
             <span className="link">Downloads</span>
           </Link>
         </Nav.Item>
-        <Nav.Item as="li" style={{ display: "flex" }}>
+        <Nav.Item as="li">
+          <Link href="/account/newsletter/subscribe">
+            <span className="link">Subscribe</span>
+          </Link>
+        </Nav.Item>
+        <Nav.Item as="li">
+          <Link href="/account/newsletter/unsubscribe">
+            <span className="link">UnSubscribe</span>
+          </Link>
+        </Nav.Item>
+        <Nav.Item as="li">
           <Link href="#" onClick={handleLogoutUser}>
-            <span className="link">Logout</span>
+            <span className="link">Log out</span>
           </Link>
         </Nav.Item>
       </Nav>
