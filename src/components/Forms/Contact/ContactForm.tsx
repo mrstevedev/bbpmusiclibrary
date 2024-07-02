@@ -14,10 +14,10 @@ import {
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
-import { sendMessage } from "src/services/Api";
-import AboutParagraph from "src/components/About/About";
+import { sendMessage } from "@/services/Api";
+import { FORM_ISSUES_OPTIONS } from "@/constants/index";
 
-export default function ContactForm({ data }) {
+export default function ContactForm() {
   const [formSubmit, setFormSubmit] = useState(false);
 
   const { handleChange, handleSubmit, setFieldValue } = useFormik({
@@ -30,6 +30,7 @@ export default function ContactForm({ data }) {
     },
     onSubmit: async (values) => {
       console.log(values);
+
       try {
         const response_message = await sendMessage({
           firstName: values.firstName,
@@ -50,13 +51,13 @@ export default function ContactForm({ data }) {
   });
 
   return (
-    <div className={styles.contact}>
+    <div className={styles.BBP_Contact__Form}>
       <div className="content__main">
         {!formSubmit ? (
           <>
-            <h1 className={styles.contact__text}>Contact our team</h1>
+            <h1 className={styles.BBP_Contact_Form__Text}>Contact the team</h1>
             <p>Are you having issues? Let us know so we can help</p>
-            <Row className={styles.SignIn__form__container}>
+            <Row>
               <Form onSubmit={handleSubmit}>
                 <InputGroup className="mb-2">
                   <FormControl
@@ -99,17 +100,7 @@ export default function ContactForm({ data }) {
                     name="issue"
                     defaultValue={{ label: "What is your issue" }}
                     aria-label="What is your issue"
-                    options={[
-                      {
-                        label:
-                          "I am unable to download my purchased sample pack",
-                        value: "Unable to download",
-                      },
-                      {
-                        label: "I never received my purchased sample pack",
-                        value: "never received",
-                      },
-                    ]}
+                    options={FORM_ISSUES_OPTIONS}
                     theme={(theme) => ({
                       ...theme,
                       colors: {
@@ -133,7 +124,7 @@ export default function ContactForm({ data }) {
                     as="textarea"
                     className="form-control"
                     onChange={handleChange}
-                    placeholder="Please tell us what issue you are having"
+                    placeholder="Please include your order # in this message"
                   ></FormControl>
                 </InputGroup>
                 <Row>
@@ -149,7 +140,7 @@ export default function ContactForm({ data }) {
         ) : (
           <>
             <h4>Your message has been sent.</h4>
-            <p>Please allow up to 3 business days to get back to you.</p>
+            <p>Please allow up to 3 business days to process your request.</p>
           </>
         )}
         <hr />

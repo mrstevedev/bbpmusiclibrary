@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import { Button, Form, FormControl } from "react-bootstrap";
-import EyeTogglePasswordIcon from "src/components/Icons/EyeTogglePasswordIcon";
 import styles from "@/styles/ForgotPassword.module.scss";
-import Spinner from "../../Spinner/Spinner";
+import Spinner from "@/components/Spinner/Spinner";
+import EyeTogglePasswordIcon from "@/components/Icons/EyeTogglePasswordIcon";
 
 export default function ForgotStepTwoForm({
   isLoading,
@@ -27,6 +27,7 @@ export default function ForgotStepTwoForm({
             name="code"
             onChange={handleChange}
             aria-describedby="code"
+            className="forgot-input"
             placeholder="Enter 4-digit code"
           />
           <FormControl
@@ -36,6 +37,7 @@ export default function ForgotStepTwoForm({
             name="email"
             aria-describedby="email"
             placeholder="Enter email address"
+            className="forgot-input"
             onChange={handleChange}
           />
         </div>
@@ -49,6 +51,7 @@ export default function ForgotStepTwoForm({
               name="password"
               aria-describedby="password"
               placeholder="Enter new password"
+              className="forgot-input"
               onChange={handleChange}
             />
           </div>
@@ -57,12 +60,11 @@ export default function ForgotStepTwoForm({
           <div className="col-sm-3">
             <Button
               type="submit"
-              className="btn btn-primary btn-block"
-              style={{ display: "flex", alignItems: "center" }}
+              className={`btn btn-primary btn-block ${styles.BBP_Forgot_Password_Reset__Button}`}
             >
               Reset
               {isLoading && (
-                <span style={{ margin: "0 0 0 0.3rem" }}>
+                <span className={styles.BBP_Button_Loading__Spinner}>
                   <Spinner />
                 </span>
               )}
@@ -70,13 +72,9 @@ export default function ForgotStepTwoForm({
           </div>
           <div className="mt-3">
             <hr />
-            <h2 className={styles.LostPw__signIn}>
+            <h2 className={styles.BBP_Forgot_Password__Sign_In}>
               Back to request code{" "}
-              <Link
-                href="#"
-                className={styles.LostPw__link}
-                onClick={(e) => setFormSubmit(false)}
-              >
+              <Link href="#" onClick={(e) => setFormSubmit(false)}>
                 here
               </Link>
             </h2>

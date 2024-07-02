@@ -7,7 +7,7 @@ import { Fragment } from "react";
 export default function ForgotForm({ handleSubmit, handleChange }) {
   return (
     <Fragment>
-      <h1 className={styles.Lostpw__heading}>Forgot Password</h1>
+      <h1 className={styles.BBP_Forgot_Password__Heading}>Forgot Password</h1>
       <p style={{ fontWeight: 100 }}>Enter your email to reset your password</p>
       <Form method="post" onSubmit={handleSubmit}>
         <div className="mb-2 input-group">
@@ -19,6 +19,7 @@ export default function ForgotForm({ handleSubmit, handleChange }) {
             aria-describedby="email"
             placeholder="Enter your email address"
             onChange={handleChange}
+            className="forgot-input"
             required
           />
         </div>
@@ -30,9 +31,12 @@ export default function ForgotForm({ handleSubmit, handleChange }) {
           </div>
         </div>
         <div className="mt-3">
-          <h2 className={styles.LostPw__signIn}>
+          <h2 className={styles.BBP_Forgot_Password__Sign_In}>
             Back to sign in{" "}
-            <Link href="/login" className={`${styles.LostPw__link} link`}>
+            <Link
+              href="/login"
+              className={`${styles.BBP_Forgot_Password__Link} link`}
+            >
               here
             </Link>
           </h2>

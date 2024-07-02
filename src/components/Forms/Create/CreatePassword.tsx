@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 
-import EyeTogglePasswordIcon from "../../../components/Icons/EyeTogglePasswordIcon";
-import EyeTogglePasswordConfirmIcon from "../../../components/Icons/EyeTogglePasswordConfirmIcon";
+import EyeTogglePasswordIcon from "@/components/Icons/EyeTogglePasswordIcon";
+import EyeTogglePasswordConfirmIcon from "@/components/Icons/EyeTogglePasswordConfirmIcon";
+import { Button } from "react-bootstrap";
 
 export default function CreatePasswordForm({
   handleSubmit,
@@ -21,7 +22,7 @@ export default function CreatePasswordForm({
               type="password"
               id="password"
               name="password"
-              className="form-control"
+              className="form-control create-password-input"
               aria-describedby="password"
               placeholder="Password"
             />
@@ -31,14 +32,15 @@ export default function CreatePasswordForm({
               type="password"
               id="passwordConfirm"
               name="passwordConfirm"
-              className="form-control"
+              className="form-control create-password-input"
               aria-describedby="confirm password"
               placeholder="Confirm password"
             />
           </div>
         </div>
 
-        <button
+        <Button
+          type="submit"
           className="btn btn-primary"
           style={{ display: "flex", alignItems: "center" }}
         >
@@ -50,7 +52,7 @@ export default function CreatePasswordForm({
               style={{ margin: "0 0 0 0.3rem" }}
             ></div>
           )}
-        </button>
+        </Button>
       </form>
 
       <hr />
