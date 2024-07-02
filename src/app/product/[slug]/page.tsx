@@ -16,7 +16,6 @@ export default async function Product({ params }) {
   const { data: pageTerms } = await getTerms();
   const { data } = await getProduct(params);
   const downloads = await getDownloads();
-  console.log("downloads:::", downloads);
   const product = data.product;
 
   const { content: terms } = pageTerms.page;
@@ -25,7 +24,7 @@ export default async function Product({ params }) {
     <Fragment>
       <Container className={styles.BBP__Product}>
         <ProductItem product={product} />
-        {/* <ProductTabs downloads={downloads} product={product} terms={terms} /> */}
+        <ProductTabs downloads={downloads} product={product} terms={terms} />
         <RelatedProducts product={product} />
       </Container>
     </Fragment>
