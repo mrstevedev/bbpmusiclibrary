@@ -1,0 +1,53 @@
+.BBP_Header__Logo {
+  position: relative;
+  left: 6rem;
+  right: 0;
+
+  img:active {
+    opacity: 0.5;
+  }
+}
+
+.BBP_Header_Welcome__Link {
+  cursor: initial;
+}
+
+.BBP_Button_Hover__Scale {
+  display: flex;
+  position: relative;
+  transition: transform 0.15s ease-out;
+}
+
+.BBP_Button_Hover__Scale:hover {
+  opacity: 1;
+  -ms-transform: scale(1.15);
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+
+.BBP_Cart__Count {
+  background: rgb(15, 15, 15);
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  color: #fff;
+  font-size: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  font-weight: bold;
+}
+
+@media (max-width: 575px) {
+  .BBP_Header__Logo {
+    width: initial;
+    left: 3rem;
+  }
+  .BBP_Header_Welcome__Link {
+    display: none;
+  }
+}
