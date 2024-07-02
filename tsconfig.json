@@ -16,17 +16,20 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/constants/*": ["./src/constants/*"],
       "@/components/*": ["./src/components/*"],
+      "@/emails/*": ["emails/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/query/*": ["./src/query/*"],
-      "@/product/*": ["./product/*"],
-      "@/styles/*": ["./styles/*"],
+      "@/styles/*": ["./src/styles/*"],
       "@/util/*": ["./src/util/*"],
       "@/services/*": ["./src/services/*"],
       "@/public/*": ["./public/*"],
-      // "@/components/Context/*": ["context/*"]
       "@/context/*": ["./src/context/*"],
-      "@/types/*": ["./types/*"]
+      "@/types/*": ["./src/types/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/config/*": ["./src/app/config/*"],
+      "@/app/*": ["./src/app/*"]
     },
     "incremental": true,
     "plugins": [
@@ -39,28 +42,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "../bbpmusic_library_backup/pages/_app.tsx",
-    "../bbpmusic_library_backup/pages/index.tsx",
-    "../bbpmusic_library_backup/components/Navigation/OverlayNav.tsx",
-    "../bbpmusic_library_backup/components/Sidebar/SidebarCart.tsx",
-    "../bbpmusic_library_backup/pages_router/confirm.tsx",
-    "../bbpmusic_library_backup/components/Sidebar/Cart.tsx",
-    "../bbpmusic_library_backup/components/Sidebar/CartItem.tsx",
-    "../bbpmusic_library_backup/components/Hero/ImageHero.tsx",
-    "util/generate.ts",
-    "emails/Purchased.jsx",
     ".next/types/**/*.ts",
-    "../bbpmusic_library_backup/pages_router/login.tsx",
-    "../bbpmusic_library_backup/pages_router/profile/orders.tsx",
-    "../bbpmusic_library_backup/pages_router/profile/downloads.tsx",
-    "../bbpmusic_library_backup/about.tsx",
-    "src/util/index.js",
-    "../bbpmusic_library_backup/pages_router/create-password.tsx",
-    "../bbpmusic_library_backup/pages_router/profile/update.tsx",
-    "../bbpmusic_library_backup/pages_router/forgot-password.tsx",
-    "../bbpmusic_library_backup/pages_router/checkout.tsx",
-    "../bbpmusic_library_backup/pages_router/checkout.tsx",
-    "../bbpmusic_library_backup/pages_router/register.tsx"
+    "__tests__/index.test.js",
+    "jest.config.js",
+    "jest.config.js"
   ],
   "exclude": ["node_modules"]
 }
