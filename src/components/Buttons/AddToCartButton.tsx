@@ -1,17 +1,21 @@
+import Link from "next/link";
 import { Fragment, useContext } from "react";
 import { Badge, Button } from "react-bootstrap";
-import styles from "@/styles/AddCartButton.module.scss";
-import { CartContext, TCartContext } from "src/context/CartContext";
-import Link from "next/link";
+import styles from "@/styles/AddToCartButton.module.scss";
+import { CartContext, TCartContext } from "@/context/CartContext";
 
-export default function ACButton({ handleAddToCart, product }) {
-  const { cart } = useContext<TCartContext>(CartContext);
+export default function AddToCartButton({
+  handleAddToCart,
+  product,
+  isItemInCart,
+}) {
+  // const { cart } = useContext<TCartContext>(CartContext);
   const { addToCart } = product;
   const { downloadable } = product;
 
-  const isItemInCart = cart?.products?.some(
-    (cartItem) => cartItem.databaseId === product.databaseId
-  );
+  // const isItemInCart = cart?.products?.some(
+  //   (cartItem) => cartItem.databaseId === product.databaseId
+  // );
 
   return (
     <Fragment>
@@ -22,11 +26,13 @@ export default function ACButton({ handleAddToCart, product }) {
               <Button
                 size="lg"
                 className={`add-to-cart-btn ${
-                  !addToCart ? styles.addToCartBtn : styles.viewCartBtn
+                  !addToCart
+                    ? styles.BBP__AddToCart_Button
+                    : styles.BBP__ViewCart_Button
                 }`}
                 style={{ cursor: "pointer" }}
               >
-                <span className={styles.cartBtnTxt}>
+                <span className={styles.BBP__AddToCart_Button_Text}>
                   View in checkout{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -46,11 +52,13 @@ export default function ACButton({ handleAddToCart, product }) {
           ) : (
             <Button
               className={`${
-                !addToCart ? styles.addToCartBtn : styles.viewCartBtn
+                !addToCart
+                  ? styles.BBP__AddToCart_Button
+                  : styles.BBP__ViewCart_Button
               }`}
               onClick={handleAddToCart}
             >
-              <span className={styles.cartBtnTxt}>
+              <span className={styles.BBP__AddToCart_Button_Text}>
                 Add to cart{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

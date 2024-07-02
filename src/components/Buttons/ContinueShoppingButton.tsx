@@ -8,7 +8,7 @@ export const ContinueShoppingButton = ({ handleCloseCart }) => {
       <Link href="/" passHref>
         <Button
           onClick={handleCloseCart}
-          className={`btn btn-primary rounded-2 ${styles.SidebarCart__button}`}
+          className={`btn btn-primary rounded-2 ${styles.BBP__SidebarCart_button}`}
         >
           Continue shopping
         </Button>

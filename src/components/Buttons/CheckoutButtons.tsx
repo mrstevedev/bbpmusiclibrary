@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { Button } from "react-bootstrap";
-import styles from "@/styles/AddCartButton.module.scss";
+import styles from "@/styles/AddToCartButton.module.scss";
 
 export default function CheckoutButton({ handleCloseCart }) {
   return (
     <>
       <Link href="/checkout" passHref>
-        <Button className={`${styles.addToCartBtn}`} onClick={handleCloseCart}>
-          <span className={styles.cartBtnTxt}>
+        <Button
+          className={`${styles.BBP__AddToCart_Button}`}
+          onClick={handleCloseCart}
+        >
+          <span className={styles.BBP__AddToCart_Button_Text}>
             Checkout
             <svg
               xmlns="http://www.w3.org/2000/svg"
