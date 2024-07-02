@@ -1,25 +1,20 @@
 "use client";
-import { Fragment, useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import styles from "@/styles/SignIn.module.scss";
-
-import Spinner from "../../Spinner/Spinner";
-
-import { login } from "src/services/Api";
-
-import { useFormik } from "formik";
-
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import { Button } from "react-bootstrap";
-
-import EyeToggleIcon from "src/components/Icons/EyeTogglePasswordIcon";
 import { AxiosError } from "axios";
+import { login } from "@/services/Api";
+import { useFormik } from "formik";
+import { useRouter } from "next/navigation";
+import { Button } from "react-bootstrap";
+import Tooltip from "react-bootstrap/Tooltip";
+import styles from "@/styles/SignIn.module.scss";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import { Fragment, useContext, useEffect, useState } from "react";
 
-import { AuthContext, TAuthContext } from "src/context/AuthContext";
-import { CouponContext, TCouponContext } from "src/context/CouponContext";
+import Spinner from "@/components/Spinner/Spinner";
+import EyeToggleIcon from "@/components/Icons/EyeTogglePasswordIcon";
+import { AuthContext, TAuthContext } from "@/context/AuthContext";
+import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -64,14 +59,9 @@ export default function LoginForm() {
               lastName: response_login.last_name,
               status: response_login.status,
               token: response_login.token,
-              coupon: response_login.coupon.edges[0].node,
+              coupon: response_login.coupon,
             })
           );
-          setCoupon({
-            code: response_login.coupon.edges[0].node.code,
-            description: response_login.coupon.edges[0].node.description,
-            isApplied: false,
-          });
           setAuth({
             userId: id,
             userNiceName: response_login.user_nicename,
@@ -81,6 +71,17 @@ export default function LoginForm() {
             status: response_login.status,
             token: response_login.token,
           });
+
+          if (response_login.coupon) {
+            setCoupon({
+              code: response_login.coupon.code,
+              description: response_login.coupon.description,
+              isApplied: false,
+              isUsed: false,
+            });
+          } else {
+            setCoupon(null);
+          }
           router.push("/");
         }
       } catch (error: unknown) {
@@ -133,7 +134,7 @@ export default function LoginForm() {
               aria-describedby="username"
               placeholder="Username"
               value={values.username}
-              className={`form-control`}
+              className={`form-control login-input`}
               required
             />
           </div>
@@ -149,7 +150,7 @@ export default function LoginForm() {
               aria-describedby="password"
               placeholder="Password"
               value={values.password}
-              className={`form-control`}
+              className={`form-control login-input`}
               required
             />
           </div>
