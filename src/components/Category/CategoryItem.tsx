@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Fragment } from "react";
+import { Button } from "react-bootstrap";
+import { trimString } from "@/util/index";
 import styles from "@/styles/Category.module.scss";
 import { TProductsCategoryItems } from "@/types/types";
-import { trimString } from "@/util/index";
-import { Button } from "react-bootstrap";
 
 export default function CategoryItem({ products }: TProductsCategoryItems) {
   return (
