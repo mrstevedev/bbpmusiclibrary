@@ -1,0 +1,59 @@
+.content {
+  padding: 0 0 6rem 0;
+
+  h1 {
+    font-size: 0.77rem;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+}
+
+.BBP_Product__Bottom {
+  padding: 0.7rem 0;
+  font-size: 0.9rem;
+
+  .BBP_Product__RegularPrice {
+    color: red;
+    text-decoration: line-through;
+  }
+  .BBP_Product__SalePrice {
+    font-size: 0.6rem;
+    color: grey;
+    text-transform: uppercase;
+  }
+}
+
+.BBP_Home__Image {
+  display: flex;
+  cursor: pointer;
+  img {
+    border-radius: 12px;
+  }
+
+  &:active {
+    opacity: 0.5 !important;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    -o-box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 545px) {
+  .content {
+    padding: 1rem 0 10rem 0;
+  }
+}
+
+@media (max-width: 1025px) {
+  .Home__image {
+    box-shadow: none;
+  }
+  .Home__image:hover {
+    box-shadow: none;
+  }
+}

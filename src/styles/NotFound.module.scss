@@ -1,0 +1,20 @@
+.BBP_Error__404 {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  .BBP_Error_404__Heading {
+    font-weight: bold;
+    font-size: 9.1rem;
+    line-height: 8rem;
+    span {
+      padding: 0 0.3rem;
+    }
+  }
+  .BBP_Error_404__Subheading {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+}

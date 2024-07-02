@@ -1,0 +1,49 @@
+.BBP__Products {
+  h1 {
+    font-weight: bold;
+    margin: 2rem 0 2rem 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  span {
+    color: #939393;
+  }
+
+  .BBP_Products__Ad {
+    width: 300px;
+    height: 883px;
+  }
+
+  .BBP_Products_Ad__Image {
+    border-radius: 12px;
+  }
+}
+
+.BBP_Products_Loading__Spinner {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.BBP_Load_More__Spinner {
+  display: flex;
+  justify-content: center;
+  padding: 0rem 0 5rem 0px;
+}
+
+.BBP_Load_More_Spinner__Text {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: center;
+  padding: 0 0 6rem 0px;
+}
+
+@media (max-width: 992px) {
+  .BBP__Products {
+    h1 {
+      margin: 2rem 0 1rem 0rem;
+    }
+  }
+}

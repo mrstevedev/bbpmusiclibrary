@@ -1,0 +1,33 @@
+.BBP__Footer {
+  width: 100%;
+  height: 57px;
+  background: #000;
+  position: fixed;
+  bottom: 0;
+  z-index: 8;
+
+  .BBP__Footer_Container {
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .BBP__Footer_text {
+      color: #fff;
+      font-size: 0.74rem;
+      margin: 0;
+      font-weight: 300;
+    }
+
+    svg {
+      margin: 0 0 0 0.5rem;
+      path {
+        transition: 0.12s ease-in-out;
+        &:hover {
+          fill: #729cda;
+        }
+      }
+    }
+  }
+}

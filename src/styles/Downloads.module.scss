@@ -1,0 +1,40 @@
+.BBP_Downloads__Row {
+  display: grid;
+  grid-auto-rows: 200px;
+  /*Define our columns */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  border-bottom: solid 1px #eaeaea;
+  gap: 0.01rem;
+
+  > div:not(:first-child) {
+    // border-left: solid 3px #000;
+    // padding: 0 2rem;
+  }
+
+  .BBP_Downloads__Label {
+    margin: 0.5rem 0 0 0px;
+  }
+
+  .BBP_Downloads__Text {
+    font-weight: 100;
+  }
+
+  .BBP_Downloads_Request_Button__Container {
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .BBP_Downloads_Request_Button_Container__Active {
+    background: #aeaeae !important;
+    border: solid 1px #aeaeae !important;
+  }
+
+  .BBP_Downloads_Request__Text {
+    margin: 0;
+    padding: 0px 0.4rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+}

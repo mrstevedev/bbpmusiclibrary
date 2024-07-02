@@ -1,0 +1,29 @@
+.BBP_Contact__Form {
+  top: 23rem;
+  background: rgb(255, 255, 255);
+  right: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 2px;
+  font-weight: 100;
+  position: absolute;
+
+  .BBP_Contact_Form__Text {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 575px) {
+  .BBP_Contact__Form {
+    padding: 2rem 8rem 8rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .BBP_Contact__Form {
+    padding: 0 !important;
+    margin: 0 auto;
+    width: 93% !important;
+  }
+}
