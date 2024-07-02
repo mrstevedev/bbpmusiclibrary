@@ -23,9 +23,9 @@ export default async function Product({ params }) {
   return (
     <Fragment>
       <Container className={styles.BBP__Product}>
-        <ProductItem product={product} />
+        {/* <ProductItem product={product} />
         <ProductTabs downloads={downloads} product={product} terms={terms} />
-        <RelatedProducts product={product} />
+        <RelatedProducts product={product} /> */}
       </Container>
     </Fragment>
   );
