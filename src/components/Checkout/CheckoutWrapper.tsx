@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useContext } from "react";
+import React, { Suspense, useContext } from "react";
 
 import logo from "@/public/images/logo.svg";
 import styles from "@/styles/Checkout.module.scss";
@@ -78,7 +78,9 @@ export default function CheckoutWrapper() {
         <div className="alternative-payment-separator">
           <span className="alternative-payment-separator__content">OR</span>
         </div>
-        <CheckoutForm purchaseUnits={purchaseUnits} />
+        <Suspense>
+          <CheckoutForm purchaseUnits={purchaseUnits} />
+        </Suspense>
 
         <hr />
         <p style={{ fontWeight: 100, fontSize: "0.8rem" }}>
