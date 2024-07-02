@@ -1,7 +1,5 @@
 import { resend } from "src/app/config/resend";
-import { render } from "@react-email/render";
 import ContactTemplate from "emails/contact";
-
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
