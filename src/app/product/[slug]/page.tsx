@@ -15,7 +15,8 @@ import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
 export default async function Product({ params }) {
   const { data: pageTerms } = await getTerms();
   const { data } = await getProduct(params);
-  // const downloads = await getDownloads();
+  const downloads = await getDownloads();
+  console.log("downloads:::", downloads);
   const product = data.product;
 
   const { content: terms } = pageTerms.page;
