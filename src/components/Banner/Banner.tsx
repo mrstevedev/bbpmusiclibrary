@@ -17,7 +17,7 @@ export default function Banner({
     <>
       {contact ? (
         <div
-          className={`${styles.Banner} product-img`}
+          className={`${styles.BBP__Banner} product-img`}
           style={{
             background: `url(${mediaItemUrl}) center -130px no-repeat`,
             backgroundSize: "cover",
@@ -25,7 +25,7 @@ export default function Banner({
         ></div>
       ) : about ? (
         <div
-          className={`${styles.Banner} product-img`}
+          className={`${styles.BBP__Banner} product-img`}
           style={{
             background: `url(${mediaItemUrl}) -54px -530px no-repeat`,
           }}
@@ -35,12 +35,13 @@ export default function Banner({
           style={{
             height: "250px",
             margin: "2rem 0 2rem 0",
-            background: `url(${mediaItemUrl}) center top no-repeat`,
+            background: `url(${mediaItemUrl}) center -167px no-repeat`,
+            backgroundSize: "cover",
           }}
         ></div>
       ) : update ? (
         <div
-          className={`${styles.Banner}`}
+          className={`${styles.BBP__Banner}`}
           style={{
             height: "250px",
             margin: "2rem 0 2rem 0",
