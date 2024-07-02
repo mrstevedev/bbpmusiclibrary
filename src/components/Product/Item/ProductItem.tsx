@@ -1,23 +1,16 @@
 "use client";
-import Image from "next/image";
+import Image from "react-bootstrap/Image";
 import Link from "next/link";
 import styles from "@/styles/Product.module.scss";
 
-import { addFirstProduct, updateCart } from "util/index";
+import { addFirstProduct, updateCart } from "@/util/index";
 
 import { Col, Row } from "react-bootstrap";
-import AddCartButton from "../../../components/Buttons/AddCartButton";
-import ProductGallery from "../../../components/Product/Gallery/Gallery";
+import AddToCartButton from "@/components/Buttons/AddToCartButton";
+import ProductGallery from "@/components/Product/Gallery/Gallery";
 
-import { CartContext, TCartContext } from "../../../context/CartContext";
-import {
-  useContext,
-  useEffect,
-  useState,
-  MouseEvent,
-  useRef,
-  Fragment,
-} from "react";
+import { CartContext, TCartContext } from "@/context/CartContext";
+import { useContext, useState, MouseEvent, Fragment } from "react";
 
 import { toast } from "react-toastify";
 
@@ -26,10 +19,17 @@ export default function ProductItem({ product }) {
   const { mediaItemUrl } = product.image;
   const categories = product.productCategories.nodes;
 
-  const [gallery, showGallery] = useState(false);
-  const [addToCart, setAddToCart] = useState(false);
-
+  const { cart } = useContext<TCartContext>(CartContext);
   const { setCart } = useContext<TCartContext>(CartContext);
+
+  const [gallery, showGallery] = useState(false);
+  const [_, setAddToCart] = useState(false);
+
+  /** Add AddToCartButton component isItemInCart logic here  */
+
+  const isItemInCart = cart?.products?.some(
+    (cartItem) => cartItem.databaseId === product.databaseId
+  );
 
   const handleShowImageGallery = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -74,36 +74,47 @@ export default function ProductItem({ product }) {
 
   return (
     <Fragment>
-      <Row className={styles.productTop}>
+      <Row className={styles.BBP__ProductTop}>
         <Col>
           <a href="#" onClick={handleShowImageGallery}>
-            <div className={`product-img ${styles.product__Img}`}>
+            <div className={`product-img ${styles.BBP__ProductTop_Image}`}>
               <Image
                 loading="eager"
                 src={mediaItemUrl}
                 width="490"
                 height="490"
-                alt={`Product Image - ${name}`}
+                alt={name}
               />
             </div>
           </a>
         </Col>
         <Col>
           <div className={styles.productDescription}>
-            <h3 className={styles.productDescriptionTxt}>{name}</h3>
-            <h4>
+            <h3
+              data-testid="product-name"
+              className={styles.productDescriptionTxt}
+            >
+              {name}
+            </h3>
+            <h4 data-testid="product-price">
               {salePrice ? (
-                <>
+                <Fragment>
                   <span className={styles.Product__RegularPrice}>
                     {regularPrice}
                   </span>
                   <span className={styles.Product__SaleTxt}> {salePrice}</span>
-                </>
+                </Fragment>
               ) : (
                 regularPrice
               )}
             </h4>
-            <p>{description}</p>
+            <p
+              data-testid="product-description"
+              // Move this to styles module
+              style={{ maxHeight: "320px", overflow: "scroll" }}
+            >
+              {description}
+            </p>
             <h4 className={styles.productCategoriesTxt}>
               Categories:{" "}
               {categories.map((obj) => (
@@ -129,9 +140,10 @@ export default function ProductItem({ product }) {
                 </Link>
               ))}
             </h4>
-            <AddCartButton
+            <AddToCartButton
               product={product}
               handleAddToCart={handleAddToCart}
+              isItemInCart={isItemInCart}
             />
           </div>
         </Col>
