@@ -1,32 +1,21 @@
 "use client";
-import Image from "next/image";
-import { Fragment, useContext } from "react";
-import { CartContext, Product } from "../../context/CartContext";
+import { Fragment } from "react";
+import { TSidebarProduct } from "@/types/types";
+import { removeItemFromCart } from "@/util/index";
 import styles from "@/styles/SidebarCart.module.scss";
-import cart__noItems from "@/public/images/cart__noItems.svg";
+import CartItem from "@/components/SidebarCart/CartItem";
+import CheckoutButton from "@/components/Buttons/CheckoutButtons";
+import ContinueShoppingButton from "@/components/Buttons/ContinueShoppingButton";
 
-import { removeItemFromCart } from "../../util/index";
-import { Alert } from "react-bootstrap";
-
-import { TCartContext } from "@/context/CartContext";
-
-import CartItem from "./CartItem";
-import CheckoutButton from "../Buttons/CheckoutButtons";
-import ContinueShoppingButton from "../Buttons/ContinueShoppingButton";
-
-export default function Cart({ handleCloseCart }) {
-  const { cart, setCart } = useContext<TCartContext>(CartContext);
-
-  const products = cart && Object.keys(cart).length ? cart.products : [];
-
-  const totalProductsPrice =
-    cart && Object.keys(cart).length ? cart.totalProductsPrice : 0;
-
-  const couponApplied =
-    undefined != cart?.coupon && Object.keys(cart).length
-      ? cart.coupon.applied
-      : "";
-
+export default function Cart({
+  handleCloseCart,
+  setCart,
+  products,
+  couponApplied,
+  totalProductsPrice,
+  couponAmount,
+  couponCode,
+}) {
   const handleRemoveItem = (id: number) => {
     removeItemFromCart(id);
     let existingCart = JSON.parse(
@@ -39,39 +28,52 @@ export default function Cart({ handleCloseCart }) {
     <Fragment>
       {products.length > 0 ? (
         <Fragment>
-          <div className={styles.Checkout__wrapper}>
-            <h3>
+          <div className={styles.BBP__SidebarCart_Wrapper}>
+            <h3 data-testid="cart-count">
               You have{" "}
               {products.length > 1
                 ? products.length + " items"
                 : products.length + " item"}{" "}
               in your cart
             </h3>
-            {couponApplied && (
-              <Alert key="success" variant="success">
-                A coupon was added to your order.
-              </Alert>
-            )}
-            <div className={styles.Checkout__product_wrapper}>
-              {products.map((product: Product) => (
-                <CartItem
-                  product={product}
-                  price={product.price}
-                  key={product.databaseId}
-                  couponApplied={couponApplied}
-                  handleRemoveItem={handleRemoveItem}
-                  totalProductsPrice={totalProductsPrice}
-                />
-              ))}
+            <div className={styles.BBP__SidebarCart_product_wrapper}>
+              {products.map((product: TSidebarProduct) => {
+                return (
+                  <CartItem
+                    product={product}
+                    key={product.databaseId}
+                    couponApplied={couponApplied}
+                    handleRemoveItem={handleRemoveItem}
+                    couponAmount={couponAmount}
+                    couponCode={couponCode}
+                  />
+                );
+              })}
             </div>
-            <div className={styles.Checkout_btm}>
+            <div>
+              <div className={styles.BBP__SidebarCart_product_prices}>
+                <h5 style={{ fontWeight: 100 }}>Subtotal</h5>
+                <h5
+                  data-testid="cart-subtotal"
+                  style={{ fontWeight: 100, fontSize: "1rem" }}
+                >
+                  ${totalProductsPrice}
+                </h5>
+              </div>
+
+              <div style={{ margin: "1rem 0" }}>
+                <p style={{ fontWeight: 100 }}>
+                  Taxes and shipping calculated at checkout
+                </p>
+              </div>
+
               <CheckoutButton handleCloseCart={handleCloseCart} />
             </div>
           </div>
         </Fragment>
       ) : (
         <Fragment>
-          <h3 className={styles.SidebarCart_empty}>
+          <h3 className={styles.BBP__SidebarCart_empty}>
             Your shopping cart is empty
           </h3>
 
