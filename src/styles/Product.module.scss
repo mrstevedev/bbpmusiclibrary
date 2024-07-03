@@ -88,23 +88,22 @@
   }
 }
 
-@media (max-width: 992px) {
-  .BBP__ProductTop {
-    padding: 2rem 0rem;
-  }
-}
-
 @media (max-width: 545px) {
-  .product {
+  .BBP__Product {
     // margin: 7rem 0;
     .productDescription {
-      padding: 2rem 0 0 0 !important;
+      padding: 1rem 0 0 0 !important;
     }
     .BBP__ProductTop {
       display: initial !important;
     }
     .BBP__ProductTop_Image {
       width: 100% !important;
+      height: 100% !important;
+      img {
+        width: 100% !important;
+        height: 100% !important;
+      }
     }
   }
 }

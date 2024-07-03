@@ -81,8 +81,8 @@ export default function ProductItem({ product }) {
               <Image
                 loading="eager"
                 src={mediaItemUrl}
-                width="490"
-                height="490"
+                width="100%"
+                height="100%"
                 alt={name}
               />
             </div>
