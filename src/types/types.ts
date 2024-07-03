@@ -146,14 +146,16 @@ export type Attribute = {
   options: Option[];
 };
 
+export type Nodes = {
+  nodes: Attribute[];
+};
+
 export type TProductSoundcloud = {
   product: {
     name: string;
     databaseId: number;
     sku: string;
-    attributes: {
-      nodes: Attribute[];
-    };
+    attributes: Nodes | null;
   };
 };
 

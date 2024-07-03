@@ -2,13 +2,15 @@ import { TProductSoundcloud } from "@/types/types";
 import styles from "@/styles/Soundcloud.module.scss";
 
 export default function YouTubeEmbed({ product }: TProductSoundcloud) {
-  const { options } = product.attributes.nodes[0];
+  console.log("product youtube", product);
   return (
     <div>
       <iframe
         width="100%"
         height="300"
-        src={`https://www.youtube.com/embed/${options}`}
+        src={`https://www.youtube.com/embed/${
+          product.attributes ? product.attributes.nodes[0].options : null
+        }`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
