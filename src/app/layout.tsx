@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@/styles/globals.scss";
 
+import NextTopLoader from "nextjs-toploader";
+
 import Footer from "@/components/Footer/Footer";
 import LoadingOverlay from "@/components/Loading/LoadingOverlay";
 import HeaderWrapper from "@/components/Header/HeaderWrapper";
@@ -34,6 +36,12 @@ export default async function RootLayout({
             <CartProvider>
               <AuthProvider>
                 <CouponProvider>
+                  <NextTopLoader
+                    color="cadetblue"
+                    crawlSpeed={1000}
+                    speed={1000}
+                    height={2}
+                  />
                   <CouponNotification />
                   <HeaderWrapper />
                   {children}
