@@ -1,6 +1,6 @@
 # BBP Music Library
 
-BBPMusicLibrary is an E-Commerce storefront using Next.js 14 with Route Handlers to make requests to a graphql endpoint to create orders for sample pack that include wav files.
+BBPMusicLibrary is an E-Commerce storefront using Next.js 14 with Route Handlers to make requests to a graphql endpoint to create orders for sample packs that include wav files.
 
 Wev application built using:
 
