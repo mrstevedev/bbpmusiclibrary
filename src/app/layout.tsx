@@ -38,9 +38,10 @@ export default async function RootLayout({
                 <CouponProvider>
                   <NextTopLoader
                     color="cadetblue"
-                    crawlSpeed={1000}
+                    crawlSpeed={100}
                     speed={1000}
                     height={2}
+                    showSpinner={false}
                   />
                   <CouponNotification />
                   <HeaderWrapper />
