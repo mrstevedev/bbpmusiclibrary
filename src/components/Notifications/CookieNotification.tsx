@@ -23,7 +23,7 @@ export default function CookieNotification() {
         <div className={styles.BBP_Cookie__Notification}>
           <p className={styles.BBP_Cookie_Notification__Text}>
             This site uses cookies to provide a great user experience. By using
-            Bonita Basics Productions, you agree to our use of cookies.
+            BBPMusicLibrary, you agree to our use of cookies.
           </p>
           <Link href="#" className={styles.BBP_Cookie_Notification__Button}>
             Cancel
