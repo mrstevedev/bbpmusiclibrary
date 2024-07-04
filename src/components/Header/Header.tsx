@@ -109,7 +109,7 @@ export default function Header() {
           </Link>
 
           <Navbar className="pe-3">
-            <Nav>
+            <Nav style={{ gap: "6px" }}>
               {/* <Nav.Link className={styles.BBP_Header_Welcome__Link}>
                 Welcome
               </Nav.Link> */}
