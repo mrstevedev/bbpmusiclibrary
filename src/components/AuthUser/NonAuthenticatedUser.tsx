@@ -13,7 +13,7 @@ export default function NonAuthenticatedUser() {
         style={{ borderRadius: "22px", padding: "0 1.3rem" }}
       >
         <Link href="/login" style={{ paddingLeft: 0 }}>
-          <span style={{ color: "white", fontSize: "0.9rem" }}>Sign-In</span>
+          <span style={{ color: "white" }}>Sign-In</span>
         </Link>
       </Button>
     </Fragment>
