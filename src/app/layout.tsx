@@ -30,27 +30,6 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <meta
-        prefix="og: http://ogp.me/ns#"
-        property="og:title"
-        content="{Your content}"
-      />
-      <meta
-        prefix="og: http://ogp.me/ns#"
-        property="og:type"
-        content="{Your content}"
-      />
-      <meta
-        prefix="og: http://ogp.me/ns#"
-        property="og:image"
-        content="https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/07/02091123/bbpmusiclib_silhouette.webp"
-      />
-      <meta
-        prefix="og: http://ogp.me/ns#"
-        property="og:url"
-        content="{Your content}"
-      />
-
       <body className={inter.className}>
         <ElementsProvider>
           <ApolloProvider>
