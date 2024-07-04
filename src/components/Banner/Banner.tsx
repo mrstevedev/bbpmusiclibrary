@@ -32,7 +32,9 @@ export default function Banner({
         ></div>
       ) : profile ? (
         <div
+          className={`${styles.BBP__Banner} product-img`}
           style={{
+            width: "100%",
             height: "250px",
             margin: "2rem 0 2rem 0",
             background: `url(${mediaItemUrl}) center -167px no-repeat`,
