@@ -596,7 +596,7 @@ export async function POST(request: Request) {
     {
       from: "BBP Music Library <no-reply@bbpmusiclibrary.com>",
       // to: email,
-      to: "stevendotpulido@gmail.com",
+      to: email,
       subject: `Your purchase`,
       react: PurchaseTemplate({
         products,
@@ -617,7 +617,7 @@ export async function POST(request: Request) {
   const { data: accountData, error: accountError } = await resend.emails.send({
     from: "BBP Music Library <no-reply@bbpmusiclibrary.com>",
     // to: email,
-    to: "stevendotpulido@gmail.com",
+    to: email,
     subject: "Account created",
     react: AccountCreatedEmail({
       firstName: first_name,
