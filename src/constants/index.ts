@@ -13,62 +13,165 @@ export const labels = [
   "December",
 ];
 
-export const COUPON_USED = "Coupon has already been used";
-export const COUPON_INVALID = "Coupon provided is invalid";
-export const COUPON_NOT_PROVIDED = "No coupon was provided";
-export const EMAIL_NOT_PROVIDED = "No email was provided";
-export const PASSWORD_NOT_MATCH = "Passwords do not match";
+/**
+ * API ROUTES
+ */
 
-export const SESSION_EXPIRED =
-  "Your session has expired. Another email has been sent to create your password.";
-export const ITEM_REMOVED_FROM_CART = "Item removed from your cart";
+export enum ROUTE {
+  LOGIN = "/login",
+  LOGOUT = "/logout",
+  RESET = "/reset",
+  RESEND = "/resend",
+  UPDATE = "/update",
+  COUPON = "/coupon",
+  REQUEST = "/request",
+  CONTACT = "/contact",
+  CREATE = "/create",
+  INTENT = "/intent",
+  SUBSCRIBE = "/subscribe",
+  UNSUBSCRIBE = "/unsubscribe",
+}
 
-export const LOGIN = "/login";
-export const LOGOUT = "/logout";
-export const RESET = "/reset";
-export const RESEND = "/resend";
-export const UPDATE = "/update";
-export const COUPON = "/coupon";
-export const REQUEST = "/request";
-export const CONTACT = "/contact";
-export const CREATE = "/create";
-export const INTENT = "/intent";
-export const SUBSCRIBE = "subscribe";
-export const UNSUBSCRIBE = "unsubscribe";
+/**
+ * STATUS
+ * 1. Newsletter
+ * 2. Orders
+ */
 
-export const USER = "bbp_user";
+export enum STATUS {
+  STATUS_CONFIRMED = "confirmed",
+  STATUS_UNSUBSCRIBED = "unsubscribed",
+  STATUS_COMPLETED = "COMPLETED",
+  STATUS_PROCESSING = "PROCESSING",
+}
 
-export const STATUS_CONFIRMED = "confirmed";
-export const STATUS_UNSUBSCRIBED = "unsubscribed";
-export const STATUS_COMPLETED = "COMPLETED";
-export const STATUS_PROCESSING = "PROCESSING";
-export const CANNOT_PURCHASE = "You cannot purchase this item again";
+/**
+ * Payment Methods
+ */
 
-export const DATE_FORMAT = "LLLL do, y";
-export const ID_TYPE = "SLUG";
+export enum METHOD {
+  METHOD_PAYPAL = "PayPal",
+  METHOD_GOOGLEPAY = "GooglePay",
+  METHOD_STRIPE = "Stripe",
+}
 
-export const CURRENCY_CODE = "USD";
+/**
+ * PRODUCT TYPE
+ */
 
-export const REQUEST_DOWNLOAD_FAILED =
-  "Your request to send a download failed. Please try again later";
+export enum TYPE {
+  ID_TYPE = "SLUG",
+}
 
-export const CHECK_EMAIL = "Check your email";
+/**
+ * CURRENCY
+ */
 
-export const COUPON_USED_DESCRIPTION =
-  "You currently have no deals available. Keep checking back for new deals";
+export enum CURRENCY {
+  CURRENCY_CODE = "USD",
+}
 
-export const CREDIT_CARD = "Credit card";
-export const METHOD_PAYPAL = "PayPal";
-export const METHOD_GOOGLEPAY = "GooglePay";
-export const METHOD_STRIPE = "Stripe";
-export const INVALID_MAX_ITEMS =
-  "PayPal requires 10 items or less in your cart";
+/**
+ * DATE
+ */
 
-export const TRANSFER_DESTINATION = "acct_1PMeilP3cpIn7gPp";
-export const TRANSFER_GROUP = "ORDERBBP";
-export const RECIPIENT_TYPE = "EMAIL";
+export enum DATE {
+  DATE_FORMAT = "LLLL do, y",
+}
 
-export const PAYPAL_PAYOUT_ACCOUNT = "sb-gia54331046335@business.example.com";
+/**
+ * CARD
+ */
+
+export enum CARD {
+  CREDIT_CARD = "Credit card",
+}
+
+/**
+ * TRANSFER
+ */
+
+export enum TRANSFER {
+  TRANSFER_GROUP = "ORDERBBP",
+  TRANSFER_RECIPIENT_TYPE = "EMAIL",
+  TRANSFER_DESTINATION = "acct_1PMeilP3cpIn7gPp",
+}
+
+/**
+ * PURCHASE
+ */
+
+export enum PURCHASE {
+  CANNOT_PURCHASE = "You cannot purchase this item again",
+}
+
+/**
+ * PAYOUT
+ */
+
+export enum PAYOUT {
+  PAYPAL_PAYOUT_ACCOUNT = "sb-gia54331046335@business.example.com",
+}
+
+/**
+ * COUPON
+ */
+
+export enum COUPON {
+  COUPON_USED = "Coupon has already been used",
+  COUPON_INVALID = "Coupon provided is invalid",
+  COUPON_NOT_PROVIDED = "No coupon was provided",
+  COUPON_USED_DESCRIPTION = "You currently have no deals available. Keep checking back for new deals",
+}
+
+/**
+ * PASSWORD
+ */
+
+export enum PASSWORD {
+  PASSWORD_NOT_MATCH = "Passwords do not match",
+}
+
+/**
+ * USER
+ */
+export enum USER {
+  BBP_USER = "bbp_user",
+}
+
+/**
+ * SESSION
+ */
+
+export enum SESSION {
+  SESSION_EXPIRED = "Your session has expired.",
+  SESSION_EXPIRED_EMAIL = "Your session has expired. Another email has been sent to create your password.",
+}
+
+/**
+ * CART
+ */
+
+export enum CART {
+  CART_ITEM_REMOVED = "Item removed from your cart",
+  CART_INVALID_MAX_ITEMS = "PayPal requires 10 items or less in your cart",
+}
+
+/**
+ * DOWNLOAD
+ */
+
+export enum DOWNLOAD {
+  REQUEST_DOWNLOAD_FAILED = "Your request to send a download failed. Please try again later",
+}
+
+/**
+ * EMAIL
+ */
+
+export enum EMAIL {
+  CHECK_EMAIL = "Check your email",
+}
 
 export const FORM_ISSUES_OPTIONS = [
   {
