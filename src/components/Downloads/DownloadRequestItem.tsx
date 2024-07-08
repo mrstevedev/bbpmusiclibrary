@@ -2,13 +2,13 @@
 import { format } from "date-fns";
 import { Fragment, useState } from "react";
 import { Nav } from "react-bootstrap";
-import { CHECK_EMAIL, DATE_FORMAT } from "@/constants/index";
+import { EMAIL, DATE } from "@/constants/index";
 import { requestCloudfrontSignedUrl } from "@/services/Api";
 import styles from "@/styles/Downloads.module.scss";
 import DownloadButton from "@/components/Downloads/DownloadButton";
 
 export default function DownloadRequestItem({ customer, downloads }) {
-  const [message] = useState(CHECK_EMAIL);
+  const [message] = useState(EMAIL.CHECK_EMAIL);
   const [toggle, setToggle] = useState(false);
   const [error, setError] = useState("");
 
@@ -48,7 +48,7 @@ export default function DownloadRequestItem({ customer, downloads }) {
         <span className={styles.BBP_Downloads__Text}>{fileName}</span>
         <h6 className={styles.BBP_Downloads__Label}>Date of download</h6>
         <span className={styles.BBP_Downloads__Text}>
-          {format(date, DATE_FORMAT)}
+          {format(date, DATE.DATE_FORMAT)}
         </span>
         <h6 className={styles.BBP_Downloads__Label}>Request download</h6>
         <div className={styles.BBP_Downloads_Request_Button__Container}>
