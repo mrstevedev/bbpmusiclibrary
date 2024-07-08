@@ -7,9 +7,9 @@ import RelatedProducts from "@/components/Product/Related/RelatedItems";
 import ProductItem from "@/components/Product/Item/ProductItem";
 import ProductTabs from "@/components/Product/Tabs/ProductTabs";
 
+import { TYPE } from "@/constants/index";
 import { GET_SINGLE_PRODUCT } from "@/query/getSingleProduct";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
-import { ID_TYPE } from "@/constants/index";
 import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
 
 export default async function Product({ params }) {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: GET_SINGLE_PRODUCT,
-      variables: { id: SLUG, idType: ID_TYPE },
+      variables: { id: SLUG, idType: TYPE.ID_TYPE },
     }),
   });
 
@@ -77,7 +77,7 @@ async function getProduct(params) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: GET_SINGLE_PRODUCT,
-      variables: { id: SLUG, idType: ID_TYPE },
+      variables: { id: SLUG, idType: TYPE.ID_TYPE },
     }),
   });
 
