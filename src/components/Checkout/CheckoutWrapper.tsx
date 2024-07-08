@@ -15,7 +15,7 @@ import CheckoutForm from "@/components/Forms/Checkout/CheckoutForm";
 import MobileCart from "@/components/Checkout/MobileCart/MobileCart";
 
 import { Container } from "react-bootstrap";
-import { CURRENCY_CODE } from "@/constants/index";
+import { CURRENCY } from "@/constants/index";
 import { calculatePriceWithTax } from "@/util/index";
 
 export default function CheckoutWrapper() {
@@ -45,7 +45,7 @@ export default function CheckoutWrapper() {
     reference_id: product.databaseId,
     description: product.name,
     amount: {
-      currency_code: CURRENCY_CODE,
+      currency_code: CURRENCY.CURRENCY_CODE,
       value: calculatePriceWithTax(product.price),
     },
   }));
