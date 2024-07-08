@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import { CREATE } from "@/constants/index";
+import { ROUTE } from "@/constants/index";
 import { useCallback, useContext } from "react";
 import GooglePayButton from "@google-pay/button-react";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
@@ -103,7 +103,7 @@ export default function GooglePayButtonExpress({
 
         try {
           const response = await axios.post(
-            process.env.NEXT_PUBLIC_API_URL + CREATE,
+            process.env.NEXT_PUBLIC_API_URL + ROUTE.CREATE,
             data,
             {
               headers: {
