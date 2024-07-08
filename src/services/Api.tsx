@@ -1,17 +1,6 @@
 import axios from "axios";
 import { TSendMail } from "@/types/types";
-import {
-  RESET,
-  LOGIN,
-  LOGOUT,
-  COUPON,
-  RESEND,
-  UPDATE,
-  REQUEST,
-  CONTACT,
-  SUBSCRIBE,
-  UNSUBSCRIBE,
-} from "@/constants/index";
+import { ROUTE } from "@/constants/index";
 
 const API = axios.create({ baseURL: process.env.NEXT_PUBLIC_API_URL });
 
@@ -29,7 +18,7 @@ export async function requestCloudfrontSignedUrl(
     email,
     fileName,
   });
-  const res = await API.post(REQUEST, payload, {
+  const res = await API.post(ROUTE.REQUEST, payload, {
     headers: { "Content-Type": "application/json" },
   });
 
@@ -45,7 +34,7 @@ export async function requestCloudfrontSignedUrl(
 export async function getAvailableCoupons(userId: number, coupon: string) {
   const payload = JSON.stringify({ userId, coupon });
 
-  const response_coupons = await API.post(COUPON, payload, {
+  const response_coupons = await API.post(ROUTE.COUPON, payload, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -63,7 +52,7 @@ export async function getAvailableCoupons(userId: number, coupon: string) {
  */
 export async function resendEmail({ username, session, userId }: TSendMail) {
   const payload = { username, session, userId };
-  const resend_response = await API.post(RESEND, payload);
+  const resend_response = await API.post(ROUTE.RESEND, payload);
 
   return resend_response.data;
 }
@@ -83,7 +72,7 @@ export async function login({
 }) {
   const payload = { username, password };
 
-  const response = await API.post(LOGIN, payload, {
+  const response = await API.post(ROUTE.LOGIN, payload, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -101,7 +90,7 @@ export async function login({
 
 export async function unsubscribe(email, status) {
   const payload = JSON.stringify({ email, status });
-  const response = await API.post(UNSUBSCRIBE, payload, {
+  const response = await API.post(ROUTE.UNSUBSCRIBE, payload, {
     headers: { "Content-Type": "application/json" },
   });
   return response.data;
@@ -114,7 +103,7 @@ export async function unsubscribe(email, status) {
  */
 export async function subscribe(email: string, status: string) {
   const payload = JSON.stringify({ email, status });
-  const response = await API.post(SUBSCRIBE, payload, {
+  const response = await API.post(ROUTE.SUBSCRIBE, payload, {
     headers: { "Content-Type": "application/json" },
   });
   return response.data;
@@ -128,7 +117,7 @@ export async function subscribe(email: string, status: string) {
 export async function sendPasswordReset(email: string) {
   const payload = JSON.stringify({ email });
 
-  const pass_response = await API.post(RESET, payload, {
+  const pass_response = await API.post(ROUTE.RESET, payload, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -140,7 +129,7 @@ export async function sendPasswordReset(email: string) {
 // Update a Users Password
 export async function updateUserPassword({ email, newPassword, ...rest }) {
   const payload = JSON.stringify({ email, newPassword, ...rest });
-  const create_password_response = await API.post(UPDATE, payload, {
+  const create_password_response = await API.post(ROUTE.UPDATE, payload, {
     headers: {
       "Content-Type": "application/json",
     },
@@ -153,7 +142,7 @@ export async function updateUserPassword({ email, newPassword, ...rest }) {
  * LOGOUT
  */
 export const logout = async () => {
-  const res = await API.get(LOGOUT, {
+  const res = await API.get(ROUTE.LOGOUT, {
     withCredentials: true,
   });
   return res;
@@ -177,7 +166,7 @@ export const sendMessage = async ({
     issue,
     message,
   });
-  const response_contact = await API.post(CONTACT, payload, {
+  const response_contact = await API.post(ROUTE.CONTACT, payload, {
     headers: { "Content-Type": "application/json" },
   });
 
