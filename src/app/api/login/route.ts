@@ -8,7 +8,7 @@ import {
 } from "@/query/index";
 import { isEmailAddress } from "@/util/index";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
-import { COUPON_USED_DESCRIPTION } from "@/constants/index";
+import { COUPON, USER } from "@/constants/index";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
       ? {
           code: null,
           amount: null,
-          description: COUPON_USED_DESCRIPTION,
+          description: COUPON.COUPON_USED_DESCRIPTION,
           isUsed: true,
         }
       : {
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
-    cookies().set("bbp_user", auth_response.data.user_nicename, {
+    cookies().set(USER.BBP_USER, auth_response.data.user_nicename, {
       httpOnly: true,
       sameSite: "none",
       secure: true,
