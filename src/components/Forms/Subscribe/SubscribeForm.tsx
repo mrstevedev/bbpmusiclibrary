@@ -1,5 +1,5 @@
 "use client";
-import { STATUS_CONFIRMED } from "@/constants/index";
+import { STATUS } from "@/constants/index";
 import { subscribe } from "@/services/Api";
 import { useFormik } from "formik";
 import { Fragment, useState } from "react";
@@ -13,7 +13,7 @@ export default function SubscribeForm() {
     },
     onSubmit: async (values) => {
       const email = values.email;
-      const status = STATUS_CONFIRMED;
+      const status = STATUS.STATUS_CONFIRMED;
 
       try {
         const response = await subscribe(email, status);
