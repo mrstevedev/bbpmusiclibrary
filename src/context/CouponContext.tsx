@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, createContext } from "react";
-import { USER } from "../constants";
+import { USER } from "@/constants/index";
 
 export type Coupon = {
   code?: string;
