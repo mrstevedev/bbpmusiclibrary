@@ -28,6 +28,7 @@ export enum ROUTE {
   CONTACT = "/contact",
   CREATE = "/create",
   INTENT = "/intent",
+  ACCOUNT = "/account",
   SUBSCRIBE = "/subscribe",
   UNSUBSCRIBE = "/unsubscribe",
 }
