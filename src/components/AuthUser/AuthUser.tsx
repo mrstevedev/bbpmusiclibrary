@@ -5,6 +5,7 @@ import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { logout } from "@/services/Api";
+import { ROUTE, USER } from "@/constants/index";
 
 export default function AuthUser({ user, setUser }) {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function AuthUser({ user, setUser }) {
   }, [cart]);
 
   const handleNavigateProfile = () => {
-    router.push("/account");
+    router.push(ROUTE.ACCOUNT);
   };
 
   const handleLogout = async () => {
@@ -31,7 +32,7 @@ export default function AuthUser({ user, setUser }) {
       setCart(null);
       setCartCount(0);
       setCoupon(null);
-      localStorage.removeItem("bbp_user");
+      localStorage.removeItem(USER.BBP_USER);
       localStorage.removeItem("bbp_product");
       router.push("/");
     }
