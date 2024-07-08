@@ -5,7 +5,8 @@ import axios, { AxiosError } from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PayPalButton } from "react-paypal-button-v2";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
-import { CREATE, INVALID_MAX_ITEMS, METHOD_PAYPAL } from "@/constants/index";
+import { CART } from "@/constants/index";
+import { ROUTE, METHOD } from "@/constants/index";
 
 export default function PayPalButtonExpress({
   purchaseUnits,
@@ -81,7 +82,7 @@ export default function PayPalButtonExpress({
           id: id,
           email: email,
           phone: phone,
-          payment_method: METHOD_PAYPAL,
+          payment_method: METHOD.METHOD_PAYPAL,
           admin_area_1: admin_area_1,
           admin_area_2: admin_area_2,
           postal_code: postal_code,
@@ -95,7 +96,7 @@ export default function PayPalButtonExpress({
 
         try {
           const response = await axios.post(
-            process.env.NEXT_PUBLIC_API_URL + CREATE,
+            process.env.NEXT_PUBLIC_API_URL + ROUTE.CREATE,
             data,
             {
               headers: {
@@ -128,7 +129,7 @@ export default function PayPalButtonExpress({
       onError={(error: unknown) => {
         if (error instanceof Error) {
           if (purchaseUnits.length > 10) {
-            toast.error(INVALID_MAX_ITEMS);
+            toast.error(CART.CART_INVALID_MAX_ITEMS);
           }
         }
       }}
