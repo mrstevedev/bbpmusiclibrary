@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 import { updateUserPassword } from "@/services/Api";
 import { useFocus } from "@/hooks/useHasFocus";
 import { useFormik } from "formik";
-import { PASSWORD_NOT_MATCH } from "@/constants/index";
+import { PASSWORD } from "@/constants/index";
 import CoverImage from "@/components/CoverImage/CoverImage";
 import CreatePasswordForm from "@/components/Forms/Create/CreatePassword";
 
@@ -61,7 +61,7 @@ export default function CreatePassword() {
             setIsLoading(false);
           }
         } else {
-          toast.warn(PASSWORD_NOT_MATCH);
+          toast.warn(PASSWORD.PASSWORD_NOT_MATCH);
         }
       },
     });
