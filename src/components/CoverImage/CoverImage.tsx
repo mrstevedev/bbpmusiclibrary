@@ -1,3 +1,4 @@
+import { IMAGE } from "@/constants/index";
 import styles from "@/styles/CoverImage.module.scss";
 
 export default function CoverImage() {
@@ -6,7 +7,7 @@ export default function CoverImage() {
       <div
         className={`hero-img ${styles.BBP_Cover__Image}`}
         style={{
-          backgroundImage: `url(${"https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/06162849/img1200.webp"})`,
+          backgroundImage: `url(${IMAGE.IMAGE_SP1200})`,
         }}
       ></div>
     </>

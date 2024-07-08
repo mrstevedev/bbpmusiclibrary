@@ -174,6 +174,15 @@ export enum EMAIL {
   CHECK_EMAIL = "Check your email",
 }
 
+/**
+ * COVER IMAGE
+ */
+
+export enum IMAGE {
+  IMAGE_SP1200 = "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/06162849/img1200.webp",
+  IMAGE_SILHOUETTE = "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/07/02091123/bbpmusiclib_silhouette.webp",
+}
+
 export const FORM_ISSUES_OPTIONS = [
   {
     label: "Unable to download file after initial purchase",
