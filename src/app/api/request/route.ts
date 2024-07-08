@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { GET_S3_SIGNED_URL } from "@/query/getS3SignedUrl";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
 import RequestNewDownloadLink from "@/emails/request-signedurl-download";
-import { REQUEST_DOWNLOAD_FAILED } from "@/constants/index";
+import { DOWNLOAD } from "@/constants/index";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -53,7 +53,7 @@ export async function POST(request: Request) {
 
     if (error)
       return NextResponse.json({
-        message: REQUEST_DOWNLOAD_FAILED,
+        message: DOWNLOAD.REQUEST_DOWNLOAD_FAILED,
       });
 
     return NextResponse.json(data, { status: 200 });
