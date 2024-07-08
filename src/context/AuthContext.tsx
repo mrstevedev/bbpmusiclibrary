@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, createContext } from "react";
+import { USER } from "@/constants/index";
 
 export type Auth = {
   userId: number;
@@ -23,7 +24,9 @@ export const AuthProvider = ({ children }: AuthProps) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const authUser = JSON.parse(localStorage.getItem("bbp_user") as string);
+      const authUser = JSON.parse(
+        localStorage.getItem(USER.BBP_USER) as string
+      );
       setAuth(authUser);
     }
   }, []);

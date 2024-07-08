@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, createContext } from "react";
+import { USER } from "../constants";
 
 export type Coupon = {
   code?: string;
@@ -24,7 +25,7 @@ export const CouponProvider = ({ children }: CouponProps) => {
 
   useEffect(() => {
     if (typeof window) {
-      const cart = localStorage.getItem("bbp_user") as string;
+      const cart = localStorage.getItem(USER.BBP_USER) as string;
       const parsed = JSON.parse(cart);
       if (parsed) {
         console.log("parsed:", parsed);
