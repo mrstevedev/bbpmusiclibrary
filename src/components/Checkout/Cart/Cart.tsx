@@ -8,7 +8,7 @@ import { addCouponToCart, throttle } from "@/util/index";
 
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import { COUPON_NOT_PROVIDED } from "@/constants/index";
+import { COUPON } from "@/constants/index";
 
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
@@ -41,7 +41,7 @@ export default function Cart({
 
   const handleApplyCoupon = throttle(async () => {
     if (couponValue.length <= 0) {
-      toast.warn(COUPON_NOT_PROVIDED);
+      toast.warn(COUPON.COUPON_NOT_PROVIDED);
       return;
     }
     try {
