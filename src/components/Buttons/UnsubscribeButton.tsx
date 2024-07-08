@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
-import { Container, Button, Col, Row } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import { useContext, useState } from "react";
-import { STATUS_UNSUBSCRIBED } from "@/constants/index";
+import { STATUS } from "@/constants/index";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { toast } from "react-toastify";
 import { unsubscribe } from "@/services/Api";
@@ -12,7 +12,7 @@ export default function SubscribeButton() {
 
   const handleUnsubscribe = async () => {
     const email = auth.userEmail;
-    const status = STATUS_UNSUBSCRIBED;
+    const status = STATUS.STATUS_UNSUBSCRIBED;
 
     try {
       const response = await unsubscribe(email, status);
