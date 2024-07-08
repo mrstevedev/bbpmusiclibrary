@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { resendEmail } from "@/services/Api";
-import { SESSION_EXPIRED } from "@/constants/index";
+import { SESSION } from "@/constants/index";
 
 export const useFocus = () => {
   const router = useRouter();
@@ -18,7 +18,7 @@ export const useFocus = () => {
       if (session < Date.now()) {
         router.push("/");
         if (session) {
-          toast.warn(SESSION_EXPIRED);
+          toast.warn(SESSION.SESSION_EXPIRED);
         }
         localStorage.removeItem("bbp_session");
         resendEmail({ username, session, userId });
