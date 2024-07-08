@@ -3,11 +3,11 @@ import Link from "next/link";
 import Image from "react-bootstrap/Image";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { TCheckoutSidebarCartItem } from "@/types/types";
 import { removeItemFromCart } from "@/util/index";
 import styles from "@/styles/Checkout.module.scss";
-import { ITEM_REMOVED_FROM_CART } from "@/constants/index";
+import { CART } from "@/constants/index";
 
 import { AiOutlineTags } from "react-icons/ai";
 
@@ -29,7 +29,7 @@ export default function CartItem({
       localStorage.getItem("bbp_product") as string
     );
     setCart(existingCart);
-    toast.success(ITEM_REMOVED_FROM_CART);
+    toast.success(CART.CART_ITEM_REMOVED);
     if (products.length <= 1) {
       router.push("/");
     }
