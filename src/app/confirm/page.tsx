@@ -7,6 +7,7 @@ import styles from "@/styles/Confirm.module.scss";
 
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
+import { PRODUCT } from "@/constants/index";
 
 export default function Confirm() {
   const ConfirmWrapper = () => {
@@ -19,7 +20,7 @@ export default function Confirm() {
 
     useEffect(() => {
       if (success) {
-        localStorage.removeItem("bbp_product");
+        localStorage.removeItem(PRODUCT.BBP_PRODUCT);
         setCart({});
         setCoupon(null);
       }
