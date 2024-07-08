@@ -7,11 +7,10 @@ import {
   calculateOrderAmountAndSplitStripe,
   calculateOrderAmountAndSplitPayPal,
 } from "@/util/index";
-import { resend } from "src/app/config/resend";
 import PurchaseTemplate from "emails/purchase";
-import AccountCreatedEmail from "emails/create-account-password";
-import { PURCHASE, PAYOUT, STATUS, METHOD, TRANSFER } from "@/constants/index";
+import { resend } from "src/app/config/resend";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
+import AccountCreatedEmail from "emails/create-account-password";
 import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
 
 import {
@@ -22,6 +21,7 @@ import {
   GET_CUSTOMER_ORDERS,
   GET_CUSTOMER_DOWNLOADS,
 } from "@/query/index";
+import { PURCHASE, PAYOUT, STATUS, METHOD, TRANSFER } from "@/constants/index";
 import { format } from "date-fns";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
