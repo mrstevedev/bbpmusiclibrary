@@ -1,6 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { USER, SESSION } from "@/constants/index";
 
 export const useValidateToken = () => {
   const router = useRouter();
@@ -8,7 +9,7 @@ export const useValidateToken = () => {
 
   const user =
     typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("bbp_user") as string)
+      ? JSON.parse(localStorage.getItem(USER.BBP_USER) as string)
       : false;
 
   useEffect(() => {
@@ -17,9 +18,9 @@ export const useValidateToken = () => {
       console.log("jwt expires:", new Date(decodedJwt.exp * 1000));
       if (decodedJwt.exp * 1000 < Date.now()) {
         setIsTokenExpired(true);
-        localStorage.removeItem("bbp_user");
+        localStorage.removeItem(USER.BBP_USER);
         localStorage.removeItem("bbp_product");
-        toast.warn("Your session has expired.");
+        toast.warn(SESSION.SESSION_EXPIRED);
       } else {
         setIsTokenExpired(false);
       }
