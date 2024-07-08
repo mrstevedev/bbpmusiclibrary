@@ -10,6 +10,7 @@ import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 import { logout } from "@/services/Api";
+import { USER } from "@/constants/index";
 
 export default function ProfileNavigation() {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function ProfileNavigation() {
       setAuth({});
       setCart(null);
       setCoupon(null);
-      localStorage.removeItem("bbp_user");
+      localStorage.removeItem(USER.BBP_USER);
       localStorage.removeItem("bbp_product");
       router.push("/");
     }
