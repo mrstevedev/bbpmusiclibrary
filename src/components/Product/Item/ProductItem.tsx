@@ -13,6 +13,7 @@ import { CartContext, TCartContext } from "@/context/CartContext";
 import { useContext, useState, MouseEvent, Fragment } from "react";
 
 import { toast } from "react-toastify";
+import { PRODUCT } from "@/constants/index";
 
 export default function ProductItem({ product }) {
   const { name, description, salePrice, regularPrice } = product;
@@ -44,7 +45,7 @@ export default function ProductItem({ product }) {
 
   const handleAddToCart = () => {
     if (typeof window) {
-      let existingCart = localStorage.getItem("bbp_product");
+      let existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
 
       /**
        * If cart has item(s) already, update the existing

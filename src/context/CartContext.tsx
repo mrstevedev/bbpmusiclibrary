@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, createContext } from "react";
+import { PRODUCT } from "@/constants/index";
 
 export type Product = {
   id: string;
@@ -43,7 +44,7 @@ export const CartProvider = ({ children }: CartProps) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const cartData =
-        JSON.parse(localStorage.getItem("bbp_product") as string) || "";
+        JSON.parse(localStorage.getItem(PRODUCT.BBP_PRODUCT) as string) || "";
       setCart(cartData);
     }
   }, []);

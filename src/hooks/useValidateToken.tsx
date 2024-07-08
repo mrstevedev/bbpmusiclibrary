@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { USER, SESSION } from "@/constants/index";
+import { USER, SESSION, PRODUCT } from "@/constants/index";
 
 export const useValidateToken = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ export const useValidateToken = () => {
       if (decodedJwt.exp * 1000 < Date.now()) {
         setIsTokenExpired(true);
         localStorage.removeItem(USER.BBP_USER);
-        localStorage.removeItem("bbp_product");
+        localStorage.removeItem(PRODUCT.BBP_PRODUCT);
         toast.warn(SESSION.SESSION_EXPIRED);
       } else {
         setIsTokenExpired(false);

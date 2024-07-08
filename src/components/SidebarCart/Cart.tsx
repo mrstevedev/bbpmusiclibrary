@@ -6,6 +6,7 @@ import styles from "@/styles/SidebarCart.module.scss";
 import CartItem from "@/components/SidebarCart/CartItem";
 import CheckoutButton from "@/components/Buttons/CheckoutButtons";
 import ContinueShoppingButton from "@/components/Buttons/ContinueShoppingButton";
+import { PRODUCT, USER } from "@/constants/index";
 
 export default function Cart({
   handleCloseCart,
@@ -19,7 +20,7 @@ export default function Cart({
   const handleRemoveItem = (id: number) => {
     removeItemFromCart(id);
     let existingCart = JSON.parse(
-      localStorage.getItem("bbp_product") as string
+      localStorage.getItem(PRODUCT.BBP_PRODUCT) as string
     );
     setCart(existingCart);
   };

@@ -8,7 +8,7 @@ import { addCouponToCart, throttle } from "@/util/index";
 
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import { COUPON } from "@/constants/index";
+import { COUPON, PRODUCT } from "@/constants/index";
 
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
@@ -35,7 +35,9 @@ export default function Cart({
   const couponCode = cart ? cart.coupon?.code : "";
 
   useEffect(() => {
-    const parsed = JSON.parse(localStorage.getItem("bbp_product") as string);
+    const parsed = JSON.parse(
+      localStorage.getItem(PRODUCT.BBP_PRODUCT) as string
+    );
     if (parsed) setCouponValue(parsed.coupon.code);
   }, []);
 
@@ -64,7 +66,7 @@ export default function Cart({
           isUsed: false,
         });
         // setIsTokenValid(true);
-        const existingCart = localStorage.getItem("bbp_product");
+        const existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
         const updateCart = addCouponToCart(
           existingCart,
           data.code,

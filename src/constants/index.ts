@@ -141,6 +141,14 @@ export enum USER {
 }
 
 /**
+ * PRODUCT
+ */
+
+export enum PRODUCT {
+  BBP_PRODUCT = "bbp_product",
+}
+
+/**
  * SESSION
  */
 

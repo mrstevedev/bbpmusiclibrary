@@ -5,7 +5,7 @@ import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { logout } from "@/services/Api";
-import { ROUTE, USER } from "@/constants/index";
+import { ROUTE, USER, PRODUCT } from "@/constants/index";
 
 export default function AuthUser({ user, setUser }) {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default function AuthUser({ user, setUser }) {
       setCartCount(0);
       setCoupon(null);
       localStorage.removeItem(USER.BBP_USER);
-      localStorage.removeItem("bbp_product");
+      localStorage.removeItem(PRODUCT.BBP_PRODUCT);
       router.push("/");
     }
   };

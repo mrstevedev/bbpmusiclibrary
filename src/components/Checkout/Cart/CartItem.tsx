@@ -7,7 +7,7 @@ import { Fragment } from "react";
 import { TCheckoutSidebarCartItem } from "@/types/types";
 import { removeItemFromCart } from "@/util/index";
 import styles from "@/styles/Checkout.module.scss";
-import { CART } from "@/constants/index";
+import { CART, PRODUCT } from "@/constants/index";
 
 import { AiOutlineTags } from "react-icons/ai";
 
@@ -26,7 +26,7 @@ export default function CartItem({
   const handleRemoveItem = (id: number) => {
     removeItemFromCart(id);
     const existingCart = JSON.parse(
-      localStorage.getItem("bbp_product") as string
+      localStorage.getItem(PRODUCT.BBP_PRODUCT) as string
     );
     setCart(existingCart);
     toast.success(CART.CART_ITEM_REMOVED);
