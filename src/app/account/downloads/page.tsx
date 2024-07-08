@@ -9,7 +9,7 @@ import Banner from "@/components/Banner/Banner";
 import DownloadRequestItem from "@/components/Downloads/DownloadRequestItem";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
 import { GET_CUSTOMER_DOWNLOADS, GET_MEDIA_ITEM_URL } from "@/query/index";
-import { DATE_FORMAT } from "@/constants/index";
+import { DATE } from "@/constants/index";
 import { groupDownloadItems } from "@/util/index";
 
 import { Metadata } from "next";
@@ -114,7 +114,7 @@ export default async function page() {
                       {order.node.product.name}{" "}
                       <span style={{ fontWeight: 100 }}>
                         (expires on{" "}
-                        {format(order.node.accessExpires, DATE_FORMAT)})
+                        {format(order.node.accessExpires, DATE.DATE_FORMAT)})
                       </span>
                     </li>
                   </Fragment>
