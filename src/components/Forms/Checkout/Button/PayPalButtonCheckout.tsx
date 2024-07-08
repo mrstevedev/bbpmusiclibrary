@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { PayPalButton } from "react-paypal-button-v2";
 import { delay, formatPhoneNumber } from "@/util/index";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
-import { CREATE, METHOD_PAYPAL, INVALID_MAX_ITEMS } from "@/constants/index";
+import { ROUTE, METHOD, CART } from "@/constants/index";
 
 export default function PayPalButtonCheckout({
   values,
@@ -90,7 +90,7 @@ export default function PayPalButtonCheckout({
           id: id,
           email: email,
           phone: phone,
-          payment_method: METHOD_PAYPAL,
+          payment_method: METHOD.METHOD_PAYPAL,
           admin_area_1: admin_area_1,
           admin_area_2: admin_area_2,
           postal_code: postal_code,
@@ -105,7 +105,7 @@ export default function PayPalButtonCheckout({
 
         try {
           const response = await axios.post(
-            process.env.NEXT_PUBLIC_API_URL + CREATE,
+            process.env.NEXT_PUBLIC_API_URL + ROUTE.CREATE,
             data,
             {
               headers: {
@@ -139,7 +139,7 @@ export default function PayPalButtonCheckout({
       onError={(error: unknown) => {
         if (error instanceof Error) {
           if (purchaseUnits.length > 10) {
-            toast.error(INVALID_MAX_ITEMS);
+            toast.error(CART.CART_INVALID_MAX_ITEMS);
           }
         }
       }}
