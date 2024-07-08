@@ -15,6 +15,7 @@ import Spinner from "@/components/Spinner/Spinner";
 import EyeToggleIcon from "@/components/Icons/EyeTogglePasswordIcon";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
+import { USER } from "@/constants/index";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function LoginForm() {
         } else {
           const { id } = response_login;
           localStorage.setItem(
-            "bbp_user",
+            USER.BBP_USER,
             JSON.stringify({
               userId: id,
               userNiceName: response_login.user_nicename,
