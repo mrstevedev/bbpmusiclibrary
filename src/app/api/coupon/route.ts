@@ -2,7 +2,7 @@ import { TCoupon } from "@/types/types";
 import axios from "axios";
 import { NextResponse } from "next/server";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
-import { COUPON_INVALID, COUPON_USED } from "@/constants/index";
+import { COUPON } from "@/constants/index";
 
 export async function POST(request: Request, response: Response) {
   const res = await request.json();
@@ -30,7 +30,10 @@ export async function POST(request: Request, response: Response) {
   const isInvalid = filteredCoupons.length <= 0;
 
   if (isInvalid) {
-    return NextResponse.json({ message: COUPON_INVALID }, { status: 403 });
+    return NextResponse.json(
+      { message: COUPON.COUPON_INVALID },
+      { status: 403 }
+    );
   }
 
   const isCouponUsed = response_coupons.data.some(
@@ -43,7 +46,7 @@ export async function POST(request: Request, response: Response) {
   );
 
   if (isCouponUsed) {
-    return NextResponse.json({ message: COUPON_USED }, { status: 401 });
+    return NextResponse.json({ message: COUPON.COUPON_USED }, { status: 401 });
   }
 
   const filtered = response_coupons.data.filter(
