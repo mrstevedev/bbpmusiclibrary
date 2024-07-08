@@ -10,18 +10,7 @@ import {
 import { resend } from "src/app/config/resend";
 import PurchaseTemplate from "emails/purchase";
 import AccountCreatedEmail from "emails/create-account-password";
-import {
-  CANNOT_PURCHASE,
-  STATUS_COMPLETED,
-  STATUS_CONFIRMED,
-  STATUS_PROCESSING,
-  METHOD_STRIPE,
-  TRANSFER_DESTINATION,
-  TRANSFER_GROUP,
-  METHOD_PAYPAL,
-  RECIPIENT_TYPE,
-  PAYPAL_PAYOUT_ACCOUNT,
-} from "@/constants/index";
+import { PURCHASE, PAYOUT, STATUS, METHOD, TRANSFER } from "@/constants/index";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
 import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
 
@@ -84,7 +73,7 @@ export async function POST(request: Request) {
   let order_json = {
     paymentMethod: payment_method,
     paymentMethodTitle: payment_method,
-    status: STATUS_PROCESSING,
+    status: STATUS.STATUS_PROCESSING,
     customerId: null,
     coupons: coupon,
     isPaid: true,
@@ -183,7 +172,10 @@ export async function POST(request: Request) {
     );
 
     if (hasPurchased) {
-      return NextResponse.json({ message: CANNOT_PURCHASE }, { status: 400 });
+      return NextResponse.json(
+        { message: PURCHASE.CANNOT_PURCHASE },
+        { status: 400 }
+      );
     }
 
     /**
@@ -220,7 +212,7 @@ export async function POST(request: Request) {
         variables: {
           input: {
             orderId: ORDER_CREATED.data.createOrder.orderId,
-            status: STATUS_COMPLETED,
+            status: STATUS.STATUS_COMPLETED,
           },
         },
       });
@@ -285,13 +277,13 @@ export async function POST(request: Request) {
         value: calculateOrderAmountAndSplitPayPal(purchaseUnits),
       },
       sender_item_id: data.reference_id,
-      recipient_type: RECIPIENT_TYPE,
+      recipient_type: TRANSFER.TRANSFER_RECIPIENT_TYPE,
       note: `Payout for ${data.description} on ${format(
         new Date(),
         "LLL. dd, yyyy"
       )}
     }`,
-      receiver: PAYPAL_PAYOUT_ACCOUNT,
+      receiver: PAYOUT.PAYPAL_PAYOUT_ACCOUNT,
     }));
 
     const payoutsPayload = JSON.stringify({
@@ -306,7 +298,7 @@ export async function POST(request: Request) {
     // Paypal uses Payouts
     // Stripe uses Transfers
 
-    payment_method === METHOD_PAYPAL
+    payment_method === METHOD.METHOD_PAYPAL
       ? (payoutsTransfer = await axios.post(payoutsURL, payoutsPayload, {
           headers: {
             "Content-Type": "application/json",
@@ -324,7 +316,7 @@ export async function POST(request: Request) {
     //? - Stripe Test Card -> {{4000000000000077}}
 
     const customer =
-      payment_method === METHOD_STRIPE
+      payment_method === METHOD.METHOD_STRIPE
         ? await stripe.customers.create({
             email: email,
             name: first_name + " " + last_name,
@@ -333,7 +325,7 @@ export async function POST(request: Request) {
 
     let paymentIntent;
 
-    payment_method === METHOD_STRIPE
+    payment_method === METHOD.METHOD_STRIPE
       ? (paymentIntent = await stripe.paymentIntents.create({
           customer: customer.id,
           amount: calculateOrderAmount(purchaseUnits),
@@ -346,12 +338,12 @@ export async function POST(request: Request) {
      * 8. TRANSFER FUNDS TO CONNECTED STRIPE ACCOUNT
      * */
 
-    payment_method === METHOD_STRIPE
+    payment_method === METHOD.METHOD_STRIPE
       ? await stripe.transfers.create({
           amount: calculateOrderAmountAndSplitStripe(purchaseUnits),
           currency: currencyCode,
-          destination: TRANSFER_DESTINATION,
-          transfer_group: TRANSFER_GROUP,
+          destination: TRANSFER.TRANSFER_DESTINATION,
+          transfer_group: TRANSFER.TRANSFER_GROUP,
         })
       : null;
 
@@ -428,7 +420,7 @@ export async function POST(request: Request) {
     email: response_create_user_data.data.createUser.user.email,
     first_name: response_create_user_data.data.createUser.user.firstName,
     last_name: response_create_user_data.data.createUser.user.lastName,
-    status: STATUS_CONFIRMED,
+    status: STATUS.STATUS_CONFIRMED,
   });
 
   await axios.post(newsletter_url, payload, {
@@ -476,7 +468,7 @@ export async function POST(request: Request) {
       variables: {
         input: {
           orderId: ORDER_CREATED.data.createOrder.orderId,
-          status: STATUS_COMPLETED,
+          status: STATUS.STATUS_COMPLETED,
         },
       },
     });
@@ -528,9 +520,9 @@ export async function POST(request: Request) {
       value: calculateOrderAmountAndSplitPayPal(purchaseUnits),
     },
     sender_item_id: data.reference_id,
-    recipient_type: RECIPIENT_TYPE,
+    recipient_type: TRANSFER.TRANSFER_RECIPIENT_TYPE,
     note: `Payout for ${data.description}`,
-    receiver: PAYPAL_PAYOUT_ACCOUNT,
+    receiver: PAYOUT.PAYPAL_PAYOUT_ACCOUNT,
   }));
 
   const payoutsPayload = JSON.stringify({
@@ -542,7 +534,7 @@ export async function POST(request: Request) {
     items: payoutMapped,
   });
 
-  payment_method === METHOD_PAYPAL
+  payment_method === METHOD.METHOD_PAYPAL
     ? (payoutsTransfer = await axios.post(payoutsURL, payoutsPayload, {
         headers: {
           "Content-Type": "application/json",
@@ -558,7 +550,7 @@ export async function POST(request: Request) {
    * */
 
   const customer =
-    payment_method === METHOD_STRIPE
+    payment_method === METHOD.METHOD_STRIPE
       ? await stripe.customers.create({
           email: email,
           name: first_name + " " + last_name,
@@ -567,7 +559,7 @@ export async function POST(request: Request) {
 
   let paymentIntent;
 
-  payment_method === METHOD_STRIPE
+  payment_method === METHOD.METHOD_STRIPE
     ? (paymentIntent = await stripe.paymentIntents.create({
         customer: customer.id,
         amount: calculateOrderAmount(purchaseUnits),
@@ -580,12 +572,12 @@ export async function POST(request: Request) {
    * 8. TRANSFER FUNDS TO CONNECTED ACCOUNT
    * */
 
-  payment_method === METHOD_STRIPE
+  payment_method === METHOD.METHOD_STRIPE
     ? await stripe.transfers.create({
         amount: calculateOrderAmountAndSplitStripe(purchaseUnits),
         currency: currencyCode,
-        destination: TRANSFER_DESTINATION,
-        transfer_group: TRANSFER_GROUP,
+        destination: TRANSFER.TRANSFER_DESTINATION,
+        transfer_group: TRANSFER.TRANSFER_GROUP,
       })
     : null;
 
