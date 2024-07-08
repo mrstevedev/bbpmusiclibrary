@@ -5,8 +5,7 @@ import axios, { AxiosError } from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PayPalButton } from "react-paypal-button-v2";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
-import { CART } from "@/constants/index";
-import { ROUTE, METHOD } from "@/constants/index";
+import { CART, ROUTE, METHOD } from "@/constants/index";
 
 export default function PayPalButtonExpress({
   purchaseUnits,
