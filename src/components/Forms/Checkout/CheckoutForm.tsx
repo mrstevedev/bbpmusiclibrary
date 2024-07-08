@@ -10,7 +10,7 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 import { useFormik } from "formik";
 import AccordionPay from "@/components/Checkout/Accordion/AccordionPay";
-import { CREDIT_CARD, METHOD_PAYPAL, METHOD_STRIPE } from "@/constants/index";
+import { CARD, METHOD } from "@/constants/index";
 import PayPalButtonCheckout from "@/components/Forms/Checkout/Button/PayPalButtonCheckout";
 import SubmitPaymentStripeButton from "@/components/Forms/Checkout/Button/SubmitPaymentStripeButton";
 
@@ -46,7 +46,7 @@ export default function CheckoutForm({ purchaseUnits }) {
   const [countryValue] = useState({});
   const [usStates] = useState({});
   const countryOptions = useMemo(() => countryList().getData(), []);
-  const [paymentType, setPaymentType] = useState(CREDIT_CARD);
+  const [paymentType, setPaymentType] = useState(CARD.CREDIT_CARD);
   const [processing, setProcessing] = useState(false);
 
   const { coupon } = useContext<TCouponContext>(CouponContext);
@@ -113,7 +113,7 @@ export default function CheckoutForm({ purchaseUnits }) {
           state,
           postal_code: zip,
           country_code,
-          payment_method: METHOD_STRIPE,
+          payment_method: METHOD.METHOD_STRIPE,
           purchaseUnits,
           coupon: coupon?.isApplied ? coupon.code : null,
         });
@@ -422,9 +422,9 @@ export default function CheckoutForm({ purchaseUnits }) {
 
       <Row className="row mb-3">
         <div className="d-grid col-sm-12 col-md-12">
-          {paymentType === CREDIT_CARD ? (
+          {paymentType === CARD.CREDIT_CARD ? (
             <SubmitPaymentStripeButton processing={processing} />
-          ) : paymentType === METHOD_PAYPAL ? (
+          ) : paymentType === METHOD.METHOD_PAYPAL ? (
             <PayPalButtonCheckout
               values={values}
               purchaseUnits={purchaseUnits}
