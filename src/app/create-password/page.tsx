@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 import { updateUserPassword } from "@/services/Api";
 import { useFocus } from "@/hooks/useHasFocus";
 import { useFormik } from "formik";
-import { PASSWORD } from "@/constants/index";
+import { PASSWORD, SESSION } from "@/constants/index";
 import CoverImage from "@/components/CoverImage/CoverImage";
 import CreatePasswordForm from "@/components/Forms/Create/CreatePassword";
 
@@ -28,7 +28,7 @@ export default function CreatePassword() {
 
     useEffect(() => {
       if (session) {
-        localStorage.setItem("bbp_session", JSON.stringify(session));
+        localStorage.setItem(SESSION.SESSION_BBP, JSON.stringify(session));
       }
       onVisibilityChange();
     }, [session, onVisibilityChange]);

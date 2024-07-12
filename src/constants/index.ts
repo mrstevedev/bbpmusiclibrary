@@ -153,6 +153,7 @@ export enum PRODUCT {
  */
 
 export enum SESSION {
+  SESSION_BBP = "bbp_session",
   SESSION_EXPIRED = "Your session has expired.",
   SESSION_EXPIRED_EMAIL = "Your session has expired. Another email has been sent to create your password.",
 }

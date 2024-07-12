@@ -14,13 +14,15 @@ export const useFocus = () => {
 
   const onVisibilityChange = useCallback(() => {
     if (document.visibilityState === "visible") {
-      const session = JSON.parse(localStorage.getItem("bbp_session") as string);
+      const session = JSON.parse(
+        localStorage.getItem(SESSION.SESSION_BBP) as string
+      );
       if (session < Date.now()) {
         router.push("/");
         if (session) {
           toast.warn(SESSION.SESSION_EXPIRED);
         }
-        localStorage.removeItem("bbp_session");
+        localStorage.removeItem(SESSION.SESSION_BBP);
         resendEmail({ username, session, userId });
       }
     }
