@@ -15,12 +15,10 @@ import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
 
 import {
   GET_USER,
-  CREATE_USER,
-  CREATE_ORDER,
-  UPDATE_ORDER,
   GET_CUSTOMER_ORDERS,
   GET_CUSTOMER_DOWNLOADS,
-} from "@/query/index";
+} from "@/queries/index";
+import { CREATE_USER, CREATE_ORDER, UPDATE_ORDER } from "@/mutations/index";
 import { PURCHASE, PAYOUT, STATUS, METHOD, TRANSFER } from "@/constants/index";
 import { format } from "date-fns";
 
