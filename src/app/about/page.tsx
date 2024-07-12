@@ -1,7 +1,7 @@
 import Banner from "@/components/Banner/Banner";
 import AboutParagraph from "@/components/About/About";
 import styles from "@/styles/About.module.scss";
-import { GET_ABOUT_PAGE } from "@/query/getAboutPage";
+import { GET_ABOUT_PAGE } from "@/queries/index";
 
 export default async function page() {
   const { data } = await getData();
