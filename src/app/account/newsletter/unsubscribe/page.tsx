@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import Banner from "@/components/Banner/Banner";
-import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
+import { GET_MEDIA_ITEM_URL } from "@/queries/index";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
 import UnsubscribeButton from "@/components/Buttons/UnsubscribeButton";
 import { toast } from "react-toastify";

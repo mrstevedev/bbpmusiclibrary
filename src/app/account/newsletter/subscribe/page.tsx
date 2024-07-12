@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import SubscribeForm from "@/components/Forms/Subscribe/SubscribeForm";
 import styles from "@/styles/Subscribe.module.scss";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
-import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
+import { GET_MEDIA_ITEM_URL } from "@/queries/index";
 import Banner from "@/components/Banner/Banner";
 import { Metadata } from "next";
 
