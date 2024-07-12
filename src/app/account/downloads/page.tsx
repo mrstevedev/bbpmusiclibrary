@@ -8,7 +8,7 @@ import { generateJSONWebToken } from "@/util/generateJWTToken";
 import Banner from "@/components/Banner/Banner";
 import DownloadRequestItem from "@/components/Downloads/DownloadRequestItem";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
-import { GET_CUSTOMER_DOWNLOADS, GET_MEDIA_ITEM_URL } from "@/query/index";
+import { GET_CUSTOMER_DOWNLOADS, GET_MEDIA_ITEM_URL } from "@/queries/index";
 import { DATE } from "@/constants/index";
 import { groupDownloadItems } from "@/util/index";
 
