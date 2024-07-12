@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { resend } from "@/config/resend";
 import { NextResponse } from "next/server";
-import { GET_S3_SIGNED_URL } from "@/query/getS3SignedUrl";
+import { GET_S3_SIGNED_URL } from "@/queries/index";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
 import RequestNewDownloadLink from "@/emails/request-signedurl-download";
 import { DOWNLOAD } from "@/constants/index";
