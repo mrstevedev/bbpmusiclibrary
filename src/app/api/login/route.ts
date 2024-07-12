@@ -5,7 +5,7 @@ import {
   GET_USER_BY_USERNAME,
   GET_USER_BY_EMAIL,
   GET_COUPONS,
-} from "@/query/index";
+} from "@/queries/index";
 import { isEmailAddress } from "@/util/index";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
 import { COUPON, USER } from "@/constants/index";
