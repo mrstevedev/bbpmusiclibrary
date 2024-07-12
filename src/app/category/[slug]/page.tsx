@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import styles from "@/styles/Category.module.scss";
-import { GET_PRODUCTS_CATEGORY } from "@/query/getCategories";
+import { GET_PRODUCTS_CATEGORY } from "@/queries/index";
 import CategoryItem from "@/components/Category/CategoryItem";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
 import { Metadata } from "next";
