@@ -4,7 +4,7 @@ import { Rotate as Hamburger } from "hamburger-react";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
-import { CART } from "@/constants/index";
+import { CART, ROUTE } from "@/constants/index";
 import CartIcon from "./CartIcon";
 
 import Link from "next/link";
@@ -47,7 +47,7 @@ export default function Header() {
       setAuth(null);
       setCart(null);
       setCoupon(null);
-      router.push("/login");
+      router.push(ROUTE.LOGIN);
     }
   }, [isTokenExpired, router, setAuth, setCart, setCoupon]);
 
