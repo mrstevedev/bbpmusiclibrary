@@ -4,7 +4,7 @@ import { delay } from "@/util/index";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import styles from "@/styles/Products.module.scss";
 import { Col, Container, Row } from "react-bootstrap";
-import { GET_PRODUCTS } from "@/query/index";
+import { GET_PRODUCTS } from "@/queries/index";
 import { useQuery } from "@apollo/client";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import amazonAd from "@/public/images/Amazon-Display-Ad-Arlo.png";
