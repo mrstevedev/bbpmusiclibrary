@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { GET_CONTACT_PAGE } from "@/query/index";
+import { GET_CONTACT_PAGE } from "@/queries/index";
 import Banner from "@/components/Banner/Banner";
 import ContactForm from "@/components/Forms/Contact/ContactForm";
 
