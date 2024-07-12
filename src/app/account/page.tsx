@@ -1,7 +1,7 @@
 import Banner from "@/components/Banner/Banner";
 import { Container } from "react-bootstrap";
 
-import { GET_MEDIA_ITEM_URL } from "@/query/index";
+import { GET_MEDIA_ITEM_URL } from "@/queries/index";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
 
 import AuthUserNiceName from "@/components/AuthUser/AuthUserNiceName";
