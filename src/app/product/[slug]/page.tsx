@@ -8,9 +8,8 @@ import ProductItem from "@/components/Product/Item/ProductItem";
 import ProductTabs from "@/components/Product/Tabs/ProductTabs";
 
 import { TYPE } from "@/constants/index";
-import { GET_SINGLE_PRODUCT } from "@/query/getSingleProduct";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
-import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
+import { GET_SINGLE_PRODUCT, GET_MEDIA_ITEM_URL } from "@/queries/index";
 
 export default async function Product({ params }) {
   const { data: pageTerms } = await getTerms();
