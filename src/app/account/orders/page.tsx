@@ -6,9 +6,8 @@ import Banner from "@/components/Banner/Banner";
 import OrderItem from "@/components/Orders/OrderItem";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
 
-import { GET_CUSTOMER_ORDERS } from "@/query/getOrders";
+import { GET_MEDIA_ITEM_URL, GET_CUSTOMER_ORDERS } from "@/queries/index";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
-import { GET_MEDIA_ITEM_URL } from "@/query/getMediaItemUrl";
 import { ProfileOrderItem } from "@/types/types";
 import { Metadata } from "next";
 
