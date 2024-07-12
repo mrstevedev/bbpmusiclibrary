@@ -162,6 +162,7 @@ export enum SESSION {
  */
 
 export enum CART {
+  CART_USER_CART = "cart",
   CART_ITEM_REMOVED = "Item removed from your cart",
   CART_INVALID_MAX_ITEMS = "PayPal requires 10 items or less in your cart",
 }

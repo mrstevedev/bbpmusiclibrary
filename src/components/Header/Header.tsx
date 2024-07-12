@@ -4,7 +4,7 @@ import { Rotate as Hamburger } from "hamburger-react";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
-
+import { CART } from "@/constants/index";
 import CartIcon from "./CartIcon";
 
 import Link from "next/link";
@@ -53,14 +53,14 @@ export default function Header() {
 
   const handleToggleCart = () => {
     setShowCart((prev) => {
-      localStorage.setItem("cart", String(!prev));
+      localStorage.setItem(CART.CART_USER_CART, String(!prev));
       return !prev;
     });
   };
 
   const handleCloseCart = () => {
     setShowCart((prev) => !prev);
-    localStorage.removeItem("cart");
+    localStorage.removeItem(CART.CART_USER_CART);
   };
 
   const handleToggleMenu = () => {
@@ -71,9 +71,9 @@ export default function Header() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("cart") !== null) {
+    if (localStorage.getItem(CART.CART_USER_CART) !== null) {
       setShowCart((prev) => {
-        localStorage.setItem("cart", String(!prev));
+        localStorage.setItem(CART.CART_USER_CART, String(!prev));
         return !prev;
       });
     }
@@ -110,9 +110,9 @@ export default function Header() {
 
           <Navbar className="pe-3">
             <Nav style={{ gap: "6px" }}>
-              {/* <Nav.Link className={styles.BBP_Header_Welcome__Link}>
+              <Nav.Link className={styles.BBP_Header_Welcome__Link}>
                 Welcome
-              </Nav.Link> */}
+              </Nav.Link>
               {auth?.userId ? (
                 <AuthenticatedUser user={auth} setUser={setAuth} />
               ) : (
