@@ -47,7 +47,7 @@ export enum STATUS {
 }
 
 /**
- * Payment Methods
+ * PAYMENT METHODS
  */
 
 export enum METHOD {
