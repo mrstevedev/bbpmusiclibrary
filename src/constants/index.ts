@@ -46,6 +46,11 @@ export enum STATUS {
   STATUS_PROCESSING = "PROCESSING",
 }
 
+export enum TYPE_PRODUCT {
+  TYPE_SIMPLE = "SimpleProduct",
+  TYPE_VARIABLE = "VariableProduct",
+}
+
 /**
  * PAYMENT METHODS
  */
