@@ -34,6 +34,13 @@ export enum ROUTE {
 }
 
 /**
+ * EXISTING PRODUCT MESSAGE
+ */
+export enum MESSAGE {
+  MESSAGE_PRODUCT_IN_CART = "There is aready an item in your cart that conflicts with this product. Remove it first",
+}
+
+/**
  * STATUS
  * 1. Newsletter
  * 2. Orders
