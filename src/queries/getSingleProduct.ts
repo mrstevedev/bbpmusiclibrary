@@ -1,5 +1,5 @@
 export const GET_SINGLE_PRODUCT = `
-    query SingleProduct($id: ID!, $idType: ProductIdTypeEnum!) {
+    query SingleProduct($id: ID!, $idType: ProductIdTypeEnum!, $category: String) {
         product(id: $id, idType: $idType) {
             ... on SimpleProduct {
                 name
@@ -40,6 +40,17 @@ export const GET_SINGLE_PRODUCT = `
                         }
                     }
                 }
+            }
+        }
+        products(where: {category: $category}) {
+            nodes {
+            ... on SimpleProduct {
+                name
+                price
+            }
+            databaseId
+            name
+            slug
             }
         }
     }

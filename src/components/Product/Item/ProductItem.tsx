@@ -20,8 +20,7 @@ export default function ProductItem({ product }) {
   const { mediaItemUrl } = product.image;
   const categories = product.productCategories.nodes;
 
-  const { cart } = useContext<TCartContext>(CartContext);
-  const { setCart } = useContext<TCartContext>(CartContext);
+  const { cart, setCart } = useContext<TCartContext>(CartContext);
 
   const [gallery, showGallery] = useState(false);
   const [_, setAddToCart] = useState(false);

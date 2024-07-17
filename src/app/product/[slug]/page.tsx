@@ -15,16 +15,20 @@ export default async function Product({ params }) {
   const { data: pageTerms } = await getTerms();
   const { data } = await getProduct(params);
   const downloads = await getDownloads();
-  const product = data.product;
 
   const { content: terms } = pageTerms.page;
 
   return (
     <Fragment>
       <Container className={styles.BBP__Product}>
-        <ProductItem product={product} />
-        <ProductTabs downloads={downloads} product={product} terms={terms} />
-        <RelatedProducts product={product} />
+        <ProductItem product={data.product} />
+        <ProductTabs
+          downloads={downloads}
+          product={data.product}
+          products={data.products}
+          terms={terms}
+        />
+        <RelatedProducts product={data.product} />
       </Container>
     </Fragment>
   );
@@ -76,7 +80,7 @@ async function getProduct(params) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       query: GET_SINGLE_PRODUCT,
-      variables: { id: SLUG, idType: TYPE.ID_TYPE },
+      variables: { id: SLUG, idType: TYPE.ID_TYPE, category: SLUG },
     }),
   });
 

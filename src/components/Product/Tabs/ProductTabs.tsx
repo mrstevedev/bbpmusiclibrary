@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect, useContext, Fragment } from "react";
+import { useParams } from "next/navigation";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +14,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
-import { labels } from "@/constants/index";
+import { MESSAGE, PRODUCT, labels } from "@/constants/index";
 
 ChartJS.register(
   CategoryScale,
@@ -30,14 +31,16 @@ import Tabs from "react-bootstrap/Tabs";
 
 import SoundcloudPlayer from "@/components/SoundCloud/SoundcloudPlayer";
 import YouTubeEmbed from "@/components/YouTube/YouTubeEmbed";
+import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
+import { CartContext, TCartContext } from "@/context/CartContext";
 
-export default function NavTab({ product, downloads, terms }) {
+export default function NavTab({ product, products, downloads, terms }) {
+  const params = useParams();
   const { auth } = useContext<TAuthContext>(AuthContext);
-
-  const { shortDescription } = product;
+  const { cart, setCart } = useContext<TCartContext>(CartContext);
 
   const [key, setKey] = useState("soundcloud");
-
   const [data, setData] = useState({
     labels,
     datasets: [
@@ -111,6 +114,27 @@ export default function NavTab({ product, downloads, terms }) {
     setData(data);
   }, [downloads, product.databaseId]);
 
+  const handleAddSingleItemToCart = async (item) => {
+    console.log(item);
+    const existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
+
+    if (existingCart) {
+      const existingCartParsed = JSON.parse(existingCart);
+      const qtyToBeAdded = 1;
+
+      const isProductInCart = existingCartParsed.products.some(
+        (item) => item.name.toLowerCase() === params.slug
+      );
+
+      if (isProductInCart) {
+        toast.warn(MESSAGE.MESSAGE_PRODUCT_IN_CART);
+        return;
+      }
+      console.log("Add another single product to cart");
+    }
+    console.log("Add single product to cart");
+  };
+
   return (
     <Fragment>
       <Tabs
@@ -126,7 +150,22 @@ export default function NavTab({ product, downloads, terms }) {
           <YouTubeEmbed product={product} />
         </Tab>
         <Tab eventKey="info" title="Track Info">
-          <div dangerouslySetInnerHTML={{ __html: shortDescription }} />
+          <strong>Tracklist for {product.name}</strong>
+          <ol>
+            {products.nodes.map((item) => (
+              <li key={item} className="pt-1">
+                {item.name}{" "}
+                <Button
+                  variant="sm"
+                  className="add-to-cart-btn"
+                  style={{ fontSize: "0.7rem", background: "#f4f4f4" }}
+                  onClick={() => handleAddSingleItemToCart(item)}
+                >
+                  Buy $3.99
+                </Button>
+              </li>
+            ))}
+          </ol>
         </Tab>
         <Tab eventKey="legal" title="Terms Of Use">
           <p dangerouslySetInnerHTML={{ __html: terms }} />

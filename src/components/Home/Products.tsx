@@ -11,7 +11,6 @@ import amazonAd from "@/public/images/Amazon-Display-Ad-Arlo.png";
 import ProductItem from "@/components/Home/ProductItem";
 import Spinner from "@/components/Spinner/Spinner";
 import ProductHeader from "@/components/Home/ProductHeader";
-import { TYPE_PRODUCT } from "@/constants/index";
 
 export default function Products() {
   const { loading, error, data, fetchMore } = useQuery(GET_PRODUCTS, {
@@ -53,7 +52,7 @@ export default function Products() {
   }
 
   const filteredSimpleData = data?.products.edges.filter(
-    (data) => data.node.__typename !== TYPE_PRODUCT.TYPE_VARIABLE
+    (data) => data.node.image !== null
   );
 
   const length = filteredSimpleData?.length;
@@ -66,7 +65,7 @@ export default function Products() {
           <Col lg="10">
             <Row>
               {filteredSimpleData
-                ? filteredSimpleData?.map(({ node }, index) => {
+                ? filteredSimpleData?.map(({ node }) => {
                     return (
                       <ProductItem
                         id={node.databaseId}
