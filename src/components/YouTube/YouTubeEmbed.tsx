@@ -2,7 +2,6 @@ import { TProductSoundcloud } from "@/types/types";
 import styles from "@/styles/Soundcloud.module.scss";
 
 export default function YouTubeEmbed({ product }: TProductSoundcloud) {
-  console.log("product youtube", product);
   return (
     <div>
       <iframe
