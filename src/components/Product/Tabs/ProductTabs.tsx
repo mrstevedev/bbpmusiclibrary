@@ -151,7 +151,7 @@ export default function NavTab({ product, products, downloads, terms }) {
       <Tabs
         id="controlled-tab-example"
         activeKey={key}
-        onSelect={(k: any) => setKey(k)}
+        onSelect={(tab: any) => setKey(tab)}
         className="mb-3"
       >
         <Tab eventKey="soundcloud" title="SoundCloud">
