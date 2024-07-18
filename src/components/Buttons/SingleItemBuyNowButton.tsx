@@ -7,7 +7,7 @@ import styles from "@/styles/SingleItemBuyNowButton.module.scss";
 export default function SingleItemBuyNowButton({
   item,
   cart,
-  handleAddSingleItemToCart,
+  handleAddSingleItemTrackToCart,
 }) {
   const isMatched = cart?.products?.some(
     (data) => data.databaseId === item.databaseId
@@ -30,7 +30,7 @@ export default function SingleItemBuyNowButton({
         <Button
           variant="sm"
           className={styles.SingleItemBuyNowButton}
-          onClick={() => handleAddSingleItemToCart(item)}
+          onClick={() => handleAddSingleItemTrackToCart(item)}
         >
           Buy
         </Button>

@@ -15,7 +15,7 @@ import { useContext, useState, MouseEvent, Fragment } from "react";
 import { toast } from "react-toastify";
 import { MESSAGE, PRODUCT } from "@/constants/index";
 
-export default function ProductItem({ product, products }) {
+export default function ProductItem({ product, tracks }) {
   const { name, description, salePrice, regularPrice } = product;
   const { mediaItemUrl } = product.image;
   const categories = product.productCategories.nodes;
@@ -25,16 +25,12 @@ export default function ProductItem({ product, products }) {
   const [gallery, showGallery] = useState(false);
   const [_, setAddToCart] = useState(false);
 
-  // Includes products from singles items
+  // Includes tracks
   const isItemInCart = cart?.products?.some(
     (cartItem) =>
       cartItem.databaseId === product.databaseId ||
-      products.nodes.some((item) => item.databaseId === cartItem.databaseId)
+      tracks.nodes.some((item) => item.databaseId === cartItem.databaseId)
   );
-
-  // const isSingleItemInCart = cart?.products?.some((cartItem) =>
-  //   products.nodes.some((item) => item.databaseId === cartItem.databaseId)
-  // );
 
   const handleShowImageGallery = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
