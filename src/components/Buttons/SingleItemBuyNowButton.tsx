@@ -9,13 +9,13 @@ export default function SingleItemBuyNowButton({
   cart,
   handleAddSingleItemTrackToCart,
 }) {
-  const isMatched = cart?.products?.some(
+  const isTrackMatched = cart?.products?.some(
     (data) => data.databaseId === item.databaseId
   );
 
   return (
     <>
-      {isMatched ? (
+      {isTrackMatched ? (
         <>
           <Link href={ROUTE.CHECKOUT}>
             <Button
