@@ -14,6 +14,7 @@ export const GET_PRODUCTS = gql`
             databaseId
             regularPrice
             salePrice
+            soldIndividually
           }
           image {
             mediaItemUrl

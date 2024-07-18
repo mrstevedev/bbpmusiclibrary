@@ -52,7 +52,7 @@ export default function Products() {
   }
 
   const filteredSimpleData = data?.products.edges.filter(
-    (data) => data.node.image !== null
+    (data) => data.node.soldIndividually === false
   );
 
   const length = filteredSimpleData?.length;
