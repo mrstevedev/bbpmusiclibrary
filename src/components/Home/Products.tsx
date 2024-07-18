@@ -51,11 +51,11 @@ export default function Products() {
     );
   }
 
-  const filteredSimpleData = data?.products.edges.filter(
+  const filterNotSoldIndividually = data?.products.edges.filter(
     (data) => data.node.soldIndividually === false
   );
 
-  const length = filteredSimpleData?.length;
+  const length = filterNotSoldIndividually?.length;
 
   return (
     <Fragment>
@@ -64,8 +64,8 @@ export default function Products() {
         <Row>
           <Col lg="10">
             <Row>
-              {filteredSimpleData
-                ? filteredSimpleData?.map(({ node }) => {
+              {filterNotSoldIndividually
+                ? filterNotSoldIndividually?.map(({ node }) => {
                     return (
                       <ProductItem
                         id={node.databaseId}
