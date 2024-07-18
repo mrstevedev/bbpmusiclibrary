@@ -6,6 +6,8 @@ import "@/styles/globals.scss";
 
 import NextTopLoader from "nextjs-toploader";
 
+import Script from "next/script";
+
 import Footer from "@/components/Footer/Footer";
 import LoadingOverlay from "@/components/Loading/LoadingOverlay";
 import HeaderWrapper from "@/components/Header/HeaderWrapper";
@@ -30,6 +32,20 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-WFPS81PHC2"
+        ></Script>
+        <Script id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-WFPS81PHC2');`}
+        </Script>
+      </head>
       <body className={inter.className}>
         <ElementsProvider>
           <ApolloProvider>
