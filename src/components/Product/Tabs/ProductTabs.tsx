@@ -26,11 +26,13 @@ ChartJS.register(
   Legend
 );
 
+export type IsProductInCart = boolean;
+
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 
-import SoundcloudPlayer from "@/components/SoundCloud/SoundcloudPlayer";
-import YouTubeEmbed from "@/components/YouTube/YouTubeEmbed";
+import SoundcloudEmbed from "@/components/Product/Tabs/SoundCloudTab/SoundcloudEmbed";
+import YouTubeEmbed from "@/components/Product/Tabs/YoutubeTab/YouTubeEmbed";
 import { toast } from "react-toastify";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { addFirstProduct, updateCart } from "@/util/index";
@@ -115,14 +117,14 @@ export default function NavTab({ product, products, downloads, terms }) {
     setData(data);
   }, [downloads, product.databaseId]);
 
-  const handleAddSingleItemToCart = async (item) => {
-    let existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
+  const handleAddSingleItemTrackToCart = async (item) => {
+    const existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
 
     if (existingCart) {
       const existingCartParsed = JSON.parse(existingCart);
       const qtyToBeAdded = 1;
 
-      const isProductInCart = existingCartParsed.products.some(
+      const isProductInCart: IsProductInCart = existingCartParsed.products.some(
         (item) => item.name.toLowerCase() === params.slug
       );
 
@@ -151,7 +153,7 @@ export default function NavTab({ product, products, downloads, terms }) {
         className="mb-3"
       >
         <Tab eventKey="soundcloud" title="SoundCloud">
-          <SoundcloudPlayer product={product} />
+          <SoundcloudEmbed product={product} />
         </Tab>
         <Tab eventKey="youtube" title="YouTube">
           <YouTubeEmbed product={product} />
@@ -168,7 +170,9 @@ export default function NavTab({ product, products, downloads, terms }) {
                 <SingleItemBuyNowButton
                   cart={cart}
                   item={item}
-                  handleAddSingleItemToCart={handleAddSingleItemToCart}
+                  handleAddSingleItemTrackToCart={
+                    handleAddSingleItemTrackToCart
+                  }
                 />
               </li>
             ))}
