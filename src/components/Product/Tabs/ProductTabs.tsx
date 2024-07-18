@@ -37,6 +37,8 @@ import { toast } from "react-toastify";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { addFirstProduct, updateCart } from "@/util/index";
 import SingleItemBuyNowButton from "@/components/Buttons/SingleItemBuyNowButton";
+import TracksTab from "./TracksTab/TracksTab";
+import DownloadsTab from "./DwnloadsTab/Downloads";
 
 export default function NavTab({ product, products, downloads, terms }) {
   const params = useParams();
@@ -159,24 +161,12 @@ export default function NavTab({ product, products, downloads, terms }) {
           <YouTubeEmbed product={product} />
         </Tab>
         <Tab eventKey="info" title="Track Info">
-          <strong>Tracklist for {product.name}</strong>
-          <p style={{ fontSize: "0.9rem" }}>
-            Individual tracks can be purchased for $4.99 each
-          </p>
-          <ol>
-            {products.nodes.map((item) => (
-              <li key={item.databaseId} className="pt-1">
-                {item.name}{" "}
-                <SingleItemBuyNowButton
-                  cart={cart}
-                  item={item}
-                  handleAddSingleItemTrackToCart={
-                    handleAddSingleItemTrackToCart
-                  }
-                />
-              </li>
-            ))}
-          </ol>
+          <TracksTab
+            cart={cart}
+            product={product}
+            products={products}
+            handleAddSingleItemTrackToCart={handleAddSingleItemTrackToCart}
+          />
         </Tab>
         <Tab eventKey="legal" title="Terms Of Use">
           <p dangerouslySetInnerHTML={{ __html: terms }} />
@@ -195,16 +185,9 @@ export default function NavTab({ product, products, downloads, terms }) {
               </h6>
             </Fragment>
           ) : null}
+
           {auth?.userId ? (
-            <Fragment>
-              {data.datasets[0].data.includes(undefined) ? (
-                <h4 style={{ fontSize: "1rem" }}>
-                  This item has not been downloaded yet. Be the first.
-                </h4>
-              ) : (
-                <Line options={options} data={data} />
-              )}
-            </Fragment>
+            <DownloadsTab downloads={data} options={options} />
           ) : null}
         </Tab>
       </Tabs>
