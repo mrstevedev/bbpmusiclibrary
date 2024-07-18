@@ -27,7 +27,7 @@ export default function AddToCartButton({
                 style={{ cursor: "pointer" }}
               >
                 <span className={styles.BBP__AddToCart_Button_Text}>
-                  View in checkout{" "}
+                  In checkout{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="28"
