@@ -13,9 +13,9 @@ import { CartContext, TCartContext } from "@/context/CartContext";
 import { useContext, useState, MouseEvent, Fragment } from "react";
 
 import { toast } from "react-toastify";
-import { PRODUCT } from "@/constants/index";
+import { MESSAGE, PRODUCT } from "@/constants/index";
 
-export default function ProductItem({ product }) {
+export default function ProductItem({ product, products }) {
   const { name, description, salePrice, regularPrice } = product;
   const { mediaItemUrl } = product.image;
   const categories = product.productCategories.nodes;
@@ -25,11 +25,16 @@ export default function ProductItem({ product }) {
   const [gallery, showGallery] = useState(false);
   const [_, setAddToCart] = useState(false);
 
-  /** Add AddToCartButton component isItemInCart logic here  */
-
+  // Includes products from singles items
   const isItemInCart = cart?.products?.some(
-    (cartItem) => cartItem.databaseId === product.databaseId
+    (cartItem) =>
+      cartItem.databaseId === product.databaseId ||
+      products.nodes.some((item) => item.databaseId === cartItem.databaseId)
   );
+
+  // const isSingleItemInCart = cart?.products?.some((cartItem) =>
+  //   products.nodes.some((item) => item.databaseId === cartItem.databaseId)
+  // );
 
   const handleShowImageGallery = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -64,7 +69,7 @@ export default function ProductItem({ product }) {
 
         setCart(newCart);
       }
-      toast.success("Added item to cart");
+      toast.success(MESSAGE.MESSAGE_PRODUCT_ADDED);
       setAddToCart(true);
 
       const cartCount = document.querySelector(".cart-count");

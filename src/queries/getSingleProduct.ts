@@ -51,6 +51,9 @@ export const GET_SINGLE_PRODUCT = `
             databaseId
             name
             slug
+            image {
+                    mediaItemUrl
+                }
             }
         }
     }

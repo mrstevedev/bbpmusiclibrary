@@ -1,21 +1,15 @@
 import Link from "next/link";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { Badge, Button } from "react-bootstrap";
 import styles from "@/styles/AddToCartButton.module.scss";
-import { CartContext, TCartContext } from "@/context/CartContext";
 
 export default function AddToCartButton({
   handleAddToCart,
   product,
   isItemInCart,
 }) {
-  // const { cart } = useContext<TCartContext>(CartContext);
   const { addToCart } = product;
   const { downloadable } = product;
-
-  // const isItemInCart = cart?.products?.some(
-  //   (cartItem) => cartItem.databaseId === product.databaseId
-  // );
 
   return (
     <Fragment>

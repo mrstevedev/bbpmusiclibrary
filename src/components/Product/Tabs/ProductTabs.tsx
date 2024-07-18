@@ -31,9 +31,10 @@ import Tabs from "react-bootstrap/Tabs";
 
 import SoundcloudPlayer from "@/components/SoundCloud/SoundcloudPlayer";
 import YouTubeEmbed from "@/components/YouTube/YouTubeEmbed";
-import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { CartContext, TCartContext } from "@/context/CartContext";
+import { addFirstProduct, updateCart } from "@/util/index";
+import SingleItemBuyNowButton from "@/components/Buttons/SingleItemBuyNowButton";
 
 export default function NavTab({ product, products, downloads, terms }) {
   const params = useParams();
@@ -115,8 +116,7 @@ export default function NavTab({ product, products, downloads, terms }) {
   }, [downloads, product.databaseId]);
 
   const handleAddSingleItemToCart = async (item) => {
-    console.log(item);
-    const existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
+    let existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
 
     if (existingCart) {
       const existingCartParsed = JSON.parse(existingCart);
@@ -130,9 +130,16 @@ export default function NavTab({ product, products, downloads, terms }) {
         toast.warn(MESSAGE.MESSAGE_PRODUCT_IN_CART);
         return;
       }
-      console.log("Add another single product to cart");
+
+      const updatedCart = updateCart(existingCartParsed, item, qtyToBeAdded);
+      setCart(updatedCart);
+      toast.success(MESSAGE.MESSAGE_PRODUCT_ADDED);
+
+      return;
     }
-    console.log("Add single product to cart");
+    toast.success(MESSAGE.MESSAGE_PRODUCT_ADDED);
+    const newCart = addFirstProduct(item);
+    setCart(newCart);
   };
 
   return (
@@ -151,18 +158,18 @@ export default function NavTab({ product, products, downloads, terms }) {
         </Tab>
         <Tab eventKey="info" title="Track Info">
           <strong>Tracklist for {product.name}</strong>
+          <p style={{ fontSize: "0.9rem" }}>
+            Individual tracks can be purchased for $4.99 each
+          </p>
           <ol>
             {products.nodes.map((item) => (
-              <li key={item} className="pt-1">
+              <li key={item.databaseId} className="pt-1">
                 {item.name}{" "}
-                <Button
-                  variant="sm"
-                  className="add-to-cart-btn"
-                  style={{ fontSize: "0.7rem", background: "#f4f4f4" }}
-                  onClick={() => handleAddSingleItemToCart(item)}
-                >
-                  Buy $3.99
-                </Button>
+                <SingleItemBuyNowButton
+                  cart={cart}
+                  item={item}
+                  handleAddSingleItemToCart={handleAddSingleItemToCart}
+                />
               </li>
             ))}
           </ol>
