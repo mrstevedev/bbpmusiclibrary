@@ -12,7 +12,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { MESSAGE, PRODUCT, labels } from "@/constants/index";
 
@@ -36,7 +35,6 @@ import YouTubeEmbed from "@/components/Product/Tabs/YoutubeTab/YouTubeEmbed";
 import { toast } from "react-toastify";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { addFirstProduct, updateCart } from "@/util/index";
-import SingleItemBuyNowButton from "@/components/Buttons/SingleItemBuyNowButton";
 import TracksTab from "./TracksTab/TracksTab";
 import DownloadsTab from "./DwnloadsTab/Downloads";
 
