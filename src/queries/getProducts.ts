@@ -12,8 +12,8 @@ export const GET_PRODUCTS = gql`
             name
             price
             databaseId
-            regularPrice
             salePrice
+            regularPrice
             soldIndividually
           }
           image {
