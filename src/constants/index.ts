@@ -29,6 +29,7 @@ export enum ROUTE {
   CREATE = "/create",
   INTENT = "/intent",
   ACCOUNT = "/account",
+  CHECKOUT = "/checkout",
   SUBSCRIBE = "/subscribe",
   UNSUBSCRIBE = "/unsubscribe",
 }
@@ -38,6 +39,7 @@ export enum ROUTE {
  */
 export enum MESSAGE {
   MESSAGE_PRODUCT_IN_CART = "There is aready an item in your cart that conflicts with this product. Remove it first",
+  MESSAGE_PRODUCT_ADDED = "Added item to cart",
 }
 
 /**
