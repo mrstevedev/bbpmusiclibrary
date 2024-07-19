@@ -13,7 +13,7 @@ import {
   Legend,
 } from "chart.js";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
-import { MESSAGE, PRODUCT, labels } from "@/constants/index";
+import { MESSAGE, PRODUCT } from "@/constants/index";
 
 ChartJS.register(
   CategoryScale,
