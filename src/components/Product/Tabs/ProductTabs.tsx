@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect, useContext, Fragment } from "react";
+import { useState, useContext, Fragment } from "react";
 import { useParams } from "next/navigation";
 import {
   Chart as ChartJS,
@@ -44,78 +44,6 @@ export default function NavTab({ product, products, downloads, terms }) {
   const { cart, setCart } = useContext<TCartContext>(CartContext);
 
   const [key, setKey] = useState("soundcloud");
-  const [data, setData] = useState({
-    labels,
-    datasets: [
-      {
-        label: "",
-        data: [] as (number | undefined)[],
-        borderColor: "",
-        backgroundColor: "",
-        pointRadius: 0,
-        pointHoverRadius: 0,
-      },
-    ],
-  });
-  const [options, setOptions] = useState({});
-
-  useEffect(() => {
-    const options = {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: "bottom",
-        },
-      },
-    };
-
-    const filtered = downloads.length
-      ? downloads.filter((download) => {
-          return download.product_id === product.databaseId;
-        })
-      : null;
-
-    const updateDownloads = filtered
-      ? filtered?.length > 0
-        ? filtered?.map(({ date, ...rest }) => {
-            const locale =
-              navigator.languages != undefined
-                ? navigator.languages[0]
-                : navigator.language;
-            return {
-              ...rest,
-              month: new Date(date).toLocaleDateString(locale, {
-                month: "long",
-              }),
-              year: new Date(date).getFullYear(),
-            };
-          })
-        : null
-      : null;
-
-    const data = {
-      labels,
-      datasets: [
-        {
-          label: `Downloads In ${new Date().getFullYear()}`,
-          data: generateData(),
-          borderColor: "rgb(0, 0, 0)",
-          backgroundColor: "rgba(0, 0, 0, 1)",
-          pointRadius: 6,
-          pointHoverRadius: 8,
-        },
-      ],
-    };
-
-    function generateData() {
-      return labels.map(
-        (month) => updateDownloads?.filter((obj) => obj.month === month).length
-      );
-    }
-
-    setOptions(options);
-    setData(data);
-  }, [downloads, product.databaseId]);
 
   const handleAddSingleItemTrackToCart = async (item) => {
     const existingCart = localStorage.getItem(PRODUCT.BBP_PRODUCT);
@@ -185,7 +113,7 @@ export default function NavTab({ product, products, downloads, terms }) {
           ) : null}
 
           {auth?.userId ? (
-            <DownloadsTab downloads={data} options={options} />
+            <DownloadsTab product={product} downloads={downloads} />
           ) : null}
         </Tab>
       </Tabs>
