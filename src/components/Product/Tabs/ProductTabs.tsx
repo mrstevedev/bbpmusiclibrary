@@ -36,7 +36,7 @@ import { toast } from "react-toastify";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { addFirstProduct, updateCart } from "@/util/index";
 import TracksTab from "./TracksTab/TracksTab";
-import DownloadsTab from "./DwnloadsTab/Downloads";
+import DownloadsTab from "./DownloadsTab/Downloads";
 
 export default function NavTab({ product, products, downloads, terms }) {
   const params = useParams();
