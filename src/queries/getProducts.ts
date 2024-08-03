@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const GET_PRODUCTS = gql`
   query GetProducts($after: String) {
-    products(first: 12, after: $after) {
+    products(first: 12, after: $after, where: { category: "not individual" }) {
       edges {
         node {
           name
