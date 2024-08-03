@@ -51,6 +51,14 @@ export default function Products() {
     );
   }
 
+  if (!error) {
+    return (
+      <div className={styles.BBP_Products_Loading__Spinner}>
+        <p>There was an error. Try again later.</p>
+      </div>
+    );
+  }
+
   const length = data?.products.edges?.length;
 
   return (
