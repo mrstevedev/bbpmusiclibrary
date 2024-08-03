@@ -51,7 +51,7 @@ export default function Products() {
     );
   }
 
-  if (!error) {
+  if (error) {
     return (
       <div className={styles.BBP_Products_Loading__Spinner}>
         <p>There was an error. Try again later.</p>
