@@ -4,7 +4,7 @@ import { Rotate as Hamburger } from "hamburger-react";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
-import { CART, ROUTE } from "@/constants/index";
+import { CART, IMAGE, ROUTE } from "@/constants/index";
 import CartIcon from "./CartIcon";
 
 import Link from "next/link";
@@ -87,21 +87,17 @@ export default function Header() {
         style={{ position: "relative" }}
       >
         <Container fluid>
-          <div>
-            <div onClick={(e) => handleToggleMenu()}>
-              <Hamburger
-                toggled={isOpen}
-                size={18}
-                color={isOpen ? "white" : "black"}
-              />
-            </div>
+          <div onClick={(e) => handleToggleMenu()}>
+            <Hamburger
+              toggled={isOpen}
+              size={18}
+              color={isOpen ? "white" : "black"}
+            />
           </div>
 
           <Link href="/" className={styles.BBP_Header__Logo}>
             <Image
-              src={
-                "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/19132039/logo.png"
-              }
+              src={IMAGE.IMAGE_LOGO}
               width={65}
               height={65}
               alt="BBP Music Library"
@@ -109,10 +105,7 @@ export default function Header() {
           </Link>
 
           <Navbar className="pe-3">
-            <Nav style={{ gap: "6px" }}>
-              <Nav.Link className={styles.BBP_Header_Welcome__Link}>
-                Welcome
-              </Nav.Link>
+            <Nav className="gap-3" style={{ alignItems: "center" }}>
               {auth?.userId ? (
                 <AuthenticatedUser user={auth} setUser={setAuth} />
               ) : (
