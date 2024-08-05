@@ -237,12 +237,12 @@ iframe {
 }
 
 .btn-secondary:hover {
-  color: #fff !important;
+  // color: #fff !important;
   background-color: greenred !important;
 }
 .btn-secondary:active {
   color: #ce494d !important;
-  background-color: greenred !important;
+  background-color: #ffdede !important;
 }
 
 .btn:hover:not(.btn-secondary) {
@@ -254,6 +254,31 @@ iframe {
 .btn:active:not(.btn__prev, .btn__next, .btn-secondary, .card-button) {
   color: #fff !important;
   background-color: #000 !important;
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 0px 6px #efefef;
+}
+
+.dropdown-toggle.btn {
+  border: none;
+  color: #333;
+  background-color: #eaeaea !important; // for drop down menu color
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-toggle.btn:hover {
+  border: none;
+  color: #333 !important;
+  background-color: #dfdfdf !important; // for drop down menu color
+}
+
+.dropdown-toggle.btn:active {
+  border: none;
+  color: #333 !important;
+  background-color: #eaeaea !important; // for drop down menu color
 }
 
 .card-button {
@@ -317,6 +342,12 @@ iframe {
   }
   .breadcrumb {
     margin: 0 1rem 0px;
+  }
+}
+
+@media (min-width: 575px) {
+  nav.navbar-right {
+    width: 294px;
   }
 }
 

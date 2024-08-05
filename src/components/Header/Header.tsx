@@ -22,6 +22,7 @@ import OverlayNav from "@/components/Navigation/OverlayNav";
 import SidebarCart from "@/components/SidebarCart/SidebarCart";
 import AuthenticatedUser from "@/components/AuthUser/AuthUser";
 import NonAuthenticatedUser from "@/components/AuthUser/NonAuthenticatedUser";
+import LanguageToggleButton from "@/components/LangToggle/LanguageToggleButton";
 
 export default function Header() {
   const router = useRouter();
@@ -104,8 +105,9 @@ export default function Header() {
             />
           </Link>
 
-          <Navbar className="pe-3">
+          <Navbar className="navbar-right">
             <Nav className="gap-3" style={{ alignItems: "center" }}>
+              <LanguageToggleButton />
               {auth?.userId ? (
                 <AuthenticatedUser user={auth} setUser={setAuth} />
               ) : (
