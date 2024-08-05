@@ -348,6 +348,8 @@ iframe {
 @media (min-width: 575px) {
   nav.navbar-right {
     width: 294px;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
