@@ -20,9 +20,15 @@
 }
 
 .BBP_Products_Loading__Spinner {
+  height: 63%;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  align-items: center;
+  p {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+  }
 }
 
 .BBP_Load_More__Spinner {
