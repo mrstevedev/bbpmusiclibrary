@@ -66,7 +66,8 @@ export default function Products() {
       <Container fluid className={`${styles.BBP__Products}`}>
         <ProductHeader length={length} />
         <Row>
-          <Col lg="10">
+          {/* Was ar 10 */}
+          <Col lg="12">
             <Row>
               {data?.products.edges
                 ? data?.products.edges?.map(({ node }) => {
@@ -75,19 +76,21 @@ export default function Products() {
                         id={node.databaseId}
                         key={node.databaseId}
                         product={node}
+                        // params={params}
                       />
                     );
                   })
                 : null}
             </Row>
           </Col>
-          <Col className={styles.BBP_Products__Ad}>
+          {/* Ad column */}
+          {/* <Col className={styles.BBP_Products__Ad}>
             <Image
               src={amazonAd}
               alt="amazonAd"
               className={styles.BBP_Products_Ad__Image}
             />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
       <div ref={observerRef} />
