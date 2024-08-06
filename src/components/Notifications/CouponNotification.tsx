@@ -11,7 +11,9 @@ export default function CouponNotification() {
   return (
     <Fragment>
       {coupon ? (
-        <Alert className={styles.BBP_Coupon__Notification}>{description}</Alert>
+        <Alert className={`alert-fade ${styles.BBP_Coupon__Notification}`}>
+          {description}
+        </Alert>
       ) : null}
     </Fragment>
   );
