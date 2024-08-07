@@ -1,0 +1,26 @@
+.BBP__OrderItems {
+  display: flex;
+  margin: 1rem 0;
+}
+.BBP__OrderItem_List {
+  display: block;
+  padding: 0px 1rem;
+  list-style: none;
+  font-weight: 100;
+  line-height: 1.15;
+}
+
+.BBP__OrderItem_Image {
+  border-radius: 12px;
+}
+.BBP__Orders_Nav {
+  display: block;
+  padding: 0 0 7rem;
+}
+.BBP__Orders_SubHeading {
+  font-weight: 100;
+}
+.BBP__No_Orders_Message {
+  margin: 1rem 0;
+  font-weight: 100;
+}
