@@ -12,7 +12,7 @@ export default function Footer() {
       <footer className={styles.BBP__Footer}>
         <div className={`container-fluid ${styles.BBP__Footer_Container}`}>
           <div className="col-md-3">
-            <Link href="https://youtube.com">
+            <Link href="https://youtube.com" title="BBPMusicLibrary | Youtube">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -26,7 +26,10 @@ export default function Footer() {
               </svg>
             </Link>
 
-            <Link href="https://spotify.com/bbpmusiclibrary">
+            <Link
+              href="https://spotify.com/bbpmusiclibrary"
+              title="BBPMusicLibrary | Spotify"
+            >
               <svg
                 width="19"
                 height="19"
@@ -45,6 +48,7 @@ export default function Footer() {
             <Link
               href="https://www.instagram.com/bbpmusiclibrary"
               target="_blank"
+              title="BBPMusicLibrary | Instagram"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +64,10 @@ export default function Footer() {
               </svg>
             </Link>
 
-            <Link href="https://soundcloud.com/bbpmusiclibrary">
+            <Link
+              href="https://soundcloud.com/bbpmusiclibrary"
+              title="BBPMusicLibrary | SoundCloud"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="23"
