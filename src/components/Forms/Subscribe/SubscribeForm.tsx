@@ -4,6 +4,7 @@ import { subscribe } from "@/services/Api";
 import { useFormik } from "formik";
 import { Fragment, useState } from "react";
 import { Button, Form, FormControl, InputGroup } from "react-bootstrap";
+import styles from "@/styles/Subscribe.module.scss";
 
 export default function SubscribeForm() {
   const [subscription, setSubscription] = useState(false);
@@ -27,7 +28,7 @@ export default function SubscribeForm() {
         <Form
           method="post"
           onSubmit={handleSubmit}
-          style={{ margin: "1rem 0" }}
+          className={styles.BBP_Subscribe__Form}
         >
           <InputGroup className="mb-2">
             <FormControl
@@ -49,7 +50,9 @@ export default function SubscribeForm() {
           </InputGroup>
         </Form>
       ) : (
-        <h5 style={{ margin: "1rem 0" }}>You are now subscribed</h5>
+        <h5 className={styles.BBP_Subscribe_Form__Success}>
+          You are now subscribed
+        </h5>
       )}
     </Fragment>
   );
