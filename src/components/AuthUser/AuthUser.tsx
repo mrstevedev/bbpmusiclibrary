@@ -7,8 +7,11 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { logout } from "@/services/Api";
 import { ROUTE, USER, PRODUCT } from "@/constants/index";
 
+import { useLocale } from "next-intl";
+
 export default function AuthUser({ user, setUser }) {
   const router = useRouter();
+  const local = useLocale();
 
   const [_, setCartCount] = useState(0);
 
@@ -22,7 +25,7 @@ export default function AuthUser({ user, setUser }) {
   }, [cart]);
 
   const handleNavigateProfile = () => {
-    router.push(ROUTE.ACCOUNT);
+    router.push(`/${local}` + ROUTE.ACCOUNT);
   };
 
   const handleLogout = async () => {
