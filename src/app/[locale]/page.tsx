@@ -12,6 +12,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return <Products />;
+export default function Home({ params }) {
+  return <Products params={params} />;
 }

@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@/styles/globals.scss";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 import NextTopLoader from "nextjs-toploader";
-
 import Script from "next/script";
 
 import Footer from "@/components/Footer/Footer";
-import LoadingOverlay from "@/components/Loading/LoadingOverlay";
+// import LoadingOverlay from "@/components/Loading/LoadingOverlay";
 import HeaderWrapper from "@/components/Header/HeaderWrapper";
 
 import { AuthProvider } from "@/context/AuthContext";
@@ -23,13 +22,20 @@ import { ElementsProvider } from "src/providers/ElementsProvider";
 import CouponNotification from "@/components/Notifications/CouponNotification";
 import CookieNotification from "@/components/Notifications/CookieNotification";
 
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default async function RootLayout({
   children,
+  params: { locale },
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const messages = await getMessages();
+
   return (
     <html lang="en">
       <head>
@@ -47,41 +53,41 @@ export default async function RootLayout({
         </Script>
       </head>
       <body className={inter.className}>
-        <ElementsProvider>
-          <ApolloProvider>
-            <CartProvider>
-              <AuthProvider>
-                <CouponProvider>
-                  <NextTopLoader
-                    color="cadetblue"
-                    crawlSpeed={100}
-                    speed={1000}
-                    height={2}
-                    showSpinner={false}
-                  />
-                  <CouponNotification />
-                  <HeaderWrapper />
-                  {children}
-                  <CookieNotification />
-                  <LoadingOverlay />
-                  <ToastContainer
-                    position="top-right"
-                    autoClose={5000}
-                    hideProgressBar
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                    theme="dark"
-                  />
-                  <Footer />
-                </CouponProvider>
-              </AuthProvider>
-            </CartProvider>
-          </ApolloProvider>
-        </ElementsProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ElementsProvider>
+            <ApolloProvider>
+              <CouponProvider>
+                <AuthProvider>
+                  <CartProvider>
+                    <NextTopLoader
+                      color="cadetblue"
+                      height={2}
+                      showSpinner={false}
+                    />
+                    <CouponNotification />
+                    <HeaderWrapper />
+                    {children}
+                    <CookieNotification />
+                    {/* <LoadingOverlay /> */}
+                    <ToastContainer
+                      position="top-right"
+                      autoClose={5000}
+                      hideProgressBar
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                      theme="dark"
+                    />
+                    <Footer />
+                  </CartProvider>
+                </AuthProvider>
+              </CouponProvider>
+            </ApolloProvider>
+          </ElementsProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

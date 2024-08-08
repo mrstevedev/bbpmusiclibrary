@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import SubscribeForm from "@/components/Forms/Subscribe/SubscribeForm";
 import styles from "@/styles/Subscribe.module.scss";
 import GoPreviousNavigate from "@/components/Navigation/GoPreviousNavigate";
@@ -22,13 +22,13 @@ export default async function Subscribe() {
         <Container as="main">
           <h4>Newsletter</h4>
           <p
-            style={{ fontWeight: 100 }}
+            className={styles.BBP_Subscribe__TextContent}
             dangerouslySetInnerHTML={{ __html: content }}
           />
           <GoPreviousNavigate />
-          <div className={styles.BBP_Subscribe__Container}>
+          <Row className={styles.BBP_Subscribe__Container}>
             <SubscribeForm />
-          </div>
+          </Row>
         </Container>
       </Container>
     </Fragment>

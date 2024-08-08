@@ -8,8 +8,9 @@ export default function NotFoundPage() {
       <h1 className={styles.BBP_Error_404__Heading}>404</h1>
       <h2 className={styles.BBP_Error_404__Subheading}>Page Not Found</h2>
       <p>
-        The page you tried to access does not exist on our server. Go back to
-        the{" "}
+        The page you tried to access does not exist.
+        <br />
+        Go back to the{" "}
         <Link href="/" className="link-blue" style={{ fontWeight: 400 }}>
           homepage
         </Link>
