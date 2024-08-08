@@ -17,8 +17,11 @@ import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
 import { USER } from "@/constants/index";
 
+import { useLocale } from "next-intl";
+
 export default function LoginForm() {
   const router = useRouter();
+  const locale = useLocale();
   const { setAuth } = useContext<TAuthContext>(AuthContext);
   const { setCoupon } = useContext<TCouponContext>(CouponContext);
 
@@ -173,7 +176,7 @@ export default function LoginForm() {
           </div>
           <div className="col-sm-9 pt-2">
             <p className={styles.SignIn__forgot__text}>
-              <Link href="/forgot-password" className="link">
+              <Link href={`/${locale}/forgot-password`} className="link">
                 Forgot password?
               </Link>
             </p>
