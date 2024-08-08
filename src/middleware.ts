@@ -21,6 +21,7 @@ const accountMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 };
 
 const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
+  console.log("i18nMiddlewareFn ran");
   const handleI18nRouting = createIntlMiddleware({
     locales: AppConfig.locales,
     localePrefix: AppConfig.localePrefix,
@@ -33,17 +34,19 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 
 const middlewares = {
   "/((?!.+\\.[\\w]+$|_next).*)": i18nMiddlewareFn,
-  "/(es|en|de|fr|se|/)": i18nMiddlewareFn,
-  "/(es|en|de|fr|se|jp)/account": i18nMiddlewareFn,
-  "/(es|en|de|fr|se|jp)/account/:path": i18nMiddlewareFn,
-  "/(es|en|de|fr|se|jp)/account/:path/:path": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/about": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/login": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/contact": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/checkout": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/forgot-password": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/frequently-asked-questions": i18nMiddlewareFn,
-  "/(es|en|de|fr|se)/product/:path": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se|jp)/account": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se|jp)/account/:path": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se|jp)/account/:path/:path": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/about": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/login": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/contact": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/checkout": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/forgot-password": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/frequently-asked-questions": i18nMiddlewareFn,
+  // "/(es|en|de|fr|se)/product/:path": i18nMiddlewareFn,
+  "/(account)": accountMiddlewareFn,
+  "/account/:path": accountMiddlewareFn,
+  "/account/:path/:path": accountMiddlewareFn,
   "/(es|en|de|fr|se)/account": accountMiddlewareFn,
   "/(es|en|de|fr|se)/account/:path": accountMiddlewareFn,
   "/(es|en|de|fr|se)/account/:path/:path": accountMiddlewareFn,
