@@ -1,7 +1,9 @@
-import styles from "@/styles/OverlayNav.module.scss";
 import Link from "next/link";
+import styles from "@/styles/OverlayNav.module.scss";
+import { useLocale } from "next-intl";
 
 export default function OverlayNav({ handleToggleMenu }) {
+  const locale = useLocale();
   return (
     <>
       <div className={`${styles.BBP_Overlay__Nav} overlayNav`}>
@@ -11,7 +13,7 @@ export default function OverlayNav({ handleToggleMenu }) {
         >
           <li>
             <Link
-              href="/frequently-asked-questions"
+              href={`/${locale}/frequently-asked-questions`}
               className={styles.BBP__Link}
               onClick={handleToggleMenu}
             >
@@ -20,7 +22,7 @@ export default function OverlayNav({ handleToggleMenu }) {
           </li>
           <li>
             <Link
-              href="/about"
+              href={`/${locale}/about`}
               className={styles.BBP__Link}
               onClick={handleToggleMenu}
             >
@@ -29,7 +31,7 @@ export default function OverlayNav({ handleToggleMenu }) {
           </li>
           <li>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               className={styles.BBP__Link}
               onClick={handleToggleMenu}
             >
