@@ -1,0 +1,19 @@
+{
+  "CouponNotification": {
+    "description": "Verano 2024 10% de descuento. ¡Agregue el código de cupón SUMMERSALE3 para realizar el pedido al finalizar la compra!"
+  },
+  "ProductSingleDescription": {
+    "description": "Introspection \"BBP 001\" consta de 5 muestras/composiciones diferentes que incorporan elementos de Soul, Rock, RnB y Jazz. Diseñadas para creativos, estas composiciones pueden ser utilizadas por productores/cineastas/artistas para sus propias producciones o simplemente brindar inspiración/placer auditivo a quienes trabajan en las artes. Cada composición tiene múltiples elementos instrumentales que podrían funcionar bien para películas, producción de videos o producción musical. Todo el audio grabado y procesado a través de hardware analógico (Manley y API Tube Pre). Amps) y mezclado profesionalmente. Casi todas las muestras vienen con una mezcla alternativa con bajo silenciado, algunas muestras incluyen múltiples mezclas alternativas con diferentes elementos silenciados para esta versión. s), dividirá la publicación con BBP Music Library de manera justa y el crédito de coproducción + división justa de la tarifa inicial del productor (cuando corresponda) Si planea lanzar de forma independiente o cargar el ritmo/canción en todos los DSP, youtube, Soundcloud o cualquier otra forma de transmisión, aún deberá borrar las muestras (CONTACTO: support@bbpmusiclibrary.com si este es el caso). NO hay ningún problema con la eliminación de muestras."
+  },
+  "ProductSingleTermsOfUse": {
+    "description": "Si coloca un disco en una ETIQUETA PRINCIPAL usando las muestras, dividirá la publicación con BBP Music Library de manera justa y crédito de coproducción + división justa de la tarifa inicial del productor (cuando corresponda) Si Si planeas publicar de forma independiente o cargar el ritmo/la canción a todos los DSP, youtube, Soundcloud o cualquier otra forma de transmisión, aún necesitarás borrar las muestras (CONTACTO: support@bbpmusiclibrary.com si este es el caso). NO hay ningún problema con la eliminación de muestras."
+  },
+  "FAQ": {
+    "question_1": "¿Dónde está mi archivo descargado?",
+    "answer_1": "bbpmusiclibrary utiliza un servicio llamado Resend para enviar correos electrónicos de los archivos a los usuarios después de la compra. Debería llegar, dale tiempo. Si no ha llegado envíanos un mensaje",
+    "question_2": "¿Qué pasa si pierdo los archivos que compré?",
+    "answer_2": "No es un problema. Si pierde sus archivos y desea usarlos nuevamente y crear algo nuevo, simplemente inicie sesión en su cuenta, haga clic en su nombre de usuario en la parte superior derecha de bbpmusiclibrary.com para abrir el menú desplegable. Haga clic en Perfil y luego haga clic en Descargas. Tendrá disponible un botón para solicitar un nuevo enlace de descarga. Después de la descarga inicial, esta solicitud no estará disponible durante aproximadamente 8 horas. Una vez transcurrido ese tiempo, estará disponible para usted. Tenga en cuenta que este enlace caducará dentro de los 15 minutos posteriores a su solicitud.",
+    "question_3": "¿Cómo obtengo una cuenta?",
+    "answer_3": "Deberá realizar su primera compra. Nuestro servidor backend creará una cuenta basada en su dirección de correo electrónico de PayPal, Stripe o GooglePay. Generaremos una contraseña aleatoria en el servidor al que se le enviará un correo electrónico informándole que cree una contraseña para su nueva cuenta después de su compra."
+  }
+}

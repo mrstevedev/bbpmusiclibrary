@@ -1,0 +1,19 @@
+{
+  "CouponNotification": {
+    "description": "Summer 2024 10% off sale. Add coupon code SUMMERSALE3 to order at checkout!"
+  },
+  "ProductSingleDescription": {
+    "description": "Introspection \"BBP 001\" consists of 5 different samples/compositions that embody elements of Soul, Rock, RnB, and Jazz. Designed for creatives, these compositions can be utilized by producers/film makers/artists for their own productions or simply provide inspiration/listening pleasure to those working in the arts. Each composition has multiple instrumental elements that could work well for film, video production, or music production. All audio recorded and processed through analog hardware (Manley and API Tube Pre Amps) and mixed professionally. Nearly every sample comes with an alternative mix w/bass muted, some samples include multiple alternative mixes with different elements muted. Stems not available for this release. If you place a record on a MAJOR LABEL using the sample(s), you will split the publishing with BBP Music Library fairly &amp; Co-Production credit + fair split on up-front producer fee (where applicable) If you plan to release independently or upload the beat/song to all DSPs, youtube, Soundcloud or any other form of streaming you will still need to clear the sample(s) (CONTACT: support@bbpmusiclibrary.com if this is the case). NO sample clearing hassles at all."
+  },
+  "ProductSingleTermsOfUse": {
+    "description": "If you place a record on a MAJOR LABEL using the sample(s), you will split the publishing with BBP Music Library fairly & Co-Production credit + fair split on up-front producer fee (where applicable) If you plan to release independently or upload the beat/song to all DSPs, youtube, Soundcloud or any other form of streaming you will still need to clear the sample(s) (CONTACT: support@bbpmusiclibrary.com if this is the case). NO sample clearing hassles at all."
+  },
+  "FAQ": {
+    "question_1": "Where is my downloaded file?",
+    "answer_1": "bbpmusiclibrary uses a service called Resend to send emails of the files to users after purchase. It should arrive, give it time. If it has not arrived, send us a message",
+    "question_2": "What if I lost files I purchased?",
+    "answer_2": "Not a problem. If you lose your files and find that you want to use them again and make something new, just sign into your account, click on your username in the top right of bbpmusiclibrary.com to open the dropdown menu. Click on Profile then click on Downloads. A button to request a new download link will be available to you. After initial download, this request will not be available for about 8 hours. After that amount of time elapses, it will be available to you. Note that this link will expire within 15 minutes of your request.",
+    "question_3": "How do I get an account?",
+    "answer_3": "You will need to make your first purchase. Our backend server will create an account based on your email address from PayPal, Stripe, or GooglePay. We will generate a random password on the server to which you will be sent an email informing you to create a password for your new account after your purchase."
+  }
+}
