@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { Button } from "react-bootstrap";
 import styles from "@/styles/AddToCartButton.module.scss";
+import { useLocale } from "next-intl";
 
 export default function CheckoutButton({ handleCloseCart }) {
+  const locale = useLocale();
   return (
     <>
-      <Link href="/checkout" passHref>
+      <Link href={`/${locale}/checkout`} passHref>
         <Button
           className={`${styles.BBP__AddToCart_Button}`}
           onClick={handleCloseCart}
