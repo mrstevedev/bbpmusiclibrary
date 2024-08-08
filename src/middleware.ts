@@ -34,16 +34,6 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 
 const middlewares = {
   "/((?!.+\\.[\\w]+$|_next).*)": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se|jp)/account": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se|jp)/account/:path": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se|jp)/account/:path/:path": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/about": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/login": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/contact": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/checkout": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/forgot-password": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/frequently-asked-questions": i18nMiddlewareFn,
-  // "/(es|en|de|fr|se)/product/:path": i18nMiddlewareFn,
   "/(account)": accountMiddlewareFn,
   "/account/:path": accountMiddlewareFn,
   "/account/:path/:path": accountMiddlewareFn,
