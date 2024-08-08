@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { resend } from "@/config/resend";
+import { resend } from "@/app/[locale]/config/resend";
 import { NextResponse } from "next/server";
 import { GET_S3_SIGNED_URL } from "@/queries/index";
 import { generateJSONWebToken } from "@/util/generateJWTToken";

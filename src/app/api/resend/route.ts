@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { resend } from "src/app/config/resend";
+import { resend } from "@/app/[locale]/config/resend";
 import { generateSessionID } from "@/util/index";
 import AccountCreatedResendEmail from "emails/create-account-password-resend";
 

@@ -8,7 +8,7 @@ import {
   calculateOrderAmountAndSplitPayPal,
 } from "@/util/index";
 import PurchaseTemplate from "emails/purchase";
-import { resend } from "src/app/config/resend";
+import { resend } from "@/app/[locale]/config/resend";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
 import AccountCreatedEmail from "emails/create-account-password";
 import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
