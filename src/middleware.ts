@@ -24,7 +24,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
   const handleI18nRouting = createIntlMiddleware({
     locales: AppConfig.locales,
     localePrefix: AppConfig.localePrefix,
-    // defaultLocale: AppConfig.defaultLocale,
+    defaultLocale: AppConfig.defaultLocale,
   });
   const response = handleI18nRouting(request);
 
@@ -33,7 +33,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 
 const middlewares = {
   "/((?!.+\\.[\\w]+$|_next).*)": i18nMiddlewareFn,
-  "/en": i18nMiddlewareFn,
+  // "/en": i18nMiddlewareFn,
   "/(es|en|de|fr|se|jp)/account": i18nMiddlewareFn,
   "/(es|en|de|fr|se|jp)/account/:path": i18nMiddlewareFn,
   "/(es|en|de|fr|se|jp)/account/:path/:path": i18nMiddlewareFn,
