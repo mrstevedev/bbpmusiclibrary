@@ -25,8 +25,8 @@ const nextConfig = {
   i18n: {
     locales: ["en", "de", "fr", "sr", "es"],
     defaultLocale: "en",
+    localeDetection: false,
   },
 };
-nextConfig.i18n = undefined;
 
 module.exports = withNextIntl(nextConfig);
