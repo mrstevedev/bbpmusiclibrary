@@ -3,8 +3,10 @@ import Link from "next/link";
 import { Button, Form, FormControl } from "react-bootstrap";
 import styles from "@/styles/ForgotPassword.module.scss";
 import { Fragment } from "react";
+import { useLocale } from "next-intl";
 
 export default function ForgotForm({ handleSubmit, handleChange }) {
+  const local = useLocale();
   return (
     <Fragment>
       <h1 className={styles.BBP_Forgot_Password__Heading}>Forgot Password</h1>
@@ -34,7 +36,7 @@ export default function ForgotForm({ handleSubmit, handleChange }) {
           <h2 className={styles.BBP_Forgot_Password__Sign_In}>
             Back to sign in{" "}
             <Link
-              href="/login"
+              href={`/${local}/login`}
               className={`${styles.BBP_Forgot_Password__Link} link`}
             >
               here
