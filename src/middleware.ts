@@ -30,7 +30,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 };
 
 const middlewares = {
-  "(https://bbpmusiclibrary.com/|/)": i18nMiddlewareFn,
+  "/": i18nMiddlewareFn,
   "/(es|en|de|fr|se)": i18nMiddlewareFn,
   "/(es|en|de|fr|se|jp)/account": i18nMiddlewareFn,
   "/(es|en|de|fr|se|jp)/account/:path": i18nMiddlewareFn,
