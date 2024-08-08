@@ -11,9 +11,11 @@ import { CouponContext, TCouponContext } from "@/context/CouponContext";
 
 import { logout } from "@/services/Api";
 import { USER, PRODUCT } from "@/constants/index";
+import { useLocale } from "next-intl";
 
 export default function ProfileNavigation() {
   const router = useRouter();
+  const locale = useLocale();
   const { setAuth } = useContext<TAuthContext>(AuthContext);
   const { setCart } = useContext<TCartContext>(CartContext);
   const { setCoupon } = useContext<TCouponContext>(CouponContext);
@@ -34,22 +36,22 @@ export default function ProfileNavigation() {
     <div className={styles.BBP_Profile__Container}>
       <Nav as="ul" className={styles.BBP_Profile__Nav}>
         <Nav.Item as="li" className={styles.BBP_Profile_Nav__Item}>
-          <Link href="/account/orders">
+          <Link href={`/${locale}/account/orders`}>
             <span className="link">Orders</span>
           </Link>
         </Nav.Item>
         <Nav.Item as="li">
-          <Link href="/account/downloads">
+          <Link href={`/${locale}/account/downloads`}>
             <span className="link">Downloads</span>
           </Link>
         </Nav.Item>
         <Nav.Item as="li">
-          <Link href="/account/newsletter/subscribe">
+          <Link href={`/${locale}/account/newsletter/subscribe`}>
             <span className="link">Subscribe</span>
           </Link>
         </Nav.Item>
         <Nav.Item as="li">
-          <Link href="/account/newsletter/unsubscribe">
+          <Link href={`/${locale}/account/newsletter/unsubscribe`}>
             <span className="link">UnSubscribe</span>
           </Link>
         </Nav.Item>
