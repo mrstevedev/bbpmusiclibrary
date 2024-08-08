@@ -1,9 +1,14 @@
 import { USER } from "@/constants/index";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import createIntlMiddleware from "next-intl/middleware";
 
-export function middleware(request: NextRequest) {
+import {
+  createMiddleware as createMiddlewares,
+  MiddlewareFunctionProps,
+} from "next-easy-middlewares";
+
+const accountMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
   const cookieStore = cookies();
   const user = cookieStore.get(USER.BBP_USER);
 
@@ -11,10 +16,36 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // Return early and continue routing
   return NextResponse.next();
-}
-
-export const config = {
-  matcher: ["/account", "/account/:path/", "/account/:path/:path/"],
 };
+
+const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
+  const handleI18nRouting = createIntlMiddleware({
+    locales: ["es", "en", "de", "fr", "se"],
+    defaultLocale: "en",
+  });
+  const response = handleI18nRouting(request);
+
+  return response;
+};
+
+const middlewares = {
+  "/": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)": i18nMiddlewareFn,
+  "/(es|en|de|fr|se|jp)/account": i18nMiddlewareFn,
+  "/(es|en|de|fr|se|jp)/account/:path": i18nMiddlewareFn,
+  "/(es|en|de|fr|se|jp)/account/:path/:path": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/about": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/login": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/contact": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/checkout": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/forgot-password": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/frequently-asked-questions": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/product/:path": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/account": accountMiddlewareFn,
+  "/(es|en|de|fr|se)/account/:path": accountMiddlewareFn,
+  "/(es|en|de|fr|se)/account/:path/:path": accountMiddlewareFn,
+};
+
+// Create middlewares helper
+export const middleware = createMiddlewares(middlewares);
