@@ -5,6 +5,8 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { TBreadcrumbProps } from "@/types/types";
 import { Container } from "react-bootstrap";
 
+import { useLocale } from "next-intl";
+
 export default function BreadcrumbComponent({
   homeElement,
   activeClasses,
@@ -13,13 +15,16 @@ export default function BreadcrumbComponent({
 }: TBreadcrumbProps) {
   const paths = usePathname();
   const router = useRouter();
+  const locale = useLocale();
   const pathNames = paths?.split("/").filter((path) => path);
   const slug = pathNames?.at(-1);
 
   return (
     <Container
       fluid={
-        paths === "/" || paths === "/about" || paths === "/contact"
+        paths === `/` ||
+        paths === `/${locale}/about` ||
+        paths === `/${locale}/contact`
           ? true
           : false
       }
