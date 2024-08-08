@@ -5,7 +5,6 @@ import { CartContext, TCartContext } from "@/context/CartContext";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
 import { CART, IMAGE, ROUTE } from "@/constants/index";
-import CartIcon from "./CartIcon";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -18,14 +17,19 @@ import Navbar from "react-bootstrap/Navbar";
 import { useValidateToken } from "@/hooks/useValidateToken";
 
 import styles from "@/styles/Header.module.scss";
+import CartIcon from "@/components/Header/CartIcon";
 import OverlayNav from "@/components/Navigation/OverlayNav";
 import SidebarCart from "@/components/SidebarCart/SidebarCart";
 import AuthenticatedUser from "@/components/AuthUser/AuthUser";
 import NonAuthenticatedUser from "@/components/AuthUser/NonAuthenticatedUser";
-import LanguageToggleButton from "@/components/LangToggle/LanguageToggleButton";
+import LanguageToggleButton from "@/components/LangToggle/LocaleSwitcher";
+import LoadingOverlay from "@/components/Loading/LoadingOverlay";
+
+import { useLocale } from "next-intl";
 
 export default function Header() {
   const router = useRouter();
+  const locale = useLocale();
   const isTokenExpired = useValidateToken();
 
   const [cartCount, setCartCount] = useState(0);
@@ -93,10 +97,11 @@ export default function Header() {
               toggled={isOpen}
               size={18}
               color={isOpen ? "white" : "black"}
+              label="menu button"
             />
           </div>
 
-          <Link href="/" className={styles.BBP_Header__Logo}>
+          <Link href={`/${locale}`} className={styles.BBP_Header__Logo}>
             <Image
               src={IMAGE.IMAGE_LOGO}
               width={65}
@@ -106,13 +111,18 @@ export default function Header() {
           </Link>
 
           <Navbar className="navbar-right">
-            <Nav className="gap-3" style={{ alignItems: "center" }}>
+            <Nav
+              className={`${auth ? "gap-1" : "gap-3"} items-center`}
+              style={{ alignItems: "center" }}
+            >
               <LanguageToggleButton />
-              {auth?.userId ? (
+
+              {auth?.userId && (
                 <AuthenticatedUser user={auth} setUser={setAuth} />
-              ) : (
-                <NonAuthenticatedUser />
               )}
+
+              {!auth?.userId && <NonAuthenticatedUser />}
+
               <CartIcon
                 cartCount={cartCount}
                 handleToggleCart={handleToggleCart}
@@ -125,8 +135,11 @@ export default function Header() {
         show={showCart}
         handleClose={handleCloseCart}
         placement="end"
+        locale={locale}
       />
-      <OverlayNav handleToggleMenu={handleToggleMenu} />
+      <OverlayNav locale={locale} handleToggleMenu={handleToggleMenu} />
+      {/* Try to put this under a COOKIE */}
+      <LoadingOverlay />
     </Fragment>
   );
 }
