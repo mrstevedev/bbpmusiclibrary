@@ -14,6 +14,14 @@ export const labels = [
 ];
 
 /**
+ * URL MATCHER
+ */
+
+export enum MATCH {
+  MATCH_URL = "(product|login|account|about|frequently-asked-questions|contact|checkout|forgot|confirm)",
+}
+
+/**
  * API ROUTES
  */
 
@@ -32,6 +40,16 @@ export enum ROUTE {
   CHECKOUT = "/checkout",
   SUBSCRIBE = "/subscribe",
   UNSUBSCRIBE = "/unsubscribe",
+}
+
+/**
+ * TRANSLATIONS
+ */
+
+export enum TRANSLATE {
+  TRNASLATE_COUPON_NOTIFICATION = "CouponNotification",
+  TRNASLATE_PRODUCT_TERMS = "ProductSingleTermsOfUse",
+  TRNASLATE_PRODUCT_DESCRIPTION = "ProductSingleDescription",
 }
 
 /**
