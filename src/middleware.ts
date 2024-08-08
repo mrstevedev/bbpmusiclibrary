@@ -13,7 +13,7 @@ const accountMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
   const user = cookieStore.get(USER.BBP_USER);
 
   if (!user) {
-    return NextResponse.redirect(new URL("/en", request.url));
+    return NextResponse.redirect(new URL("/", request.url));
   }
 
   return NextResponse.next();
@@ -23,7 +23,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
   const handleI18nRouting = createIntlMiddleware({
     locales: ["es", "en", "de", "fr", "se"],
     defaultLocale: "en",
-    localePrefix: "always",
+    localePrefix: "as-needed",
   });
   const response = handleI18nRouting(request);
 
