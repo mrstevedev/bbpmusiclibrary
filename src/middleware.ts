@@ -23,6 +23,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
   const handleI18nRouting = createIntlMiddleware({
     locales: ["es", "en", "de", "fr", "se"],
     defaultLocale: "en",
+    localePrefix: "as-needed",
   });
   const response = handleI18nRouting(request);
 
