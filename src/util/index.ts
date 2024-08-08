@@ -344,3 +344,14 @@ export const groupDownloadItems = (downloads) =>
 export const orderGroupedDownloadItems = (groupDownloadItems) => {
   return Object.keys(groupDownloadItems).sort((a: any, b: any) => b - a);
 };
+
+export const constructNewPathname = (active, pathname) => {
+  return pathname.match(
+    /(product|login|account|about|frequently-asked-questions|contact|checkout|forgot|confirm)/
+  )
+    ? pathname
+        .split("/")
+        .filter((path) => path !== active && path !== "")
+        .join("/")
+    : pathname.split("/").filter((path) => path);
+};
