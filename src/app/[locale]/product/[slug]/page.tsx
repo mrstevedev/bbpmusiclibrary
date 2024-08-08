@@ -26,7 +26,6 @@ export default async function Product({ params }) {
           downloads={downloads}
           product={data.product}
           products={data.products}
-          terms={terms}
         />
         <RelatedProducts product={data.product} />
       </Container>
