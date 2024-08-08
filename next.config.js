@@ -24,7 +24,7 @@ const nextConfig = {
   },
   i18n: {
     locales: ["en", "de", "fr", "sr", "es"],
-    defaultLocale: "",
+    defaultLocale: "en",
   },
 };
 nextConfig.i18n = undefined;
