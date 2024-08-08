@@ -9,12 +9,14 @@ export default function HeaderWrapper() {
   const path = usePathname();
   const locale = useLocale();
 
+  const matchedUrl = path !== `/${locale}` && path !== "/";
+
   return (
     <Fragment>
       {path !== `/${locale}/checkout` ? (
         <Fragment>
           <Header />
-          {path !== `/${locale}` ? (
+          {matchedUrl ? (
             <Fragment>
               <Breadcrumb
                 homeElement={"Home"}
