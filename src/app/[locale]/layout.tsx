@@ -29,10 +29,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default async function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
   const messages = await getMessages();
 
