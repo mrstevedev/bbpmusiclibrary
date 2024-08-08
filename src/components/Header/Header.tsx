@@ -135,9 +135,8 @@ export default function Header() {
         show={showCart}
         handleClose={handleCloseCart}
         placement="end"
-        locale={locale}
       />
-      <OverlayNav locale={locale} handleToggleMenu={handleToggleMenu} />
+      <OverlayNav handleToggleMenu={handleToggleMenu} />
       {/* Try to put this under a COOKIE */}
       <LoadingOverlay />
     </Fragment>
