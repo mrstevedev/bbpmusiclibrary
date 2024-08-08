@@ -27,5 +27,6 @@ const nextConfig = {
     defaultLocale: "en",
   },
 };
+nextConfig.i18n = undefined;
 
 module.exports = withNextIntl(nextConfig);
