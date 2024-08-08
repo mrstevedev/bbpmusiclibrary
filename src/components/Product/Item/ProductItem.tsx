@@ -13,12 +13,18 @@ import { CartContext, TCartContext } from "@/context/CartContext";
 import { useContext, useState, MouseEvent, Fragment } from "react";
 
 import { toast } from "react-toastify";
-import { MESSAGE, PRODUCT } from "@/constants/index";
+import { MESSAGE, PRODUCT, TRANSLATE } from "@/constants/index";
+import { useTranslations } from "next-intl";
+
+import { useLocale } from "next-intl";
 
 export default function ProductItem({ product, tracks }) {
   const { name, description, salePrice, regularPrice } = product;
   const { mediaItemUrl } = product.image;
   const categories = product.productCategories.nodes;
+  const t = useTranslations(TRANSLATE.TRNASLATE_PRODUCT_DESCRIPTION);
+
+  const locale = useLocale();
 
   const { cart, setCart } = useContext<TCartContext>(CartContext);
 
@@ -111,10 +117,9 @@ export default function ProductItem({ product, tracks }) {
             </h4>
             <p
               data-testid="product-description"
-              // Move this to styles module
               style={{ maxHeight: "320px", overflow: "scroll" }}
             >
-              {description}
+              {t("description")}
             </p>
             <h4 className={styles.productCategoriesTxt}>
               Categories:{" "}
@@ -122,7 +127,7 @@ export default function ProductItem({ product, tracks }) {
                 <Link
                   key={obj.name}
                   href={{
-                    pathname: `/category/${obj["name"]
+                    pathname: `/${locale}/category/${obj["name"]
                       .toLowerCase()
                       .replace(" ", "-")}`,
                   }}
