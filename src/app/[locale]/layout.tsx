@@ -60,7 +60,7 @@ export default async function RootLayout({
                 <AuthProvider>
                   <CartProvider>
                     <NextTopLoader
-                      color="cadetblue"
+                      color="cornflowerblue"
                       height={2}
                       showSpinner={false}
                     />
