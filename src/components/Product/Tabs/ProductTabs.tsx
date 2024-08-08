@@ -13,7 +13,7 @@ import {
   Legend,
 } from "chart.js";
 import { AuthContext, TAuthContext } from "@/context/AuthContext";
-import { MESSAGE, PRODUCT } from "@/constants/index";
+import { MESSAGE, PRODUCT, TRANSLATE } from "@/constants/index";
 
 ChartJS.register(
   CategoryScale,
@@ -35,13 +35,17 @@ import YouTubeEmbed from "@/components/Product/Tabs/YoutubeTab/YouTubeEmbed";
 import { toast } from "react-toastify";
 import { CartContext, TCartContext } from "@/context/CartContext";
 import { addFirstProduct, updateCart } from "@/util/index";
-import TracksTab from "./TracksTab/TracksTab";
-import DownloadsTab from "./DownloadsTab/Downloads";
+import TracksTab from "@/components/Product/Tabs/TracksTab/TracksTab";
+import DownloadsTab from "@/components/Product/Tabs/DownloadsTab/Downloads";
 
-export default function NavTab({ product, products, downloads, terms }) {
+import { useTranslations } from "next-intl";
+
+export default function NavTab({ product, products, downloads }) {
   const params = useParams();
   const { auth } = useContext<TAuthContext>(AuthContext);
   const { cart, setCart } = useContext<TCartContext>(CartContext);
+
+  const t = useTranslations(TRANSLATE.TRNASLATE_PRODUCT_TERMS);
 
   const [key, setKey] = useState("soundcloud");
 
@@ -95,7 +99,7 @@ export default function NavTab({ product, products, downloads, terms }) {
           />
         </Tab>
         <Tab eventKey="legal" title="Terms Of Use">
-          <p dangerouslySetInnerHTML={{ __html: terms }} />
+          <p>{t("description")}</p>
         </Tab>
         <Tab eventKey="downloads" title="Downloads">
           {!auth?.userId ? (
