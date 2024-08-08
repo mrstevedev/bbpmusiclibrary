@@ -33,6 +33,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 };
 
 const middlewares = {
+  "/(en)": i18nMiddlewareFn,
   "/((?!.+\\.[\\w]+$|_next).*)": i18nMiddlewareFn,
   "/(account)": accountMiddlewareFn,
   "/account/:path": accountMiddlewareFn,
