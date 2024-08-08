@@ -12,7 +12,7 @@ import ProductItem from "@/components/Home/ProductItem";
 import Spinner from "@/components/Spinner/Spinner";
 import ProductHeader from "@/components/Home/ProductHeader";
 
-export default function Products() {
+export default function Products({ params }) {
   const { loading, error, data, fetchMore } = useQuery(GET_PRODUCTS, {
     variables: { after: null },
   });
@@ -54,7 +54,7 @@ export default function Products() {
   if (error) {
     return (
       <div className={styles.BBP_Products_Loading__Spinner}>
-        <p>There was an error. Try again later.</p>
+        <p>There was an error. Try again later</p>
       </div>
     );
   }
@@ -76,7 +76,6 @@ export default function Products() {
                         id={node.databaseId}
                         key={node.databaseId}
                         product={node}
-                        // params={params}
                       />
                     );
                   })

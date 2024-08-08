@@ -4,8 +4,10 @@ import Image from "react-bootstrap/Image";
 import styles from "@/styles/Home.module.scss";
 import { HomeProductItem } from "@/types/types";
 import { Col } from "react-bootstrap";
+import { useLocale } from "next-intl";
 
 export default function ProductItem({ product, id }: HomeProductItem) {
+  const locale = useLocale();
   const { databaseId, name, image, slug, salePrice, regularPrice } = product;
   return (
     <Col
@@ -16,7 +18,7 @@ export default function ProductItem({ product, id }: HomeProductItem) {
       lg="4"
       xl="3"
     >
-      <Link href={`/product/${slug}`} passHref>
+      <Link href={`/${locale}/product/${slug}`} passHref>
         <div className={`${styles.BBP_Home__Image} product-img`}>
           <Image
             src={image.mediaItemUrl}
@@ -29,7 +31,7 @@ export default function ProductItem({ product, id }: HomeProductItem) {
         </div>
       </Link>
       <div className={styles.BBP_Product__Bottom}>
-        <Link href={`/product/${slug}`} className="link">
+        <Link href={`${locale}/product/${slug}`} className="link">
           {name}
         </Link>
         <p>
