@@ -25,12 +25,6 @@ const nextConfig = {
   i18n: {
     locales: ["en", "de", "fr", "sr", "es"],
     defaultLocale: "en",
-    domains: [
-      {
-        domain: "bbpmusiclibrary.com",
-        defaultLocale: "en",
-      },
-    ],
   },
 };
 
