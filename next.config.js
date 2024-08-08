@@ -29,6 +29,7 @@ const nextConfig = {
       {
         domain: "bbpmusiclibrary.com",
         defaultLocale: "en",
+        locales: ["en", "de", "fr", "sr", "es"],
       },
     ],
   },
