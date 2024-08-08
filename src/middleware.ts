@@ -2,6 +2,7 @@ import { USER } from "@/constants/index";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
+import { AppConfig } from "./util/AppConfig";
 
 import {
   createMiddleware as createMiddlewares,
@@ -21,9 +22,9 @@ const accountMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 
 const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
   const handleI18nRouting = createIntlMiddleware({
-    locales: ["es", "en", "de", "fr", "se"],
-    defaultLocale: "en",
-    localePrefix: "as-needed",
+    locales: AppConfig.locales,
+    localePrefix: AppConfig.localePrefix,
+    defaultLocale: AppConfig.defaultLocale,
   });
   const response = handleI18nRouting(request);
 
