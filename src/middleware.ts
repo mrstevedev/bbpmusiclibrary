@@ -21,7 +21,6 @@ const accountMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 };
 
 const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
-  console.log("i18nMiddlewareFn ran");
   const handleI18nRouting = createIntlMiddleware({
     locales: AppConfig.locales,
     localePrefix: AppConfig.localePrefix,
