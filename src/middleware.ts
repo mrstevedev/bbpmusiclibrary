@@ -37,6 +37,7 @@ const middlewares = {
   "/(es|en|de|fr|se)": i18nMiddlewareFn,
   "/(es|de|fr|se)/product/:path": i18nMiddlewareFn,
   "/product/:path": i18nMiddlewareFn,
+  "/en/product/:path": i18nMiddlewareFn,
   "/(account)": accountMiddlewareFn,
   "/account/:path": accountMiddlewareFn,
   "/account/:path/:path": accountMiddlewareFn,
