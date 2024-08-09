@@ -5,6 +5,6 @@ const localePrefix: LocalePrefix = "always";
 export const AppConfig = {
   name: "BBPMusicLibrary",
   locales: ["es", "en", "de", "fr", "se"],
-  defaultLocale: "en",
+  defaultLocale: "",
   localePrefix,
 };
