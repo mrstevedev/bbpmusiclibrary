@@ -14,18 +14,18 @@ export default function ProductItem({ product, id }: HomeProductItem) {
       data-testid={`product-item-${id}`}
       key={databaseId}
       xs="12"
-      sm="5"
+      sm="6"
       lg="4"
       xl="3"
     >
       <Link href={`/${locale}/product/${slug}`} passHref>
-        <div className={`${styles.BBP_Home__Image} product-img`}>
+        <div className={`${styles.BBP_Home__Image}`}>
           <Image
             src={image.mediaItemUrl}
             width="400"
             height="400"
             loading="eager"
-            className="w-100 h-100"
+            className="product-img w-100 h-100"
             alt={`Bonita Basics Productions Music Library ${name}`}
           />
         </div>
