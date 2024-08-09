@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.scss";
 import { HomeProductItem } from "@/types/types";
 import { Col } from "react-bootstrap";
 import { useLocale } from "next-intl";
+import CustomI18nLink from "../LangToggle/CustomI18nLink";
 
 export default function ProductItem({ product, id }: HomeProductItem) {
   const locale = useLocale();
@@ -18,7 +19,7 @@ export default function ProductItem({ product, id }: HomeProductItem) {
       lg="4"
       xl="3"
     >
-      <Link href={`/${locale}/product/${slug}`} passHref>
+      <CustomI18nLink href={`/product/${slug}`} locale={locale} name={name}>
         <div className={`${styles.BBP_Home__Image}`}>
           <Image
             src={image.mediaItemUrl}
@@ -29,11 +30,11 @@ export default function ProductItem({ product, id }: HomeProductItem) {
             alt={`Bonita Basics Productions Music Library ${name}`}
           />
         </div>
-      </Link>
+      </CustomI18nLink>
       <div className={styles.BBP_Product__Bottom}>
-        <Link href={`${locale}/product/${slug}`} className="link">
+        <CustomI18nLink href={`/product/${slug}`} locale={locale} name={name}>
           {name}
-        </Link>
+        </CustomI18nLink>
         <p>
           {salePrice ? (
             <Fragment>
