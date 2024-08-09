@@ -34,6 +34,7 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 
 const middlewares = {
   "/": i18nMiddlewareFn,
+  "/(en)": i18nMiddlewareFn,
   "/(es|en|de|fr|se)": i18nMiddlewareFn,
   "/(es|de|fr|se)/product/:path": i18nMiddlewareFn,
   "/product/:path": i18nMiddlewareFn,
