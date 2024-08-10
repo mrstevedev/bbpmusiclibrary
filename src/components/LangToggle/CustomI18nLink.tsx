@@ -16,8 +16,6 @@ export default function CustomI18nLink({
 }: CustomI18nLinkProps) {
   const isDefaultLocale = locale === AppConfig.defaultLocale;
   const path = isDefaultLocale ? href : `/${locale}${href}`;
-
-  console.log(href, `/${locale}${href}`);
   return (
     <Link href={path} {...props} className="link" title={props.name}>
       {children}
