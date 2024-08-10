@@ -7,7 +7,7 @@ export default function CheckoutButton({ handleCloseCart }) {
   const locale = useLocale();
   return (
     <>
-      <Link href={`/${locale}/checkout`} passHref>
+      <Link href="checkout" locale={locale} passHref>
         <Button
           className={`${styles.BBP__AddToCart_Button}`}
           onClick={handleCloseCart}
