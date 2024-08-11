@@ -99,9 +99,9 @@ export default function Products({ params }) {
         </div>
       ) : (
         <div>
-          <h5 className={styles.BBP_Load_More_Spinner__Text}>
+          <h2 className={styles.BBP_Load_More_Spinner__Text}>
             No more products
-          </h5>
+          </h2>
         </div>
       )}
     </Fragment>
