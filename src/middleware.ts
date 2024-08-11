@@ -33,9 +33,12 @@ const i18nMiddlewareFn = ({ request }: MiddlewareFunctionProps) => {
 
 const middlewares = {
   "/": i18nMiddlewareFn,
+  "/checkout": i18nMiddlewareFn,
+  "/about": i18nMiddlewareFn,
   "/(en)": i18nMiddlewareFn,
   "/(es|en|de|fr|se)": i18nMiddlewareFn,
   "/(es|en|de|fr|se)/about": i18nMiddlewareFn,
+  "/(es|en|de|fr|se)/checkout": i18nMiddlewareFn,
   "/(es|en|de|fr|se)/product/:path": i18nMiddlewareFn,
   "/product/:path": i18nMiddlewareFn,
   "/(en)/product/:path": i18nMiddlewareFn,
