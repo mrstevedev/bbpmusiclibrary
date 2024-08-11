@@ -18,6 +18,7 @@
     "paths": {
       "@/constants/*": ["./src/constants/*"],
       "@/components/*": ["./src/components/*"],
+      "@/providers/*": ["./src/providers/*"],
       "@/emails/*": ["emails/*"],
       "@/hooks/*": ["./src/hooks/*"],
       "@/queries/*": ["src/queries/*"],
