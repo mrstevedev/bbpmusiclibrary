@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import Link from "next/link";
 import Image from "react-bootstrap/Image";
 import styles from "@/styles/Home.module.scss";
 import { HomeProductItem } from "@/types/types";
