@@ -8,7 +8,7 @@ import NextTopLoader from "nextjs-toploader";
 import Script from "next/script";
 
 import Footer from "@/components/Footer/Footer";
-// import LoadingOverlay from "@/components/Loading/LoadingOverlay";
+import LoadingOverlay from "@/components/Loading/LoadingOverlay";
 import HeaderWrapper from "@/components/Header/HeaderWrapper";
 
 import { AuthProvider } from "@/context/AuthContext";
@@ -66,7 +66,7 @@ export default async function RootLayout({
                     <HeaderWrapper />
                     {children}
                     <CookieNotification />
-                    {/* <LoadingOverlay /> */}
+                    <LoadingOverlay />
                     <ToastContainer
                       position="top-right"
                       autoClose={5000}
