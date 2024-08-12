@@ -23,6 +23,7 @@ export default function BreadcrumbComponent({
     <Container
       fluid={
         paths === `/` ||
+        paths === `/${locale}` ||
         paths === `/${locale}/about` ||
         paths === `/${locale}/contact`
           ? true
