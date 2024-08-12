@@ -54,7 +54,12 @@ export default function CartItem({
           </Link>
           <p>
             <a
-              style={{ color: "#ababab", cursor: "pointer" }}
+              style={{
+                color: "rgb(227 26 26)",
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: "0.7rem",
+              }}
               onClick={() => handleRemoveItem(databaseId)}
             >
               Remove
