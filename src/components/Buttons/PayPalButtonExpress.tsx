@@ -8,13 +8,7 @@ import { CouponContext, TCouponContext } from "@/context/CouponContext";
 import { CART, ROUTE, METHOD } from "@/constants/index";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
-
-const initialOptions = {
-  clientId:
-    "AUO_v6th3x2ZiCyv7XRw3eMpd5u7W-51NE04Z6LCiNPd4E-k58dw_rTcCekgND-zdgTmfuQaKpGx6O_X",
-  currency: "USD",
-  intent: "capture",
-};
+import PayPalButtonScriptProvider from "@/providers/PayPalScriptProvider";
 
 export default function PayPalButtonExpress({
   purchaseUnits,
@@ -68,12 +62,12 @@ export default function PayPalButtonExpress({
   const handleOnAppove = async () => {};
 
   return (
-    <PayPalScriptProvider options={initialOptions}>
+    <PayPalButtonScriptProvider>
       <PayPalButtons
         fundingSource="paypal"
         style={{ height: 55, layout: "horizontal" }}
         createOrder={handleCreateOrder}
       />
-    </PayPalScriptProvider>
+    </PayPalButtonScriptProvider>
   );
 }
