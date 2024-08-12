@@ -2,8 +2,10 @@
   padding: 2rem 4rem 2rem;
   position: absolute;
   top: 0;
+  background: rgb(255, 255, 255);
   right: 0;
   width: 712px;
+  margin: 0 auto;
   font-weight: 100;
 
   .BBP__About_text {
@@ -22,12 +24,16 @@
 @media (max-width: 575px) {
   .BBP__About {
     padding: 2rem 2rem 5rem !important;
-    margin: 0 auto;
-    width: 93% !important;
+    border-radius: 0;
   }
 }
 
 @media (max-width: 1079px) {
+  .BBP__Banner {
+    border-radius: 0;
+    height: 200px;
+    background-position: center !important;
+  }
   .BBP__About {
     position: initial;
     width: initial;
