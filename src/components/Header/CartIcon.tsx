@@ -8,7 +8,7 @@ type Props = {
 
 export default function CartIcon({ handleToggleCart, cartCount }: Props) {
   return (
-    <a
+    <span
       data-testid="cart-button"
       onClick={handleToggleCart}
       className="cart-icon"
@@ -28,6 +28,6 @@ export default function CartIcon({ handleToggleCart, cartCount }: Props) {
         style={{ display: "flex" }}
         className={styles.BBP_Button_Hover__Scale}
       />
-    </a>
+    </span>
   );
 }
