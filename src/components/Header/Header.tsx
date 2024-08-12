@@ -137,8 +137,6 @@ export default function Header() {
         placement="end"
       />
       <OverlayNav handleToggleMenu={handleToggleMenu} />
-      {/* Try to put this under a COOKIE */}
-      <LoadingOverlay />
     </Fragment>
   );
 }
