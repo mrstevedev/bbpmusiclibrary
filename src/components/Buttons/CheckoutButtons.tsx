@@ -1,13 +1,13 @@
-import Link from "next/link";
 import { Button } from "react-bootstrap";
 import styles from "@/styles/AddToCartButton.module.scss";
 import { useLocale } from "next-intl";
+import CustomI18nLink from "../LangToggle/CustomI18nLink";
 
 export default function CheckoutButton({ handleCloseCart }) {
   const locale = useLocale();
   return (
     <>
-      <Link href="checkout" locale={locale} passHref>
+      <CustomI18nLink href="/checkout" locale={locale} passHref>
         <Button
           className={`${styles.BBP__AddToCart_Button}`}
           onClick={handleCloseCart}
@@ -28,7 +28,7 @@ export default function CheckoutButton({ handleCloseCart }) {
             </svg>
           </span>
         </Button>
-      </Link>
+      </CustomI18nLink>
     </>
   );
 }
