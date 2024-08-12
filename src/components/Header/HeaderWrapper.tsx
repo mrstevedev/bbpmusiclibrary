@@ -9,23 +9,19 @@ export default function HeaderWrapper() {
   const path = usePathname();
   const locale = useLocale();
 
-  const matchedUrl = path !== `/${locale}` && path !== "/";
+  const matchedUrl = path !== `/${locale}/checkout` && path !== "/checkout";
 
   return (
     <Fragment>
-      {path !== `/${locale}/checkout` ? (
+      {matchedUrl ? (
         <Fragment>
           <Header />
-          {matchedUrl ? (
-            <Fragment>
-              <Breadcrumb
-                homeElement={"Home"}
-                activeClasses="breadcrumb-active"
-                containerClasses="flex"
-                capitalizeLinks
-              />
-            </Fragment>
-          ) : null}
+          <Breadcrumb
+            homeElement={"Home"}
+            activeClasses="breadcrumb-active"
+            containerClasses="flex"
+            capitalizeLinks
+          />
         </Fragment>
       ) : null}
     </Fragment>
