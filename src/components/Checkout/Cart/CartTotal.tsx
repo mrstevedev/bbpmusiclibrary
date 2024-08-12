@@ -11,7 +11,7 @@ export default function CartTotal({ totalProductsPrice }: TCartTotal) {
       <div className={styles.BBP_Checkout_Right_Bottom_Total__Container}>
         <div className={styles.BBP_Checkout_Right_Bottom_Inner}>
           <div className={styles.BBP_Checkout_Right_Bottom_Inner__Item}>
-            <h5 style={{ fontWeight: 100, fontSize: "0.8rem" }}>Subtotal</h5>
+            <h4 style={{ fontWeight: 100, fontSize: "0.8rem" }}>Subtotal</h4>
             <span
               data-testid="product-subtotal"
               style={{ fontWeight: 100, fontSize: "0.8rem" }}
@@ -20,9 +20,9 @@ export default function CartTotal({ totalProductsPrice }: TCartTotal) {
             </span>
           </div>
           <div className={styles.BBP_Checkout_Right_Bottom_Inner__Item}>
-            <h5 style={{ fontWeight: 100, fontSize: "0.8rem" }}>
+            <h4 style={{ fontWeight: 100, fontSize: "0.8rem" }}>
               Estimated Taxes
-            </h5>
+            </h4>
             <span
               data-testid="product-subtotal"
               style={{ fontWeight: 100, fontSize: "0.8rem" }}
