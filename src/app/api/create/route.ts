@@ -24,10 +24,6 @@ import { format } from "date-fns";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-const splitPaymentAmount = (amount: number) => {
-  console.log("split payments");
-};
-
 export async function POST(request: Request) {
   const body = await request.json();
 
@@ -87,12 +83,6 @@ export async function POST(request: Request) {
       email: email,
       phone: phone,
     },
-  };
-
-  // !! TODO - Maybe there is a better way to organize into functions.
-
-  const verifyIfUserExists = () => {
-    console.log("Verify if a user exists");
   };
 
   /**
