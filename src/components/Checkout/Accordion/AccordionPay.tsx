@@ -274,6 +274,7 @@ function ContextAwareToggle({
             checked={isCurrentEventKey ? true : false}
             style={{ cursor: "pointer" }}
             onChange={() => {}}
+            id="PayPal"
           />
           <Form.Check.Label
             onClick={handleSelectPaymentType}
@@ -284,6 +285,7 @@ function ContextAwareToggle({
               fontSize: "0.8rem",
               color: "#333",
             }}
+            htmlFor="PayPal"
           >
             {children}
           </Form.Check.Label>
