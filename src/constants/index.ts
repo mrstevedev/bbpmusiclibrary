@@ -13,6 +13,26 @@ export const labels = [
   "December",
 ];
 
+export enum INTENT {
+  CAPTURE = "CAPTURE",
+}
+
+export enum SHIPPING {
+  NO_SHIPPING = "NO_SHIPPING",
+}
+
+export enum PREFERENCE {
+  IMMEDIATE_PAYMENT_REQUIRED = "IMMEDIATE_PAYMENT_REQUIRED",
+}
+
+export enum ACTION {
+  PAY_NOW = "PAY_NOW",
+}
+
+export enum BRAND {
+  BBP_MUSIC_LIBRARY = "BBP_MUSIC_LIBRARY",
+}
+
 /**
  * URL MATCHER
  */
@@ -26,16 +46,18 @@ export enum MATCH {
  */
 
 export enum ROUTE {
+  RESET = "/reset",
+  ORDER = "/order",
   LOGIN = "/login",
   LOGOUT = "/logout",
-  RESET = "/reset",
   RESEND = "/resend",
+  CREATE = "/create",
+  INTENT = "/intent",
   UPDATE = "/update",
   COUPON = "/coupon",
   REQUEST = "/request",
+  CAPTURE = "/capture",
   CONTACT = "/contact",
-  CREATE = "/create",
-  INTENT = "/intent",
   ACCOUNT = "/account",
   CHECKOUT = "/checkout",
   SUBSCRIBE = "/subscribe",
