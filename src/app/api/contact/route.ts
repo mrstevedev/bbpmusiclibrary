@@ -1,4 +1,4 @@
-import { resend } from "@/app/[locale]/config/resend";
+import { resend } from "@/app/config/resend";
 import ContactTemplate from "emails/contact";
 import { NextResponse } from "next/server";
 
