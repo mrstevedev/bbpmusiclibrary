@@ -29,12 +29,12 @@ export default function CartItem({
       localStorage.getItem(PRODUCT.BBP_PRODUCT) as string
     );
     if (products.length <= 1) {
+      setTimeout(() => {
+        setCart(existingCart);
+        toast.success(CART.CART_ITEM_REMOVED);
+      }, 400);
       router.push("/");
     }
-    setTimeout(() => {
-      setCart(existingCart);
-      toast.success(CART.CART_ITEM_REMOVED);
-    }, 400);
   };
 
   return (
