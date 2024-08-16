@@ -84,7 +84,6 @@ export default function Cart({
   return (
     <Fragment>
       <div className={styles.BBP_Checkout__right}>
-        <div className={styles.BBP_Checkout_right__top}></div>
         <div className={styles.BBP_Checkout_right__bottom}>
           {products.map((product: Product) => {
             return (
