@@ -28,11 +28,13 @@ export default function CartItem({
     const existingCart = JSON.parse(
       localStorage.getItem(PRODUCT.BBP_PRODUCT) as string
     );
-    setCart(existingCart);
-    toast.success(CART.CART_ITEM_REMOVED);
     if (products.length <= 1) {
       router.push("/");
     }
+    setTimeout(() => {
+      setCart(existingCart);
+      toast.success(CART.CART_ITEM_REMOVED);
+    }, 200);
   };
 
   return (
