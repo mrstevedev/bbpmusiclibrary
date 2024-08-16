@@ -8,7 +8,7 @@ import {
   calculateOrderAmountAndSplitPayPal,
 } from "@/util/index";
 import PurchaseTemplate from "emails/purchase";
-import { resend } from "@/app/[locale]/config/resend";
+import { resend } from "@/app/config/resend";
 import { generateJSONWebToken } from "@/util/generateJWTToken";
 import AccountCreatedEmail from "emails/create-account-password";
 import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
@@ -34,25 +34,17 @@ export async function POST(request: Request) {
   const last_name = body.name.split(" ")[1];
   const username = body.email;
   const password = generatePassword();
-
-  const state = body.state || body.admin_area_1;
-  const city = body.city || body.admin_area_2;
+  const state = body.state || body.address.admin_area_1;
+  const city = body.city || body.address.admin_area_2;
   const address = body.address;
-  const postal_code = body.postal_code;
+  const postal_code = body.address.postal_code;
   const country_code = body.country_code;
   const phone = body.phone;
   const payment_method = body.payment_method;
-  const purchaseUnits = body.purchaseUnits;
-
-  const currencyCode = purchaseUnits[0].amount.currency_code;
-
-  const productDescription = purchaseUnits
-    .map((data) => data.description)
-    .toString();
-
-  const productIds = body.purchaseUnits.map((data) =>
-    Number(data.reference_id)
-  );
+  const purchaseUnits = body.purchase_units;
+  const currencyCode = body.purchase_units[0].amount.currency_code;
+  const productDescription = purchaseUnits.map((data) => data.description);
+  const productIds = purchaseUnits.map((data) => data.reference_id);
 
   const lineItems = purchaseUnits.map((data) => ({
     productId: Number(data.reference_id),
@@ -92,10 +84,11 @@ export async function POST(request: Request) {
    * 3. Create order
    * 4. Update order
    * 5. Get download url
-   * 6. PayPal Payout
-   * 7. Create Stripe transaction
-   * 8. Transfer to Stripe connected account
-   * 9. Send email
+   * 6. Capture payment //!!TODO - Move into this spot
+   * 7. PayPal Payout
+   * 8. Create Stripe transaction
+   * 9. Transfer to Stripe connected account
+   * 10. Send email
    */
 
   /**
@@ -123,10 +116,6 @@ export async function POST(request: Request) {
   if (USER_EXIST) {
     const userId = USER_EXIST.databaseId;
     order_json.customerId = userId;
-
-    const retrieveSingleCustomer = () => {
-      console.log("Retrieve a single customer a Token");
-    };
 
     /**
      * 2. GET CUSTOMER
@@ -367,9 +356,10 @@ export async function POST(request: Request) {
    * 4. Create an Order
    * 5. Update order
    * 6. Get Product name, download link of file
-   * 7. Create Stripe transaction
-   * 8. Transfer funds to connected account
-   * 9.10. Send 2 emails
+   * 7. Capture payment //!!TODO - Move into this spot
+   * 8. Create Stripe transaction
+   * 9. Transfer funds to connected account
+   * 10.11. Send 2 emails
    *     5a.) Purchased template with (Product Name, Download Link, Username)
    *     5b.) Account Created template (Username and a link to create-password form)
    */
