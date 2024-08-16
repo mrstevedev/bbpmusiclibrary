@@ -34,7 +34,7 @@ export default function CartItem({
     setTimeout(() => {
       setCart(existingCart);
       toast.success(CART.CART_ITEM_REMOVED);
-    }, 200);
+    }, 400);
   };
 
   return (
