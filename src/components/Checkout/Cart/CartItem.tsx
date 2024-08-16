@@ -30,11 +30,13 @@ export default function CartItem({
     );
     if (products.length <= 1) {
       setTimeout(() => {
-        setCart(existingCart);
         toast.success(CART.CART_ITEM_REMOVED);
+        setCart(existingCart);
       }, 400);
       router.push("/");
+      return;
     }
+    setCart(existingCart);
   };
 
   return (
