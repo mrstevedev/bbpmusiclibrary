@@ -9,50 +9,6 @@ import { PayPalButtons } from "@paypal/react-paypal-js";
 import PayPalButtonScriptProvider from "@/providers/PayPalScriptProvider";
 import axios, { AxiosError } from "axios";
 
-type Order = {
-  id: string;
-  links: [
-    {
-      href: string;
-      method: string;
-      rel: string;
-    }
-  ];
-  purchase_units: PURCHASE_UNITS[];
-  payer: {
-    address: {
-      country_code: string;
-      email_address: string;
-      name: {
-        given_name: string;
-        surname: string;
-        payer_id: string;
-      };
-    };
-    email_address: string;
-    name: { given_name: string; surname: string };
-  };
-  status: string;
-};
-
-type PURCHASE_UNITS = {
-  reference_id: string;
-  amount: {
-    currency_code: string;
-  };
-  payee: {};
-  description: string;
-  shipping: {
-    address: {
-      address_line_1: string;
-      admin_area_2: string;
-      admin_area_1: string;
-      postal_code: string;
-      country_code: string;
-    };
-  };
-};
-
 export default function PayPalButtonExpress({
   purchaseUnits,
   formatPhoneNumber,
@@ -109,10 +65,8 @@ export default function PayPalButtonExpress({
     });
 
     try {
-      const res = await axios.post(captureUrl, payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
+      await axios.post(captureUrl, payload, {
+        headers: { "Content-Type": "application/json" },
       });
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
