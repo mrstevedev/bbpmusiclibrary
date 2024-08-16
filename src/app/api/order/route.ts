@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { BRAND, INTENT, PREFERENCE, ACTION } from "../../../constants/index";
-import { generatePayPalAccessToken } from "../../../util/generatePayPalAccessToken";
+import { generatePayPalAccessToken } from "@/util/generatePayPalAccessToken";
 import axios from "axios";
 
 export async function POST(request: Request, response: Response) {
