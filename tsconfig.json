@@ -31,7 +31,8 @@
       "@/types/*": ["./src/types/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/config/*": ["./src/app/config/*"],
-      "@/app/*": ["./src/app/*"]
+      "@/app/*": ["./src/app/*"],
+      "@/client/*": ["./src/client/*"]
     },
     "incremental": true,
     "plugins": [
@@ -47,7 +48,8 @@
     ".next/types/**/*.ts",
     "__tests__/index.test.js",
     "jest.config.js",
-    "jest.config.js"
+    "jest.config.js",
+    "convertMp3Hls.js"
   ],
   "exclude": ["node_modules"]
 }
