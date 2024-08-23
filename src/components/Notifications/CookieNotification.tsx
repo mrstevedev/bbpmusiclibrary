@@ -26,16 +26,15 @@ export default function CookieNotification() {
             <strong> BBP Music Library</strong>, you agree to our use of
             cookies.
           </p>
-          <Link href="#" className={styles.BBP_Cookie_Notification__Button}>
-            Cancel
-          </Link>
-
           <Link
             href="#"
             className={styles.BBP_Cookie_Notification__Button}
             onClick={handleAcceptCookie}
           >
             Accept
+          </Link>
+          <Link href="#" className={styles.BBP_Cookie_Notification__Button}>
+            Cancel
           </Link>
         </div>
       ) : null}
