@@ -19,6 +19,7 @@
   "dependencies": {
     "@apollo/client": "^3.9.10",
     "@apollo/experimental-nextjs-app-support": "^0.10.0",
+    "@aws-sdk/client-s3": "^3.637.0",
     "@google-pay/button-react": "^2.6.0",
     "@paypal/react-paypal-js": "^8.5.0",
     "@react-email/components": "^0.0.17",
@@ -30,6 +31,7 @@
     "bootstrap-icons": "^1.11.3",
     "chart.js": "^3.8.0",
     "date-fns": "^3.2.0",
+    "dotenv": "^16.4.5",
     "flag-icons": "^7.2.3",
     "formik": "^2.4.5",
     "graphql": "^16.8.1",
