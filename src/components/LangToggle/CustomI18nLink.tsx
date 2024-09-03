@@ -1,5 +1,7 @@
 import { AppConfig } from "@/util/AppConfig";
 import Link from "next/link";
+import { Fragment } from "react";
+import styles from "@/styles/Header.module.scss";
 
 type CustomI18nLinkProps = {
   href: string;
@@ -9,6 +11,7 @@ type CustomI18nLinkProps = {
 };
 
 export default function CustomI18nLink({
+  home,
   href,
   locale,
   children,
@@ -17,8 +20,26 @@ export default function CustomI18nLink({
   const isDefaultLocale = locale === AppConfig.defaultLocale;
   const path = isDefaultLocale ? href : `/${locale}${href}`;
   return (
-    <Link href={path} {...props} className="link" title={props.name}>
-      {children}
-    </Link>
+    <Fragment>
+      {!home ? (
+        <Link
+          href={path}
+          {...props}
+          className={`link ${styles.BBP_Header__Logo}}`}
+          title={props.name}
+        >
+          {children}
+        </Link>
+      ) : (
+        <Link
+          href={path}
+          {...props}
+          className={styles.BBP_Header__Logo}
+          title={props.name}
+        >
+          {children}
+        </Link>
+      )}
+    </Fragment>
   );
 }

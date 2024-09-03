@@ -15,7 +15,6 @@ import Navbar from "react-bootstrap/Navbar";
 
 import { useValidateToken } from "@/hooks/useValidateToken";
 
-import styles from "@/styles/Header.module.scss";
 import CartIcon from "@/components/Header/CartIcon";
 import OverlayNav from "@/components/Navigation/OverlayNav";
 import SidebarCart from "@/components/SidebarCart/SidebarCart";
@@ -101,12 +100,7 @@ export default function Header() {
             />
           </div>
 
-          <CustomI18nLink
-            href="/"
-            locale={locale}
-            name={null}
-            className={styles.BBP_Header__Logo}
-          >
+          <CustomI18nLink href="/" locale={locale} name={null} home>
             <Image
               src={IMAGE.IMAGE_LOGO}
               width={65}
