@@ -117,7 +117,7 @@ export default function ProductItem({ product, tracks }) {
             </h4>
             <p
               data-testid="product-description"
-              style={{ maxHeight: "320px", overflow: "scroll" }}
+              style={{ maxHeight: "320px", overflowY: "scroll" }}
             >
               {t("description")}
             </p>
