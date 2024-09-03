@@ -6,7 +6,6 @@ import { AuthContext, TAuthContext } from "@/context/AuthContext";
 import { CouponContext, TCouponContext } from "@/context/CouponContext";
 import { CART, IMAGE, ROUTE } from "@/constants/index";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -26,6 +25,7 @@ import LanguageToggleButton from "@/components/LangToggle/LocaleSwitcher";
 import LoadingOverlay from "@/components/Loading/LoadingOverlay";
 
 import { useLocale } from "next-intl";
+import CustomI18nLink from "../LangToggle/CustomI18nLink";
 
 export default function Header() {
   const router = useRouter();
@@ -101,14 +101,19 @@ export default function Header() {
             />
           </div>
 
-          <Link href={`/${locale}`} className={styles.BBP_Header__Logo}>
+          <CustomI18nLink
+            href="/"
+            locale={locale}
+            name={null}
+            className={styles.BBP_Header__Logo}
+          >
             <Image
               src={IMAGE.IMAGE_LOGO}
               width={65}
               height={65}
               alt="BBP Music Library"
             />
-          </Link>
+          </CustomI18nLink>
 
           <Navbar className="navbar-right">
             <Nav
