@@ -49,7 +49,11 @@
     "__tests__/index.test.js",
     "jest.config.js",
     "jest.config.js",
-    "convertMp3Hls.js"
+    "convertMp3Hls.js",
+    "client/client.js",
+    "app.js",
+    "client/client.js",
+    "MP3ToHLS.js"
   ],
   "exclude": ["node_modules"]
 }
