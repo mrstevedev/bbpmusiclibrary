@@ -1,13 +1,13 @@
 /**
- * This is a Node.js file that will convert .Mp3 files
+ * This is a Node.js file that will convert .mp3 & .wav files
  * found in the downloads folder into HLS mp3u8 stream playlist files with stream chunks
  * The conversion process will put the files into /public/audio/streams.
  *
  * - Directions -
  * 1. Find an MP3 file you want to convert
  * 2. Place it in the downloads folder
- * 3. Run the command `node convertMp3Hls.ts`
- * 4. Observe the new folder in /public/audio/streams
+ * 3. Run the command `node app.ts`
+ * 4. Observe the new folder(s) in /public/audio/streams
  * 5. Observe the stream files uploaded to the S3 Bucket.
  *
  * For best practice, make ure the song names are short,
@@ -30,7 +30,8 @@ const { PutObjectCommand } = require("@aws-sdk/client-s3");
  * 5. Create a file name and path for files to be output to
  * 6. create destination folder if it does not exist
  * 7. exec and run the ffmpeg command to create hls stream chunks.
- * 8. TODO - Upload these created chunk files to S3.
+ * 8. //!! TODO - Currently the repository nextnodehls has the updated s3 upload. Need to move it here.
+ *
  */
 
 const downloadsDir = "downloads";
@@ -64,19 +65,6 @@ fs.readdir(downloadsDir, (err, files) => {
       if (error) {
         console.error(`ffmpeg exec error: ${error}`);
       }
-
-      fs.readdir(dest, async (err, files) => {
-        const params = {
-          Region: process.env.AWS_REGION,
-          Bucket: process.env.AWS_S3_BUCKET,
-          Body: files,
-        };
-
-        // Upload to s3
-        const command = new PutObjectCommand(params);
-        const data = await s3.send(command);
-        console.log(data);
-      });
     });
   });
 });
