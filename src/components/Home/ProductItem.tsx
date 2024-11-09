@@ -16,7 +16,7 @@ export default function ProductItem({ product, id }: HomeProductItem) {
       xs="12"
       sm="6"
       lg="4"
-      xl="3"
+      xl="2"
     >
       <CustomI18nLink href={`/product/${slug}`} locale={locale} name={name}>
         <div className={`${styles.BBP_Home__Image}`}>
