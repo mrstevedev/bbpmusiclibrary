@@ -7,7 +7,8 @@ Storefront built using:
 1. Next.js 14 w/ Route Handlers
 2. React-Bootstrap
 3. Typescript
-4. GraphQL Apollo
+4. Node.js
+5. GraphQL Apollo
 
 ### Notes
 
