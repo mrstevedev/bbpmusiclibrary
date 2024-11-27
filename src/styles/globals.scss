@@ -217,7 +217,7 @@ iframe {
   box-shadow: none !important;
 }
 
-.btn-primary:not(.card-button) {
+.btn-primary:not(.card-button, .track-button) {
   color: #fff;
   background-color: #000000;
   border-color: #000000;
@@ -245,7 +245,7 @@ iframe {
   background-color: #ffdede !important;
 }
 
-.btn:hover:not(.btn-secondary) {
+.btn:hover:not(.btn-secondary, .track-button) {
   color: #ffffff !important;
   border-color: #1a1a1a !important;
   background-color: #262626 !important;
@@ -601,3 +601,13 @@ dd {
 }
 
 /* End Accordion Changes */
+
+.subscribe {
+  width: 100%;
+}
+
+@media (min-width: 575px) {
+  .subscribe-form {
+    margin: 10rem 0px 0rem 0;
+  }
+}
