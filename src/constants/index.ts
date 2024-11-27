@@ -13,6 +13,19 @@ export const labels = [
   "December",
 ];
 
+export enum PERMISSION {
+  GRANTED = "granted",
+  DENIED = "denied",
+}
+
+export enum NOTIFICATION {
+  INFO = "This browser does not support desktop notifications",
+}
+
+export enum TOKEN {
+  ERROR = "An error occurred while fetching the token",
+}
+
 export enum INTENT {
   CAPTURE = "CAPTURE",
 }
