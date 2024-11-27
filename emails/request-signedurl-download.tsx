@@ -35,7 +35,7 @@ const RequestNewDownloadLink = ({
                 width="70"
                 height="67"
                 className="my-0 mx-auto"
-                src="https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/19132039/logo.png"
+                src="https://bbpmusiclib.wpenginepowered.com/wp-content/uploads/2024/06/logo.png"
                 alt="BBP Music Library"
               />
             </Section>
