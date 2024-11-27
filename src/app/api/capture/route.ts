@@ -109,7 +109,7 @@ export async function POST(request: Request) {
    * 3. Create order
    * 4. Update order
    * 5. Get download url
-   * 6. Capture payment //!!TODO - Move into this spot
+   * 6. Capture payment
    * 7. PayPal Payout
    * 8. Create Stripe transaction
    * 9. Transfer to Stripe connected account
