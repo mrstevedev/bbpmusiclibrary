@@ -256,9 +256,9 @@ export enum EMAIL {
  */
 
 export enum IMAGE {
-  IMAGE_LOGO = "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/19132039/logo.png",
-  IMAGE_SP1200 = "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/06/06162849/img1200.webp",
-  IMAGE_SILHOUETTE = "https://d1hx41nm7bdfp5.cloudfront.net/wp-content/uploads/2024/07/02091123/bbpmusiclib_silhouette.webp",
+  IMAGE_LOGO = "https://bbpmusiclib.wpenginepowered.com/wp-content/uploads/2024/06/logo.png",
+  IMAGE_SP1200 = "https://bbpmusiclib.wpenginepowered.com/wp-content/uploads/2024/06/img1200.webp",
+  IMAGE_SILHOUETTE = "https://bbpmusiclib.wpenginepowered.com/wp-content/uploads/2024/07/bbpmusiclib_silhouette.webp",
 }
 
 export const FORM_ISSUES_OPTIONS = [
