@@ -40,6 +40,7 @@ export default function PayPalButtonExpress({
   const { coupon } = useContext<TCouponContext>(CouponContext);
 
   const handleCreateOrder = async () => {
+    console.log("handleCreateOrder ran:::");
     const orderUrl = process.env.NEXT_PUBLIC_API_URL + ROUTE.ORDER;
 
     const payload = JSON.stringify({
