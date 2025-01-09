@@ -7,44 +7,38 @@ export async function POST(request: Request, response: Response) {
   const body = await request.json();
   const purchaseUnits = body.purchase_units;
 
-  console.log("body on Nextjs server:", body);
-
-  console.log("purchaseUnits on Nextjs server:", purchaseUnits);
-
-  return NextResponse.json({ body: body, purchaseUnits: purchaseUnits });
-
   /**
    * CREATE ORDER
    */
 
-  // const payload = JSON.stringify({
-  //   intent: INTENT.CAPTURE,
-  //   purchase_units: purchaseUnits,
-  //   payment_source: {
-  //     paypal: {
-  //       experience_context: {
-  //         payment_method_preference: PREFERENCE.IMMEDIATE_PAYMENT_REQUIRED,
-  //         brand_name: BRAND.BBP_MUSIC_LIBRARY,
-  //         shipping_preference: "GET_FROM_FILE",
-  //         user_action: ACTION.PAY_NOW,
-  //         return_url: process.env.NEXT_PUBLIC_BASE_URL + "/confirm",
-  //         cancel_url: process.env.NEXT_PUBLIC_BASE_URL + "/cancelUrl",
-  //       },
-  //     },
-  //   },
-  // });
+  const payload = JSON.stringify({
+    intent: INTENT.CAPTURE,
+    purchase_units: purchaseUnits,
+    payment_source: {
+      paypal: {
+        experience_context: {
+          payment_method_preference: PREFERENCE.IMMEDIATE_PAYMENT_REQUIRED,
+          brand_name: BRAND.BBP_MUSIC_LIBRARY,
+          shipping_preference: "GET_FROM_FILE",
+          user_action: ACTION.PAY_NOW,
+          return_url: process.env.NEXT_PUBLIC_BASE_URL + "/confirm",
+          cancel_url: process.env.NEXT_PUBLIC_BASE_URL + "/cancelUrl",
+        },
+      },
+    },
+  });
 
-  // const token = await generatePayPalAccessToken();
-  // const orderURL = "https://api-m.sandbox.paypal.com/v2/checkout/orders";
-  // const res = await axios.post(orderURL, payload, {
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Authorization: "Bearer " + token,
-  //   },
-  // });
+  const token = await generatePayPalAccessToken();
+  const orderURL = "https://api-m.sandbox.paypal.com/v2/checkout/orders";
+  const res = await axios.post(orderURL, payload, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  });
 
-  // const data = await res.data;
-  // console.log(data);
+  const data = await res.data;
+  console.log(data);
 
-  // return NextResponse.json({ id: data.id });
+  return NextResponse.json({ id: data.id });
 }
