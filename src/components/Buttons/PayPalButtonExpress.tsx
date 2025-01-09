@@ -40,18 +40,25 @@ export default function PayPalButtonExpress({
   const { coupon } = useContext<TCouponContext>(CouponContext);
 
   const handleCreateOrder = async () => {
-    console.log("handleCreateOrder ran:::");
     const orderUrl = process.env.NEXT_PUBLIC_API_URL + ROUTE.ORDER;
+
+    console.log("orderUrl:", orderUrl);
 
     const payload = JSON.stringify({
       purchase_units: purchaseUnits,
     });
 
+    console.log("payload:", payload);
+
     const orderResponse = await axios.post(orderUrl, payload, {
       headers: { "Content-Type": "application/json" },
     });
 
+    console.log("orderResponse:", orderResponse);
+
     const data = await orderResponse.data;
+
+    console.log("data:", data);
     return data.id;
   };
 
